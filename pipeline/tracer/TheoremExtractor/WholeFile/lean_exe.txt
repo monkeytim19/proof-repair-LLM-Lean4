@@ -1,0 +1,3 @@
+lean_exe extract_file_info where
+  root := `TheoremExtractor.WholeFile.Main
+  supportInterpreter := true

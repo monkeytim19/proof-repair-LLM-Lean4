@@ -1,0 +1,3 @@
+lean_exe extract_single_thm where
+  root := `TheoremExtractor.IndividualTheorem.Main
+  supportInterpreter := True
