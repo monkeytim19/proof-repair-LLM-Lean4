@@ -66,6 +66,10 @@ def scrape_dataset_condor(num_jobs):
 def verify_prediction_condor(datapath, indexfile, num_jobs=50):
     """
     Submit jobs to Condor to perform verification of proofs from the dataset specified in the filepath
+
+    example:
+    python -m pipeline.utils.condor.run_condor -m verify-prediction -d /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/models/reprover/base/test_prediction.csv -n 10
+
     """
     if indexfile is None:
         indices = list(pd.read_csv(datapath).index)
@@ -132,5 +136,4 @@ if __name__ == "__main__":
     elif args.mode =="trace-directory":
         trace_directory_condor(DIRECTORIES_TO_SCRAPE)
     else:
-        print(args.index_file)
         verify_prediction_condor(args.data_path, args.index_file, args.num_jobs)
