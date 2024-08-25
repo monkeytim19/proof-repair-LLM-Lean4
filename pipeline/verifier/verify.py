@@ -12,10 +12,10 @@ from pipeline.utils.theorem_extraction import substituted_file
 
 def print_progress(curr_count, total_count, datapoint, proof_col):
     """Prints the progress and detail of the current proof being verified."""
-    print(f"---{curr_count}/{total_count}---")
-    print(f"For theorem {datapoint['thm_name']} in {datapoint['filepath']}:\n{datapoint['statement']}\n\n")
-    print(f"Original proof:\n{datapoint['proof']})\n\n")
-    print(f"Verifying proof (Commit):\n{datapoint[proof_col]}\n")
+    print(f"---{curr_count}/{total_count}---", flush=True)
+    print(f"For theorem {datapoint['thm_name']} in {datapoint['filepath']}:\n{datapoint['statement']}\n\n", flush=True)
+    print(f"Original proof:\n{datapoint['proof']})\n\n", flush=True)
+    print(f"Verifying proof (Commit):\n{datapoint[proof_col]}\n", flush=True)
 
 
 def success_rate(counts):
@@ -46,7 +46,7 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
     
     for leanfile_path, leanfile_df in proof_df.groupby("filepath"):
         if verbose:
-            print(f"Working on {leanfile_path} - {datetime.now()}.")
+            print(f"Working on {leanfile_path} - {datetime.now()}.", flush=True)
         copy_leanfile_path = os.path.join(repo_copy_path, leanfile_path)
 
         with open(copy_leanfile_path, 'r') as leanfile:
@@ -83,7 +83,7 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
             verification_outcomes[outcome].append(idx)
 
             if verbose:
-                print(f"Attempt {outcome}.\n")
+                print(f"Attempt {outcome}.\n", flush=True)
 
         # restore the file
         with open(copy_leanfile_path, "w") as leanfile:
@@ -149,8 +149,8 @@ if __name__ == "__main__":
     repo_copy_name = f"verification_{args.run_num}" if args.run_num is not None else "verification"
     verify_counts = verify_proof(proofs_df, args.verify_proof_column, args.verbose, repo_copy_name)
     success_counts, failure_counts = len(verify_counts["success"]), len(verify_counts["failure"])
-    print(f"Among {len(proofs_df)} proof attempts, there were {success_counts} sucessful and {failure_counts} failed attempts at proving their respect theorems.")
-    print(f"The rate of successful proof = {success_counts/(success_counts+failure_counts)}.")
+    print(f"Among {len(proofs_df)} proof attempts, there were {success_counts} sucessful and {failure_counts} failed attempts at proving their respect theorems.", flush=True)
+    print(f"The rate of successful proof = {success_counts/(success_counts+failure_counts)}.", flush=True)
 
     # save the results
     if args.save_results:
