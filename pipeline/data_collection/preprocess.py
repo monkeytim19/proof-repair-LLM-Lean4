@@ -1,8 +1,8 @@
 import pandas as pd
 import os
 import argparse
-from config import DATA_DIR, RAW_DATA_DIR, REF_COMMIT
-from utils.theorem_extraction import file_theorem_info
+from pipeline.config import DATA_DIR, RAW_DATA_DIR, REF_COMMIT
+from pipeline.utils.theorem_extraction import file_theorem_info
 
 
 def remove_error_msg_redundancies(error_msg):
