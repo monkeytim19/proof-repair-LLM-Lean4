@@ -5,9 +5,7 @@ from pipeline.config import REPO_PATH, THEOREM_EXTRACTOR_DIR
 
 def create_repository_copy(repo_copy_path, retrieve_cache=True):
     """Creates a copy of the reference repository and retrieves its cache for faster Lean 4 compilation."""
-    # copy mathlib4
     print("STARTING: Lean repo copy creation", flush=True)
-    os.makedirs(repo_copy_path, exist_ok=True)
     try:
         subprocess.run(args=['cp', '-r', REPO_PATH, repo_copy_path], check=True) 
         print("DONE: Lean repo copy creation", flush=True)

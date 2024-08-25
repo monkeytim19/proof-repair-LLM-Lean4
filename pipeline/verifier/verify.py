@@ -34,6 +34,8 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
     A proof is verified by replacing the existing proof and checking if the overall .lean file compiles
     under the same environment (i.e. same namespaces, imports, declarations, etc.)
     """
+    if not os.path.exists(REPO_COPY_DIR):
+        os.makedirs(REPO_COPY_DIR, exist_ok=True)
     repo_copy_path = os.path.join(REPO_COPY_DIR, repo_copy_name)
     create_repository_copy(repo_copy_path)
 
