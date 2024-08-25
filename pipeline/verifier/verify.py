@@ -81,7 +81,7 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
             else:
                 outcome = "success"
             verification_outcomes[outcome].append(idx)
-
+            print(verification_outcomes)
             if verbose:
                 print(f"Attempt {outcome}.\n")
 
@@ -90,7 +90,7 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
             leanfile.write(ref_file_str)
 
     remove_repository_copy(repo_copy_path)
-    
+    print(verification_outcomes)
     return verification_outcomes
 
     
@@ -138,9 +138,9 @@ if __name__ == "__main__":
     
     if args.index_data:
         # index_file_path = os.path.join(os.getcwd(), args.index_data)
-        with open(args.index_data) as file:
+        with open(args.index_data, "r") as file:
             wanted_indices = json.load(file)
-        proofs_df = proofs_df[proofs_df.isin(wanted_indices)]
+        proofs_df = proofs_df[proofs_df.index.isin(wanted_indices)]
     
     # check if the column used for verifying the proofs are all strings
     # if not proofs_df[args.verify_proof_column].apply(lambda x: isinstance(x, str)).all():
