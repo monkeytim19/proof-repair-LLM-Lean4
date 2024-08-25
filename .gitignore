@@ -161,8 +161,9 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-temp_token.txt
-logging/
+pipeline/utils/condor/logging/
+pipeline/utils/condor/verifier/data_indices
+pipeline/utils/condor/data_collection/filenames
 filename_groups/
 tracking/
 *.csv

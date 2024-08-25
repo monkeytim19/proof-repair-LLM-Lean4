@@ -25,7 +25,7 @@ def success_rate(counts):
     return success_counts / (failure_counts + success_counts)
 
 
-def verify_proof(proof_df, proof_col, verbose): 
+def verify_proof(proof_df, proof_col, verbose, repo_copy_name): 
     """
     Verifies whether each of the proofs provided is a valid proof to their corresponding theorem
     and Lean 4 environment. Returns a dictionary that includes the indices of the theorems from the dataset,
@@ -34,7 +34,8 @@ def verify_proof(proof_df, proof_col, verbose):
     A proof is verified by replacing the existing proof and checking if the overall .lean file compiles
     under the same environment (i.e. same namespaces, imports, declarations, etc.)
     """
-    repo_copy_path = os.path.join(REPO_COPY_DIR, "verification")
+
+    repo_copy_path = os.path.join(REPO_COPY_DIR, repo_copy_name)
     create_repository_copy(repo_copy_path)
 
     verification_outcomes = {"success": [], "failure": []}     
@@ -109,7 +110,7 @@ if __name__ == "__main__":
     
     parser.add_argument("-i", "--index-data",
                         type=str,
-                        help="Relative path to a .json file that contains a list of indices of the dataset such that only this subset of the dataset is verified.")
+                        help="Path to a .json file that contains a list of indices of the dataset such that only this subset of the dataset is verified.")
 
     parser.add_argument("-s", "--save-results", 
                         action="store_true",
@@ -118,6 +119,10 @@ if __name__ == "__main__":
     parser.add_argument("-n", "--save-name", 
                         type=str,
                         help="Name for the .json files that records the dataset indices of the theorems by their verification outcome.")
+    
+    parser.add_argument("-r", "--run-num", 
+                        type=str,
+                        help="Run number for the verification runs.")
     
     parser.add_argument("-v", "--verbose", 
                         action="store_true",
@@ -128,13 +133,11 @@ if __name__ == "__main__":
     if args.save_success and not args.save_name:
         parser.error("The '-n' argument is required when '-s' is provided.")
 
-    proofs_df = pd.read_csv(args.data_path, 
-                #  TODO usecols=[]
-                )
+    proofs_df = pd.read_csv(args.data_path)
     
     if args.index_data:
-        index_file_path = os.path.join(os.getcwd(), args.index_data)
-        with open(index_file_path) as file:
+        # index_file_path = os.path.join(os.getcwd(), args.index_data)
+        with open(args.index_data) as file:
             wanted_indices = json.load(file)
         proofs_df = proofs_df[proofs_df.isin(wanted_indices)]
     
@@ -143,7 +146,8 @@ if __name__ == "__main__":
         parser.error("The value provided to the '-c' argument points to a column in the dataset that does not contain all strings and is not a valid column to be used for proof verification.")
 
     print(f"STARTING: verification of proofs from {args.verify_proof_column} column in dataset from {args.data_path} - {datetime.now()}")
-    verify_counts = verify_proof(proofs_df, args.verify_proof_column, args.verbose)
+    repo_copy_name = f"verification_{args.run_num}" if args.run_num is not None else "verification"
+    verify_counts = verify_proof(proofs_df, args.verify_proof_column, args.verbose, repo_copy_name)
     success_counts, failure_counts = len(verify_counts["success"]), len(verify_counts["failure"])
     print(f"Among {len(proofs_df)} proof attempts, there were {success_counts} sucessful and {failure_counts} failed attempts at proving their respect theorems.")
     print(f"The rate of successful proof = {success_counts/(success_counts+failure_counts)}.")
