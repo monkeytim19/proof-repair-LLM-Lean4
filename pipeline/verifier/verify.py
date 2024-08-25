@@ -46,7 +46,6 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
     
     for leanfile_path, leanfile_df in proof_df.groupby("filepath"):
         if verbose:
-            curr_count += 1
             print(f"Working on {leanfile_path} - {datetime.now()}.")
         copy_leanfile_path = os.path.join(repo_copy_path, leanfile_path)
 
@@ -56,6 +55,7 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
         for idx, datapoint in leanfile_df.iterrows():
 
             if verbose:
+                curr_count += 1
                 print_progress(curr_count, total_count, datapoint, proof_col)
 
             test_file_str = remove_comments(ref_file_str)
@@ -156,8 +156,8 @@ if __name__ == "__main__":
     # save the results
     if args.save_results:
         for outcome in verify_counts.keys():
-            outcome_dir_path = os.path.join(os.getcwd(), f"verifier/{outcome}")
+            outcome_dir_path = os.path.join(os.getcwd(), f"pipeline/verifier/{outcome}")
             os.makedirs(outcome_dir_path, exist_ok=True)
             save_filepath = os.path.join(outcome_dir_path, args.save_name)
             with open(save_filepath, 'w') as file:
-                json.dump(verify_counts[outcome])
+                json.dump(verify_counts[outcome], file)
