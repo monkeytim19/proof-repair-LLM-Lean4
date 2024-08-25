@@ -15,7 +15,7 @@ def print_progress(curr_count, total_count, datapoint, proof_col):
     print(f"---{curr_count}/{total_count}---")
     print(f"For theorem {datapoint['thm_name']} in {datapoint['filepath']}:\n{datapoint['statement']}\n\n")
     print(f"Original proof:\n{datapoint['proof']})\n\n")
-    print(f"Verifying proof:\n{datapoint[proof_col]}\n")
+    print(f"Verifying proof (Commit):\n{datapoint[proof_col]}\n")
 
 
 def success_rate(counts):
@@ -91,7 +91,7 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
 
     remove_repository_copy(repo_copy_path)
     
-    return verify_counts
+    return verification_outcomes
 
     
 if __name__ == "__main__":
