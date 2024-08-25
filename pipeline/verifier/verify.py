@@ -34,7 +34,6 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
     A proof is verified by replacing the existing proof and checking if the overall .lean file compiles
     under the same environment (i.e. same namespaces, imports, declarations, etc.)
     """
-
     repo_copy_path = os.path.join(REPO_COPY_DIR, repo_copy_name)
     create_repository_copy(repo_copy_path)
 
@@ -130,7 +129,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    if args.save_success and not args.save_name:
+    if args.save_results and not args.save_name:
         parser.error("The '-n' argument is required when '-s' is provided.")
 
     proofs_df = pd.read_csv(args.data_path)
@@ -142,8 +141,8 @@ if __name__ == "__main__":
         proofs_df = proofs_df[proofs_df.isin(wanted_indices)]
     
     # check if the column used for verifying the proofs are all strings
-    if not proofs_df[args.verify_proof_column].apply(lambda x: isinstance(x, str)).all():
-        parser.error("The value provided to the '-c' argument points to a column in the dataset that does not contain all strings and is not a valid column to be used for proof verification.")
+    # if not proofs_df[args.verify_proof_column].apply(lambda x: isinstance(x, str)).all():
+    #     parser.error("The value provided to the '-c' argument points to a column in the dataset that does not contain all strings and is not a valid column to be used for proof verification.")
 
     print(f"STARTING: verification of proofs from {args.verify_proof_column} column in dataset from {args.data_path} - {datetime.now()}")
     repo_copy_name = f"verification_{args.run_num}" if args.run_num is not None else "verification"
@@ -160,6 +159,3 @@ if __name__ == "__main__":
             save_filepath = os.path.join(outcome_dir_path, args.save_name)
             with open(save_filepath, 'w') as file:
                 json.dump(verify_counts[outcome])
-
-
-
