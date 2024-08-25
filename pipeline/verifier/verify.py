@@ -81,7 +81,7 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
             else:
                 outcome = "success"
             verification_outcomes[outcome].append(idx)
-            print(verification_outcomes)
+
             if verbose:
                 print(f"Attempt {outcome}.\n")
 
@@ -90,7 +90,6 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
             leanfile.write(ref_file_str)
 
     remove_repository_copy(repo_copy_path)
-    print(verification_outcomes)
     return verification_outcomes
 
     
