@@ -3,12 +3,12 @@ import subprocess
 import json
 import argparse
 from datetime import datetime
-from utils.strings import leanfile_replace_slash, remove_comments, pos_conversion, theorem_proof_regex
-from utils.git_extraction import file_commits, file_str_from_commit, get_all_lean_subfile_paths
-from utils.files import save_data_to_json_in_dir
-from utils.theorem_extraction import all_theorem_names, theorem_statement_proof, substituted_file
-from utils.lean_repo_copying import add_lean_exe_to_lakefile, create_repository_copy, remove_repository_copy
-from utils.lean_extraction import get_decl_name
+from pipeline.utils.strings import leanfile_replace_slash, remove_comments, pos_conversion, theorem_proof_regex
+from pipeline.utils.git_extraction import file_commits, file_str_from_commit, get_all_lean_subfile_paths
+from pipeline.utils.files import save_data_to_json_in_dir
+from pipeline.utils.theorem_extraction import all_theorem_names, theorem_statement_proof, substituted_file
+from pipeline.utils.lean_repo_copying import add_lean_exe_to_lakefile, create_repository_copy, remove_repository_copy
+from pipeline.utils.lean_extraction import get_decl_name
 from config import TRACED_INFO_DIR, REPO_COPY_DIR, RAW_DATA_DIR, REF_COMMIT, FILENAMES_DIR
 
 

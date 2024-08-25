@@ -170,3 +170,5 @@ tracking/
 
 pipeline/data_collection/raw_data/
 pipeline/tracer/traced_info/
+pipeline/data_collection/filenames
+

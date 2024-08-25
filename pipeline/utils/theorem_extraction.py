@@ -1,8 +1,8 @@
 import re
 from git import Tree
-from utils.git_extraction import blob_file_str, file_str_from_commit, get_all_blobs
-from utils.strings import remove_comments, theorem_body_regex, theorem_proof_regex, theorem_name_regex
-from config import REF_COMMIT
+from pipeline.utils.git_extraction import blob_file_str, file_str_from_commit, get_all_blobs
+from pipeline.utils.strings import remove_comments, theorem_body_regex, theorem_proof_regex, theorem_name_regex
+from pipeline.config import REF_COMMIT
 
 
 def theorem_names_from_blob(blob):

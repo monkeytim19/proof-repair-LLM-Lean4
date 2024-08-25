@@ -4,10 +4,10 @@ import json
 import argparse
 import subprocess
 from datetime import datetime
-from config import REPO_COPY_DIR
-from utils.strings import leanfile_replace_slash, remove_comments
-from utils.lean_repo_copying import create_repository_copy, remove_repository_copy
-from utils.theorem_extraction import substituted_file
+from pipeline.config import REPO_COPY_DIR
+from pipeline.utils.strings import leanfile_replace_slash, remove_comments
+from pipeline.utils.lean_repo_copying import create_repository_copy, remove_repository_copy
+from pipeline.utils.theorem_extraction import substituted_file
 
 
 def print_progress(curr_count, total_count, datapoint, proof_col):

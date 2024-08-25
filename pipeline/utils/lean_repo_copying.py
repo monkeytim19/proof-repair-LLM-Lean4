@@ -1,6 +1,6 @@
 import subprocess
 import os
-from config import REPO_PATH, THEOREM_EXTRACTOR_DIR
+from pipeline.config import REPO_PATH, THEOREM_EXTRACTOR_DIR
 
 
 def create_repository_copy(repo_copy_path, retrieve_cache=True):

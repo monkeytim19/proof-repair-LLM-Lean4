@@ -2,8 +2,8 @@ import pandas as pd
 import os
 import argparse
 import random
-from utils.grouping import group_keys_by_value
-from config import SEED, DATA_DIR
+from pipeline.utils.grouping import group_keys_by_value
+from pipeline.config import SEED, DATA_DIR
 
 
 def filter_dataframe(df, tuple_ls, columns):

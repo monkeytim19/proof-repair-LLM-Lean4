@@ -1,6 +1,6 @@
 from git import Tree
-from utils.strings import is_lean_suffix
-from config import REPO
+from pipeline.utils.strings import is_lean_suffix
+from pipeline.config import REPO
 
 
 def file_commits(filepath=None):

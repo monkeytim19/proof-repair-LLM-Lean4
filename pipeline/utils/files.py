@@ -1,8 +1,8 @@
 import os
 import json
-from utils.theorem_extraction import file_num_theorem
-from utils.grouping import groups_by_thm_num
-from config import RAW_DATA_DIR, DIRECTORIES_TO_SCRAPE
+from pipeline.utils.theorem_extraction import file_num_theorem
+from pipeline.utils.grouping import groups_by_thm_num
+from pipeline.config import RAW_DATA_DIR, DIRECTORIES_TO_SCRAPE
 
 
 def unfinished_files_groups(n_groups):
