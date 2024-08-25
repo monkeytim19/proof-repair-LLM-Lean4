@@ -1,9 +1,10 @@
 import subprocess
 import os
 import argparse
-from utils.theorem_extraction import file_num_theorem
-from utils.files import groups_by_thm_num, is_lean_suffix
-from config import FILENAMES_DIR, DIRECTORIES_TO_SCRAPE
+from pipeline.utils.theorem_extraction import file_num_theorem
+from pipeline.utils.strings import is_lean_suffix
+from pipline.utils.files import groups_by_thm_num
+from pipeline.config import FILENAMES_DIR, DIRECTORIES_TO_SCRAPE
 
 def trace_directory_condor(trace_dirs):
     """Submit a job to Condor for each directory that is given to trace its .lean file information."""
