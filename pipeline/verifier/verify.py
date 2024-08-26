@@ -37,7 +37,8 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
     if not os.path.exists(REPO_COPY_DIR):
         os.makedirs(REPO_COPY_DIR, exist_ok=True)
     repo_copy_path = os.path.join(REPO_COPY_DIR, repo_copy_name)
-    create_repository_copy(repo_copy_path)
+    if not os.path.exists(repo_copy_path):
+        create_repository_copy(repo_copy_path)
 
     verification_outcomes = {"success": [], "failure": []}     
 
