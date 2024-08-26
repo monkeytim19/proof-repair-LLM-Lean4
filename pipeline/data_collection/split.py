@@ -14,7 +14,7 @@ def filter_dataframe(df, tuple_ls, columns):
     return pd.merge(df, pairs_df, on=columns)
 
 
-def split_data(df, num_valid, num_test):
+def split_data_by_file(df, num_valid, num_test):
     """
     Splits the dataframe into train, validation, and test sets based on the desired number
     of validation and test samples.
@@ -47,12 +47,30 @@ def split_data(df, num_valid, num_test):
     return train_df, valid_df, test_df
 
 
-def save_splits(train_df, valid_df, test_df, data_dir):
+def split_data_randomly(df, num_valid, num_test):
+    """
+    Splits the dataframe into train, validation, and test sets in a completely random order.
+    """
+    # shuffle the dataframe
+    df = df.sample(frac=1, random_state=SEED).reset_index(drop=True)
+
+    valid_df = df[:num_valid]
+    test_df = df[num_valid:num_valid+num_test]
+    train_df = df[num_valid+num_test:]
+
+    return train_df, valid_df, test_df
+
+
+def save_splits(train_df, valid_df, test_df, data_dir, random):
     """Save the data splits as separate .csv files in the designated directory for processed data."""
     # concatenate the dataframes to create larger subsets of the dataset
     train_valid_df = pd.concat([train_df, valid_df], ignore_index=True)
     valid_test_df = pd.concat([valid_df, test_df], ignore_index=True)
 
+    split_dir = "random" if random else "by_file"
+    data_dir = os.path.join(data_dir, split_dir)
+    os.makedirs(data_dir, exist_ok=True)
+    
     train_path = os.path.join(data_dir, "train.csv")
     valid_path = os.path.join(data_dir, "valid.csv")
     test_path =  os.path.join(data_dir, "test.csv")
@@ -71,8 +89,10 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Split the dataset into train, valid, and test splits.")
     parser.add_argument("-d", "--data-file", type=str, required=True, help="Name of the .csv file containing the dataset.")
-    parser.add_argument("-v", "--num-valid", type=int, default=2000, help="Number of data points in the validation set.")
-    parser.add_argument("-t", "--num-test", type=int, default=2000, help="Number of data points in the test set.")
+    parser.add_argument("-v", "--num-valid", type=int, default=1000, help="Number of data points in the validation set.")
+    parser.add_argument("-t", "--num-test", type=int, default=1000, help="Number of data points in the test set.")
+    parser.add_argument("-r", "--random-split", action="store_true", help="Splits the data randomly.")
+    
     args = parser.parse_args()
     
     num_valid, num_test = args.num_valid, args.num_test
@@ -80,8 +100,13 @@ if __name__ == "__main__":
     data_path = os.path.join(DATA_DIR, args.data_file)
     df = pd.read_csv(data_path)
     if num_valid > 0 and num_test > 0 and len(df)-num_valid-num_test > 0:
-        train_df, valid_df, test_df = split_data(df, num_valid, num_test)
-        save_splits(train_df, valid_df, test_df, DATA_DIR)
+        if args.random_split:
+            print("Spliting the data randomly.")
+            train_df, valid_df, test_df = split_data_randomly(df, num_valid, num_test)
+        else:
+            print("Spliting the data by file.")
+            train_df, valid_df, test_df = split_data_by_file(df, num_valid, num_test)
+        save_splits(train_df, valid_df, test_df, DATA_DIR, args.random_split)
         print(f"Number of training data = {len(train_df)}.")
         print(f"Number of validation data = {len(valid_df)}.")
         print(f"Number of test data = {len(test_df)}.")

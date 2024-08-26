@@ -61,14 +61,8 @@ def main(datafile):
     """Preprocess the dataset and save it to desired path."""
     df = load_raw_dataset()
 
-    # remove duplicate rows
-    df = df.drop_duplicates(subset=["filepath", "thm_name", "failed_proof", "error_msg"])
-
     # remove any rows that may contain empty errors
     df = df[df["error_msg"] != ""]
-
-    # remove redundancies in error message
-    df["error_msg"] = df["error_msg"].apply(remove_error_msg_redundancies)
 
     # append the ground truth information to the dataset
     ground_truth_table = get_ground_truth_info(df)
@@ -77,6 +71,12 @@ def main(datafile):
     # remove all empty proofs
     df = df[df["failed_proof"] != ""]
     df = df[df["proof"] != ""]
+
+    # remove duplicate rows
+    df = df.drop_duplicates(subset=["filepath", "thm_name"])
+
+    # remove redundancies in error message
+    df["error_msg"] = df["error_msg"].apply(remove_error_msg_redundancies)
 
     df = df.reset_index(drop=True)
     
