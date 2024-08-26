@@ -22,7 +22,7 @@ def pos_conversion(position_str):
 def remove_comments(file_str):
     """Remove all comments/annotations from the string."""
 
-    # # remove lines that begin with '--' comment
+    # remove lines that begin with '--' comment
     # regex_pattern = r"(^--.*?\n)"
     # filtered_file_str = re.sub(regex_pattern, "\n", file_str, flags=re.MULTILINE)
 
@@ -34,14 +34,16 @@ def remove_comments(file_str):
     # filtered_file_str = re.sub(r"^library_note.*\n?", "", filtered_file_str, flags=re.MULTILINE) # remove lines that begin with library_note
     # return filtered_file_str
 
+
     # remove wrapped comments that are not followed by a newline    
-    regex_pattern = r'((/-)|(/--).*?-/(?!\n))'
-    regex_pattern += r'((/-)|(/--).*?-/\n)'
+    regex_pattern = r'(((/-)|(/--)).*?-/(?!\n))'
+    # filtered_file_str = re.sub(regex_pattern, '', file_str, flags=re.DOTALL)
+    regex_pattern += r'|(((/-)|(/--)).*?-/(?:\n\s*)?)'
     filtered_file_str = re.sub(regex_pattern, '', file_str, flags=re.DOTALL)
 
     # remove comments that are followed by a newline
-    regex_pattern = r'(\n--.*?)'
-    regex_pattern += r'|(--.*?\n)'
+    regex_pattern = r'(\n\s*?--[^\n]*)'
+    regex_pattern += r'|(--[^\n]*)'
     regex_pattern += r'|(#align.*?\n)'
     filtered_file_str = re.sub(regex_pattern, '', filtered_file_str)
     filtered_file_str = re.sub(r'^library_note.*\n?', '', filtered_file_str, flags=re.MULTILINE) # remove lines that begin with library_note
