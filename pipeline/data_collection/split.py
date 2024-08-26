@@ -43,7 +43,11 @@ def split_data_by_file(df, num_valid, num_test):
 
     if len(train_df) + len(valid_df) + len(test_df) != len(df):
         print("Problem with data spliting - require further investigation into the spliting algorithm.")
-
+    
+    # shuffle again
+    train_df = train_df.sample(frac=1, random_state=SEED)
+    valid_df = valid_df.sample(frac=1, random_state=SEED)
+    test_df = test_df.sample(frac=1, random_state=SEED)
     return train_df, valid_df, test_df
 
 
@@ -70,7 +74,7 @@ def save_splits(train_df, valid_df, test_df, data_dir, random):
     split_dir = "random" if random else "by_file"
     data_dir = os.path.join(data_dir, split_dir)
     os.makedirs(data_dir, exist_ok=True)
-    
+
     train_path = os.path.join(data_dir, "train.csv")
     valid_path = os.path.join(data_dir, "valid.csv")
     test_path =  os.path.join(data_dir, "test.csv")
