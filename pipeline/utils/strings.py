@@ -36,9 +36,9 @@ def remove_comments(file_str):
 
 
     # remove wrapped comments that are not followed by a newline    
-    regex_pattern = r'(((/-)|(/--)).*?-/(?!\n))'
+    # regex_pattern = r'(((/-)|(/--)).*?-/(?!\n))'
     # filtered_file_str = re.sub(regex_pattern, '', file_str, flags=re.DOTALL)
-    regex_pattern += r'|(((/-)|(/--)).*?-/(?:\n\s*)?)'
+    regex_pattern = r'(((/-)|(/--)).*?-/(?:\n\s*)?)'
     filtered_file_str = re.sub(regex_pattern, '', file_str, flags=re.DOTALL)
 
     # remove comments that are followed by a newline
