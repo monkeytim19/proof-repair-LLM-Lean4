@@ -9,7 +9,7 @@ from pipeline.utils.files import save_data_to_json_in_dir
 from pipeline.utils.theorem_extraction import all_theorem_names, theorem_statement_proof, substituted_file
 from pipeline.utils.lean_repo_copying import add_lean_exe_to_lakefile, create_repository_copy, remove_repository_copy
 from pipeline.utils.lean_extraction import get_decl_name
-from config import TRACED_INFO_DIR, REPO_COPY_DIR, RAW_DATA_DIR, REF_COMMIT, FILENAMES_DIR
+from pipeline.config import TRACED_INFO_DIR, REPO_COPY_DIR, RAW_DATA_DIR, REF_COMMIT, FILENAMES_DIR
 
 
 

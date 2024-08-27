@@ -43,7 +43,7 @@ def scrape_dataset_condor(num_jobs):
             proxy_filename = group[0][:-5]
         else:
             proxy_filename = group[0]
-        first_filename = first_filename.replace("/", "_")
+        proxy_filename = proxy_filename.replace("/", "_")
 
         # create text file to record the file in each group
         os.makedirs(FILENAMES_DIR, exist_ok=True)
@@ -125,7 +125,7 @@ if __name__ == "__main__":
     parser.add_argument("-i", "--index-file",
                         type=str,
                         help="The path to the indices of the dataset that needs to be verified.")
-
+       
     args = parser.parse_args()
 
     if args.mode == "collect-data":

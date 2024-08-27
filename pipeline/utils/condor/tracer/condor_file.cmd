@@ -1,12 +1,12 @@
 universe        = vanilla
 
 # This defines the path of the executable we want to run.
-executable      = /vol/bitbucket/tcwong/individual_project/proof-repair/batching_scripts/trace_directory/condor_instructions.sh 
+executable      = /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/utils/condor/tracer/condor_instructions.sh 
 arguments       = $(Dirname)
-output          = /vol/bitbucket/tcwong/individual_project/proof-repair/logging/output_files/$(Dirname).out
-error           = /vol/bitbucket/tcwong/individual_project/proof-repair/logging/error_files/$(Dirname).err
+output          = /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/utils/condor/logging/output_files/$(Dirname).out
+error           = /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/utils/condor/logging/error_files/$(Dirname).err
 
-log             = /vol/bitbucket/tcwong/individual_project/proof-repair/logging/process_files/$(Dirname).log
+log             = /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/utils/condor/logging/process_files/$(Dirname).log
 
 request_cpus            = 2
 request_memory          = 8G
