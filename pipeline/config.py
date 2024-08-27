@@ -2,26 +2,26 @@ from git import Repo
 import os
 
 # set path to reference repository and directory to keep copies of them
-# REPO_PATH = "/Users/timmonkey/Desktop/Imperial/Summer Term/Individual Project/Repos/mathlib4"
-# REPO_COPY_DIR = "/Users/timmonkey/Desktop/Imperial/Summer Term/Individual Project/Repos/temp"
-REPO_PATH = "/vol/bitbucket/tcwong/individual_project/mathlib4"
-REPO_COPY_DIR = "/vol/bitbucket/tcwong/individual_project/repo_verifiy"
+REPO_PATH = "/Users/timmonkey/Desktop/Imperial/Summer Term/Individual Project/Repos/mathlib4"
+REPO_COPY_DIR = "/Users/timmonkey/Desktop/Imperial/Summer Term/Individual Project/Repos/temp"
+# REPO_PATH = "/vol/bitbucket/tcwong/individual_project/mathlib4"
+# REPO_COPY_DIR = "/vol/bitbucket/tcwong/individual_project/repo_verifiy"
+
+ROOT_DIR = "/Users/timmonkey/Desktop/Imperial/Summer Term/Individual Project/Repos/proof-repair-LLM-Lean4"
 
 # set paths relevant to repository tracing
-THEOREM_EXTRACTOR_DIR = os.path.join(os.getcwd(), "pipeline/tracer/TheoremExtractor")
-TRACED_INFO_DIR = os.path.join(os.getcwd(), "pipeline/tracer/traced_info")
+THEOREM_EXTRACTOR_DIR = os.path.join(ROOT_DIR, "pipeline/tracer/TheoremExtractor")
+TRACED_INFO_DIR = os.path.join(ROOT_DIR, "pipeline/tracer/traced_info")
 
 # set paths relevant to data collection
-FILENAMES_DIR = os.path.join(os.getcwd(), "pipeline/utils/condor/data_collection/filenames")
-RAW_DATA_DIR = os.path.join(os.getcwd(), "pipeline/data_collection/raw_data")
-DATA_DIR = os.path.join(os.getcwd(), "pipeline/data_collection/processed_data")
-
-# TRACED_INFO_DIR = '/vol/bitbucket/tcwong/individual_project/proof-repair/traced_info'
-# RAW_DATA_DIR = '/vol/bitbucket/tcwong/individual_project/proof-repair/raw_data'
-# DATA_DIR = '/vol/bitbucket/tcwong/individual_project/proof-repair/processed_data'
+FILENAMES_DIR = os.path.join(ROOT_DIR, "pipeline/utils/condor/data_collection/filenames")
+RAW_DATA_DIR = os.path.join(ROOT_DIR, "pipeline/data_collection/raw_data")
+DATA_DIR = os.path.join(ROOT_DIR, "pipeline/data_collection/processed_data")
 
 # set path relevant to verification
-DATA_INDICES_DIR = os.path.join(os.getcwd(), "pipeline/utils/condor/verifier/data_indices")
+DATA_INDICES_DIR = os.path.join(ROOT_DIR, "pipeline/utils/condor/verifier/data_indices")
+OUTCOME_DIR = os.path.join(ROOT_DIR, "pipeline/utils/condor/verifier")
+
 
 SEED = 2024 # set seed for randomisation
 
@@ -54,19 +54,4 @@ DIRECTORIES_TO_SCRAPE = [
         "RepresentationTheory",
         "Topology",
     ]
-DIRECTORIES_TO_SCRAPE = ["Mathlib/"+dir for dir in DIRECTORIES_TO_SCRAPE]    
-
-
-# def file_commits(filepath=None):
-#     """
-#     Returns the list of all commits from all branches in the repository relevant to the desired filepath.
-    
-#     If no filepath is specified, then the entire repository will be considered.
-#     """
-#     if filepath is None:
-#         return list(REPO.iter_commits(all=True))
-#     else:
-#         return list(REPO.iter_commits(all=True, paths=filepath))
-    
-
-# REF_COMMIT = file_commits()[[f.hexsha for f in file_commits()].index('a261710852a957a7d20d89b962e4b59887549f21')]
+DIRECTORIES_TO_SCRAPE = ["Mathlib/"+dir for dir in DIRECTORIES_TO_SCRAPE]
