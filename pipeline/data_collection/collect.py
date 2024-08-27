@@ -110,6 +110,7 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
                 dataset["commit"].append(commit.hexsha)
                 dataset["failed_proof"].append(old_thm_proof)
                 dataset["error_msg"].append(e.stdout)
+                break
 
         # restore file to existing condition
         with open(full_file_path, "w") as file:
