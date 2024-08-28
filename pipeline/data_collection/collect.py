@@ -22,16 +22,30 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
     """
     print(f"{datetime.now()} - Working on {filepath}", flush=True)
     ref_file_str = remove_comments(file_str_from_commit(REF_COMMIT, filepath))
-    commits_ls = file_commits(filepath)
     full_file_path = os.path.join(repo_copy_path, filepath)
+    filepath_module = leanfile_replace_slash(filepath, ".")
 
     # keep the current version of the file for restoration later
     with open(full_file_path, "r") as file:
-        file.seek(0)
         original_file_str = file.read()
 
-    for thm_info in all_thm_info:
+    # verify if the comment removal causes compilation error
+    with open(full_file_path, "w") as file:
+        file.write(ref_file_str)
+    try:
+        subprocess.run(["lake", "build", filepath_module],
+                            cwd=repo_copy_path,
+                            capture_output=True,
+                            text=True,
+                            check=True
+                        )
+    except subprocess.CalledProcessError:
+        print(f"COMMENT REMOVAL PROBLEM: {filepath}", flush=True)
+        return dataset
 
+    commits_ls = file_commits(filepath)
+    for thm_info in all_thm_info:
+        # extract declaration name
         thm_full_name = thm_info["name"]
         thm_decl_start_pos = pos_conversion(thm_info["start"])
         thm_decl_end_pos = pos_conversion(thm_info["end"])
@@ -89,10 +103,6 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
             with open(full_file_path, "w") as file:
                 file.write(subbed_file_str)
 
-            # attempt to compile the code in lean
-            filepath_module = leanfile_replace_slash(filepath, ".")
-
-
             # attempt compiling file and append to dataset if it fails
             try:
                 subprocess.run(["lake", "build", filepath_module],
@@ -102,20 +112,16 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
                                     check=True
                                 )
             except subprocess.CalledProcessError as e:
-                if invalid_error_msg(e.stdout):
-                    continue
-                else:
-                    dataset["filepath"].append(filepath)
-                    dataset["thm_name"].append(thm_full_name)
-                    dataset["decl_name"].append(thm_decl_name)
-                    dataset["commit"].append(commit.hexsha)
-                    dataset["failed_proof"].append(old_thm_proof)
-                    dataset["error_msg"].append(e.stdout)
-                    break
+                dataset["filepath"].append(filepath)
+                dataset["thm_name"].append(thm_full_name)
+                dataset["decl_name"].append(thm_decl_name)
+                dataset["commit"].append(commit.hexsha)
+                dataset["failed_proof"].append(old_thm_proof)
+                dataset["error_msg"].append(e.stdout)
 
-        # restore file to existing condition
-        with open(full_file_path, "w") as file:
-            file.write(original_file_str)
+    # restore file to existing condition
+    with open(full_file_path, "w") as file:
+        file.write(original_file_str)
 
     return dataset
 
