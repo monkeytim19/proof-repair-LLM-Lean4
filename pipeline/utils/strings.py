@@ -19,13 +19,6 @@ def pos_conversion(position_str):
     return literal_eval(position_str.replace('⟨', '(').replace('⟩', ')')) 
 
 
-def invalid_error_msg(error_msg):
-    """Checks if the error message is invalid or not."""
-    cond1 = error_msg == ""
-    cond2 = "warning:" in error_msg and "error:" not in error_msg
-    return cond1 or cond2
-
-
 def remove_comments(file_str):
     """Remove all comments/annotations from the string."""
 
