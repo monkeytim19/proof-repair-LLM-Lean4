@@ -43,6 +43,8 @@ def theorem_statement_proof(file_str, theorem_name):
     if idx >= 0:
         proof = [statement[-1][idx:]] + proof
         statement[-1] = statement[-1][:idx]
+    else:
+        statement[-1] = statement[-1] + '\n'
 
     return {"statement": "\n".join(statement), "proof": "\n".join(proof)}
 
