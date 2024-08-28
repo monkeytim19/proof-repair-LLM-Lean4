@@ -14,8 +14,8 @@ def print_progress(curr_count, total_count, datapoint, proof_col):
     """Prints the progress and detail of the current proof being verified."""
     print(f"---{curr_count}/{total_count}---", flush=True)
     print(f"For theorem {datapoint['thm_name']} in {datapoint['filepath']}:\n{datapoint['statement']}\n\n", flush=True)
-    print(f"Original proof:\n{datapoint['proof']})\n\n", flush=True)
-    print(f"Verifying proof (Commit):\n{datapoint[proof_col]}\n", flush=True)
+    print(f"Original proof:\n{datapoint['proof']}\n\n", flush=True)
+    print(f"Verifying proof (Commit {datapoint['commit']}):\n{datapoint[proof_col]}\n", flush=True)
 
 
 def success_rate(counts):

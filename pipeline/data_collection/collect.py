@@ -104,13 +104,16 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
                                     check=True
                                 )
             except subprocess.CalledProcessError as e:
-                dataset["filepath"].append(filepath)
-                dataset["thm_name"].append(thm_full_name)
-                dataset["decl_name"].append(thm_decl_name)
-                dataset["commit"].append(commit.hexsha)
-                dataset["failed_proof"].append(old_thm_proof)
-                dataset["error_msg"].append(e.stdout)
-                break
+                if e.stdout == "":
+                    continue
+                else:
+                    dataset["filepath"].append(filepath)
+                    dataset["thm_name"].append(thm_full_name)
+                    dataset["decl_name"].append(thm_decl_name)
+                    dataset["commit"].append(commit.hexsha)
+                    dataset["failed_proof"].append(old_thm_proof)
+                    dataset["error_msg"].append(e.stdout)
+                    break
 
         # restore file to existing condition
         with open(full_file_path, "w") as file:
