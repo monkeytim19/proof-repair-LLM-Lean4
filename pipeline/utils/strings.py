@@ -54,6 +54,7 @@ def remove_comments(file_str):
     regex_pattern += r'|(#align.*?\n)'
     filtered_file_str = re.sub(regex_pattern, '', filtered_file_str)
     filtered_file_str = re.sub(r'^library_note.*\n?', '', filtered_file_str, flags=re.MULTILINE) # remove lines that begin with library_note
+    filtered_file_str = re.sub(r'^set_option.*\n?', '', filtered_file_str, flags=re.MULTILINE) # remove lines that begin with set_option
     return filtered_file_str
 
 
