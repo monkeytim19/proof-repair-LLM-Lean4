@@ -30,13 +30,7 @@ def read_json_file(filepath):
         return json.load(file)
     
 
-# def leanfile_replace_slash(path, repl):
-#     """
-#     Replaces the path of a .lean file by removing the .lean suffix and replaces its '/' with another string.
-#     """
-#     return path.replace("/", repl)[:-5]
-
-
-# def is_lean_suffix(path):
-#     """Returns whether the suffix to the given path is '.lean' or not, i.e. if it is a .lean file."""
-#     return path[-min(5, len(path)):] == ".lean"
+def write_file(filepath, file_str):
+    """Overwrite the file at the specified filepath with new string."""
+    with open(filepath, "w") as file:
+        file.write(file_str)

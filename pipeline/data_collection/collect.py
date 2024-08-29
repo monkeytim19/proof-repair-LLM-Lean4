@@ -6,7 +6,7 @@ from tqdm import tqdm
 from datetime import datetime
 from pipeline.utils.strings import leanfile_replace_slash, remove_comments, pos_conversion
 from pipeline.utils.git_extraction import file_commits, file_str_from_commit, get_all_lean_subfile_paths
-from pipeline.utils.files import save_data_to_json_in_dir
+from pipeline.utils.files import save_data_to_json_in_dir, write_file
 from pipeline.utils.theorem_extraction import theorem_statement_proof, substituted_file
 from pipeline.utils.lean_repo_copying import create_repository_copy, remove_repository_copy
 from pipeline.utils.lean_extraction import get_decl_name
@@ -31,8 +31,7 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
         original_file_str = file.read()
 
     # verify if the comment removal causes compilation error
-    with open(full_file_path, "w") as file:
-        file.write(ref_file_str)
+    write_file(full_file_path, ref_file_str)
     try:
         subprocess.run(["lake", "build", filepath_module],
                             cwd=repo_copy_path,
@@ -44,8 +43,7 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
         print(f"COMMENT REMOVAL PROBLEM: {filepath}", flush=True)
         print(f"Error: {e.stdout}", flush=True)
         # restore file to existing condition
-        with open(full_file_path, "w") as file:
-            file.write(original_file_str)
+        write_file(full_file_path, original_file_str)
         return dataset
 
     commits_ls = file_commits(filepath)
@@ -102,11 +100,9 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
             if ref_thm_proof == old_thm_proof:
                 continue
             
+            # make change to file with substituted proof
             subbed_file_str = substituted_file(ref_file_str, old_thm_proof, thm_statement)
-
-            # overwrite file with changes 
-            with open(full_file_path, "w") as file:
-                file.write(subbed_file_str)
+            write_file(full_file_path, subbed_file_str)
 
             # attempt compiling file and append to dataset if it fails
             try:
@@ -124,10 +120,8 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
                 dataset["failed_proof"].append(old_thm_proof)
                 dataset["error_msg"].append(e.stdout)
 
-    # restore file to existing condition
-    with open(full_file_path, "w") as file:
-        file.write(original_file_str)
-
+    # restore file to original condition
+    write_file(full_file_path, original_file_str)
     return dataset
 
 
