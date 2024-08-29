@@ -5,7 +5,7 @@ from pipeline.utils.git_extraction import get_all_blobs
 from pipeline.utils.lean_repo_copying import add_lean_exe_to_lakefile, create_repository_copy
 from pipeline.utils.files import save_data_to_json_in_dir
 from pipeline.utils.lean_extraction import get_theorem_names
-from config import REPO_COPY_DIR, REF_COMMIT, THEOREM_EXTRACTOR_DIR, TRACED_INFO_DIR
+from pipeline.config import REPO_COPY_DIR, REF_COMMIT, THEOREM_EXTRACTOR_DIR, TRACED_INFO_DIR
 
 
 def add_theorem_extractor_to_repo(repo_copy_path):
