@@ -8,7 +8,7 @@ error           = /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean
 
 log             = /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/utils/condor/logging/process_files/$(Filename).log
 
-request_cpus            = 2
+request_cpus            = 4
 request_memory          = 8G
 
 requirements = (OpSysVer == 2204)
