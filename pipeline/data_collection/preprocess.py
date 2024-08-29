@@ -60,17 +60,22 @@ def load_raw_dataset():
 def main(datafile):
     """Preprocess the dataset and save it to desired path."""
     df = load_raw_dataset()
+    raw_n = len(df)
+    print(f"Beginning pre-processing with {raw_n} raw data points.")
 
-    # remove any rows that may contain empty errors
+    # remove any rows that may contain empty values
     df = df[df["error_msg"] != ""]
+    df = df[df["failed_proof"] != ""]
+
 
     # append the ground truth information to the dataset
     ground_truth_table = get_ground_truth_info(df)
     df[["statement", "proof"]] = df.apply(lambda row: query_ground_truth(row, ground_truth_table), axis=1)
 
-    # remove all empty proofs
-    df = df[df["failed_proof"] != ""]
+    # remove additional rows that contain empty values
     df = df[df["proof"] != ""]
+    df = df[df["statement"] != ""]
+    print(f"Removed {raw_n - len(df)} data points from containing empty values.")
 
     # remove duplicate rows
     df = df.drop_duplicates(subset=["filepath", "thm_name"])

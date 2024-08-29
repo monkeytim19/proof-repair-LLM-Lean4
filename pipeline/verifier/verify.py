@@ -93,6 +93,38 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
     remove_repository_copy(repo_copy_path)
     return verification_outcomes
 
+# import numpy as np
+# import pandas as pd
+# from concurrent.futures import ProcessPoolExecutor
+
+# def parallel_verify_proof(proof_df, proof_col, verbose=True, repo_copy_name="repo_copy", num_workers=4):
+#     """
+#     Splits proof_df into subsets and runs verify_proof in parallel.
+#     """
+#     # Split the DataFrame into subsets for each worker
+#     subsets = np.array_split(proof_df, num_workers)
+    
+#     outcomes = {"success": [], "failure": []}
+
+#     for i in range(num_workers):
+#         if not os.path.exists(REPO_COPY_DIR):
+#             os.makedirs(REPO_COPY_DIR, exist_ok=True)
+#         repo_copy_path = os.path.join(REPO_COPY_DIR, f"{repo_copy_name}_{i+1}")
+#         if not os.path.exists(repo_copy_path):
+#             create_repository_copy(repo_copy_path)
+
+#     with ProcessPoolExecutor(max_workers=num_workers) as executor:
+#         # Submit each subset to the pool of workers
+#         futures = [executor.submit(verify_proof, subset, proof_col, verbose, repo_copy_path) for i, subset in enumerate(subsets)]
+
+#         # Collect results
+#         for future in futures:
+#             result = future.result()
+#             outcomes["success"].extend(result["success"])
+#             outcomes["failure"].extend(result["failure"])
+
+#     return outcomes
+
     
 if __name__ == "__main__":
 
