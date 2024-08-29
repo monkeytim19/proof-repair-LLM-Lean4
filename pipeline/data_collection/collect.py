@@ -39,8 +39,12 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
                             text=True,
                             check=True
                         )
-    except subprocess.CalledProcessError:
+    except subprocess.CalledProcessError as e:
         print(f"COMMENT REMOVAL PROBLEM: {filepath}", flush=True)
+        print(f"Error: {e.stdout}", flush=True)
+        # restore file to existing condition
+        with open(full_file_path, "w") as file:
+            file.write(original_file_str)
         return dataset
 
     commits_ls = file_commits(filepath)
@@ -142,11 +146,10 @@ def construct_dataset(filename):
         create_repository_copy(repo_copy_path)
     
     lean_filepath_ls = get_all_lean_subfile_paths(REF_COMMIT, dir_paths)
-
+    print(f"Retrieving from {len(lean_filepath_ls)} files.", flush=True)
     for lean_filepath in lean_filepath_ls:
         
         # retrieve names of traced theorems
-        
         thm_info_path = os.path.join(TRACED_INFO_DIR, f"{leanfile_replace_slash(lean_filepath, '_')}.json")
         with open(thm_info_path, "r") as file:
             all_thm_info = json.load(file)
