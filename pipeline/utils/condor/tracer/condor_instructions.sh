@@ -11,5 +11,5 @@ export PATH=$(echo $PATH | tr ':' '\n' | grep -v "/homes/tcwong/.elan/bin" | tr 
 export PATH="$PATH:/vol/bitbucket/tcwong/individual_project/leandojo-reprover/.elan/bin"
 
 # run the python script to generate the data
-python /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/tracer/trace_repo_theorems.py -d $dirname
+python /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/tracer/trace.py -d $dirname
 
