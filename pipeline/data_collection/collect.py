@@ -2,11 +2,7 @@ import os
 import subprocess
 import json
 import argparse
-<<<<<<< HEAD
-import tqdm
-=======
 from tqdm import tqdm
->>>>>>> 1a98032cef8dac3fa9ebb9d19eada94e062fbc11
 from datetime import datetime
 from pipeline.utils.strings import leanfile_replace_slash, remove_comments, pos_conversion
 from pipeline.utils.git_extraction import file_commits, file_str_from_commit, get_all_lean_subfile_paths
@@ -151,10 +147,7 @@ def construct_dataset(filename):
         create_repository_copy(repo_copy_path)
     
     lean_filepath_ls = get_all_lean_subfile_paths(REF_COMMIT, dir_paths)
-<<<<<<< HEAD
     print(f"Retrieving from {len(lean_filepath_ls)} files.", flush=True)
-=======
->>>>>>> 1a98032cef8dac3fa9ebb9d19eada94e062fbc11
     for lean_filepath in tqdm(lean_filepath_ls):
         
         # retrieve names of traced theorems
