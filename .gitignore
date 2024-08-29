@@ -173,5 +173,11 @@ tracking/
 *.DS_Store
 
 pipeline/data_collection/raw_data/
+pipeline/data_collection/raw_data_old/
+pipeline/data_collection/raw_data_old_2/
+
+
 pipeline/tracer/traced_info/
 pipeline/data_collection/filenames
+
+*.ipynb
