@@ -36,8 +36,6 @@ def remove_comments(file_str):
 
 
     # remove wrapped comments that are not followed by a newline    
-    # regex_pattern = r'(((/-)|(/--)).*?-/(?!\n))'
-    # filtered_file_str = re.sub(regex_pattern, '', file_str, flags=re.DOTALL)
     regex_pattern = r'(((/-)|(/--)).*?-/(?:\n\s*)?)'
     filtered_file_str = re.sub(regex_pattern, '', file_str, flags=re.DOTALL)
 
@@ -48,6 +46,8 @@ def remove_comments(file_str):
     filtered_file_str = re.sub(regex_pattern, '', filtered_file_str)
     filtered_file_str = re.sub(r'^library_note.*\n?', '', filtered_file_str, flags=re.MULTILINE) # remove lines that begin with library_note
     filtered_file_str = re.sub(r'^set_option.*\n?', '', filtered_file_str, flags=re.MULTILINE) # remove lines that begin with set_option
+    filtered_file_str = re.sub(r'^add_decl_doc.*\n?', '', filtered_file_str, flags=re.MULTILINE) # remove lines that begin with #adaptation_note
+    filtered_file_str = re.sub(r'^#adaptation_note\s*?', '', filtered_file_str, flags=re.MULTILINE) # remove lines that begin with #adaptation_note
     return filtered_file_str
 
 
