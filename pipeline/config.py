@@ -53,5 +53,6 @@ DIRECTORIES_TO_SCRAPE = [
         "NumberTheory",
         "RepresentationTheory",
         "Topology",
+        "Data",
     ]
 DIRECTORIES_TO_SCRAPE = ["Mathlib/"+dir for dir in DIRECTORIES_TO_SCRAPE]
