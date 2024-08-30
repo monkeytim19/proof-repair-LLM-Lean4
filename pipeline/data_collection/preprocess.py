@@ -91,8 +91,9 @@ def main(datafile, to_verify):
     # remove redundancies in error message
     df["error_msg"] = df["error_msg"].apply(remove_error_msg_redundancies)
 
-    df = df.reset_index(drop=True)
-    
+    # re-order dataset by filepath and theorem name
+    df = df.sort_values(by=["filepath", "thm_name", "commit"]).reset_index(drop=True)
+
     print(f"{len(df)} data points remaining after pre-processing.")
     os.makedirs(DATA_DIR, exist_ok=True)
     filepath = os.path.join(DATA_DIR, datafile)
