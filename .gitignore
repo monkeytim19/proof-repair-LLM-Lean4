@@ -163,8 +163,8 @@ cython_debug/
 
 pipeline/utils/condor/logging/
 pipeline/utils/condor/verifier/data_indices
-pipeline/utils/condor/verifier/failure
-pipeline/utils/condor/verifier/success
+pipeline/verifier/failure
+pipeline/verifier/success
 pipeline/utils/condor/verifier/verbose
 pipeline/utils/condor/data_collection/filenames
 filename_groups/
@@ -173,8 +173,7 @@ tracking/
 *.DS_Store
 
 pipeline/data_collection/raw_data/
-pipeline/data_collection/raw_data_old/
-pipeline/data_collection/raw_data_old_2/
+pipeline/data_collection/raw_data_recent/
 
 
 pipeline/tracer/traced_info/
