@@ -62,7 +62,7 @@ if __name__ == "__main__":
 
     dir_path = parser.parse_args().dir_path
     os.makedirs(REPO_COPY_DIR, exist_ok=True)
-    repo_copy_path = os.path.join(REPO_COPY_DIR, dir_path)
+    repo_copy_path = os.path.join(REPO_COPY_DIR, dir_path.replace("/", "_"))
 
     if not os.path.exists(repo_copy_path):
         add_theorem_extractor_to_repo(repo_copy_path)
