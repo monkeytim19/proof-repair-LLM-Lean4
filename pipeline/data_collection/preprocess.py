@@ -3,6 +3,7 @@ import os
 import argparse
 from pipeline.config import DATA_DIR, RAW_DATA_DIR, REF_COMMIT
 from pipeline.utils.theorem_extraction import file_theorem_info
+from pipeline.verifier.verify import verify_proof
 
 
 def remove_error_msg_redundancies(error_msg):
@@ -57,7 +58,7 @@ def load_raw_dataset():
     return pd.concat(dataframes, ignore_index=True)
 
 
-def main(datafile):
+def main(datafile, to_verify):
     """Pre-process the dataset and save it to desired path."""
     df = load_raw_dataset()
     raw_n = len(df)
@@ -81,6 +82,12 @@ def main(datafile):
     df = df.drop_duplicates(subset=["filepath", "thm_name", "failed_proof"])
     print(f"Removed {raw_n - len(df)} data points from duplicacy.")
 
+    # perform verification on reference proofs
+    if to_verify:
+        verify_counts = verify_proof(df, proof_col="proof", verbose=False, repo_copy_name="preprocessing_verify")
+        df = df[df.index.isin(verify_counts["success"])]
+        print(f"Removed {len(verify_counts['failure'])} invalid data points after verification.")
+
     # remove redundancies in error message
     df["error_msg"] = df["error_msg"].apply(remove_error_msg_redundancies)
 
@@ -93,6 +100,10 @@ def main(datafile):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Preprocess the raw data from the data collection and concatenate them into a single dataset.")
+
     parser.add_argument("-d", "--data-file", type=str, default="proof_repair_dataset.csv", help="Name of the .csv file containing the dataset. Defaulted to 'proof_repair_dataset.csv'.")
+    parser.add_argument("-r", "--verify", action="store_true", help="Performs verification on the extracted reference proofs as part of the preprocessing. (Warning: may take a long time)")
+
     datafile = parser.parse_args().data_file
-    main(datafile)
+    to_verify = parser.parse.args().verify
+    main(datafile, to_verify)
