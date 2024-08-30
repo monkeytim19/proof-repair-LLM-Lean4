@@ -4,7 +4,7 @@ import json
 import argparse
 import subprocess
 from datetime import datetime
-from pipeline.config import REPO_COPY_DIR
+from pipeline.config import REPO_COPY_DIR, ROOT_DIR
 from pipeline.utils.strings import leanfile_replace_slash, remove_comments
 from pipeline.utils.lean_repo_copying import create_repository_copy, remove_repository_copy
 from pipeline.utils.theorem_extraction import substituted_file
@@ -188,7 +188,7 @@ if __name__ == "__main__":
     # save the results
     if args.save_results:
         for outcome in verify_counts.keys():
-            outcome_dir_path = os.path.join(os.getcwd(), f"pipeline/verifier/{outcome}")
+            outcome_dir_path = os.path.join(ROOT_DIR, f"pipeline/verifier/{outcome}")
             os.makedirs(outcome_dir_path, exist_ok=True)
             save_filepath = os.path.join(outcome_dir_path, args.save_name)
             with open(save_filepath, 'w') as file:
