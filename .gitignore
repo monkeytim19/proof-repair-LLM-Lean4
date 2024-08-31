@@ -165,13 +165,10 @@ pipeline/utils/condor/logging/
 pipeline/utils/condor/verifier/data_indices
 pipeline/verifier/failure
 pipeline/verifier/success
-filename_groups/
-tracking/
 *.csv
 *.DS_Store
 
 pipeline/scraper/raw_data/
-
 pipeline/tracer/traced_info/
 pipeline/scraper/filenames
 
