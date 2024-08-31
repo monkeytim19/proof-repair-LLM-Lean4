@@ -130,15 +130,10 @@ if __name__ == "__main__":
     proofs_df = pd.read_csv(args.data_path)
     
     if args.index_data:
-        # index_file_path = os.path.join(os.getcwd(), args.index_data)
         with open(args.index_data, "r") as file:
             wanted_indices = json.load(file)
         proofs_df = proofs_df[proofs_df.index.isin(wanted_indices)]
     
-    # check if the column used for verifying the proofs are all strings
-    # if not proofs_df[args.verify_proof_column].apply(lambda x: isinstance(x, str)).all():
-    #     parser.error("The value provided to the '-c' argument points to a column in the dataset that does not contain all strings and is not a valid column to be used for proof verification.")
-
     print(f"STARTING: verification of proofs from {args.verify_proof_column} column in dataset from {args.data_path} - {datetime.now()}")
     repo_copy_name = f"verification_{args.run_num}" if args.run_num is not None else "verification"
     verify_counts = verify_proof(proofs_df, args.verify_proof_column, args.verbose, repo_copy_name)

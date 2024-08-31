@@ -84,6 +84,7 @@ def main(datafile, to_verify):
 
     # perform verification on reference proofs
     if to_verify:
+        print("STARTING: Verifying proofs.")
         verify_counts = verify_proof(df, proof_col="proof", verbose=False, repo_copy_name="preprocessing_verify")
         df = df[df.index.isin(verify_counts["success"])]
         print(f"Removed {len(verify_counts['failure'])} invalid data points after verification.")
@@ -103,8 +104,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Preprocess the raw data from the data collection and concatenate them into a single dataset.")
 
     parser.add_argument("-d", "--data-file", type=str, default="proof_repair_dataset.csv", help="Name of the .csv file containing the dataset. Defaulted to 'proof_repair_dataset.csv'.")
-    parser.add_argument("-r", "--verify", action="store_true", help="Performs verification on the extracted reference proofs as part of the preprocessing. (Warning: may take a long time)")
+    parser.add_argument("-v", "--verify", action="store_true", help="Performs verification on the extracted reference proofs as part of the preprocessing. (Warning: may take a long time)")
 
     datafile = parser.parse_args().data_file
-    to_verify = parser.parse.args().verify
+    to_verify = parser.parse_args().verify
     main(datafile, to_verify)

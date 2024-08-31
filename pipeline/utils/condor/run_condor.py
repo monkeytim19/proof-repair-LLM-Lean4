@@ -9,6 +9,7 @@ from pipeline.utils.strings import is_lean_suffix
 from pipeline.utils.files import groups_by_thm_num
 from pipeline.config import FILENAMES_DIR, DIRECTORIES_TO_SCRAPE, DATA_INDICES_DIR
 
+
 def trace_directory_condor(trace_dirs):
     """Submit a job to Condor for each directory that is given to trace its .lean file information."""
     batch_files_dir = os.path.join(os.getcwd(), "pipeline/utils/condor/tracer")
@@ -34,7 +35,7 @@ def scrape_dataset_condor(num_jobs):
     (Note: this is not equivalent to similar computational load, as it is possible that different
     theorems may have different processing times depending on their Git history.)
     """
-    batch_files_dir = os.path.join(os.getcwd(), "pipeline/utils/condor/data_collection")
+    batch_files_dir = os.path.join(os.getcwd(), "pipeline/utils/condor/scraper")
     groups = groups_by_thm_num(num_jobs, file_num_theorem(DIRECTORIES_TO_SCRAPE))
 
     for group in groups:
@@ -67,9 +68,8 @@ def verify_prediction_condor(datapath, indexfile, num_jobs=50):
     """
     Submit jobs to Condor to perform verification of proofs from the dataset specified in the filepath
 
-    example:
+    Example:
     python -m pipeline.utils.condor.run_condor -m verify-prediction -d /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/models/reprover/base/test_prediction.csv -n 10
-
     """
     if indexfile is None:
         indices = list(pd.read_csv(datapath).index)
@@ -101,10 +101,7 @@ def verify_prediction_condor(datapath, indexfile, num_jobs=50):
             print(e.stdout)
 
     
-
-
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(description="Run the data collection or repository tracing process using Condor to batch jobs.")
 
     parser.add_argument("-m", "--mode",
