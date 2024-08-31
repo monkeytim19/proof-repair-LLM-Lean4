@@ -168,8 +168,8 @@ pipeline/verifier/success
 *.csv
 *.DS_Store
 
-pipeline/scraper/raw_data/
-pipeline/tracer/traced_info/
+pipeline/scraper/raw_data
+pipeline/tracer/traced_info
 pipeline/scraper/filenames
 
 *.ipynb
