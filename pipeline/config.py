@@ -19,8 +19,6 @@ DATA_DIR = os.path.join(ROOT_DIR, "pipeline/scraper/processed_data")
 
 # set path relevant to verification
 DATA_INDICES_DIR = os.path.join(ROOT_DIR, "pipeline/utils/condor/verifier/data_indices")
-OUTCOME_DIR = os.path.join(ROOT_DIR, "pipeline/utils/condor/verifier")
-
 
 SEED = 2024 # set seed for randomisation
 
