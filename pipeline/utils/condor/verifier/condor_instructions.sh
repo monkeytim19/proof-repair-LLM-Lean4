@@ -3,6 +3,7 @@
 datapath=$1
 indexpath=$2
 job_num=$3
+job_name=$4
 
 # activate virtual environment and add python to PATH
 source /vol/bitbucket/tcwong/individual_project/venv/bin/activate # TODO need to be flexible with the working directories and paths
@@ -13,4 +14,4 @@ export PATH=$(echo $PATH | tr ':' '\n' | grep -v "/homes/tcwong/.elan/bin" | tr 
 export PATH="$PATH:/vol/bitbucket/tcwong/individual_project/leandojo-reprover/.elan/bin"
 
 # run the python script to generate the data
-python /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/verifier/verify.py -d $datapath -i $indexpath -s -n ${job_num}.json -r $job_num -v
+python /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/verifier/verify.py -d $datapath -i $indexpath -s -n ${job_name}.json -r $job_num -v

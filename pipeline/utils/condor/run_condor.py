@@ -66,7 +66,9 @@ def scrape_dataset_condor(num_jobs):
 
 def verify_prediction_condor(datapath, indexfile, num_jobs=50):
     """
-    Submit jobs to Condor to perform verification of proofs from the dataset specified in the filepath
+    Submit jobs to Condor to perform verification of proofs from the dataset specified in the filepath.
+    
+    The dataset must be a .csv file.
 
     Example:
     python -m pipeline.utils.condor.run_condor -m verify-prediction -d /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/models/reprover/base/test_prediction.csv -n 10
@@ -84,7 +86,8 @@ def verify_prediction_condor(datapath, indexfile, num_jobs=50):
 
     os.makedirs(DATA_INDICES_DIR, exist_ok=True)
     for idx, indices_ls in enumerate(divided_indices):
-        indice_path = os.path.join(DATA_INDICES_DIR, f"{os.path.basename(datapath)[:-4]}_{idx+1}")
+        base_name = f"{os.path.basename(datapath)[:-4]}_{idx+1}"
+        indice_path = os.path.join(DATA_INDICES_DIR, base_name)
         indices_ls = [int(n) for n in indices_ls]
         with open(indice_path, "w") as file:
             json.dump(indices_ls, file)
@@ -92,13 +95,13 @@ def verify_prediction_condor(datapath, indexfile, num_jobs=50):
         # submit job to condor
         try:
             subprocess.run(
-                args=["condor_submit", f"Datapath={datapath}", f"Indexpath={indice_path}", f"Job_num={idx+1}", "condor_file.cmd"], 
+                args=["condor_submit", f"Datapath={datapath}", f"Indexpath={indice_path}", f"Job_num={idx+1}", f"Job_name={base_name}", "condor_file.cmd"], 
                 cwd=batch_files_dir, 
                 check=True,
                 )
         except subprocess.CalledProcessError as e:
-            print(e.stderr)
-            print(e.stdout)
+            print(e.stderr, flush=True)
+            print(e.stdout, flush=True)
 
     
 if __name__ == "__main__":

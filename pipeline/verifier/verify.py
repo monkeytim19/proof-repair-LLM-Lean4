@@ -134,7 +134,8 @@ if __name__ == "__main__":
     if args.save_results and not args.save_name:
         parser.error("The '-n' argument is required when '-s' is provided.")
 
-    proofs_df = pd.read_csv(args.data_path)
+    data_path = os.path.join(ROOT_DIR, args.data_path)
+    proofs_df = pd.read_csv(data_path)
     
     if args.index_data:
         with open(args.index_data, "r") as file:
@@ -142,7 +143,7 @@ if __name__ == "__main__":
         proofs_df = proofs_df[proofs_df.index.isin(wanted_indices)]
     
     print(f"STARTING: verification of proofs from {args.verify_proof_column} column in dataset from {args.data_path} - {datetime.now()}")
-    repo_copy_name = f"verification_{args.run_num}" if args.run_num is not None else "verification"
+    repo_copy_name = f"verify_{os.path.basename(data_path)[:-4]}_{args.run_num}" if args.run_num is not None else f"verify_{os.path.basename(data_path)[:-4]}"
     verify_counts = verify_proof(proofs_df, args.verify_proof_column, args.verbose, repo_copy_name)
     success_counts, failure_counts = len(verify_counts["success"]), len(verify_counts["failure"])
     print(f"Among {len(proofs_df)} proof attempts, there were {success_counts} sucessful and {failure_counts} failed attempts at proving their respect theorems.", flush=True)
