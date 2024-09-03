@@ -1,4 +1,5 @@
 import numpy as np
+import random
 
 
 def groups_by_thm_num(n_groups, file_num_thm):
@@ -24,17 +25,18 @@ def groups_by_thm_num(n_groups, file_num_thm):
     return groups
 
 
-def group_keys_by_value(target_n, keys, values):
+def group_keys_by_value(target_n, keys, values, seed):
     """
     Returns a subset of keys such that the sum of their corresponding values is as close as possible to a given target value.
 
     The list of keys and values inputted to the function will be mutated.
     """
+    np.random.seed(seed)
     curr_n = 0
     target_keys = []
     while curr_n < target_n:
         if curr_n + max(values) < target_n:
-            idx = np.argmax(values)
+            idx = np.random.choice(len(values))
         elif curr_n + min(values) >= target_n:
             idx = np.argmin(values)
         else:

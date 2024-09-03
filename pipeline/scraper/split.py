@@ -34,8 +34,8 @@ def split_data_by_file(df, num_valid, num_test):
     unique_thms, thm_counts = zip(*key_value_pairs)
     unique_thms, thm_counts = list(unique_thms), list(thm_counts)
 
-    test_thms, unique_thms, thm_counts = group_keys_by_value(num_test, unique_thms, thm_counts)
-    valid_thms, train_thms, _ = group_keys_by_value(num_valid, unique_thms, thm_counts)
+    test_thms, unique_thms, thm_counts = group_keys_by_value(num_test, unique_thms, thm_counts, SEED+1)
+    valid_thms, train_thms, _ = group_keys_by_value(num_valid, unique_thms, thm_counts, SEED+2)
     
     train_df = filter_dataframe(df, train_thms, thm_id_cols)
     valid_df = filter_dataframe(df, valid_thms, thm_id_cols)
@@ -45,9 +45,9 @@ def split_data_by_file(df, num_valid, num_test):
         print("Problem with data spliting - require further investigation into the spliting algorithm.")
     
     # shuffle again
-    train_df = train_df.sample(frac=1, random_state=SEED)
-    valid_df = valid_df.sample(frac=1, random_state=SEED)
-    test_df = test_df.sample(frac=1, random_state=SEED)
+    train_df = train_df.sample(frac=1, random_state=SEED+3)
+    valid_df = valid_df.sample(frac=1, random_state=SEED+4)
+    test_df = test_df.sample(frac=1, random_state=SEED+5)
     return train_df, valid_df, test_df
 
 

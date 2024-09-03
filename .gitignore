@@ -173,3 +173,5 @@ pipeline/tracer/traced_info
 pipeline/scraper/filenames
 
 *.ipynb
+
+*.lean

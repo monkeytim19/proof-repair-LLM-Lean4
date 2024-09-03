@@ -1,14 +1,15 @@
 import pandas as pd
 import os
+import re
 import argparse
 from pipeline.config import DATA_DIR, RAW_DATA_DIR, REF_COMMIT
 from pipeline.utils.theorem_extraction import file_theorem_info
 from pipeline.verifier.verify import verify_proof
 
 
-def remove_error_msg_redundancies(error_msg):
+def remove_error_msg_redundancies(row):
     """Removes the unnecessary parts of the error message."""
-    msg_by_lines = error_msg.splitlines()
+    msg_by_lines = row["error_msg"].splitlines()
 
     for idx, line in enumerate(msg_by_lines):
         # find the index of the line starting with 'trace: '
@@ -22,7 +23,16 @@ def remove_error_msg_redundancies(error_msg):
     
     # extract lines between the two points
     extracted_lines = "\n".join(msg_by_lines[start_idx: end_idx])
+
+    # remove redundant text on the path of file
+    regex_pattern = r"\S*"
+    regex_pattern += row["filepath"]
+    regex_pattern += r"\S*"
+    
+    # Use re.sub to replace matching substrings with an empty string
+    extracted_lines = re.sub(regex_pattern, "", extracted_lines)
     return extracted_lines
+
 
 def get_ground_truth_info(df):
     """
@@ -36,6 +46,7 @@ def get_ground_truth_info(df):
         fp_dict = file_theorem_info(REF_COMMIT, filepath, thm_names_ls)
         thm_info_dict = thm_info_dict | fp_dict
     return thm_info_dict
+
 
 def query_ground_truth(row, ground_truth_table):
     """
@@ -90,7 +101,7 @@ def main(datafile, to_verify):
         print(f"Removed {len(verify_counts['failure'])} invalid data points after verification.")
 
     # remove redundancies in error message
-    df["error_msg"] = df["error_msg"].apply(remove_error_msg_redundancies)
+    df["error_msg"] = df.apply(remove_error_msg_redundancies, axis=1)
 
     # re-order dataset by filepath and theorem name
     df = df.sort_values(by=["filepath", "thm_name", "commit"]).reset_index(drop=True)
