@@ -14,7 +14,7 @@ def print_progress(curr_count, total_count, datapoint, proof_col):
     """Prints the progress and detail of the current proof being verified."""
     print(f"---{curr_count}/{total_count}---", flush=True)
     print(f"For theorem {datapoint['thm_name']} in {datapoint['filepath']}:\n{datapoint['statement']}\n\n", flush=True)
-    print(f"Original proof:\n{datapoint['proof']}\n\n", flush=True)
+    print(f"Original valid proof:\n{datapoint['proof']}\n\n", flush=True)
     print(f"Verifying proof (Commit {datapoint['commit']}):\n{datapoint[proof_col]}\n", flush=True)
 
 
@@ -53,7 +53,13 @@ def verify_proof(proof_df, proof_col, verbose, repo_copy_name):
                 print_progress(curr_count, total_count, datapoint, proof_col)
 
             test_file_str = remove_comments(ref_file_str)
-            test_file_str = substituted_file(test_file_str, datapoint[proof_col], datapoint["statement"])
+            try:
+                test_file_str = substituted_file(test_file_str, str(datapoint[proof_col]), datapoint["statement"])
+            except re.error:
+                outcome = "failure"
+                verification_outcomes[outcome].append(idx)
+                print(f"Attempt {outcome}. (Regular Expression Failure)\n", flush=True)
+                continue
 
             # write the file with the model repaired proof to the file
             with open(copy_leanfile_path, 'w') as leanfile:

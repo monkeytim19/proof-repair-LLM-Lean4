@@ -13,4 +13,4 @@ export PATH=$(echo $PATH | tr ':' '\n' | grep -v "/homes/tcwong/.elan/bin" | tr 
 export PATH="$PATH:/vol/bitbucket/tcwong/individual_project/leandojo-reprover/.elan/bin"
 
 # run the python script to generate the data
-python /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/verifier/verify.py -d $datapath -i $indexpath -s -n ${job_num}.json -r $job_num -v -c proof
+python /vol/bitbucket/tcwong/individual_project/proof-repair-LLM-Lean4/pipeline/verifier/verify.py -d $datapath -i $indexpath -s -n ${job_num}.json -r $job_num -v
