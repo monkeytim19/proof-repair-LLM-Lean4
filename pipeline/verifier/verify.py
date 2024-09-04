@@ -146,7 +146,7 @@ if __name__ == "__main__":
     repo_copy_name = f"verify_{os.path.basename(data_path)[:-4]}_{args.run_num}" if args.run_num is not None else f"verify_{os.path.basename(data_path)[:-4]}"
     verify_counts = verify_proof(proofs_df, args.verify_proof_column, args.verbose, repo_copy_name)
     success_counts, failure_counts = len(verify_counts["success"]), len(verify_counts["failure"])
-    print(f"Among {len(proofs_df)} proof attempts, there were {success_counts} sucessful and {failure_counts} failed attempts at proving their respect theorems.", flush=True)
+    print(f"Among {len(proofs_df)} proof attempts, there were {success_counts} successful and {failure_counts} failed attempts at proving their respect theorems.", flush=True)
     print(f"The rate of successful proof = {success_counts/(success_counts+failure_counts)}.", flush=True)
 
     # save the results
