@@ -7,6 +7,8 @@
 
 1. [Prerequsites](#prerequsites)
 2. [Pipeline Usage](#pipeline)
+3. [LLM Fine-tuning & Inference](#model)
+4. [Experiment Results](#results)
 
 
 ## Prerequsites
@@ -23,12 +25,12 @@ To access and run any scripts provided in this repository, please follow the fol
     cd proof-repair-LLM-Lean4
     ```
 
-3a. Install dependencies for using the pipeline (it is recommended to do it within a virtual envrionment):
+3. If using the pipeline, install dependencies:
     ```bash
     pip install -r pipeline_requirements.txt
     ```
 
-3b. Install dependencies for running experiments with LLMs
+4. If running experiments with LLMs and models, install dependencies:
     ```bash
     pip install -r model_requirements.txt
     ```
@@ -46,7 +48,7 @@ Before any part of the pipeline can be used, it is necessary to fill in all the 
 
 The ```tracer``` can retrieve information on theorems from all ```.lean``` files in the directory that is provided to it. To run it:
 ```bash
-python -m pipeline.tracer.trace -d RELATIVE/PATH/FROM/TARGE/REPO/ROOT/TO/DIR
+python -m pipeline.tracer.trace -d RELATIVE/PATH/FROM/TARGET/REPO/ROOT/TO/DIR
 ```
 
 ### Scraper
@@ -80,3 +82,47 @@ python -m pipeline.data_collection.split -d BAR.csv -v NUM_VALIDATION -t NUM_TES
 
 ### Verifier
 
+The ```verifier``` can verify the validity of theorem proofs by replacing the proof attempt to the original ```.lean``` files and asking Lean's kernel to check it. 
+Note that the attempted proof must be part of a ```.csv``` file with additional columns ```proof```, ```thm_name```, ```filepath```, ```statement```, ```commit```.
+
+To run it:
+```bash
+python -m pipeline.verifier.verify -d RELATIVE/PATH/TO/CSV/FILE -c COLUMN_NAME_TO_VERIFY
+```
+If the -c flag is not specified, then the ```verifier``` will by default verify the column with the heading ```predicted_proof```.
+
+## LLM Fine-tuning and Inference
+
+All the models that have been trained are located in a subdirectory with their model names within the ```model_training``` directory.
+
+To perform any fine-tuning or inference with LLMs, first navigate to the ```finetuning_inference``` directory via:
+```bash
+cd finetuning_inference
+```
+
+Then open the file ```run_commands.txt```. From this file, you can copy the appropriate command and run it in bash. For instance, if you want to perform fine-tuning on the ReProver model using the training data and evaluating it using the validation data from the by_file split, you can run:
+```bash
+model_training/train.sh -m reprover -n -t train-valid -v test -d random
+```
+
+In general, for fine-tuning you can run:
+```bash
+model_training/train.sh -m MODEL_NAME -k WANDB_API_KEY -n -t TRAIN_SPLIT -v EVAL_SPLIT -d DATA_SPLIT
+```
+Note, for this to run, there should exsit ```proof_repair_data/DATA_SPLIT/TRAIN_SPLIT.csv``` and ```proof_repair_data/DATA_SPLIT/EVAL_SPLIT.csv```. Also, this requires that the directory ```model_training/MODEL_NAME``` exists with the ```main.py``` file, which should contain the ```finetune``` and ```inference``` functions. 
+
+For performing inference on a model, you can run
+```bash
+model_training/inference.sh -m MODEL_NAME -i TEST_SPLIT -d DATA_SPLIT -c RELATIVE/PATH/TO/MODEL_CKPT_DIR/FROM/MODEL_NAME
+```
+Again, this will require that ```proof_repair_data/DATA_SPLIT/TEST_SPLIT.csv``` exists. Also, it will require that ```RELATIVE/PATH/TO/MODEL_CKPT_DIR/FROM/MODEL_NAME``` refers to to a model checkpoint that is used to run the inference. 
+
+If you want to run inference on a pre-trained base model, then replace the ```RELATIVE/PATH/TO/MODEL_CKPT_DIR/FROM/MODEL_NAME``` directly with the path from HuggingFace. For instance, to perform inference on the base ReProver generator model, you can run:
+
+```bash
+model_training/inference.sh -m reprover -i test -d by_file -c kaiyuy/leandojo-lean4-tacgen-byt5-small -n
+```
+
+## Experiment Results
+
+All experiment results are within the directory ```./experiments```, can each subdirectory contains the test predictions from inference and also the indices of the datapoints in mathlib4-repair that either were successfully or unsucessfully repaired by the model. 
