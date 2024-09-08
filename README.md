@@ -20,16 +20,18 @@ To access and run any scripts provided in this repository, please follow the fol
 
 2. Navigate into the project directory:
     ```bash
-    cd repository-name
+    cd proof-repair-LLM-Lean4
     ```
 
-3. Install dependencies (it is recommended to do it within a virtual envrionment):
+3a. Install dependencies for using the pipeline (it is recommended to do it within a virtual envrionment):
     ```bash
-    pip install -r requirements.txt
+    pip install -r pipeline_requirements.txt
     ```
 
-4. Additional setup steps (if any):
-    TODO
+3b. Install dependencies for running experiments with LLMs
+    ```bash
+    pip install -r model_requirements.txt
+    ```
 
 
 ## Pipeline
