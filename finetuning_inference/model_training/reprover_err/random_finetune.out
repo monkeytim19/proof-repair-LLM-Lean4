@@ -1,0 +1,1522 @@
+nohup: ignoring input
+Finetuning starting.
+trainable params: 50,260,224 || all params: 349,897,984 || trainable%: 14.3643
+[2024-09-08 18:00:28,859] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/workspace/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/workspace/venv/lib/python3.10/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+wandb: Currently logged in as: tcwong. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.17.9 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.7
+wandb: Run data is saved locally in /workspace/wandb/run-20240908_180041-uzhgxcyi
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run reprover_err-random-09-08-18-00
+wandb: ⭐️ View project at https://wandb.ai/tcwong/seq2seq
+wandb: 🚀 View run at https://wandb.ai/tcwong/seq2seq/runs/uzhgxcyi
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+  0%|          | 0/488 [00:00<?, ?it/s]/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+W0908 18:02:26.834000 127639396288064 torch/fx/experimental/symbolic_shapes.py:4449] [6/0_1] r0 is not in var_ranges, defaulting to unknown range.
+W0908 18:02:33.602000 127639396288064 torch/fx/experimental/symbolic_shapes.py:4449] [6/0_1] q0 is not in var_ranges, defaulting to unknown range.
+W0908 18:02:33.626000 127639396288064 torch/fx/experimental/symbolic_shapes.py:4449] [6/0_1] z0 is not in var_ranges, defaulting to unknown range.
+W0908 18:02:40.617000 127639396288064 torch/fx/experimental/symbolic_shapes.py:4449] [6/0_1] x1 is not in var_ranges, defaulting to unknown range.
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+  0%|          | 1/488 [02:49<22:51:45, 169.01s/it]  0%|          | 2/488 [03:16<11:34:37, 85.76s/it]   1%|          | 3/488 [03:44<7:58:49, 59.24s/it]   1%|          | 4/488 [04:11<6:17:28, 46.80s/it]  1%|          | 5/488 [04:39<5:21:33, 39.95s/it]                                                   1%|          | 5/488 [04:39<5:21:33, 39.95s/it]  1%|          | 6/488 [05:07<4:47:46, 35.82s/it]  1%|▏         | 7/488 [05:35<4:26:28, 33.24s/it]  2%|▏         | 8/488 [06:03<4:12:09, 31.52s/it]  2%|▏         | 9/488 [06:31<4:02:30, 30.38s/it]  2%|▏         | 10/488 [06:58<3:55:46, 29.59s/it]                                                    2%|▏         | 10/488 [06:58<3:55:46, 29.59s/it]  2%|▏         | 11/488 [07:26<3:51:05, 29.07s/it]  2%|▏         | 12/488 [07:54<3:47:39, 28.70s/it]  3%|▎         | 13/488 [08:22<3:45:10, 28.44s/it]  3%|▎         | 14/488 [08:50<3:43:20, 28.27s/it]  3%|▎         | 15/488 [09:18<3:41:58, 28.16s/it]                                                    3%|▎         | 15/488 [09:18<3:41:58, 28.16s/it]  3%|▎         | 16/488 [09:46<3:40:57, 28.09s/it]  3%|▎         | 17/488 [10:14<3:40:00, 28.03s/it]  4%|▎         | 18/488 [10:42<3:39:12, 27.98s/it]  4%|▍         | 19/488 [11:09<3:38:33, 27.96s/it]  4%|▍         | 20/488 [11:37<3:37:48, 27.92s/it]                                                    4%|▍         | 20/488 [11:37<3:37:48, 27.92s/it]  4%|▍         | 21/488 [12:05<3:37:14, 27.91s/it]  5%|▍         | 22/488 [12:33<3:36:40, 27.90s/it]  5%|▍         | 23/488 [13:01<3:36:05, 27.88s/it]  5%|▍         | 24/488 [13:29<3:35:39, 27.89s/it]  5%|▌         | 25/488 [13:57<3:35:14, 27.89s/it]                                                    5%|▌         | 25/488 [13:57<3:35:14, 27.89s/it]{'loss': 12.5644, 'grad_norm': 23.601030349731445, 'learning_rate': 5.102040816326531e-05, 'epoch': 0.08}
+{'loss': 7.6824, 'grad_norm': 10.2500638961792, 'learning_rate': 0.00010204081632653062, 'epoch': 0.16}
+{'loss': 4.0204, 'grad_norm': 0.5588569641113281, 'learning_rate': 0.00015306122448979594, 'epoch': 0.24}
+{'loss': 3.6085, 'grad_norm': 0.23660239577293396, 'learning_rate': 0.00020408163265306123, 'epoch': 0.32}
+{'loss': 3.5044, 'grad_norm': 0.249436616897583, 'learning_rate': 0.00025510204081632655, 'epoch': 0.41}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:38,  1.58it/s][A
+  5%|▍         | 3/63 [00:02<01:01,  1.03s/it][A
+  6%|▋         | 4/63 [00:04<01:12,  1.23s/it][A
+  8%|▊         | 5/63 [00:05<01:18,  1.35s/it][A
+ 10%|▉         | 6/63 [00:07<01:21,  1.43s/it][A
+ 11%|█         | 7/63 [00:09<01:22,  1.48s/it][A
+ 13%|█▎        | 8/63 [00:10<01:22,  1.51s/it][A
+ 14%|█▍        | 9/63 [00:12<01:22,  1.53s/it][A
+ 16%|█▌        | 10/63 [00:13<01:21,  1.54s/it][A
+ 17%|█▋        | 11/63 [00:15<01:20,  1.55s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:21<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:24<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.57s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:32<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:35<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:40<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:43<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:51<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:54<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:02<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:05<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:13<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:16<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:21<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:24<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:32<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:35<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:36<00:00,  1.38s/it][A                                                  
+                                               [A  5%|▌         | 25/488 [15:35<3:35:14, 27.89s/it]
+100%|██████████| 63/63 [01:36<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-25)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+  5%|▌         | 26/488 [16:06<7:28:31, 58.25s/it]  6%|▌         | 27/488 [16:34<6:17:31, 49.13s/it]  6%|▌         | 28/488 [17:01<5:27:50, 42.76s/it]  6%|▌         | 29/488 [17:29<4:53:02, 38.31s/it]  6%|▌         | 30/488 [17:57<4:28:28, 35.17s/it]                                                    6%|▌         | 30/488 [17:57<4:28:28, 35.17s/it]  6%|▋         | 31/488 [18:25<4:11:19, 33.00s/it]  7%|▋         | 32/488 [18:53<3:59:05, 31.46s/it]  7%|▋         | 33/488 [19:21<3:50:27, 30.39s/it]  7%|▋         | 34/488 [19:49<3:44:16, 29.64s/it]  7%|▋         | 35/488 [20:17<3:39:47, 29.11s/it]                                                    7%|▋         | 35/488 [20:17<3:39:47, 29.11s/it]  7%|▋         | 36/488 [20:45<3:36:28, 28.74s/it]  8%|▊         | 37/488 [21:12<3:34:01, 28.47s/it]  8%|▊         | 38/488 [21:40<3:32:12, 28.30s/it]  8%|▊         | 39/488 [22:08<3:30:52, 28.18s/it]  8%|▊         | 40/488 [22:36<3:29:45, 28.09s/it]                                                    8%|▊         | 40/488 [22:36<3:29:45, 28.09s/it]  8%|▊         | 41/488 [23:04<3:28:52, 28.04s/it]  9%|▊         | 42/488 [23:32<3:27:58, 27.98s/it]  9%|▉         | 43/488 [24:00<3:27:18, 27.95s/it]  9%|▉         | 44/488 [24:28<3:26:35, 27.92s/it]  9%|▉         | 45/488 [24:56<3:26:09, 27.92s/it]                                                    9%|▉         | 45/488 [24:56<3:26:09, 27.92s/it]  9%|▉         | 46/488 [25:23<3:25:37, 27.91s/it] 10%|▉         | 47/488 [25:51<3:25:07, 27.91s/it] 10%|▉         | 48/488 [26:19<3:24:32, 27.89s/it] 10%|█         | 49/488 [26:47<3:24:01, 27.88s/it] 10%|█         | 50/488 [27:15<3:23:36, 27.89s/it]                                                   10%|█         | 50/488 [27:15<3:23:36, 27.89s/it]{'eval_loss': 3.385061025619507, 'eval_runtime': 98.6159, 'eval_samples_per_second': 10.14, 'eval_steps_per_second': 0.639, 'epoch': 0.41}
+{'loss': 3.4346, 'grad_norm': 1.356109857559204, 'learning_rate': 0.0003061224489795919, 'epoch': 0.49}
+{'loss': 2.5708, 'grad_norm': 1.5906275510787964, 'learning_rate': 0.00035714285714285714, 'epoch': 0.57}
+{'loss': 1.9541, 'grad_norm': 0.7469751834869385, 'learning_rate': 0.00040816326530612246, 'epoch': 0.65}
+{'loss': 1.7316, 'grad_norm': 0.46847933530807495, 'learning_rate': 0.0004591836734693878, 'epoch': 0.73}
+{'loss': 1.6138, 'grad_norm': 0.7208541035652161, 'learning_rate': 0.0004999935985425297, 'epoch': 0.81}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:07,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:23,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:21,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.57s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.57s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:41<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                  
+                                               [A 10%|█         | 50/488 [28:54<3:23:36, 27.89s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-50)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 10%|█         | 51/488 [29:24<7:03:52, 58.20s/it] 11%|█         | 52/488 [29:52<5:56:50, 49.11s/it] 11%|█         | 53/488 [30:20<5:09:53, 42.74s/it] 11%|█         | 54/488 [30:48<4:36:54, 38.28s/it] 11%|█▏        | 55/488 [31:15<4:13:44, 35.16s/it]                                                   11%|█▏        | 55/488 [31:15<4:13:44, 35.16s/it] 11%|█▏        | 56/488 [31:43<3:57:28, 32.98s/it] 12%|█▏        | 57/488 [32:11<3:45:59, 31.46s/it] 12%|█▏        | 58/488 [32:39<3:37:42, 30.38s/it] 12%|█▏        | 59/488 [33:07<3:31:51, 29.63s/it] 12%|█▏        | 60/488 [33:35<3:27:37, 29.11s/it]                                                   12%|█▏        | 60/488 [33:35<3:27:37, 29.11s/it] 12%|█▎        | 61/488 [34:03<3:24:34, 28.75s/it]W0908 18:36:32.510000 127646666449344 torch/fx/experimental/symbolic_shapes.py:4449] [6/1_1] r0 is not in var_ranges, defaulting to unknown range.
+W0908 18:36:40.314000 127646666449344 torch/fx/experimental/symbolic_shapes.py:4449] [6/1_1] q0 is not in var_ranges, defaulting to unknown range.
+W0908 18:36:40.335000 127646666449344 torch/fx/experimental/symbolic_shapes.py:4449] [6/1_1] z0 is not in var_ranges, defaulting to unknown range.
+W0908 18:36:47.388000 127646666449344 torch/fx/experimental/symbolic_shapes.py:4449] [6/1_1] x1 is not in var_ranges, defaulting to unknown range.
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+ 13%|█▎        | 62/488 [37:09<8:58:38, 75.86s/it] 13%|█▎        | 63/488 [37:36<7:15:07, 61.43s/it] 13%|█▎        | 64/488 [38:04<6:03:06, 51.38s/it] 13%|█▎        | 65/488 [38:32<5:12:58, 44.39s/it]                                                   13%|█▎        | 65/488 [38:32<5:12:58, 44.39s/it] 14%|█▎        | 66/488 [39:00<4:37:59, 39.53s/it] 14%|█▎        | 67/488 [39:29<4:13:26, 36.12s/it] 14%|█▍        | 68/488 [39:57<3:56:04, 33.72s/it] 14%|█▍        | 69/488 [40:25<3:43:53, 32.06s/it] 14%|█▍        | 70/488 [40:53<3:35:14, 30.90s/it]                                                   14%|█▍        | 70/488 [40:53<3:35:14, 30.90s/it] 15%|█▍        | 71/488 [41:21<3:29:02, 30.08s/it] 15%|█▍        | 72/488 [41:49<3:24:35, 29.51s/it] 15%|█▍        | 73/488 [42:18<3:21:19, 29.11s/it] 15%|█▌        | 74/488 [42:46<3:18:52, 28.82s/it] 15%|█▌        | 75/488 [43:14<3:17:02, 28.63s/it]                                                   15%|█▌        | 75/488 [43:14<3:17:02, 28.63s/it]{'eval_loss': 1.387947678565979, 'eval_runtime': 98.6024, 'eval_samples_per_second': 10.142, 'eval_steps_per_second': 0.639, 'epoch': 0.81}
+{'loss': 1.5905, 'grad_norm': 0.31425440311431885, 'learning_rate': 0.0004997695819512612, 'epoch': 0.89}
+{'loss': 1.5013, 'grad_norm': 0.4940365254878998, 'learning_rate': 0.0004992258202402822, 'epoch': 0.97}
+{'loss': 1.4282, 'grad_norm': 0.3743211328983307, 'learning_rate': 0.0004983630095117843, 'epoch': 1.05}
+{'loss': 1.386, 'grad_norm': 0.46512871980667114, 'learning_rate': 0.0004971822543018662, 'epoch': 1.14}
+{'loss': 1.4375, 'grad_norm': 0.2764676511287689, 'learning_rate': 0.0004956850661665511, 'epoch': 1.22}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:07,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:23,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:21,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.58s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:41<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                  
+                                               [A 15%|█▌        | 75/488 [44:53<3:17:02, 28.63s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-75)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 16%|█▌        | 76/488 [45:23<6:44:22, 58.89s/it] 16%|█▌        | 77/488 [45:52<5:40:13, 49.67s/it] 16%|█▌        | 78/488 [46:20<4:55:18, 43.22s/it] 16%|█▌        | 79/488 [46:48<4:23:47, 38.70s/it] 16%|█▋        | 80/488 [47:16<4:01:43, 35.55s/it]                                                   16%|█▋        | 80/488 [47:16<4:01:43, 35.55s/it] 17%|█▋        | 81/488 [47:46<3:50:09, 33.93s/it] 17%|█▋        | 82/488 [48:15<3:37:59, 32.21s/it] 17%|█▋        | 83/488 [48:43<3:29:17, 31.01s/it] 17%|█▋        | 84/488 [49:11<3:23:07, 30.17s/it] 17%|█▋        | 85/488 [49:39<3:18:35, 29.57s/it]                                                   17%|█▋        | 85/488 [49:39<3:18:35, 29.57s/it] 18%|█▊        | 86/488 [50:07<3:15:24, 29.16s/it] 18%|█▊        | 87/488 [50:35<3:12:53, 28.86s/it] 18%|█▊        | 88/488 [51:04<3:11:04, 28.66s/it] 18%|█▊        | 89/488 [51:32<3:09:38, 28.52s/it] 18%|█▊        | 90/488 [52:00<3:08:32, 28.42s/it]                                                   18%|█▊        | 90/488 [52:00<3:08:32, 28.42s/it] 19%|█▊        | 91/488 [52:28<3:07:34, 28.35s/it] 19%|█▉        | 92/488 [52:56<3:06:45, 28.30s/it] 19%|█▉        | 93/488 [53:25<3:06:02, 28.26s/it] 19%|█▉        | 94/488 [53:53<3:05:22, 28.23s/it] 19%|█▉        | 95/488 [54:21<3:04:46, 28.21s/it]                                                   19%|█▉        | 95/488 [54:21<3:04:46, 28.21s/it] 20%|█▉        | 96/488 [54:49<3:04:17, 28.21s/it] 20%|█▉        | 97/488 [55:17<3:03:50, 28.21s/it] 20%|██        | 98/488 [55:45<3:03:17, 28.20s/it] 20%|██        | 99/488 [56:14<3:02:45, 28.19s/it] 20%|██        | 100/488 [56:42<3:02:20, 28.20s/it]                                                    20%|██        | 100/488 [56:42<3:02:20, 28.20s/it]{'eval_loss': 1.2822275161743164, 'eval_runtime': 98.6288, 'eval_samples_per_second': 10.139, 'eval_steps_per_second': 0.639, 'epoch': 1.22}
+{'loss': 1.4209, 'grad_norm': 0.2621470093727112, 'learning_rate': 0.0004938733617467517, 'epoch': 1.3}
+{'loss': 1.3766, 'grad_norm': 0.14090226590633392, 'learning_rate': 0.0004917494603146632, 'epoch': 1.38}
+{'loss': 1.3755, 'grad_norm': 0.11969256401062012, 'learning_rate': 0.0004893160808047222, 'epoch': 1.46}
+{'loss': 1.4168, 'grad_norm': 0.18346261978149414, 'learning_rate': 0.00048657633833293557, 'epoch': 1.54}
+{'loss': 1.3587, 'grad_norm': 0.3624500036239624, 'learning_rate': 0.0004835337402090316, 'epoch': 1.62}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:07,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:23,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:21,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:17,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:14,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.58s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:41<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:11<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                   
+                                               [A 20%|██        | 100/488 [58:21<3:02:20, 28.20s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-100)... Done. 1.4s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 21%|██        | 101/488 [58:52<6:19:31, 58.84s/it] 21%|██        | 102/488 [59:20<5:19:19, 49.64s/it] 21%|██        | 103/488 [59:49<4:37:12, 43.20s/it] 21%|██▏       | 104/488 [1:00:17<4:07:40, 38.70s/it] 22%|██▏       | 105/488 [1:00:45<3:46:51, 35.54s/it]                                                      22%|██▏       | 105/488 [1:00:45<3:46:51, 35.54s/it] 22%|██▏       | 106/488 [1:01:13<3:32:09, 33.32s/it] 22%|██▏       | 107/488 [1:01:41<3:21:48, 31.78s/it] 22%|██▏       | 108/488 [1:02:09<3:14:27, 30.70s/it] 22%|██▏       | 109/488 [1:02:38<3:09:13, 29.96s/it] 23%|██▎       | 110/488 [1:03:06<3:05:19, 29.42s/it]                                                      23%|██▎       | 110/488 [1:03:06<3:05:19, 29.42s/it] 23%|██▎       | 111/488 [1:03:34<3:02:34, 29.06s/it] 23%|██▎       | 112/488 [1:04:02<3:00:24, 28.79s/it] 23%|██▎       | 113/488 [1:04:30<2:58:51, 28.62s/it] 23%|██▎       | 114/488 [1:04:59<2:57:34, 28.49s/it] 24%|██▎       | 115/488 [1:05:27<2:56:35, 28.41s/it]                                                      24%|██▎       | 115/488 [1:05:27<2:56:35, 28.41s/it] 24%|██▍       | 116/488 [1:05:55<2:55:44, 28.35s/it] 24%|██▍       | 117/488 [1:06:23<2:55:02, 28.31s/it] 24%|██▍       | 118/488 [1:06:51<2:54:19, 28.27s/it] 24%|██▍       | 119/488 [1:07:20<2:53:43, 28.25s/it] 25%|██▍       | 120/488 [1:07:48<2:53:06, 28.22s/it]                                                      25%|██▍       | 120/488 [1:07:48<2:53:06, 28.22s/it] 25%|██▍       | 121/488 [1:08:16<2:52:30, 28.20s/it] 25%|██▌       | 122/488 [1:08:44<2:52:02, 28.20s/it] 25%|██▌       | 123/488 [1:09:12<2:51:30, 28.19s/it] 25%|██▌       | 124/488 [1:09:38<2:46:20, 27.42s/it] 26%|██▌       | 125/488 [1:10:06<2:47:17, 27.65s/it]                                                      26%|██▌       | 125/488 [1:10:06<2:47:17, 27.65s/it]{'eval_loss': 1.2857593297958374, 'eval_runtime': 98.6659, 'eval_samples_per_second': 10.135, 'eval_steps_per_second': 0.639, 'epoch': 1.62}
+{'loss': 1.3857, 'grad_norm': 0.5834723114967346, 'learning_rate': 0.0004801921814465414, 'epoch': 1.7}
+{'loss': 1.3745, 'grad_norm': 0.37480711936950684, 'learning_rate': 0.00047655593977655674, 'epoch': 1.78}
+{'loss': 1.3517, 'grad_norm': 0.31830307841300964, 'learning_rate': 0.0004726296701715489, 'epoch': 1.87}
+{'loss': 1.3346, 'grad_norm': 0.14451760053634644, 'learning_rate': 0.00046841839888625623, 'epoch': 1.95}
+{'loss': 1.3735, 'grad_norm': 0.22967207431793213, 'learning_rate': 0.0004639275170232734, 'epoch': 2.03}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:07,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:23,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:21,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:17,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:14,  1.58s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.58s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:41<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:30,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:11<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                     
+                                               [A 26%|██▌       | 125/488 [1:11:45<2:47:17, 27.65s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-125)... Done. 0.5s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 26%|██▌       | 126/488 [1:12:16<5:51:06, 58.20s/it] 26%|██▌       | 127/488 [1:12:44<4:56:02, 49.20s/it] 26%|██▌       | 128/488 [1:13:12<4:17:22, 42.90s/it] 26%|██▋       | 129/488 [1:13:40<3:50:15, 38.48s/it] 27%|██▋       | 130/488 [1:14:08<3:31:12, 35.40s/it]                                                      27%|██▋       | 130/488 [1:14:08<3:31:12, 35.40s/it] 27%|██▋       | 131/488 [1:14:37<3:17:48, 33.24s/it] 27%|██▋       | 132/488 [1:15:05<3:08:14, 31.73s/it] 27%|██▋       | 133/488 [1:15:33<3:01:23, 30.66s/it] 27%|██▋       | 134/488 [1:16:01<2:56:33, 29.92s/it] 28%|██▊       | 135/488 [1:16:29<2:52:58, 29.40s/it]                                                      28%|██▊       | 135/488 [1:16:29<2:52:58, 29.40s/it] 28%|██▊       | 136/488 [1:16:58<2:50:23, 29.04s/it] 28%|██▊       | 137/488 [1:17:26<2:48:29, 28.80s/it] 28%|██▊       | 138/488 [1:17:54<2:46:53, 28.61s/it] 28%|██▊       | 139/488 [1:18:22<2:45:40, 28.48s/it] 29%|██▊       | 140/488 [1:18:50<2:44:39, 28.39s/it]                                                      29%|██▊       | 140/488 [1:18:50<2:44:39, 28.39s/it] 29%|██▉       | 141/488 [1:19:18<2:43:48, 28.33s/it] 29%|██▉       | 142/488 [1:19:47<2:43:05, 28.28s/it] 29%|██▉       | 143/488 [1:20:15<2:42:27, 28.25s/it] 30%|██▉       | 144/488 [1:20:43<2:41:49, 28.23s/it] 30%|██▉       | 145/488 [1:21:11<2:41:17, 28.21s/it]                                                      30%|██▉       | 145/488 [1:21:11<2:41:17, 28.21s/it] 30%|██▉       | 146/488 [1:21:39<2:40:47, 28.21s/it] 30%|███       | 147/488 [1:22:08<2:40:19, 28.21s/it] 30%|███       | 148/488 [1:22:36<2:39:48, 28.20s/it] 31%|███       | 149/488 [1:23:04<2:39:17, 28.19s/it] 31%|███       | 150/488 [1:23:32<2:38:45, 28.18s/it]                                                      31%|███       | 150/488 [1:23:32<2:38:45, 28.18s/it]{'eval_loss': 1.2710317373275757, 'eval_runtime': 98.685, 'eval_samples_per_second': 10.133, 'eval_steps_per_second': 0.638, 'epoch': 2.03}
+{'loss': 1.3417, 'grad_norm': 0.16856279969215393, 'learning_rate': 0.0004591627736315743, 'epoch': 2.11}
+{'loss': 1.3135, 'grad_norm': 0.2670596241950989, 'learning_rate': 0.0004541302683468084, 'epoch': 2.19}
+{'loss': 1.3399, 'grad_norm': 0.8827645778656006, 'learning_rate': 0.0004488364435827881, 'epoch': 2.27}
+{'loss': 1.3888, 'grad_norm': 0.3872511088848114, 'learning_rate': 0.00044328807628416644, 'epoch': 2.35}
+{'loss': 1.3678, 'grad_norm': 0.5543010234832764, 'learning_rate': 0.0004374922692508611, 'epoch': 2.43}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:07,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:23,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:21,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:17,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:14,  1.58s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.58s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:41<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:30,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:11<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                     
+                                               [A 31%|███       | 150/488 [1:25:11<2:38:45, 28.18s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-150)... Done. 0.5s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 31%|███       | 151/488 [1:25:42<5:29:08, 58.60s/it] 31%|███       | 152/488 [1:26:10<4:37:06, 49.48s/it] 31%|███▏      | 153/488 [1:26:38<4:00:39, 43.10s/it] 32%|███▏      | 154/488 [1:27:06<3:35:03, 38.63s/it] 32%|███▏      | 155/488 [1:27:35<3:17:00, 35.50s/it]                                                      32%|███▏      | 155/488 [1:27:35<3:17:00, 35.50s/it] 32%|███▏      | 156/488 [1:28:03<3:04:18, 33.31s/it] 32%|███▏      | 157/488 [1:28:31<2:55:17, 31.78s/it] 32%|███▏      | 158/488 [1:28:59<2:48:51, 30.70s/it] 33%|███▎      | 159/488 [1:29:27<2:44:23, 29.98s/it] 33%|███▎      | 160/488 [1:29:56<2:41:00, 29.45s/it]                                                      33%|███▎      | 160/488 [1:29:56<2:41:00, 29.45s/it] 33%|███▎      | 161/488 [1:30:24<2:38:24, 29.07s/it] 33%|███▎      | 162/488 [1:30:52<2:36:31, 28.81s/it] 33%|███▎      | 163/488 [1:31:20<2:34:59, 28.61s/it] 34%|███▎      | 164/488 [1:31:48<2:33:51, 28.49s/it] 34%|███▍      | 165/488 [1:32:17<2:32:49, 28.39s/it]                                                      34%|███▍      | 165/488 [1:32:17<2:32:49, 28.39s/it] 34%|███▍      | 166/488 [1:32:45<2:32:02, 28.33s/it] 34%|███▍      | 167/488 [1:33:13<2:31:18, 28.28s/it] 34%|███▍      | 168/488 [1:33:41<2:30:40, 28.25s/it] 35%|███▍      | 169/488 [1:34:09<2:30:06, 28.23s/it] 35%|███▍      | 170/488 [1:34:37<2:29:36, 28.23s/it]                                                      35%|███▍      | 170/488 [1:34:37<2:29:36, 28.23s/it] 35%|███▌      | 171/488 [1:35:06<2:29:01, 28.21s/it] 35%|███▌      | 172/488 [1:35:34<2:28:31, 28.20s/it] 35%|███▌      | 173/488 [1:36:02<2:28:03, 28.20s/it] 36%|███▌      | 174/488 [1:36:30<2:27:31, 28.19s/it] 36%|███▌      | 175/488 [1:36:58<2:27:01, 28.19s/it]                                                      36%|███▌      | 175/488 [1:36:58<2:27:01, 28.19s/it]{'eval_loss': 1.283129096031189, 'eval_runtime': 98.6825, 'eval_samples_per_second': 10.134, 'eval_steps_per_second': 0.638, 'epoch': 2.43}
+{'loss': 1.3614, 'grad_norm': 0.3389835059642792, 'learning_rate': 0.0004314564420453311, 'epoch': 2.52}
+{'loss': 1.342, 'grad_norm': 0.38079357147216797, 'learning_rate': 0.0004251883214943475, 'epoch': 2.6}
+{'loss': 1.3378, 'grad_norm': 0.23523402214050293, 'learning_rate': 0.0004186959317974155, 'epoch': 2.68}
+{'loss': 1.3272, 'grad_norm': 0.18377311527729034, 'learning_rate': 0.00041198758425451266, 'epoch': 2.76}
+{'loss': 1.3431, 'grad_norm': 0.4048319458961487, 'learning_rate': 0.00040507186662629185, 'epoch': 2.84}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:07,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:23,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:21,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.57s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:17,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:14,  1.58s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.58s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:30<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<01:00,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:41<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [01:00<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:30,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:11<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:30<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.39s/it][A                                                     
+                                               [A 36%|███▌      | 175/488 [1:38:37<2:27:01, 28.19s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.39s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-175)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 36%|███▌      | 176/488 [1:39:08<5:05:30, 58.75s/it] 36%|███▋      | 177/488 [1:39:37<4:17:01, 49.59s/it] 36%|███▋      | 178/488 [1:40:05<3:43:01, 43.17s/it] 37%|███▋      | 179/488 [1:40:33<3:19:09, 38.67s/it] 37%|███▋      | 180/488 [1:41:01<3:02:18, 35.52s/it]                                                      37%|███▋      | 180/488 [1:41:01<3:02:18, 35.52s/it] 37%|███▋      | 181/488 [1:41:29<2:50:25, 33.31s/it] 37%|███▋      | 182/488 [1:41:57<2:42:00, 31.77s/it] 38%|███▊      | 183/488 [1:42:26<2:36:01, 30.69s/it] 38%|███▊      | 184/488 [1:42:54<2:31:55, 29.98s/it] 38%|███▊      | 185/488 [1:43:20<2:24:47, 28.67s/it]                                                      38%|███▊      | 185/488 [1:43:20<2:24:47, 28.67s/it] 38%|███▊      | 186/488 [1:43:48<2:23:29, 28.51s/it] 38%|███▊      | 187/488 [1:44:16<2:22:33, 28.42s/it] 39%|███▊      | 188/488 [1:44:44<2:21:43, 28.34s/it] 39%|███▊      | 189/488 [1:45:12<2:20:58, 28.29s/it] 39%|███▉      | 190/488 [1:45:40<2:20:17, 28.25s/it]                                                      39%|███▉      | 190/488 [1:45:40<2:20:17, 28.25s/it] 39%|███▉      | 191/488 [1:46:09<2:19:45, 28.23s/it] 39%|███▉      | 192/488 [1:46:37<2:19:08, 28.21s/it] 40%|███▉      | 193/488 [1:47:05<2:18:34, 28.19s/it] 40%|███▉      | 194/488 [1:47:33<2:18:08, 28.19s/it] 40%|███▉      | 195/488 [1:48:01<2:17:38, 28.18s/it]                                                      40%|███▉      | 195/488 [1:48:01<2:17:38, 28.18s/it] 40%|████      | 196/488 [1:48:29<2:17:09, 28.18s/it] 40%|████      | 197/488 [1:48:58<2:16:42, 28.19s/it] 41%|████      | 198/488 [1:49:26<2:16:13, 28.19s/it] 41%|████      | 199/488 [1:49:54<2:15:43, 28.18s/it] 41%|████      | 200/488 [1:50:22<2:15:14, 28.18s/it]                                                      41%|████      | 200/488 [1:50:22<2:15:14, 28.18s/it]{'eval_loss': 1.252098798751831, 'eval_runtime': 98.7407, 'eval_samples_per_second': 10.128, 'eval_steps_per_second': 0.638, 'epoch': 2.84}
+{'loss': 1.3111, 'grad_norm': 1.1706334352493286, 'learning_rate': 0.0003979576321403705, 'epoch': 2.92}
+{'loss': 1.3515, 'grad_norm': 0.3772040903568268, 'learning_rate': 0.0003906539881577793, 'epoch': 3.0}
+{'loss': 1.3442, 'grad_norm': 0.4847799241542816, 'learning_rate': 0.0003831702845140801, 'epoch': 3.08}
+{'loss': 1.338, 'grad_norm': 0.35955315828323364, 'learning_rate': 0.00037551610155007613, 'epoch': 3.16}
+{'loss': 1.3001, 'grad_norm': 0.30124932527542114, 'learning_rate': 0.00036770123784744027, 'epoch': 3.25}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:06,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:15,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:22,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:20,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.57s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.57s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:40<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                     
+                                               [A 41%|████      | 200/488 [1:52:01<2:15:14, 28.18s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-200)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 41%|████      | 201/488 [1:52:32<4:40:04, 58.55s/it] 41%|████▏     | 202/488 [1:53:00<3:55:42, 49.45s/it] 42%|████▏     | 203/488 [1:53:28<3:24:35, 43.07s/it] 42%|████▏     | 204/488 [1:53:56<3:02:46, 38.62s/it] 42%|████▏     | 205/488 [1:54:24<2:47:23, 35.49s/it]                                                      42%|████▏     | 205/488 [1:54:24<2:47:23, 35.49s/it] 42%|████▏     | 206/488 [1:54:53<2:36:29, 33.30s/it] 42%|████▏     | 207/488 [1:55:21<2:28:45, 31.76s/it] 43%|████▎     | 208/488 [1:55:49<2:23:15, 30.70s/it] 43%|████▎     | 209/488 [1:56:17<2:19:15, 29.95s/it] 43%|████▎     | 210/488 [1:56:45<2:16:19, 29.42s/it]                                                      43%|████▎     | 210/488 [1:56:45<2:16:19, 29.42s/it] 43%|████▎     | 211/488 [1:57:14<2:14:07, 29.05s/it] 43%|████▎     | 212/488 [1:57:42<2:12:21, 28.77s/it] 44%|████▎     | 213/488 [1:58:10<2:11:01, 28.59s/it] 44%|████▍     | 214/488 [1:58:38<2:09:59, 28.46s/it] 44%|████▍     | 215/488 [1:59:06<2:09:05, 28.37s/it]                                                      44%|████▍     | 215/488 [1:59:06<2:09:05, 28.37s/it] 44%|████▍     | 216/488 [1:59:34<2:08:20, 28.31s/it] 44%|████▍     | 217/488 [2:00:03<2:07:46, 28.29s/it] 45%|████▍     | 218/488 [2:00:31<2:07:07, 28.25s/it] 45%|████▍     | 219/488 [2:00:59<2:06:33, 28.23s/it] 45%|████▌     | 220/488 [2:01:27<2:06:02, 28.22s/it]                                                      45%|████▌     | 220/488 [2:01:27<2:06:02, 28.22s/it] 45%|████▌     | 221/488 [2:01:55<2:05:33, 28.22s/it] 45%|████▌     | 222/488 [2:02:24<2:05:03, 28.21s/it] 46%|████▌     | 223/488 [2:02:52<2:04:31, 28.20s/it] 46%|████▌     | 224/488 [2:03:20<2:04:04, 28.20s/it] 46%|████▌     | 225/488 [2:03:48<2:03:34, 28.19s/it]                                                      46%|████▌     | 225/488 [2:03:48<2:03:34, 28.19s/it]{'eval_loss': 1.2483381032943726, 'eval_runtime': 98.609, 'eval_samples_per_second': 10.141, 'eval_steps_per_second': 0.639, 'epoch': 3.25}
+{'loss': 1.3099, 'grad_norm': 0.4706196188926697, 'learning_rate': 0.00035973569768495855, 'epoch': 3.33}
+{'loss': 1.2863, 'grad_norm': 0.4052978754043579, 'learning_rate': 0.0003516296782314491, 'epoch': 3.41}
+{'loss': 1.3306, 'grad_norm': 0.4775325655937195, 'learning_rate': 0.00034339355649175095, 'epoch': 3.49}
+{'loss': 1.2971, 'grad_norm': 0.2688348591327667, 'learning_rate': 0.00033503787602249364, 'epoch': 3.57}
+{'loss': 1.2761, 'grad_norm': 0.16574963927268982, 'learning_rate': 0.00032657333343465356, 'epoch': 3.65}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:07,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:23,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:21,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:41<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:30,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:11<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                     
+                                               [A 46%|████▌     | 225/488 [2:05:27<2:03:34, 28.19s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-225)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 46%|████▋     | 226/488 [2:05:58<4:15:47, 58.58s/it] 47%|████▋     | 227/488 [2:06:26<3:35:06, 49.45s/it] 47%|████▋     | 228/488 [2:06:54<3:06:41, 43.08s/it] 47%|████▋     | 229/488 [2:07:22<2:46:44, 38.63s/it] 47%|████▋     | 230/488 [2:07:50<2:32:37, 35.49s/it]                                                      47%|████▋     | 230/488 [2:07:50<2:32:37, 35.49s/it] 47%|████▋     | 231/488 [2:08:18<2:22:34, 33.28s/it] 48%|████▊     | 232/488 [2:08:47<2:15:25, 31.74s/it] 48%|████▊     | 233/488 [2:09:15<2:10:22, 30.68s/it] 48%|████▊     | 234/488 [2:09:43<2:06:47, 29.95s/it] 48%|████▊     | 235/488 [2:10:11<2:04:00, 29.41s/it]                                                      48%|████▊     | 235/488 [2:10:11<2:04:00, 29.41s/it] 48%|████▊     | 236/488 [2:10:39<2:01:57, 29.04s/it] 49%|████▊     | 237/488 [2:11:08<2:00:23, 28.78s/it] 49%|████▉     | 238/488 [2:11:36<1:59:09, 28.60s/it] 49%|████▉     | 239/488 [2:12:04<1:58:08, 28.47s/it] 49%|████▉     | 240/488 [2:12:32<1:57:18, 28.38s/it]                                                      49%|████▉     | 240/488 [2:12:32<1:57:18, 28.38s/it] 49%|████▉     | 241/488 [2:13:00<1:56:32, 28.31s/it] 50%|████▉     | 242/488 [2:13:28<1:55:53, 28.27s/it] 50%|████▉     | 243/488 [2:13:57<1:55:19, 28.24s/it] 50%|█████     | 244/488 [2:14:25<1:54:45, 28.22s/it] 50%|█████     | 245/488 [2:14:53<1:54:13, 28.20s/it]                                                      50%|█████     | 245/488 [2:14:53<1:54:13, 28.20s/it] 50%|█████     | 246/488 [2:15:21<1:53:44, 28.20s/it] 51%|█████     | 247/488 [2:15:47<1:50:08, 27.42s/it] 51%|█████     | 248/488 [2:16:15<1:50:36, 27.65s/it] 51%|█████     | 249/488 [2:16:43<1:50:46, 27.81s/it] 51%|█████     | 250/488 [2:17:11<1:50:44, 27.92s/it]                                                      51%|█████     | 250/488 [2:17:11<1:50:44, 27.92s/it]{'eval_loss': 1.2276986837387085, 'eval_runtime': 98.6417, 'eval_samples_per_second': 10.138, 'eval_steps_per_second': 0.639, 'epoch': 3.65}
+{'loss': 1.2611, 'grad_norm': 0.16287527978420258, 'learning_rate': 0.0003180107647001769, 'epoch': 3.73}
+{'loss': 1.2933, 'grad_norm': 0.12902116775512695, 'learning_rate': 0.0003093611312801979, 'epoch': 3.81}
+{'loss': 1.2926, 'grad_norm': 0.19913575053215027, 'learning_rate': 0.00030063550609261025, 'epoch': 3.89}
+{'loss': 1.3097, 'grad_norm': 0.39822715520858765, 'learning_rate': 0.000291845059336957, 'epoch': 3.98}
+{'loss': 1.2907, 'grad_norm': 0.5150278806686401, 'learning_rate': 0.0002830010441947834, 'epoch': 4.06}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:06,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:22,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:20,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:41<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:40,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                     
+                                               [A 51%|█████     | 250/488 [2:18:50<1:50:44, 27.92s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-250)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 51%|█████▏    | 251/488 [2:19:21<3:50:33, 58.37s/it] 52%|█████▏    | 252/488 [2:19:49<3:13:58, 49.32s/it] 52%|█████▏    | 253/488 [2:20:17<2:48:21, 42.99s/it] 52%|█████▏    | 254/488 [2:20:45<2:30:19, 38.55s/it] 52%|█████▏    | 255/488 [2:21:13<2:17:32, 35.42s/it]                                                      52%|█████▏    | 255/488 [2:21:13<2:17:32, 35.42s/it] 52%|█████▏    | 256/488 [2:21:42<2:08:33, 33.25s/it] 53%|█████▎    | 257/488 [2:22:10<2:02:08, 31.73s/it] 53%|█████▎    | 258/488 [2:22:38<1:57:32, 30.66s/it] 53%|█████▎    | 259/488 [2:23:06<1:54:10, 29.91s/it] 53%|█████▎    | 260/488 [2:23:34<1:51:40, 29.39s/it]                                                      53%|█████▎    | 260/488 [2:23:34<1:51:40, 29.39s/it] 53%|█████▎    | 261/488 [2:24:02<1:49:47, 29.02s/it] 54%|█████▎    | 262/488 [2:24:31<1:48:21, 28.77s/it] 54%|█████▍    | 263/488 [2:24:59<1:47:13, 28.60s/it] 54%|█████▍    | 264/488 [2:25:27<1:46:19, 28.48s/it] 54%|█████▍    | 265/488 [2:25:55<1:45:31, 28.39s/it]                                                      54%|█████▍    | 265/488 [2:25:55<1:45:31, 28.39s/it] 55%|█████▍    | 266/488 [2:26:23<1:44:48, 28.33s/it] 55%|█████▍    | 267/488 [2:26:52<1:44:10, 28.28s/it] 55%|█████▍    | 268/488 [2:27:20<1:43:34, 28.25s/it] 55%|█████▌    | 269/488 [2:27:48<1:43:03, 28.23s/it] 55%|█████▌    | 270/488 [2:28:16<1:42:30, 28.21s/it]                                                      55%|█████▌    | 270/488 [2:28:16<1:42:30, 28.21s/it] 56%|█████▌    | 271/488 [2:28:44<1:41:58, 28.20s/it] 56%|█████▌    | 272/488 [2:29:12<1:41:29, 28.19s/it] 56%|█████▌    | 273/488 [2:29:41<1:41:02, 28.20s/it] 56%|█████▌    | 274/488 [2:30:09<1:40:32, 28.19s/it] 56%|█████▋    | 275/488 [2:30:37<1:40:03, 28.19s/it]                                                      56%|█████▋    | 275/488 [2:30:37<1:40:03, 28.19s/it]{'eval_loss': 1.20897376537323, 'eval_runtime': 98.62, 'eval_samples_per_second': 10.14, 'eval_steps_per_second': 0.639, 'epoch': 4.06}
+{'loss': 1.2904, 'grad_norm': 0.3091956675052643, 'learning_rate': 0.00027411478242376017, 'epoch': 4.14}
+{'loss': 1.2999, 'grad_norm': 0.2656278908252716, 'learning_rate': 0.00026519764986401774, 'epoch': 4.22}
+{'loss': 1.2549, 'grad_norm': 0.1790953278541565, 'learning_rate': 0.000256261061875247, 'epoch': 4.3}
+{'loss': 1.3, 'grad_norm': 0.15690313279628754, 'learning_rate': 0.0002473164587232079, 'epoch': 4.38}
+{'loss': 1.2946, 'grad_norm': 0.12892165780067444, 'learning_rate': 0.0002383752909343547, 'epoch': 4.46}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:06,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:23,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:21,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.57s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:17,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.58s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:41<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:40,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                     
+                                               [A 56%|█████▋    | 275/488 [2:32:16<1:40:03, 28.19s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-275)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 57%|█████▋    | 276/488 [2:32:46<3:26:48, 58.53s/it] 57%|█████▋    | 277/488 [2:33:14<2:53:47, 49.42s/it] 57%|█████▋    | 278/488 [2:33:43<2:30:37, 43.04s/it] 57%|█████▋    | 279/488 [2:34:11<2:14:23, 38.58s/it] 57%|█████▋    | 280/488 [2:34:39<2:02:53, 35.45s/it]                                                      57%|█████▋    | 280/488 [2:34:39<2:02:53, 35.45s/it] 58%|█████▊    | 281/488 [2:35:07<1:54:44, 33.26s/it] 58%|█████▊    | 282/488 [2:35:35<1:48:56, 31.73s/it] 58%|█████▊    | 283/488 [2:36:03<1:44:46, 30.66s/it] 58%|█████▊    | 284/488 [2:36:32<1:41:43, 29.92s/it] 58%|█████▊    | 285/488 [2:37:00<1:39:26, 29.39s/it]                                                      58%|█████▊    | 285/488 [2:37:00<1:39:26, 29.39s/it] 59%|█████▊    | 286/488 [2:37:28<1:37:43, 29.03s/it] 59%|█████▉    | 287/488 [2:37:56<1:36:22, 28.77s/it] 59%|█████▉    | 288/488 [2:38:24<1:35:15, 28.58s/it] 59%|█████▉    | 289/488 [2:38:52<1:34:26, 28.47s/it] 59%|█████▉    | 290/488 [2:39:21<1:33:41, 28.39s/it]                                                      59%|█████▉    | 290/488 [2:39:21<1:33:41, 28.39s/it] 60%|█████▉    | 291/488 [2:39:49<1:33:01, 28.33s/it] 60%|█████▉    | 292/488 [2:40:17<1:32:19, 28.26s/it] 60%|██████    | 293/488 [2:40:45<1:31:45, 28.23s/it] 60%|██████    | 294/488 [2:41:13<1:31:13, 28.21s/it] 60%|██████    | 295/488 [2:41:41<1:30:43, 28.20s/it]                                                      60%|██████    | 295/488 [2:41:41<1:30:43, 28.20s/it] 61%|██████    | 296/488 [2:42:10<1:30:14, 28.20s/it] 61%|██████    | 297/488 [2:42:38<1:29:43, 28.19s/it] 61%|██████    | 298/488 [2:43:06<1:29:15, 28.19s/it] 61%|██████▏   | 299/488 [2:43:34<1:28:43, 28.17s/it] 61%|██████▏   | 300/488 [2:44:02<1:28:19, 28.19s/it]                                                      61%|██████▏   | 300/488 [2:44:02<1:28:19, 28.19s/it]{'eval_loss': 1.2234361171722412, 'eval_runtime': 98.5999, 'eval_samples_per_second': 10.142, 'eval_steps_per_second': 0.639, 'epoch': 4.46}
+{'loss': 1.2971, 'grad_norm': 0.136368989944458, 'learning_rate': 0.0002294490046373259, 'epoch': 4.54}
+{'loss': 1.2991, 'grad_norm': 0.07033926248550415, 'learning_rate': 0.00022054902691006405, 'epoch': 4.62}
+{'loss': 1.291, 'grad_norm': 0.08667398989200592, 'learning_rate': 0.00021168675115132315, 'epoch': 4.71}
+{'loss': 1.3007, 'grad_norm': 0.08972382545471191, 'learning_rate': 0.00020287352249529153, 'epoch': 4.79}
+{'loss': 1.2729, 'grad_norm': 0.1722905933856964, 'learning_rate': 0.00019412062328800044, 'epoch': 4.87}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:06,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:15,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:22,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:20,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:40<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:40,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:21<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                     
+                                               [A 61%|██████▏   | 300/488 [2:45:41<1:28:19, 28.19s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-300)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 62%|██████▏   | 301/488 [2:46:12<3:02:35, 58.58s/it] 62%|██████▏   | 302/488 [2:46:40<2:33:17, 49.45s/it] 62%|██████▏   | 303/488 [2:47:08<2:12:47, 43.07s/it] 62%|██████▏   | 304/488 [2:47:36<1:58:22, 38.60s/it] 62%|██████▎   | 305/488 [2:48:04<1:48:10, 35.47s/it]                                                      62%|██████▎   | 305/488 [2:48:04<1:48:10, 35.47s/it] 63%|██████▎   | 306/488 [2:48:33<1:41:00, 33.30s/it] 63%|██████▎   | 307/488 [2:49:01<1:35:48, 31.76s/it] 63%|██████▎   | 308/488 [2:49:29<1:32:02, 30.68s/it] 63%|██████▎   | 309/488 [2:49:55<1:27:02, 29.18s/it] 64%|██████▎   | 310/488 [2:50:23<1:25:41, 28.89s/it]                                                      64%|██████▎   | 310/488 [2:50:23<1:25:41, 28.89s/it] 64%|██████▎   | 311/488 [2:50:51<1:24:35, 28.67s/it] 64%|██████▍   | 312/488 [2:51:19<1:23:40, 28.52s/it] 64%|██████▍   | 313/488 [2:51:48<1:22:56, 28.44s/it] 64%|██████▍   | 314/488 [2:52:16<1:22:14, 28.36s/it] 65%|██████▍   | 315/488 [2:52:44<1:21:36, 28.30s/it]                                                      65%|██████▍   | 315/488 [2:52:44<1:21:36, 28.30s/it] 65%|██████▍   | 316/488 [2:53:12<1:21:02, 28.27s/it] 65%|██████▍   | 317/488 [2:53:40<1:20:26, 28.23s/it] 65%|██████▌   | 318/488 [2:54:08<1:19:55, 28.21s/it] 65%|██████▌   | 319/488 [2:54:36<1:19:24, 28.19s/it] 66%|██████▌   | 320/488 [2:55:05<1:18:55, 28.19s/it]                                                      66%|██████▌   | 320/488 [2:55:05<1:18:55, 28.19s/it] 66%|██████▌   | 321/488 [2:55:33<1:18:26, 28.18s/it] 66%|██████▌   | 322/488 [2:56:01<1:17:58, 28.18s/it] 66%|██████▌   | 323/488 [2:56:29<1:17:32, 28.20s/it] 66%|██████▋   | 324/488 [2:56:57<1:17:02, 28.19s/it] 67%|██████▋   | 325/488 [2:57:26<1:16:32, 28.18s/it]                                                      67%|██████▋   | 325/488 [2:57:26<1:16:32, 28.18s/it]{'eval_loss': 1.2213460206985474, 'eval_runtime': 98.5784, 'eval_samples_per_second': 10.144, 'eval_steps_per_second': 0.639, 'epoch': 4.87}
+{'loss': 1.2854, 'grad_norm': 0.10548505187034607, 'learning_rate': 0.000185439258644112, 'epoch': 4.95}
+{'loss': 1.236, 'grad_norm': 0.08486346155405045, 'learning_rate': 0.00017684054210257517, 'epoch': 5.03}
+{'loss': 1.2712, 'grad_norm': 0.10991238802671432, 'learning_rate': 0.00016833548139951395, 'epoch': 5.11}
+{'loss': 1.2807, 'grad_norm': 0.06149250268936157, 'learning_rate': 0.0001599349643765599, 'epoch': 5.19}
+{'loss': 1.3158, 'grad_norm': 0.17640946805477142, 'learning_rate': 0.0001516497450426686, 'epoch': 5.27}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:06,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:15,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:22,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:20,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.57s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:40<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:21<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                     
+                                               [A 67%|██████▋   | 325/488 [2:59:04<1:16:32, 28.18s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-325)... Done. 0.5s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 67%|██████▋   | 326/488 [2:59:35<2:37:59, 58.52s/it] 67%|██████▋   | 327/488 [3:00:03<2:12:34, 49.41s/it] 67%|██████▋   | 328/488 [3:00:31<1:54:46, 43.04s/it] 67%|██████▋   | 329/488 [3:00:59<1:42:15, 38.59s/it] 68%|██████▊   | 330/488 [3:01:28<1:33:24, 35.47s/it]                                                      68%|██████▊   | 330/488 [3:01:28<1:33:24, 35.47s/it] 68%|██████▊   | 331/488 [3:01:56<1:27:04, 33.28s/it] 68%|██████▊   | 332/488 [3:02:24<1:22:33, 31.76s/it] 68%|██████▊   | 333/488 [3:02:52<1:19:14, 30.67s/it] 68%|██████▊   | 334/488 [3:03:20<1:16:47, 29.92s/it] 69%|██████▊   | 335/488 [3:03:48<1:14:57, 29.39s/it]                                                      69%|██████▊   | 335/488 [3:03:48<1:14:57, 29.39s/it] 69%|██████▉   | 336/488 [3:04:17<1:13:32, 29.03s/it] 69%|██████▉   | 337/488 [3:04:45<1:12:24, 28.77s/it] 69%|██████▉   | 338/488 [3:05:13<1:11:29, 28.60s/it] 69%|██████▉   | 339/488 [3:05:41<1:10:42, 28.47s/it] 70%|██████▉   | 340/488 [3:06:09<1:10:02, 28.40s/it]                                                      70%|██████▉   | 340/488 [3:06:09<1:10:02, 28.40s/it] 70%|██████▉   | 341/488 [3:06:38<1:09:26, 28.34s/it] 70%|███████   | 342/488 [3:07:06<1:08:48, 28.27s/it] 70%|███████   | 343/488 [3:07:34<1:08:15, 28.25s/it] 70%|███████   | 344/488 [3:08:02<1:07:44, 28.23s/it] 71%|███████   | 345/488 [3:08:30<1:07:12, 28.20s/it]                                                      71%|███████   | 345/488 [3:08:30<1:07:12, 28.20s/it] 71%|███████   | 346/488 [3:08:58<1:06:43, 28.20s/it] 71%|███████   | 347/488 [3:09:27<1:06:14, 28.19s/it] 71%|███████▏  | 348/488 [3:09:55<1:05:44, 28.18s/it] 72%|███████▏  | 349/488 [3:10:23<1:05:16, 28.18s/it] 72%|███████▏  | 350/488 [3:10:51<1:04:48, 28.17s/it]                                                      72%|███████▏  | 350/488 [3:10:51<1:04:48, 28.17s/it]{'eval_loss': 1.2180273532867432, 'eval_runtime': 98.5761, 'eval_samples_per_second': 10.144, 'eval_steps_per_second': 0.639, 'epoch': 5.27}
+{'loss': 1.2482, 'grad_norm': 0.46290215849876404, 'learning_rate': 0.00014349042980726362, 'epoch': 5.35}
+{'loss': 1.2903, 'grad_norm': 0.16729195415973663, 'learning_rate': 0.0001354674639023318, 'epoch': 5.44}
+{'loss': 1.2757, 'grad_norm': 0.24489770829677582, 'learning_rate': 0.00012759111801085066, 'epoch': 5.52}
+{'loss': 1.2928, 'grad_norm': 0.23532100021839142, 'learning_rate': 0.00011987147511866788, 'epoch': 5.6}
+{'loss': 1.2722, 'grad_norm': 0.07568836212158203, 'learning_rate': 0.00011231841760666186, 'epoch': 5.68}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:07,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:23,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:21,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.57s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:40<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:40,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:21<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                     
+                                               [A 72%|███████▏  | 350/488 [3:12:30<1:04:48, 28.17s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-350)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 72%|███████▏  | 351/488 [3:13:01<2:13:47, 58.59s/it] 72%|███████▏  | 352/488 [3:13:29<1:52:05, 49.45s/it] 72%|███████▏  | 353/488 [3:13:57<1:36:53, 43.06s/it] 73%|███████▎  | 354/488 [3:14:25<1:26:11, 38.59s/it] 73%|███████▎  | 355/488 [3:14:53<1:18:36, 35.46s/it]                                                      73%|███████▎  | 355/488 [3:14:53<1:18:36, 35.46s/it] 73%|███████▎  | 356/488 [3:15:21<1:13:12, 33.28s/it] 73%|███████▎  | 357/488 [3:15:50<1:09:18, 31.74s/it] 73%|███████▎  | 358/488 [3:16:18<1:06:26, 30.67s/it] 74%|███████▎  | 359/488 [3:16:46<1:04:17, 29.90s/it] 74%|███████▍  | 360/488 [3:17:14<1:02:41, 29.38s/it]                                                      74%|███████▍  | 360/488 [3:17:14<1:02:41, 29.38s/it] 74%|███████▍  | 361/488 [3:17:42<1:01:25, 29.02s/it] 74%|███████▍  | 362/488 [3:18:10<1:00:25, 28.78s/it] 74%|███████▍  | 363/488 [3:18:39<59:35, 28.60s/it]   75%|███████▍  | 364/488 [3:19:07<58:51, 28.48s/it] 75%|███████▍  | 365/488 [3:19:35<58:13, 28.40s/it]                                                    75%|███████▍  | 365/488 [3:19:35<58:13, 28.40s/it] 75%|███████▌  | 366/488 [3:20:03<57:35, 28.32s/it] 75%|███████▌  | 367/488 [3:20:31<57:01, 28.27s/it] 75%|███████▌  | 368/488 [3:21:00<56:29, 28.25s/it] 76%|███████▌  | 369/488 [3:21:28<55:59, 28.23s/it] 76%|███████▌  | 370/488 [3:21:53<53:57, 27.44s/it]                                                    76%|███████▌  | 370/488 [3:21:53<53:57, 27.44s/it] 76%|███████▌  | 371/488 [3:22:21<53:55, 27.66s/it] 76%|███████▌  | 372/488 [3:22:50<53:45, 27.80s/it] 76%|███████▋  | 373/488 [3:23:18<53:31, 27.92s/it] 77%|███████▋  | 374/488 [3:23:46<53:12, 28.00s/it] 77%|███████▋  | 375/488 [3:24:14<52:50, 28.06s/it]                                                    77%|███████▋  | 375/488 [3:24:14<52:50, 28.06s/it]{'eval_loss': 1.2159314155578613, 'eval_runtime': 98.5804, 'eval_samples_per_second': 10.144, 'eval_steps_per_second': 0.639, 'epoch': 5.68}
+{'loss': 1.2969, 'grad_norm': 0.07196550071239471, 'learning_rate': 0.0001049416145997094, 'epoch': 5.76}
+{'loss': 1.306, 'grad_norm': 0.0853937566280365, 'learning_rate': 9.775050958865584e-05, 'epoch': 5.84}
+{'loss': 1.2304, 'grad_norm': 0.05001223087310791, 'learning_rate': 9.075430834113152e-05, 'epoch': 5.92}
+{'loss': 1.2746, 'grad_norm': 0.058833617717027664, 'learning_rate': 8.396196711669335e-05, 'epoch': 6.0}
+{'loss': 1.2522, 'grad_norm': 0.07061880826950073, 'learning_rate': 7.738218120137671e-05, 'epoch': 6.09}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:07,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:22,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:20,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.57s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:40<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:40,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:21<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                   
+                                               [A 77%|███████▋  | 375/488 [3:25:53<52:50, 28.06s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-375)... Done. 0.6s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 77%|███████▋  | 376/488 [3:26:24<1:49:07, 58.46s/it] 77%|███████▋  | 377/488 [3:26:52<1:31:19, 49.36s/it] 77%|███████▋  | 378/488 [3:27:20<1:18:49, 43.00s/it] 78%|███████▊  | 379/488 [3:27:48<1:10:02, 38.56s/it] 78%|███████▊  | 380/488 [3:28:16<1:03:47, 35.44s/it]                                                      78%|███████▊  | 380/488 [3:28:16<1:03:47, 35.44s/it] 78%|███████▊  | 381/488 [3:28:44<59:19, 33.26s/it]   78%|███████▊  | 382/488 [3:29:13<56:03, 31.73s/it] 78%|███████▊  | 383/488 [3:29:41<53:39, 30.66s/it] 79%|███████▊  | 384/488 [3:30:09<51:51, 29.92s/it] 79%|███████▉  | 385/488 [3:30:37<50:26, 29.39s/it]                                                    79%|███████▉  | 385/488 [3:30:37<50:26, 29.39s/it] 79%|███████▉  | 386/488 [3:31:05<49:20, 29.02s/it] 79%|███████▉  | 387/488 [3:31:33<48:25, 28.77s/it] 80%|███████▉  | 388/488 [3:32:02<47:40, 28.61s/it] 80%|███████▉  | 389/488 [3:32:30<46:59, 28.48s/it] 80%|███████▉  | 390/488 [3:32:58<46:21, 28.38s/it]                                                    80%|███████▉  | 390/488 [3:32:58<46:21, 28.38s/it] 80%|████████  | 391/488 [3:33:26<45:47, 28.32s/it] 80%|████████  | 392/488 [3:33:54<45:15, 28.28s/it] 81%|████████  | 393/488 [3:34:22<44:41, 28.23s/it] 81%|████████  | 394/488 [3:34:51<44:11, 28.21s/it] 81%|████████  | 395/488 [3:35:19<43:42, 28.19s/it]                                                    81%|████████  | 395/488 [3:35:19<43:42, 28.19s/it] 81%|████████  | 396/488 [3:35:47<43:13, 28.19s/it] 81%|████████▏ | 397/488 [3:36:15<42:46, 28.20s/it] 82%|████████▏ | 398/488 [3:36:43<42:16, 28.19s/it] 82%|████████▏ | 399/488 [3:37:12<41:49, 28.19s/it] 82%|████████▏ | 400/488 [3:37:40<41:20, 28.19s/it]                                                    82%|████████▏ | 400/488 [3:37:40<41:20, 28.19s/it]{'eval_loss': 1.2192745208740234, 'eval_runtime': 98.5743, 'eval_samples_per_second': 10.145, 'eval_steps_per_second': 0.639, 'epoch': 6.09}
+{'loss': 1.2678, 'grad_norm': 0.06949684768915176, 'learning_rate': 7.102337377633394e-05, 'epoch': 6.17}
+{'loss': 1.2792, 'grad_norm': 0.08404209464788437, 'learning_rate': 6.489368513481228e-05, 'epoch': 6.25}
+{'loss': 1.2779, 'grad_norm': 0.08185689151287079, 'learning_rate': 5.9000962261273136e-05, 'epoch': 6.33}
+{'loss': 1.3018, 'grad_norm': 0.04312283918261528, 'learning_rate': 5.3352748785993164e-05, 'epoch': 6.41}
+{'loss': 1.2636, 'grad_norm': 0.07406298071146011, 'learning_rate': 4.795627532800806e-05, 'epoch': 6.49}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:07,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:16,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:23,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:21,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.58s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:41<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:22<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                   
+                                               [A 82%|████████▏ | 400/488 [3:39:18<41:20, 28.19s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-400)... Done. 1.2s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 82%|████████▏ | 401/488 [3:39:50<1:25:11, 58.76s/it] 82%|████████▏ | 402/488 [3:40:18<1:11:04, 49.59s/it] 83%|████████▎ | 403/488 [3:40:46<1:01:09, 43.17s/it] 83%|████████▎ | 404/488 [3:41:14<54:08, 38.67s/it]   83%|████████▎ | 405/488 [3:41:43<49:09, 35.54s/it]                                                    83%|████████▎ | 405/488 [3:41:43<49:09, 35.54s/it] 83%|████████▎ | 406/488 [3:42:11<45:34, 33.35s/it] 83%|████████▎ | 407/488 [3:42:39<42:55, 31.79s/it] 84%|████████▎ | 408/488 [3:43:07<40:56, 30.71s/it] 84%|████████▍ | 409/488 [3:43:35<39:27, 29.97s/it] 84%|████████▍ | 410/488 [3:44:04<38:16, 29.44s/it]                                                    84%|████████▍ | 410/488 [3:44:04<38:16, 29.44s/it] 84%|████████▍ | 411/488 [3:44:32<37:18, 29.07s/it] 84%|████████▍ | 412/488 [3:45:00<36:30, 28.82s/it] 85%|████████▍ | 413/488 [3:45:28<35:46, 28.61s/it] 85%|████████▍ | 414/488 [3:45:56<35:07, 28.48s/it] 85%|████████▌ | 415/488 [3:46:25<34:31, 28.38s/it]                                                    85%|████████▌ | 415/488 [3:46:25<34:31, 28.38s/it] 85%|████████▌ | 416/488 [3:46:53<33:59, 28.33s/it] 85%|████████▌ | 417/488 [3:47:21<33:28, 28.29s/it] 86%|████████▌ | 418/488 [3:47:49<32:57, 28.26s/it] 86%|████████▌ | 419/488 [3:48:17<32:28, 28.24s/it] 86%|████████▌ | 420/488 [3:48:45<31:59, 28.22s/it]                                                    86%|████████▌ | 420/488 [3:48:45<31:59, 28.22s/it] 86%|████████▋ | 421/488 [3:49:14<31:29, 28.21s/it] 86%|████████▋ | 422/488 [3:49:42<31:00, 28.19s/it] 87%|████████▋ | 423/488 [3:50:10<30:31, 28.18s/it] 87%|████████▋ | 424/488 [3:50:38<30:03, 28.18s/it] 87%|████████▋ | 425/488 [3:51:06<29:34, 28.17s/it]                                                    87%|████████▋ | 425/488 [3:51:06<29:34, 28.17s/it]{'eval_loss': 1.2143380641937256, 'eval_runtime': 98.6065, 'eval_samples_per_second': 10.141, 'eval_steps_per_second': 0.639, 'epoch': 6.49}
+{'loss': 1.2578, 'grad_norm': 0.043406181037425995, 'learning_rate': 4.281845023876074e-05, 'epoch': 6.57}
+{'loss': 1.2472, 'grad_norm': 0.07357024401426315, 'learning_rate': 3.794585075830329e-05, 'epoch': 6.65}
+{'loss': 1.3082, 'grad_norm': 0.05774565041065216, 'learning_rate': 3.334471459537497e-05, 'epoch': 6.73}
+{'loss': 1.2782, 'grad_norm': 0.054679855704307556, 'learning_rate': 2.902093194213526e-05, 'epoch': 6.82}
+{'loss': 1.3043, 'grad_norm': 0.050430841743946075, 'learning_rate': 2.4980037933772488e-05, 'epoch': 6.9}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:06,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:15,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:22,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:20,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.58s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:40<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:41,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:21<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                   
+                                               [A 87%|████████▋ | 425/488 [3:52:45<29:34, 28.17s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+wandb: Adding directory to artifact (./model_training/reprover_err/checkpoints-random-09-08-18-00/checkpoint-425)... Done. 0.5s
+/workspace/venv/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py:600: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.4 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+/workspace/venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:295: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with torch.enable_grad(), device_autocast_ctx, torch.cpu.amp.autocast(**ctx.cpu_autocast_kwargs):  # type: ignore[attr-defined]
+ 87%|████████▋ | 426/488 [3:53:16<1:00:28, 58.52s/it] 88%|████████▊ | 427/488 [3:53:44<50:13, 49.41s/it]   88%|████████▊ | 428/488 [3:54:12<43:02, 43.04s/it] 88%|████████▊ | 429/488 [3:54:40<37:55, 38.57s/it] 88%|████████▊ | 430/488 [3:55:08<34:15, 35.45s/it]                                                    88%|████████▊ | 430/488 [3:55:08<34:15, 35.45s/it] 88%|████████▊ | 431/488 [3:55:36<31:36, 33.27s/it] 89%|████████▊ | 432/488 [3:56:02<28:54, 30.97s/it] 89%|████████▊ | 433/488 [3:56:30<27:37, 30.14s/it] 89%|████████▉ | 434/488 [3:56:58<26:35, 29.55s/it] 89%|████████▉ | 435/488 [3:57:27<25:44, 29.14s/it]                                                    89%|████████▉ | 435/488 [3:57:27<25:44, 29.14s/it] 89%|████████▉ | 436/488 [3:57:55<25:00, 28.85s/it] 90%|████████▉ | 437/488 [3:58:23<24:21, 28.66s/it] 90%|████████▉ | 438/488 [3:58:51<23:45, 28.51s/it] 90%|████████▉ | 439/488 [3:59:19<23:11, 28.40s/it] 90%|█████████ | 440/488 [3:59:47<22:39, 28.33s/it]                                                    90%|█████████ | 440/488 [3:59:47<22:39, 28.33s/it] 90%|█████████ | 441/488 [4:00:16<22:09, 28.28s/it] 91%|█████████ | 442/488 [4:00:44<21:39, 28.25s/it] 91%|█████████ | 443/488 [4:01:12<21:10, 28.23s/it] 91%|█████████ | 444/488 [4:01:40<20:40, 28.20s/it] 91%|█████████ | 445/488 [4:02:08<20:12, 28.19s/it]                                                    91%|█████████ | 445/488 [4:02:08<20:12, 28.19s/it] 91%|█████████▏| 446/488 [4:02:37<19:43, 28.19s/it] 92%|█████████▏| 447/488 [4:03:05<19:15, 28.18s/it] 92%|█████████▏| 448/488 [4:03:33<18:47, 28.18s/it] 92%|█████████▏| 449/488 [4:04:01<18:19, 28.18s/it] 92%|█████████▏| 450/488 [4:04:29<17:50, 28.17s/it]                                                    92%|█████████▏| 450/488 [4:04:29<17:50, 28.17s/it]{'eval_loss': 1.2151918411254883, 'eval_runtime': 98.562, 'eval_samples_per_second': 10.146, 'eval_steps_per_second': 0.639, 'epoch': 6.9}
+{'loss': 1.2673, 'grad_norm': 0.041136015206575394, 'learning_rate': 2.122720556264357e-05, 'epoch': 6.98}
+{'loss': 1.2496, 'grad_norm': 0.03708193823695183, 'learning_rate': 1.776723905601438e-05, 'epoch': 7.06}
+{'loss': 1.2835, 'grad_norm': 0.055347807705402374, 'learning_rate': 1.4604567725877926e-05, 'epoch': 7.14}
+{'loss': 1.3163, 'grad_norm': 0.040714431554079056, 'learning_rate': 1.1743240298725116e-05, 'epoch': 7.22}
+{'loss': 1.2647, 'grad_norm': 0.03776278346776962, 'learning_rate': 9.18691973252539e-06, 'epoch': 7.3}
+
+  0%|          | 0/63 [00:00<?, ?it/s][A
+  3%|▎         | 2/63 [00:01<00:48,  1.27it/s][A
+  5%|▍         | 3/63 [00:03<01:06,  1.12s/it][A
+  6%|▋         | 4/63 [00:04<01:15,  1.29s/it][A
+  8%|▊         | 5/63 [00:06<01:20,  1.39s/it][A
+ 10%|▉         | 6/63 [00:07<01:22,  1.45s/it][A
+ 11%|█         | 7/63 [00:09<01:23,  1.49s/it][A
+ 13%|█▎        | 8/63 [00:11<01:23,  1.52s/it][A
+ 14%|█▍        | 9/63 [00:12<01:22,  1.54s/it][A
+ 16%|█▌        | 10/63 [00:14<01:22,  1.55s/it][A
+ 17%|█▋        | 11/63 [00:15<01:20,  1.56s/it][A
+ 19%|█▉        | 12/63 [00:17<01:19,  1.56s/it][A
+ 21%|██        | 13/63 [00:18<01:18,  1.57s/it][A
+ 22%|██▏       | 14/63 [00:20<01:16,  1.57s/it][A
+ 24%|██▍       | 15/63 [00:22<01:15,  1.57s/it][A
+ 25%|██▌       | 16/63 [00:23<01:13,  1.57s/it][A
+ 27%|██▋       | 17/63 [00:25<01:12,  1.57s/it][A
+ 29%|██▊       | 18/63 [00:26<01:10,  1.57s/it][A
+ 30%|███       | 19/63 [00:28<01:09,  1.58s/it][A
+ 32%|███▏      | 20/63 [00:29<01:07,  1.58s/it][A
+ 33%|███▎      | 21/63 [00:31<01:06,  1.58s/it][A
+ 35%|███▍      | 22/63 [00:33<01:04,  1.58s/it][A
+ 37%|███▋      | 23/63 [00:34<01:03,  1.58s/it][A
+ 38%|███▊      | 24/63 [00:36<01:01,  1.58s/it][A
+ 40%|███▉      | 25/63 [00:37<00:59,  1.58s/it][A
+ 41%|████▏     | 26/63 [00:39<00:58,  1.58s/it][A
+ 43%|████▎     | 27/63 [00:40<00:56,  1.58s/it][A
+ 44%|████▍     | 28/63 [00:42<00:55,  1.58s/it][A
+ 46%|████▌     | 29/63 [00:44<00:53,  1.58s/it][A
+ 48%|████▊     | 30/63 [00:45<00:52,  1.58s/it][A
+ 49%|████▉     | 31/63 [00:47<00:50,  1.58s/it][A
+ 51%|█████     | 32/63 [00:48<00:48,  1.58s/it][A
+ 52%|█████▏    | 33/63 [00:50<00:47,  1.58s/it][A
+ 54%|█████▍    | 34/63 [00:52<00:45,  1.58s/it][A
+ 56%|█████▌    | 35/63 [00:53<00:44,  1.58s/it][A
+ 57%|█████▋    | 36/63 [00:55<00:42,  1.58s/it][A
+ 59%|█████▊    | 37/63 [00:56<00:40,  1.58s/it][A
+ 60%|██████    | 38/63 [00:58<00:39,  1.58s/it][A
+ 62%|██████▏   | 39/63 [00:59<00:37,  1.58s/it][A
+ 63%|██████▎   | 40/63 [01:01<00:36,  1.58s/it][A
+ 65%|██████▌   | 41/63 [01:03<00:34,  1.58s/it][A
+ 67%|██████▋   | 42/63 [01:04<00:33,  1.58s/it][A
+ 68%|██████▊   | 43/63 [01:06<00:31,  1.58s/it][A
+ 70%|██████▉   | 44/63 [01:07<00:29,  1.58s/it][A
+ 71%|███████▏  | 45/63 [01:09<00:28,  1.58s/it][A
+ 73%|███████▎  | 46/63 [01:10<00:26,  1.58s/it][A
+ 75%|███████▍  | 47/63 [01:12<00:25,  1.58s/it][A
+ 76%|███████▌  | 48/63 [01:14<00:23,  1.58s/it][A
+ 78%|███████▊  | 49/63 [01:15<00:22,  1.58s/it][A
+ 79%|███████▉  | 50/63 [01:17<00:20,  1.58s/it][A
+ 81%|████████  | 51/63 [01:18<00:18,  1.58s/it][A
+ 83%|████████▎ | 52/63 [01:20<00:17,  1.58s/it][A
+ 84%|████████▍ | 53/63 [01:21<00:15,  1.58s/it][A
+ 86%|████████▌ | 54/63 [01:23<00:14,  1.58s/it][A
+ 87%|████████▋ | 55/63 [01:25<00:12,  1.58s/it][A
+ 89%|████████▉ | 56/63 [01:26<00:11,  1.58s/it][A
+ 90%|█████████ | 57/63 [01:28<00:09,  1.58s/it][A
+ 92%|█████████▏| 58/63 [01:29<00:07,  1.58s/it][A
+ 94%|█████████▎| 59/63 [01:31<00:06,  1.58s/it][A
+ 95%|█████████▌| 60/63 [01:33<00:04,  1.58s/it][A
+ 97%|█████████▋| 61/63 [01:34<00:03,  1.58s/it][A
+ 98%|█████████▊| 62/63 [01:36<00:01,  1.57s/it][A
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A                                                   
+                                               [A 92%|█████████▏| 450/488 [4:06:08<17:50, 28.17s/it]
+100%|██████████| 63/63 [01:37<00:00,  1.38s/it][A
+                                               [A/workspace/venv/lib/python3.10/site-packages/peft/utils/save_and_load.py:232: UserWarning: Setting `save_embedding_layers` to `True` as the embedding layer has been resized during finetuning.
+  warnings.warn(
+Thread SenderThread:
+Traceback (most recent call last):
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/internal/internal_util.py", line 48, in run
+    self._run()
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/internal/internal_util.py", line 99, in _run
+    self._process(record)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/internal/internal.py", line 327, in _process
+    self._sm.send(record)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/internal/sender.py", line 398, in send
+    send_handler(record)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/internal/sender.py", line 420, in send_request
+    send_handler(record)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/internal/sender.py", line 1224, in send_request_summary_record
+    self._update_summary_record(record.request.summary_record.summary)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/internal/sender.py", line 1218, in _update_summary_record
+    self._update_summary()
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/internal/sender.py", line 1238, in _update_summary
+    with open(summary_path, "w") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wandb/run-20240908_180041-uzhgxcyi/files/wandb-summary.json'
+wandb: ERROR Internal wandb error: file data was not synced
+{'eval_loss': 1.2177557945251465, 'eval_runtime': 98.5774, 'eval_samples_per_second': 10.144, 'eval_steps_per_second': 0.639, 'epoch': 7.3}
+Traceback (most recent call last):
+  File "/workspace/model_training/reprover_err/main.py", line 260, in <module>
+    valid_split=args.valid_split,
+  File "/workspace/model_training/reprover_err/main.py", line 159, in finetune
+    trainer.train()
+  File "/workspace/venv/lib/python3.10/site-packages/transformers/trainer.py", line 1948, in train
+    return inner_training_loop(
+  File "/workspace/venv/lib/python3.10/site-packages/transformers/trainer.py", line 2366, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, grad_norm, model, trial, epoch, ignore_keys_for_eval)
+  File "/workspace/venv/lib/python3.10/site-packages/transformers/trainer.py", line 2818, in _maybe_log_save_evaluate
+    self.control = self.callback_handler.on_save(self.args, self.state, self.control)
+  File "/workspace/venv/lib/python3.10/site-packages/transformers/trainer_callback.py", line 496, in on_save
+    return self.call_event("on_save", args, state, control)
+  File "/workspace/venv/lib/python3.10/site-packages/transformers/trainer_callback.py", line 507, in call_event
+    result = getattr(callback, event)(
+  File "/workspace/venv/lib/python3.10/site-packages/transformers/integrations/integration_utils.py", line 966, in on_save
+    for k, v in dict(self._wandb.summary).items()
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/wandb_summary.py", line 29, in keys
+    return [k for k in self._as_dict().keys() if k != "_wandb"]
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/wandb_summary.py", line 124, in _as_dict
+    return self._get_current_summary_callback()
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/wandb_run.py", line 1449, in _summary_get_current_summary_callback
+    handle = self._backend.interface.deliver_get_summary()
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/interface/interface.py", line 933, in deliver_get_summary
+    return self._deliver_get_summary(get_summary)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 469, in _deliver_get_summary
+    return self._deliver_record(record)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/interface/interface_shared.py", line 452, in _deliver_record
+    handle = mailbox._deliver_record(record, interface=self)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/lib/mailbox.py", line 455, in _deliver_record
+    interface._publish(record)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/interface/interface_sock.py", line 51, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 221, in send_record_publish
+    self.send_server_request(server_req)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 155, in send_server_request
+    self._send_message(msg)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 152, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/workspace/venv/lib/python3.10/site-packages/wandb/sdk/lib/sock_client.py", line 130, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+wandb: Encountered an error while tearing down the service manager: [Errno 32] Broken pipe

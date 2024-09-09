@@ -1,0 +1,7 @@
+nohup: ignoring input
+Inference starting on test data using model from checkpoint google/byt5-small.
+Generating test split: 0 examples [00:00, ? examples/s]Generating test split: 1000 examples [00:00, 5537.00 examples/s]Generating test split: 1000 examples [00:00, 5491.85 examples/s]
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map: 100%|██████████| 1000/1000 [00:00<00:00, 1194.27 examples/s]Map: 100%|██████████| 1000/1000 [00:00<00:00, 1184.27 examples/s]
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map:  13%|█▎        | 128/1000 [00:30<03:24,  4.26 examples/s]Map:  26%|██▌       | 256/1000 [00:59<02:53,  4.29 examples/s]Map:  38%|███▊      | 384/1000 [01:31<02:27,  4.19 examples/s]Map:  51%|█████     | 512/1000 [01:55<01:47,  4.52 examples/s]Map:  64%|██████▍   | 640/1000 [02:20<01:15,  4.78 examples/s]Map:  77%|███████▋  | 768/1000 [02:43<00:46,  4.99 examples/s]Map:  90%|████████▉ | 896/1000 [03:09<00:21,  4.95 examples/s]Map: 100%|██████████| 1000/1000 [03:31<00:00,  4.93 examples/s]Map: 100%|██████████| 1000/1000 [03:31<00:00,  4.74 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  9.52ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  9.48ba/s]
+Inference finished.

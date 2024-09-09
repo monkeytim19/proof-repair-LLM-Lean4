@@ -1,0 +1,80 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:48.143946
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 133447 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/GroupTheory/SpecificGroups/Alternating.lean - 2024-09-08 11:28:25.623930.
+---1/1---
+For theorem alternatingGroup.isConj_swap_mul_swap_of_cycleType_two in Mathlib/GroupTheory/SpecificGroups/Alternating.lean:
+theorem isConj_swap_mul_swap_of_cycleType_two {g : Perm (Fin 5)} (ha : g ∈ alternatingGroup (Fin 5))
+    (h1 : g ≠ 1) (h2 : ∀ n, n ∈ cycleType (g : Perm (Fin 5)) → n = 2) :
+    IsConj (swap 0 4 * swap 1 3) g 
+
+
+Original valid proof:
+:= by
+  have h := g.support.card_le_univ
+  rw [← Multiset.eq_replicate_card] at h2
+  rw [← sum_cycleType, h2, Multiset.sum_replicate, smul_eq_mul] at h
+  have h : Multiset.card g.cycleType ≤ 3 :=
+    le_of_mul_le_mul_right (le_trans h (by simp only [card_fin]; ring_nf; decide)) (by simp)
+  rw [mem_alternatingGroup, sign_of_cycleType, h2] at ha
+  norm_num at ha
+  rw [pow_add, pow_mul, Int.units_pow_two, one_mul, neg_one_pow_eq_one_iff_even] at ha
+  swap; · decide
+  rw [isConj_iff_cycleType_eq, h2]
+  interval_cases h_1 : Multiset.card g.cycleType
+  · exact (h1 (card_cycleType_eq_zero.1 h_1)).elim
+  · simp at ha
+  · have h04 : (0 : Fin 5) ≠ 4 := by decide
+    have h13 : (1 : Fin 5) ≠ 3 := by decide
+    rw [Disjoint.cycleType, (isCycle_swap h04).cycleType, (isCycle_swap h13).cycleType,
+      card_support_swap h04, card_support_swap h13]
+    · rfl
+    · rw [disjoint_iff_disjoint_support, support_swap h04, support_swap h13]
+      decide
+  · contradiction
+
+
+Verifying proof (Commit e194c75699f5107c3020dd83bb1dc00cf62f62aa):
+ := by
+  have h := g.support.card_le_univ
+  rw [← Multiset.eq_replicate_card] at h2
+  rw [← sum_cycleType, h2, Multiset.sum_replicate, smul_eq_mul] at h
+  have h : Multiset.card g.cycleType ≤ 3 :=
+    le_of_mul_le_mul_right (le_trans h (by simp only [card_fin])) (by simp)
+  rw [mem_alternatingGroup, sign_of_cycleType, h2] at ha
+  norm_num at ha
+  rw [pow_add, pow_mul, Int.units_pow_two, one_mul, Units.ext_iff, Units.val_one,
+    Units.val_pow_eq_pow_val, Units.coe_neg_one, neg_one_pow_eq_one_iff_even _] at ha
+  swap; · decide
+  rw [isConj_iff_cycleType_eq, h2]
+  interval_cases h_1 : Multiset.card g.cycleType
+  · exact (h1 (card_cycleType_eq_zero.1 h_1)).elim
+  · contrapose! ha
+    simp [h_1]
+  · have h04 : (0 : Fin 5) ≠ 4 := by decide
+    have h13 : (1 : Fin 5) ≠ 3 := by decide
+    rw [Disjoint.cycleType, (isCycle_swap h04).cycleType, (isCycle_swap h13).cycleType,
+      card_support_swap h04, card_support_swap h13]
+    · rfl
+    · rw [disjoint_iff_disjoint_support, support_swap h04, support_swap h13]
+      decide
+  · contrapose! ha
+    simp [h_1]
+
+## Your Answer
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

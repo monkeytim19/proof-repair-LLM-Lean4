@@ -1,0 +1,174 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:48.823133
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 2199863 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Order/CompactlyGenerated/Basic.lean - 2024-09-08 12:18:59.441995.
+---1/1---
+For theorem CompleteLattice.independent_iff_supIndep_of_injOn in Mathlib/Order/CompactlyGenerated/Basic.lean:
+lemma CompleteLattice.independent_iff_supIndep_of_injOn {ι : Type*} {f : ι → α}
+    (hf : InjOn f {i | f i ≠ ⊥}) :
+    CompleteLattice.Independent f ↔ ∀ (s : Finset ι), s.SupIndep f 
+
+
+Original valid proof:
+:= by
+  refine ⟨fun h ↦ h.supIndep', fun h ↦ CompleteLattice.independent_def'.mpr fun i ↦ ?_⟩
+  simp_rw [disjoint_iff, inf_sSup_eq_iSup_inf_sup_finset, iSup_eq_bot, ← disjoint_iff]
+  intro s hs
+  classical
+  rw [← Finset.sup_erase_bot]
+  set t := s.erase ⊥
+  replace hf : InjOn f (f ⁻¹' t) := fun i hi j _ hij ↦ by
+    refine hf ?_ ?_ hij <;> aesop (add norm simp [t])
+  have : (Finset.erase (insert i (t.preimage _ hf)) i).image f = t := by
+    ext a
+    simp only [Finset.mem_preimage, Finset.mem_erase, ne_eq, Finset.mem_insert, true_or, not_true,
+      Finset.erase_insert_eq_erase, not_and, Finset.mem_image, t]
+    refine ⟨by aesop, fun ⟨ha, has⟩ ↦ ?_⟩
+    obtain ⟨j, hj, rfl⟩ := hs has
+    exact ⟨j, ⟨hj, ha, has⟩, rfl⟩
+  rw [← this, Finset.sup_image]
+  specialize h (insert i (t.preimage _ hf))
+  rw [Finset.supIndep_iff_disjoint_erase] at h
+  exact h i (Finset.mem_insert_self i _)
+
+
+Verifying proof (Commit 9bc35020058f4a5a844eb7662d9de673056d4dbe):
+∧ ∀ i ∈ s, f i ≠ ⊥ := by
+  refine ⟨fun h ↦ ⟨h.supIndep', fun i hi ↦ hf ?_⟩, fun h ↦ CompleteLattice.independent_def'.mpr fun i ↦ ?_⟩
+  simp_rw [disjoint_iff, inf_sSup_eq_iSup_inf_sup_finset, iSup_eq_bot, ← disjoint_iff]
+  intro s hs
+  classical
+  rw [← Finset.sup_erase_bot]
+  set t := s.erase ⊥
+  replace hf : InjOn f (f ⁻¹' t) := fun i hi j _ hij ↦ by refine hf ?_ ?_ hij <;> aesop
+  have : (Finset.erase (insert i (t.preimage _ hf)) i).image f = t := by
+    ext a
+    simp only [Finset.mem_preimage, Finset.mem_erase, ne_eq, Finset.mem_insert, true_or, not_true,
+      Finset.erase_insert_eq_erase, not_and, Finset.mem_image]
+    refine ⟨by aesop, fun ⟨ha, has⟩ ↦ ?_⟩
+    obtain ⟨j, hj, rfl⟩ := hs has
+    exact ⟨j, ⟨hj, ha, has⟩, rfl⟩
+  rw [← this, Finset.sup_image]
+  specialize h (insert i (t.preimage _ hf))
+  rw [Finset.supIndep_iff_disjoint_erase] at h
+  exact h i (Finset.mem_insert_self i _)
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 01 2022 at 10:00):
+
+I think the problem is that the proof ofFinset.supIndep_iff_disjoint_erase is not using the fact that the function is injective, and so the proof of the reverse direction is not using the fact that the function is injective.
+
+####  Eric Wieser (Jun 01 2022 at 10:01):
+
+I think the proof ofFinset.supIndep_iff_disjoint_erase should be
+lemma Finset.supIndep_iff_disjoint_erase {s : Finset ι} {f : ι → α} :
+  s.SupIndep f ↔ ∀ (i ∈ s) (j ∈ s.erase i), Disjoint (f i) (f j) :=
+
+####  Eric Wieser (Jun 01 2022 at 10:02):
+
+And the proof of the reverse direction should be
+  refine ⟨fun h ↦ ⟨h.supIndep', fun i hi ↦ hf ?_⟩, fun h ↦ CompleteLattice.independent_def'.mpr fun i ↦ ?_⟩
+  simp_rw [disjoint_iff, inf_sSup_eq_iSup_inf_sup_finset, iSup_eq_bot, ← disjoint_iff]
+  intro s hs
+  classical
+  rw [← Finset.sup_erase_bot]
+  set t := s.erase ⊥
+  replace hf : InjOn f (f ⁻¹' t) := fun i hi j _ hij ↦ by refine hf ?_ ?_ hij <;> aesop
+  have : (Finset.erase (insert i (t.preimage _ hf)) i).image f = t := by
+    ext a
+    simp only [Finset.mem_preimage, Finset.mem_erase, ne_eq, Finset.mem_insert, true_or, not_true,
+      Finset.erase_insert_eq_erase, not_and, Finset.mem_image]
+    refine ⟨by aesop, fun ⟨ha, has⟩ ↦ ?_⟩
+    obtain ⟨j, hj, rfl⟩ := hs has
+    exact ⟨j, ⟨hj, ha, has⟩, rfl⟩
+  rw [← this, Finset.sup_image]
+  specialize h (insert i (t.preimage _ hf))
+  rw [Finset.supIndep_iff_disjoint_erase] at h
+  exact h i (Finset.mem_insert_self i _)
+
+####  Eric Wieser (Jun 01 2022 at 10:02):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not, but it's a lot more readable than the original
+
+####  Eric Wieser (Jun 01 2022 at 10:03):
+
+I'm not sure if that's a bug or not
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

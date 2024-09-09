@@ -1,0 +1,162 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:49.804537
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 2213255 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/GroupTheory/OrderOfElement.lean - 2024-09-08 12:19:37.872813.
+---1/1---
+For theorem IsOfFinOrder.apply in Mathlib/GroupTheory/OrderOfElement.lean:
+theorem IsOfFinOrder.apply {η : Type*} {Gs : η → Type*} [∀ i, Monoid (Gs i)] {x : ∀ i, Gs i}
+    (h : IsOfFinOrder x) : ∀ i, IsOfFinOrder (x i) 
+
+
+Original valid proof:
+:= by
+  obtain ⟨n, npos, hn⟩ := h.exists_pow_eq_one
+  exact fun _ => isOfFinOrder_iff_pow_eq_one.mpr ⟨n, npos, (congr_fun hn.symm _).symm⟩
+
+
+Verifying proof (Commit ab56fa28da38a962b7952fc9e52edb14bef2bc5a):
+ := by
+  rcases(isOfFinOrder_iff_pow_eq_one _).mp h with ⟨n, npos, hn⟩
+  exact fun _ => (isOfFinOrder_iff_pow_eq_one _).mpr ⟨n, npos, congr_fun hn.symm _⟩
+
+####  Eric Wieser (Jun 01 2020 at 10:50):
+
+I'm not sure what the issue is, but I'm not sure I'd want to usecongr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use
+congr_fun hn.symm _ anyway, since it's not clear that hn.symm is a function
+
+####  Eric Wieser (Jun 01 2020 at 10:51):
+
+I'm not sure what the issue is, but I'm not
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

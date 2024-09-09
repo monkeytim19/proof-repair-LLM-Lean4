@@ -1,0 +1,208 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:48.610726
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 208878 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Topology/CompactOpen.lean - 2024-09-08 11:32:04.357024.
+---1/1---
+For theorem ContinuousMap.continuous_comp in Mathlib/Topology/CompactOpen.lean:
+lemma continuous_compactOpen {f : X → C(Y, Z)} :
+    Continuous f ↔ ∀ K, IsCompact K → ∀ U, IsOpen U → IsOpen {x | MapsTo (f x) K U} 
+
+
+Original valid proof:
+:=
+  continuous_generateFrom_iff.trans forall_image2_iff
+
+
+Verifying proof (Commit 07d28ef76de6fda605a7eb6f6c9ef70c5c90b329):
+ := by
+  simp_rw (config := { instances := true }) [compactOpen_eq, continuous_generateFrom_iff,
+    forall_image2_iff, mapsTo']
+  rfl
+
+####  Yury G. Kudryashov (May 03 2020 at 04:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:00):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I think that the problem is that the lemma is not a simp lemma.
+
+####  Yury G. Kudryashov (May 03 2020 at 04:01):
+
+I'm not sure that this is a bug.
+
+####  Y
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

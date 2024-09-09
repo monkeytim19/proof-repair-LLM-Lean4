@@ -1,0 +1,135 @@
+nohup: ignoring input
+Inference starting on test data using model from checkpoint deepseek-ai/DeepSeek-Prover-V1.5-SFT.
+Downloading shards:   0%|          | 0/2 [00:00<?, ?it/s]Downloading shards:  50%|█████     | 1/2 [01:09<01:09, 69.78s/it]Downloading shards: 100%|██████████| 2/2 [01:54<00:00, 54.89s/it]Downloading shards: 100%|██████████| 2/2 [01:54<00:00, 57.12s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.88s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.34s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.42s/it]
+Generating test split: 0 examples [00:00, ? examples/s]Generating test split: 1000 examples [00:00, 7256.38 examples/s]Generating test split: 1000 examples [00:00, 7158.90 examples/s]
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map: 100%|██████████| 1000/1000 [00:01<00:00, 905.54 examples/s]Map: 100%|██████████| 1000/1000 [00:01<00:00, 878.04 examples/s]
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   1%|          | 8/1000 [03:52<7:59:47, 29.02s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   2%|▏         | 16/1000 [07:44<7:56:25, 29.05s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   2%|▏         | 24/1000 [09:20<5:45:34, 21.24s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   3%|▎         | 32/1000 [12:59<6:22:10, 23.69s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   4%|▍         | 40/1000 [15:23<5:45:34, 21.60s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   5%|▍         | 48/1000 [18:40<5:59:24, 22.65s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   6%|▌         | 56/1000 [21:56<6:06:04, 23.27s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   6%|▋         | 64/1000 [25:38<6:24:49, 24.67s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   7%|▋         | 72/1000 [28:52<6:19:56, 24.57s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   8%|▊         | 80/1000 [32:01<6:11:54, 24.25s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:   9%|▉         | 88/1000 [33:58<5:23:45, 21.30s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  10%|▉         | 96/1000 [37:38<5:49:31, 23.20s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  10%|█         | 104/1000 [41:26<6:10:20, 24.80s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  11%|█         | 112/1000 [45:01<6:16:26, 25.44s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  12%|█▏        | 120/1000 [48:50<6:27:20, 26.41s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  13%|█▎        | 128/1000 [52:29<6:27:49, 26.68s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  14%|█▎        | 136/1000 [55:43<6:13:39, 25.95s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  14%|█▍        | 144/1000 [59:26<6:18:21, 26.52s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  15%|█▌        | 152/1000 [1:03:08<6:20:13, 26.90s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  16%|█▌        | 160/1000 [1:06:04<5:55:46, 25.41s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  17%|█▋        | 168/1000 [1:09:42<6:00:05, 25.97s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  18%|█▊        | 176/1000 [1:13:27<6:05:47, 26.64s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  18%|█▊        | 184/1000 [1:17:17<6:10:41, 27.26s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  19%|█▉        | 192/1000 [1:20:54<6:06:30, 27.22s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  20%|██        | 200/1000 [1:24:41<6:07:35, 27.57s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  21%|██        | 208/1000 [1:26:01<4:54:31, 22.31s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  22%|██▏       | 216/1000 [1:28:44<4:43:35, 21.70s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  22%|██▏       | 224/1000 [1:32:06<4:54:35, 22.78s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  23%|██▎       | 232/1000 [1:35:51<5:11:58, 24.37s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  24%|██▍       | 240/1000 [1:39:47<5:28:30, 25.94s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  25%|██▍       | 248/1000 [1:42:43<5:10:03, 24.74s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  26%|██▌       | 256/1000 [1:46:19<5:15:02, 25.41s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  26%|██▋       | 264/1000 [1:50:12<5:25:30, 26.54s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  27%|██▋       | 272/1000 [1:54:03<5:30:17, 27.22s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  28%|██▊       | 280/1000 [1:56:25<4:52:49, 24.40s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  29%|██▉       | 288/1000 [2:00:14<5:04:39, 25.67s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  30%|██▉       | 296/1000 [2:04:01<5:10:24, 26.45s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  30%|███       | 304/1000 [2:07:43<5:11:40, 26.87s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  31%|███       | 312/1000 [2:11:25<5:11:06, 27.13s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  32%|███▏      | 320/1000 [2:15:11<5:11:19, 27.47s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  33%|███▎      | 328/1000 [2:17:49<4:41:45, 25.16s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  34%|███▎      | 336/1000 [2:18:40<3:35:49, 19.50s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  34%|███▍      | 344/1000 [2:22:36<4:06:08, 22.51s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  35%|███▌      | 352/1000 [2:25:59<4:12:33, 23.38s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  36%|███▌      | 360/1000 [2:28:40<3:58:41, 22.38s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  37%|███▋      | 368/1000 [2:32:19<4:11:45, 23.90s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  38%|███▊      | 376/1000 [2:36:00<4:20:14, 25.02s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  38%|███▊      | 384/1000 [2:39:56<4:30:42, 26.37s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  39%|███▉      | 392/1000 [2:43:16<4:22:54, 25.95s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  40%|████      | 400/1000 [2:47:07<4:28:14, 26.82s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  41%|████      | 408/1000 [2:51:05<4:33:25, 27.71s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  42%|████▏     | 416/1000 [2:55:06<4:36:41, 28.43s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  42%|████▏     | 424/1000 [2:57:32<4:03:41, 25.38s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  43%|████▎     | 432/1000 [3:01:09<4:05:12, 25.90s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  44%|████▍     | 440/1000 [3:04:54<4:08:00, 26.57s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  45%|████▍     | 448/1000 [3:08:34<4:06:58, 26.85s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  46%|████▌     | 456/1000 [3:11:54<3:58:13, 26.27s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  46%|████▋     | 464/1000 [3:15:43<4:01:01, 26.98s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  47%|████▋     | 472/1000 [3:19:23<3:58:57, 27.15s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  48%|████▊     | 480/1000 [3:23:09<3:58:00, 27.46s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  49%|████▉     | 488/1000 [3:26:52<3:55:32, 27.60s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  50%|████▉     | 496/1000 [3:30:05<3:43:08, 26.56s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  50%|█████     | 504/1000 [3:32:43<3:22:36, 24.51s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  51%|█████     | 512/1000 [3:35:55<3:18:00, 24.35s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  52%|█████▏    | 520/1000 [3:39:08<3:14:16, 24.28s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  53%|█████▎    | 528/1000 [3:42:39<3:15:59, 24.91s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  54%|█████▎    | 536/1000 [3:46:13<3:16:52, 25.46s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  54%|█████▍    | 544/1000 [3:49:38<3:13:54, 25.51s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  55%|█████▌    | 552/1000 [3:52:52<3:07:41, 25.14s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  56%|█████▌    | 560/1000 [3:56:43<3:12:41, 26.28s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  57%|█████▋    | 568/1000 [4:00:34<3:14:44, 27.05s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  58%|█████▊    | 576/1000 [4:02:44<2:48:18, 23.82s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  58%|█████▊    | 584/1000 [4:06:25<2:53:01, 24.96s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  59%|█████▉    | 592/1000 [4:10:17<2:57:52, 26.16s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  60%|██████    | 600/1000 [4:13:30<2:50:10, 25.53s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  61%|██████    | 608/1000 [4:17:23<2:53:51, 26.61s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  62%|██████▏   | 616/1000 [4:21:10<2:53:53, 27.17s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  62%|██████▏   | 624/1000 [4:24:54<2:51:44, 27.41s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  63%|██████▎   | 632/1000 [4:28:49<2:51:44, 28.00s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  64%|██████▍   | 640/1000 [4:32:51<2:51:59, 28.67s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  65%|██████▍   | 648/1000 [4:36:39<2:47:48, 28.60s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  66%|██████▌   | 656/1000 [4:39:54<2:36:52, 27.36s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  66%|██████▋   | 664/1000 [4:41:46<2:10:46, 23.35s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  67%|██████▋   | 672/1000 [4:44:03<1:57:28, 21.49s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  68%|██████▊   | 680/1000 [4:46:32<1:50:01, 20.63s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  69%|██████▉   | 688/1000 [4:48:49<1:41:41, 19.56s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  70%|██████▉   | 696/1000 [4:52:42<1:53:42, 22.44s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  70%|███████   | 704/1000 [4:56:46<2:02:38, 24.86s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  71%|███████   | 712/1000 [5:00:37<2:05:04, 26.06s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  72%|███████▏  | 720/1000 [5:04:23<2:04:39, 26.71s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  73%|███████▎  | 728/1000 [5:08:17<2:04:29, 27.46s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  74%|███████▎  | 736/1000 [5:11:53<2:00:18, 27.34s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  74%|███████▍  | 744/1000 [5:14:05<1:42:44, 24.08s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  75%|███████▌  | 752/1000 [5:17:57<1:45:42, 25.57s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  76%|███████▌  | 760/1000 [5:22:01<1:48:11, 27.05s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  77%|███████▋  | 768/1000 [5:24:02<1:30:41, 23.45s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  78%|███████▊  | 776/1000 [5:26:16<1:20:04, 21.45s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  78%|███████▊  | 784/1000 [5:30:00<1:24:19, 23.42s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  79%|███████▉  | 792/1000 [5:33:49<1:26:33, 24.97s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  80%|████████  | 800/1000 [5:36:53<1:21:18, 24.39s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  81%|████████  | 808/1000 [5:40:39<1:21:44, 25.54s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  82%|████████▏ | 816/1000 [5:44:04<1:18:25, 25.58s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  82%|████████▏ | 824/1000 [5:47:55<1:17:53, 26.55s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  83%|████████▎ | 832/1000 [5:51:53<1:17:03, 27.52s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  84%|████████▍ | 840/1000 [5:55:49<1:14:59, 28.12s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  85%|████████▍ | 848/1000 [5:58:40<1:06:07, 26.10s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  86%|████████▌ | 856/1000 [6:02:02<1:02:00, 25.84s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  86%|████████▋ | 864/1000 [6:04:54<55:34, 24.52s/ examples]  Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  87%|████████▋ | 872/1000 [6:08:16<52:46, 24.74s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  88%|████████▊ | 880/1000 [6:11:52<50:49, 25.42s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  89%|████████▉ | 888/1000 [6:15:02<46:30, 24.92s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  90%|████████▉ | 896/1000 [6:18:41<44:30, 25.68s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  90%|█████████ | 904/1000 [6:22:28<42:23, 26.49s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  91%|█████████ | 912/1000 [6:25:03<35:40, 24.32s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  92%|█████████▏| 920/1000 [6:28:49<34:00, 25.51s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  93%|█████████▎| 928/1000 [6:32:28<31:17, 26.07s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  94%|█████████▎| 936/1000 [6:35:50<27:32, 25.83s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  94%|█████████▍| 944/1000 [6:39:17<24:06, 25.84s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  95%|█████████▌| 952/1000 [6:43:10<21:27, 26.83s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  96%|█████████▌| 960/1000 [6:46:48<17:58, 26.97s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  97%|█████████▋| 968/1000 [6:50:39<14:41, 27.54s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  98%|█████████▊| 976/1000 [6:54:15<10:57, 27.38s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  98%|█████████▊| 984/1000 [6:58:14<07:29, 28.12s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map:  99%|█████████▉| 992/1000 [7:01:38<03:38, 27.32s/ examples]Setting `pad_token_id` to `eos_token_id`:100001 for open-end generation.
+Map: 100%|██████████| 1000/1000 [7:05:24<00:00, 27.59s/ examples]Map: 100%|██████████| 1000/1000 [7:05:24<00:00, 25.52s/ examples]
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map: 100%|██████████| 1000/1000 [00:00<00:00, 16940.32 examples/s]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  7.49ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00,  7.47ba/s]
+Inference finished.

@@ -1,0 +1,99 @@
+# to evaluate original reprover models theorem proving on leandojo benchmark
+1. load virtual environment via 'source venv/bin/activate' 
+
+
+############ PERFORM FINETUNING ############
+
+
+### deepseek_prover_sft_no_err ###
+model_training/train.sh -m deepseek_prover_sft_no_err -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d random
+model_training/train.sh -m deepseek_prover_sft_no_err -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d by_file
+---
+
+### deepseek_prover_sft_err ###
+model_training/train.sh -m deepseek_prover_sft_err -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d random
+model_training/train.sh -m deepseek_prover_sft_err -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d by_file
+---
+
+### deepseek_prover_base_no_err ###
+model_training/train.sh -m deepseek_prover_base_no_err -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d random
+model_training/train.sh -m deepseek_prover_base_no_err -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d by_file
+---
+
+### byt5_small ###
+model_training/train.sh -m byt5_small -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d random
+model_training/train.sh -m byt5_small -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d by_file
+---
+
+### reprover ###
+model_training/train.sh -m reprover -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d random
+model_training/train.sh -m reprover -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d by_file
+---
+
+### reprover_err ###
+model_training/train.sh -m reprover_err -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d random
+---
+
+### reprover_proving ###
+model_training/train.sh -m reprover_proving -k e0c7006875709eb25e75bbfedbee199a5d44bb2a -n -t train-valid -v test -d random
+---
+
+
+
+
+############ PERFORM INFERENCE ############
+
+### deepseek_prover_sft_no_err ###
+model_training/inference.sh -m deepseek_prover_sft_no_err -i test -d by_file -c checkpoints-by_file-09-07-09-00/checkpoint-450 -n
+model_training/inference.sh -m deepseek_prover_sft_no_err -i test -d random -c checkpoints-random-09-07-09-00/checkpoint-450 -n
+model_training/inference.sh -m deepseek_prover_sft_no_err -i test -d random -c deepseek-ai/DeepSeek-Prover-V1.5-SFT -n
+model_training/inference.sh -m deepseek_prover_sft_no_err -i test -d by_file -c deepseek-ai/DeepSeek-Prover-V1.5-SFT -n
+---
+
+
+### deepseek_prover_sft_err ###
+model_training/inference.sh -m deepseek_prover_err -i test -d random -c deepseek-ai/DeepSeek-Prover-V1.5-SFT -n
+model_training/inference.sh -m deepseek_prover_err -i test -d by_file -c deepseek-ai/DeepSeek-Prover-V1.5-SFT -n
+---
+
+
+### deepseek_prover_base_no_err ###
+model_training/inference.sh -m deepseek_prover_base_no_err -i test -d by_file -c checkpoints-by_file-09-07-08-59/checkpoint-450 -n
+model_training/inference.sh -m deepseek_prover_base_no_err -i test -d random -c checkpoints-random-09-07-09-02/checkpoint-450 -n
+model_training/inference.sh -m deepseek_prover_base_no_err -i test -d random -c deepseek-ai/DeepSeek-Prover-V1.5-Base -n
+model_training/inference.sh -m deepseek_prover_base_no_err -i test -d by_file -c deepseek-ai/DeepSeek-Prover-V1.5-Base -n
+---
+
+### byt5_small ###
+
+model_training/inference.sh -m byt5_small -i test -d random -c checkpoints-random-09-07-09-31/checkpoint-475 -n
+model_training/inference.sh -m byt5_small -i test -d by_file -c checkpoints-by_file-09-07-11-51/checkpoint-350 -n
+model_training/inference.sh -m byt5_small -i test -d random -c google/byt5-small -n
+model_training/inference.sh -m byt5_small -i test -d by_file -c google/byt5-small -n
+
+---
+
+
+### reprover ###
+model_training/inference.sh -m reprover -i test -d random -c checkpoints-random-09-07-14-12/checkpoint-400 -n
+model_training/inference.sh -m reprover -i test -d by_file -c checkpoints-by_file-09-07-16-31/checkpoint-450 -n
+model_training/inference.sh -m reprover -i test -d random -c kaiyuy/leandojo-lean4-tacgen-byt5-small -n
+model_training/inference.sh -m reprover -i test -d by_file -c kaiyuy/leandojo-lean4-tacgen-byt5-small -n
+---
+
+
+### deepseek_prover_sft_proving ###
+model_training/inference.sh -m deepseek_prover_sft_proving -i test -d random -c checkpoints-random-09-07-09-00/checkpoint-450 -n
+model_training/inference.sh -m deepseek_prover_sft_proving -i test -d random -c deepseek-ai/DeepSeek-Prover-V1.5-SFT -n
+---
+
+
+### reprover_err ###
+model_training/inference.sh -m reprover_err -i test -d random -c checkpoints-random-09-08-18-00/checkpoint-450 -n
+---
+
+
+### reprover_proving ###
+model_training/inference.sh -m reprover_proving -i test -d random -c checkpoints-random-09-08-17-37/checkpoint-425 -n
+model_training/inference.sh -m reprover_proving -i test -d random -c kaiyuy/leandojo-lean4-tacgen-byt5-small -n
+---

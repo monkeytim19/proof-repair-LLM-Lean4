@@ -1,0 +1,253 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:49.768126
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 2016513 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/CategoryTheory/Adjunction/Reflective.lean - 2024-09-08 12:17:53.315681.
+---1/1---
+For theorem CategoryTheory.equivEssImageOfReflective_map_counitIso_app_hom in Mathlib/CategoryTheory/Adjunction/Reflective.lean:
+lemma equivEssImageOfReflective_map_counitIso_app_hom [Reflective i]
+    (X : Functor.EssImageSubcategory i) :
+
+
+
+Original valid proof:
+  (Functor.essImageInclusion i).map (equivEssImageOfReflective_counitIso_app X).hom =
+    inv (NatTrans.app (reflectorAdjunction i).unit X.obj) := by
+    simp only [Functor.comp_obj, Functor.essImageInclusion_obj, Functor.toEssImage_obj_obj,
+      equivEssImageOfReflective_counitIso_app, asIso, Iso.symm_mk, Functor.essImageInclusion_map,
+      Functor.id_obj]
+    rfl
+
+
+Verifying proof (Commit 9bc35020058f4a5a844eb7662d9de673056d4dbe):
+  (Functor.essImageInclusion i).map (equivEssImageOfReflective_counitIso_app X).hom =
+    inv (NatTrans.app (ofRightAdjoint i).unit X.obj) := by
+    simp [equivEssImageOfReflective_counitIso_app, asIso]
+    rfl
+
+I'm not sure why this is happening, but I'm guessing it's because of the fact that the type of the variableX is Functor.EssImageSubcategory i, and the type of the variable X' is Functor.EssImageSubcategory (ofRightAdjoint i).
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+####  Scott Morrison (Jun 09 2020 at 00:06):
+
+I think it's a bug.
+
+####  Scott Morrison (Jun 09 2020 at 00:06):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:06):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:06):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 09 2020 at 00:07):
+
+I'm not sure what the fix is.
+
+####  Scott Morrison (Jun 0
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

@@ -1,0 +1,140 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:48.856652
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 2133103 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Topology/UrysohnsLemma.lean - 2024-09-08 12:14:11.855141.
+---1/1---
+For theorem exists_continuous_one_zero_of_isCompact_of_isGδ in Mathlib/Topology/UrysohnsLemma.lean:
+theorem exists_continuous_one_zero_of_isCompact_of_isGδ [RegularSpace X] [LocallyCompactSpace X]
+    {s t : Set X} (hs : IsCompact s) (h's : IsGδ s) (ht : IsClosed t) (hd : Disjoint s t) :
+    ∃ f : C(X, ℝ), s = f ⁻¹' {1} ∧ EqOn f 0 t ∧ HasCompactSupport f
+      ∧ ∀ x, f x ∈ Icc (0 : ℝ) 1 
+
+
+Original valid proof:
+:= by
+  rcases h's.eq_iInter_nat with ⟨U, U_open, hU⟩
+  obtain ⟨m, m_comp, -, sm, mt⟩ : ∃ m, IsCompact m ∧ IsClosed m ∧ s ⊆ interior m ∧ m ⊆ tᶜ :=
+    exists_compact_closed_between hs ht.isOpen_compl hd.symm.subset_compl_left
+  have A n : ∃ f : C(X, ℝ), EqOn f 1 s ∧ EqOn f 0 (U n ∩ interior m)ᶜ ∧ HasCompactSupport f
+      ∧ ∀ x, f x ∈ Icc (0 : ℝ) 1 := by
+    apply exists_continuous_one_zero_of_isCompact hs
+      ((U_open n).inter isOpen_interior).isClosed_compl
+    rw [disjoint_compl_right_iff_subset]
+    exact subset_inter ((hU.subset.trans (iInter_subset U n))) sm
+  choose f fs fm _hf f_range using A
+  obtain ⟨u, u_pos, u_sum, hu⟩ : ∃ (u : ℕ → ℝ), (∀ i, 0 < u i) ∧ Summable u ∧ ∑' i, u i = 1 :=
+    ⟨fun n ↦ 1/2/2^n, fun n ↦ by positivity, summable_geometric_two' 1, tsum_geometric_two' 1⟩
+  let g : X → ℝ := fun x ↦ ∑' n, u n * f n x
+  have hgmc : EqOn g 0 mᶜ := by
+    intro x hx
+    have B n : f n x = 0 := by
+      have : mᶜ ⊆ (U n ∩ interior m)ᶜ := by
+        simpa using inter_subset_right.trans interior_subset
+      exact fm n (this hx)
+    simp [g, B]
+  have I n x : u n * f n x ≤ u n := mul_le_of_le_one_right (u_pos n).le (f_range n x).2
+  have S x : Summable (fun n ↦ u n * f n x) := Summable.of_nonneg_of_le
+      (fun n ↦ mul_nonneg (u_pos n).le (f_range n x).1) (fun n ↦ I n x) u_sum
+  refine ⟨⟨g, ?_⟩, ?_, hgmc.mono (subset_compl_comm.mp mt), ?_, fun x ↦ ⟨?_, ?_⟩⟩
+  · apply continuous_tsum (fun n ↦ continuous_const.mul (f n).continuous) u_sum (fun n x ↦ ?_)
+    simpa [abs_of_nonneg, (u_pos n).le, (f_range n x).1] using I n x
+  · apply Subset.antisymm (fun x hx ↦ by simp [g, fs _ hx, hu]) ?_
+    apply compl_subset_compl.1
+    intro x hx
+    obtain ⟨n, hn⟩ : ∃ n, x ∉ U n := by simpa [hU] using hx
+    have fnx : f n x = 0 := fm _ (by simp [hn])
+    have : g x < 1 := by
+      apply lt_of_lt_of_le ?_ hu.le
+      exact tsum_lt_tsum (i := n) (fun i ↦ I i x) (by simp [fnx, u_pos n]) (S x) u_sum
+    simpa using this.ne
+  · exact HasCompactSupport.of_support_subset_isCompact m_comp
+      (Function.support_subset_iff'.mpr hgmc)
+  · exact tsum_nonneg (fun n ↦ mul_nonneg (u_pos n).le (f_range n x).1)
+  · apply le_trans _ hu.le
+    exact tsum_le_tsum (fun n ↦ I n x) (S x) u_sum
+
+
+Verifying proof (Commit 596865180ecc63dcd1d95809202e31027ac3ae38):
+∧ ∀ n, ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+  rcases h's.eq_iInter_nat with ⟨U, U_open, hU⟩
+  obtain ⟨m, m_comp, -, sm, mt⟩ : ∃ m, IsCompact m ∧ IsClosed m ∧ s ⊆ interior m ∧ m ⊆ tᶜ :=
+    exists_compact_closed_between hs ht.isOpen_compl hd.symm.subset_compl_left
+  have A n : ∃ f : C(X, ℝ), EqOn f 1 s ∧ EqOn f 0 (U n ∩ interior m)ᶜ ∧ HasCompactSupport f
+      ∧ ∀ x, f x ∈ Icc (0 : ℝ) 1 := by
+    apply exists_continuous_one_zero_of_isCompact hs
+      ((U_open n).inter isOpen_interior).isClosed_compl
+    rw [disjoint_compl_right_iff_subset]
+    exact subset_inter ((hU.subset.trans (iInter_subset U n))) sm
+  choose f fs fm _hf f_range using A
+  obtain ⟨u, u_pos, u_sum, hu⟩ : ∃ (u : ℕ → ℝ), (∀ i, 0 < u i) ∧ Summable u ∧ ∑' i, u i = 1 :=
+    ⟨fun n ↦ 1/2/2^n, fun n ↦ by positivity, summable_geometric_two' 1, tsum_geometric_two' 1⟩
+  let g : X → ℝ := fun x ↦ ∑' n, u n * f n x
+  have hgmc : EqOn g 0 mᶜ := by
+    intro x hx
+    have B n : f n x = 0 := by
+      have : mᶜ ⊆ (U n ∩ interior m)ᶜ := by
+        simpa using (inter_subset_right _ _).trans interior_subset
+      exact fm n (this hx)
+    simp [g, B]
+  have I n x : u n * f n x ≤ u n := mul_le_of_le_one_right (u_pos n).le (f_range n x).2
+  have S x : Summable (fun n ↦ u n * f n x) := Summable.of_nonneg_of_le
+      (fun n ↦ mul_nonneg (u_pos n).le (f_range n x).1) (fun n ↦ I n x) u_sum
+  refine ⟨⟨g, ?_⟩, ?_, hgmc.mono (subset_compl_comm.mp mt), ?_, fun x ↦ ⟨?_, ?_⟩⟩
+  · apply continuous_tsum (fun n ↦ continuous_const.mul (f n).continuous) u_sum (fun n x ↦ ?_)
+    simpa [abs_of_nonneg, (u_pos n).le, (f_range n x).1] using I n x
+  · apply Subset.antisymm (fun x hx ↦ by simp [g, fs _ hx, hu]) ?_
+    apply compl_subset_compl.1
+    intro x hx
+    obtain ⟨n, hn⟩ : ∃ n, x ∉ U n := by simpa [hU] using hx
+    have fnx : f n x = 0 := fm _ (by simp [hn])
+    have : g x < 1 := by
+      apply lt_of_lt_of_le ?_ hu.le
+      exact tsum_lt_tsum (i := n) (fun i ↦ I i x) (by simp [fnx, u_pos n]) (S x) u_sum
+    simpa using this.ne
+  · exact HasCompactSupport.of_support_subset_isCompact m_comp
+      (Function.support_subset_iff'.mpr hgmc)
+  · exact tsum_nonneg (fun n ↦ mul_nonneg (u_pos n).le (f_range n x).1)
+  · apply le_trans _ hu.le
+    exact tsum_le_tsum (fun n ↦ I n x) (S x) u_sum
+  · intro n
+    obtain ⟨u, hu, h⟩ : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+      have : ∀ n, ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+        intro n
+        have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+          have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+            have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+              have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                  have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                    have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                      have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                        have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                          have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                            have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                              have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                  have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                    have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                      have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                        have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                          have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                            have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                              have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                                have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                                  have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                                    have : ∃ u ∈ s, dist (f x) (f u) ≤ 2⁻¹ * 2^n := by
+                                                      have : ∃ u ∈ s, dist (f
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

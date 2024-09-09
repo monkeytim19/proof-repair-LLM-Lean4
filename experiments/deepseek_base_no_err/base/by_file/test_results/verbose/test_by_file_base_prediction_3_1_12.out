@@ -1,0 +1,150 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:48.416903
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 856723 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/MeasureTheory/Function/Jacobian.lean - 2024-09-08 11:51:25.289785.
+---1/1---
+For theorem exists_closed_cover_approximatesLinearOn_of_hasFDerivWithinAt in Mathlib/MeasureTheory/Function/Jacobian.lean:
+theorem exists_closed_cover_approximatesLinearOn_of_hasFDerivWithinAt [SecondCountableTopology F]
+    (f : E → F) (s : Set E) (f' : E → E →L[ℝ] F) (hf' : ∀ x ∈ s, HasFDerivWithinAt f (f' x) s x)
+    (r : (E →L[ℝ] F) → ℝ≥0) (rpos : ∀ A, r A ≠ 0) :
+    ∃ (t : ℕ → Set E) (A : ℕ → E →L[ℝ] F),
+      (∀ n, IsClosed (t n)) ∧
+        (s ⊆ ⋃ n, t n) ∧
+          (∀ n, ApproximatesLinearOn f (A n) (s ∩ t n) (r (A n))) ∧
+            (s.Nonempty → ∀ n, ∃ y ∈ s, A n = f' y) 
+
+
+Original valid proof:
+:= by
+  rcases eq_empty_or_nonempty s with (rfl | hs)
+  · refine ⟨fun _ => ∅, fun _ => 0, ?_, ?_, ?_, ?_⟩ <;> simp
+  obtain ⟨T, T_count, hT⟩ :
+    ∃ T : Set s,
+      T.Countable ∧ ⋃ x ∈ T, ball (f' (x : E)) (r (f' x)) = ⋃ x : s, ball (f' x) (r (f' x)) :=
+    TopologicalSpace.isOpen_iUnion_countable _ fun x => isOpen_ball
+  obtain ⟨u, _, u_pos, u_lim⟩ :
+    ∃ u : ℕ → ℝ, StrictAnti u ∧ (∀ n : ℕ, 0 < u n) ∧ Tendsto u atTop (𝓝 0) :=
+    exists_seq_strictAnti_tendsto (0 : ℝ)
+  let M : ℕ → T → Set E := fun n z =>
+    {x | x ∈ s ∧ ∀ y ∈ s ∩ ball x (u n), ‖f y - f x - f' z (y - x)‖ ≤ r (f' z) * ‖y - x‖}
+  have s_subset : ∀ x ∈ s, ∃ (n : ℕ) (z : T), x ∈ M n z := by
+    intro x xs
+    obtain ⟨z, zT, hz⟩ : ∃ z ∈ T, f' x ∈ ball (f' (z : E)) (r (f' z)) := by
+      have : f' x ∈ ⋃ z ∈ T, ball (f' (z : E)) (r (f' z)) := by
+        rw [hT]
+        refine mem_iUnion.2 ⟨⟨x, xs⟩, ?_⟩
+        simpa only [mem_ball, Subtype.coe_mk, dist_self] using (rpos (f' x)).bot_lt
+      rwa [mem_iUnion₂, bex_def] at this
+    obtain ⟨ε, εpos, hε⟩ : ∃ ε : ℝ, 0 < ε ∧ ‖f' x - f' z‖ + ε ≤ r (f' z) := by
+      refine ⟨r (f' z) - ‖f' x - f' z‖, ?_, le_of_eq (by abel)⟩
+      simpa only [sub_pos] using mem_ball_iff_norm.mp hz
+    obtain ⟨δ, δpos, hδ⟩ :
+      ∃ (δ : ℝ), 0 < δ ∧ ball x δ ∩ s ⊆ {y | ‖f y - f x - (f' x) (y - x)‖ ≤ ε * ‖y - x‖} :=
+      Metric.mem_nhdsWithin_iff.1 ((hf' x xs).isLittleO.def εpos)
+    obtain ⟨n, hn⟩ : ∃ n, u n < δ := ((tendsto_order.1 u_lim).2 _ δpos).exists
+    refine ⟨n, ⟨z, zT⟩, ⟨xs, ?_⟩⟩
+    intro y hy
+    calc
+      ‖f y - f x - (f' z) (y - x)‖ = ‖f y - f x - (f' x) (y - x) + (f' x - f' z) (y - x)‖ := by
+        congr 1
+        simp only [ContinuousLinearMap.coe_sub', map_sub, Pi.sub_apply]
+        abel
+      _ ≤ ‖f y - f x - (f' x) (y - x)‖ + ‖(f' x - f' z) (y - x)‖ := norm_add_le _ _
+      _ ≤ ε * ‖y - x‖ + ‖f' x - f' z‖ * ‖y - x‖ := by
+        refine add_le_add (hδ ?_) (ContinuousLinearMap.le_opNorm _ _)
+        rw [inter_comm]
+        exact inter_subset_inter_right _ (ball_subset_ball hn.le) hy
+      _ ≤ r (f' z) * ‖y - x‖ := by
+        rw [← add_mul, add_comm]
+        gcongr
+  have closure_M_subset : ∀ n z, s ∩ closure (M n z) ⊆ M n z := by
+    rintro n z x ⟨xs, hx⟩
+    refine ⟨xs, fun y hy => ?_⟩
+    obtain ⟨a, aM, a_lim⟩ : ∃ a : ℕ → E, (∀ k, a k ∈ M n z) ∧ Tendsto a atTop (𝓝 x) :=
+      mem_closure_iff_seq_limit.1 hx
+    have L1 :
+      Tendsto (fun k : ℕ => ‖f y - f (a k) - (f' z) (y - a k)‖) atTop
+        (𝓝 ‖f y - f x - (f' z) (y - x)‖) := by
+      apply Tendsto.norm
+      have L : Tendsto (fun k => f (a k)) atTop (𝓝 (f x)) := by
+        apply (hf' x xs).continuousWithinAt.tendsto.comp
+        apply tendsto_nhdsWithin_of_tendsto_nhds_of_eventually_within _ a_lim
+        exact eventually_of_forall fun k => (aM k).1
+      apply Tendsto.sub (tendsto_const_nhds.sub L)
+      exact ((f' z).continuous.tendsto _).comp (tendsto_const_nhds.sub a_lim)
+    have L2 : Tendsto (fun k : ℕ => (r (f' z) : ℝ) * ‖y - a k‖) atTop (𝓝 (r (f' z) * ‖y - x‖)) :=
+      (tendsto_const_nhds.sub a_lim).norm.const_mul _
+    have I : ∀ᶠ k in atTop, ‖f y - f (a k) - (f' z) (y - a k)‖ ≤ r (f' z) * ‖y - a k‖ := by
+      have L : Tendsto (fun k => dist y (a k)) atTop (𝓝 (dist y x)) :=
+        tendsto_const_nhds.dist a_lim
+      filter_upwards [(tendsto_order.1 L).2 _ hy.2]
+      intro k hk
+      exact (aM k).2 y ⟨hy.1, hk⟩
+    exact le_of_tendsto_of_tendsto L1 L2 I
+  rcases TopologicalSpace.exists_dense_seq E with ⟨d, hd⟩
+  let K : ℕ → T → ℕ → Set E := fun n z p => closure (M n z) ∩ closedBall (d p) (u n / 3)
+  have K_approx : ∀ (n) (z : T) (p), ApproximatesLinearOn f (f' z) (s ∩ K n z p) (r (f' z)) := by
+    intro n z p x hx y hy
+    have yM : y ∈ M n z := closure_M_subset _ _ ⟨hy.1, hy.2.1⟩
+    refine yM.2 _ ⟨hx.1, ?_⟩
+    calc
+      dist x y ≤ dist x (d p) + dist y (d p) := dist_triangle_right _ _ _
+      _ ≤ u n / 3 + u n / 3 := add_le_add hx.2.2 hy.2.2
+      _ < u n := by linarith [u_pos n]
+  have K_closed : ∀ (n) (z : T) (p), IsClosed (K n z p) := fun n z p =>
+    isClosed_closure.inter isClosed_ball
+  obtain ⟨F, hF⟩ : ∃ F : ℕ → ℕ × T × ℕ, Function.Surjective F := by
+    haveI : Encodable T := T_count.toEncodable
+    have : Nonempty T := by
+      rcases hs with ⟨x, xs⟩
+      rcases s_subset x xs with ⟨n, z, _⟩
+      exact ⟨z⟩
+    inhabit ↥T
+    exact ⟨_, Encodable.surjective_decode_iget (ℕ × T × ℕ)⟩
+  refine
+    ⟨fun q => K (F q).1 (F q).2.1 (F q).2.2, fun q => f' (F q).2.1, fun n => K_closed _ _ _,
+      fun x xs => ?_, fun q => K_approx _ _ _, fun _ q => ⟨(F q).2.1, (F q).2.1.1.2, rfl⟩⟩
+  obtain ⟨n, z, hnz⟩ : ∃ (n : ℕ) (z : T), x ∈ M n z := s_subset x xs
+  obtain ⟨p, hp⟩ : ∃ p : ℕ, x ∈ closedBall (d p) (u n / 3) := by
+    have : Set.Nonempty (ball x (u n / 3)) := by simp only [nonempty_ball]; linarith [u_pos n]
+    obtain ⟨p, hp⟩ : ∃ p : ℕ, d p ∈ ball x (u n / 3) := hd.exists_mem_open isOpen_ball this
+    exact ⟨p, (mem_ball'.1 hp).le⟩
+  obtain ⟨q, hq⟩ : ∃ q, F q = (n, z, p) := hF _
+  apply mem_iUnion.2 ⟨q, _⟩
+  simp (config := { zeta := false }) only [K, hq, mem_inter_iff, hp, and_true]
+  exact subset_closure hnz
+
+
+Verifying proof (Commit 4968eba95a704a4a58e8b3735dc3733ee6d46c0d):
+ n ↔ n ≠ 0 := fun n => (u_pos_iff' n).trans n.ne_zero.symm
+  have u_pos_iff'''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff n).trans n.ne_zero.symm
+  have u_pos_iff''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff' n).trans n.ne_zero.symm
+  have u_pos_iff'''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff n).trans n.ne_zero.symm
+  have u_pos_iff''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff' n).trans n.ne_zero.symm
+  have u_pos_iff'''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff n).trans n.ne_zero.symm
+  have u_pos_iff''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff' n).trans n.ne_zero.symm
+  have u_pos_iff'''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff n).trans n.ne_zero.symm
+  have u_pos_iff''''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff' n).trans n.ne_zero.symm
+  have u_pos_iff'''''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff n).trans n.ne_zero.symm
+  have u_pos_iff''''''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff' n).trans n.ne_zero.symm
+  have u_pos_iff'''''''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff n).trans n.ne_zero.symm
+  have u_pos_iff''''''''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff' n).trans n.ne_zero.symm
+  have u_pos_iff'''''''''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff n).trans n.ne_zero.symm
+  have u_pos_iff''''''''''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff' n).trans n.ne_zero.symm
+  have u_pos_iff'''''''''''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff n).trans n.ne_zero.symm
+  have u_pos_iff''''''''''''''''''''''''''' : ∀ n, 0 < u n ↔ n ≠ 0 := fun n => (u_pos_iff' n).trans n.ne_zero.symm
+  have u_pos_iff'''''''''''''''''''''''''''' : ∀ n,
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

@@ -171,7 +171,3 @@ pipeline/verifier/success
 pipeline/scraper/raw_data
 pipeline/tracer/traced_info
 pipeline/scraper/filenames
-
-*.ipynb
-
-*.lean

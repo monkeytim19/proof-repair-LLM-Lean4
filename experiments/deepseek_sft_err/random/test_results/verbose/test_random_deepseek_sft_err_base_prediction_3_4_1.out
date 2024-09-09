@@ -1,0 +1,638 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_sft_err/random/test_random_deepseek_sft_err_base_prediction.csv - 2024-09-08 13:27:50.772171
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 42556 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Combinatorics/SetFamily/HarrisKleitman.lean - 2024-09-08 13:34:48.786238.
+---1/8---
+For theorem IsLowerSet.le_card_inter_finset in Mathlib/Combinatorics/SetFamily/HarrisKleitman.lean:
+theorem IsLowerSet.le_card_inter_finset' (h𝒜 : IsLowerSet (𝒜 : Set (Finset α)))
+    (hℬ : IsLowerSet (ℬ : Set (Finset α))) (h𝒜s : ∀ t ∈ 𝒜, t ⊆ s) (hℬs : ∀ t ∈ ℬ, t ⊆ s) :
+    𝒜.card * ℬ.card ≤ 2 ^ s.card * (𝒜 ∩ ℬ).card 
+
+
+Original valid proof:
+:= by
+  induction' s using Finset.induction with a s hs ih generalizing 𝒜 ℬ
+  · simp_rw [subset_empty, ← subset_singleton_iff', subset_singleton_iff] at h𝒜s hℬs
+    obtain rfl | rfl := h𝒜s
+    · simp only [card_empty, zero_mul, empty_inter, mul_zero, le_refl]
+    obtain rfl | rfl := hℬs
+    · simp only [card_empty, inter_empty, mul_zero, zero_mul, le_refl]
+    · simp only [card_empty, pow_zero, inter_singleton_of_mem, mem_singleton, card_singleton,
+        le_refl]
+  rw [card_insert_of_not_mem hs, ← card_memberSubfamily_add_card_nonMemberSubfamily a 𝒜, ←
+    card_memberSubfamily_add_card_nonMemberSubfamily a ℬ, add_mul, mul_add, mul_add,
+    add_comm (_ * _), add_add_add_comm]
+  refine
+    (add_le_add_right
+          (mul_add_mul_le_mul_add_mul
+              (card_le_card h𝒜.memberSubfamily_subset_nonMemberSubfamily) <|
+            card_le_card hℬ.memberSubfamily_subset_nonMemberSubfamily)
+          _).trans
+      ?_
+  rw [← two_mul, pow_succ', mul_assoc]
+  have h₀ : ∀ 𝒞 : Finset (Finset α), (∀ t ∈ 𝒞, t ⊆ insert a s) →
+      ∀ t ∈ 𝒞.nonMemberSubfamily a, t ⊆ s := by
+    rintro 𝒞 h𝒞 t ht
+    rw [mem_nonMemberSubfamily] at ht
+    exact (subset_insert_iff_of_not_mem ht.2).1 (h𝒞 _ ht.1)
+  have h₁ : ∀ 𝒞 : Finset (Finset α), (∀ t ∈ 𝒞, t ⊆ insert a s) →
+      ∀ t ∈ 𝒞.memberSubfamily a, t ⊆ s := by
+    rintro 𝒞 h𝒞 t ht
+    rw [mem_memberSubfamily] at ht
+    exact (subset_insert_iff_of_not_mem ht.2).1 ((subset_insert _ _).trans <| h𝒞 _ ht.1)
+  refine mul_le_mul_left' ?_ _
+  refine (add_le_add (ih h𝒜.memberSubfamily hℬ.memberSubfamily (h₁ _ h𝒜s) <| h₁ _ hℬs) <|
+    ih h𝒜.nonMemberSubfamily hℬ.nonMemberSubfamily (h₀ _ h𝒜s) <| h₀ _ hℬs).trans_eq ?_
+  rw [← mul_add, ← memberSubfamily_inter, ← nonMemberSubfamily_inter,
+    card_memberSubfamily_add_card_nonMemberSubfamily]
+
+
+Verifying proof (Commit 2b42dc7c3f9ebf6e7f17bff850d9c0bc3f1cf75e):
+ := by
+  induction' s using Finset.induction with a s hs ih generalizing 𝒜 ℬ
+  · simp_rw [subset_empty, ← subset_singleton_iff', subset_singleton_iff] at h𝒜s hℬs
+    obtain rfl | rfl := h𝒜s
+    · simp only [card_empty, empty_inter, mul_zero, zero_mul]
+    obtain rfl | rfl := hℬs
+    · simp only [card_empty, inter_empty, mul_zero, zero_mul]
+    · simp only [card_empty, pow_zero, inter_singleton_of_mem, mem_singleton, card_singleton]
+  rw [card_insert_of_not_mem hs, ← card_memberSubfamily_add_card_nonMemberSubfamily a 𝒜, ←
+    card_memberSubfamily_add_card_nonMemberSubfamily a ℬ, add_mul, mul_add, mul_add,
+    add_comm (_ * _), add_add_add_comm]
+  refine'
+    (add_le_add_right
+          (mul_add_mul_le_mul_add_mul
+              (card_le_of_subset h𝒜.memberSubfamily_subset_nonMemberSubfamily) <|
+            card_le_of_subset hℬ.memberSubfamily_subset_nonMemberSubfamily)
+          _).trans
+      _
+  rw [← two_mul, pow_succ, mul_assoc]
+  have h₀ :
+    ∀ 𝒞 : Finset (Finset α), (∀ t ∈ 𝒞, t ⊆ insert a s) → ∀ t ∈ 𝒞.nonMemberSubfamily a, t ⊆ s :=
+    by
+    rintro 𝒞 h𝒞 t ht
+    rw [mem_nonMemberSubfamily] at ht
+    exact (subset_insert_iff_of_not_mem ht.2).1 (h𝒞 _ ht.1)
+  have h₁ : ∀ 𝒞 : Finset (Finset α), (∀ t ∈ 𝒞, t ⊆ insert a s) → ∀ t ∈ 𝒞.memberSubfamily a, t ⊆ s
+    :=
+    by
+    rintro 𝒞 h𝒞 t ht
+    rw [mem_memberSubfamily] at ht
+    exact (subset_insert_iff_of_not_mem ht.2).1 ((subset_insert _ _).trans <| h𝒞 _ ht.1)
+  refine' mul_le_mul_left' _ _
+  refine'
+    (add_le_add (ih h𝒜.memberSubfamily hℬ.memberSubfamily (h₁ _ h𝒜s) <| h₁ _ hℬs) <|
+          ih h𝒜.nonMemberSubfamily hℬ.nonMemberSubfamily (h₀ _ h𝒜s) <| h₀ _ hℬs).trans_eq
+      _
+  rw [← mul_add, ← memberSubfamily_inter, ← nonMemberSubfamily_inter,
+    card_memberSubfamily_add_card_nonMemberSubfamily]
+
+Attempt failure.
+
+Working on Mathlib/Data/Nat/Bitwise.lean - 2024-09-08 13:34:56.170556.
+---2/8---
+For theorem Nat.bitwise_bit in Mathlib/Data/Nat/Bitwise.lean:
+lemma bitwise_bit {f : Bool → Bool → Bool} (h : f false false = false := by rfl) (a m b n) :
+    bitwise f (bit a m) (bit b n) = bit (f a b) (bitwise f m n) 
+
+
+Original valid proof:
+:= by
+  conv_lhs => unfold bitwise
+  simp only [bit, ite_apply, bit1, bit0, Bool.cond_eq_ite]
+  have h1 x :     (x + x) % 2 = 0 := by rw [← two_mul, mul_comm]; apply mul_mod_left
+  have h2 x : (x + x + 1) % 2 = 1 := by rw [← two_mul, add_comm]; apply add_mul_mod_self_left
+  have h3 x :     (x + x) / 2 = x := by omega
+  have h4 x : (x + x + 1) / 2 = x := by rw [← two_mul, add_comm]; simp [add_mul_div_left]
+  cases a <;> cases b <;> simp [h1, h2, h3, h4] <;> split_ifs
+    <;> simp_all (config := {decide := true})
+
+
+Verifying proof (Commit 47962ffc161f9f1d61aca7d3e6311c9b02cfc3df):
+ := by
+  conv_lhs => unfold bitwise
+  simp only [bit, ite_apply, bit1, bit0, Bool.cond_eq_ite]
+  have h1 x : (x + x) % 2 = 0 := by rw [← two_mul, mul_comm]; apply mul_mod_left
+  have h2 x : (x + x + 1) % 2 = 1 := by rw [← two_mul, add_comm]; apply add_mul_mod_self_left
+  have h3 x : (x + x) / 2 = x := by rw [← two_mul, mul_comm]; apply mul_div_left _ zero_lt_two
+  have h4 x : (x + x + 1) / 2 = x := by rw [← two_mul, add_comm]; simp [add_mul_div_left]
+  cases a <;> cases b <;> simp [h1, h2, h3, h4] <;> split_ifs
+    <;> simp_all (config := {decide := true})
+
+Attempt failure.
+
+Working on Mathlib/Data/Nat/Log.lean - 2024-09-08 13:35:01.106397.
+---3/8---
+For theorem Nat.le_pow_iff_clog_le in Mathlib/Data/Nat/Log.lean:
+theorem le_pow_iff_clog_le {b : ℕ} (hb : 1 < b) {x y : ℕ} : x ≤ b ^ y ↔ clog b x ≤ y 
+
+
+Original valid proof:
+:= by
+  induction' x using Nat.strong_induction_on with x ih generalizing y
+  cases y
+  · rw [Nat.pow_zero]
+    refine ⟨fun h => (clog_of_right_le_one h b).le, ?_⟩
+    simp_rw [← not_lt]
+    contrapose!
+    exact clog_pos hb
+  have b_pos : 0 < b := zero_lt_of_lt hb
+  rw [clog]; split_ifs with h
+  · rw [Nat.add_le_add_iff_right, ← ih ((x + b - 1) / b) (add_pred_div_lt hb h.2),
+      Nat.div_le_iff_le_mul_add_pred b_pos, Nat.mul_comm b, ← Nat.pow_succ,
+      Nat.add_sub_assoc (Nat.succ_le_of_lt b_pos), Nat.add_le_add_iff_right]
+  · exact iff_of_true ((not_lt.1 (not_and.1 h hb)).trans <| succ_le_of_lt <| Nat.pow_pos b_pos)
+      (zero_le _)
+
+
+Verifying proof (Commit 1cffcd2031c393e756890a35b29ac8a99ee75725):
+ := by
+  induction' x using Nat.strong_induction_on with x ih generalizing y
+  cases y
+  · rw [pow_zero]
+    refine' ⟨fun h => (clog_of_right_le_one h b).le, _⟩
+    simp_rw [← not_lt]
+    contrapose!
+    exact clog_pos hb
+  have b_pos : 0 < b := (zero_lt_one' ℕ).trans hb
+  rw [clog]; split_ifs with h
+  · rw [add_le_add_iff_right, ← ih ((x + b - 1) / b) (add_pred_div_lt hb h.2),
+      Nat.div_le_iff_le_mul_add_pred b_pos, mul_comm b, ← pow_succ,
+      add_tsub_assoc_of_le (Nat.succ_le_of_lt b_pos), add_le_add_iff_right]
+  · exact iff_of_true ((not_lt.1 (not_and.1 h hb)).trans <| succ_le_of_lt <| pow_pos b_pos _)
+      (zero_le _)
+
+Attempt failure.
+
+Working on Mathlib/LinearAlgebra/AffineSpace/Independent.lean - 2024-09-08 13:35:04.837470.
+---4/8---
+For theorem AffineIndependent.affineIndependent_of_not_mem_span in Mathlib/LinearAlgebra/AffineSpace/Independent.lean:
+theorem AffineIndependent.affineIndependent_of_not_mem_span {p : ι → P} {i : ι}
+    (ha : AffineIndependent k fun x : { y // y ≠ i } => p x)
+    (hi : p i ∉ affineSpan k (p '' { x | x ≠ i })) : AffineIndependent k p 
+
+
+Original valid proof:
+:= by
+  classical
+    intro s w hw hs
+    let s' : Finset { y // y ≠ i } := s.subtype (· ≠ i)
+    let p' : { y // y ≠ i } → P := fun x => p x
+    by_cases his : i ∈ s ∧ w i ≠ 0
+    · refine False.elim (hi ?_)
+      let wm : ι → k := -(w i)⁻¹ • w
+      have hms : s.weightedVSub p wm = (0 : V) := by simp [wm, hs]
+      have hwm : ∑ i ∈ s, wm i = 0 := by simp [wm, ← Finset.mul_sum, hw]
+      have hwmi : wm i = -1 := by simp [wm, his.2]
+      let w' : { y // y ≠ i } → k := fun x => wm x
+      have hw' : ∑ x ∈ s', w' x = 1 := by
+        simp_rw [w', s', Finset.sum_subtype_eq_sum_filter]
+        rw [← s.sum_filter_add_sum_filter_not (· ≠ i)] at hwm
+        simp_rw [Classical.not_not] at hwm
+        erw [Finset.filter_eq'] at hwm
+        simp_rw [if_pos his.1, Finset.sum_singleton, hwmi, ← sub_eq_add_neg, sub_eq_zero] at hwm
+        exact hwm
+      rw [← s.affineCombination_eq_of_weightedVSub_eq_zero_of_eq_neg_one hms his.1 hwmi, ←
+        (Subtype.range_coe : _ = { x | x ≠ i }), ← Set.range_comp, ←
+        s.affineCombination_subtype_eq_filter]
+      exact affineCombination_mem_affineSpan hw' p'
+    · rw [not_and_or, Classical.not_not] at his
+      let w' : { y // y ≠ i } → k := fun x => w x
+      have hw' : ∑ x ∈ s', w' x = 0 := by
+        simp_rw [w', s', Finset.sum_subtype_eq_sum_filter]
+        rw [Finset.sum_filter_of_ne, hw]
+        rintro x hxs hwx rfl
+        exact hwx (his.neg_resolve_left hxs)
+      have hs' : s'.weightedVSub p' w' = (0 : V) := by
+        simp_rw [w', s', p', Finset.weightedVSub_subtype_eq_filter]
+        rw [Finset.weightedVSub_filter_of_ne, hs]
+        rintro x hxs hwx rfl
+        exact hwx (his.neg_resolve_left hxs)
+      intro j hj
+      by_cases hji : j = i
+      · rw [hji] at hj
+        exact hji.symm ▸ his.neg_resolve_left hj
+      · exact ha s' w' hw' hs' ⟨j, hji⟩ (Finset.mem_subtype.2 hj)
+
+
+Verifying proof (Commit 141b72620243c872cad4ebe6d1abbfc83a8f9ece):
+ := by
+  classical
+    intro s w hw hs
+    let s' : Finset { y // y ≠ i } := s.subtype (· ≠ i)
+    let p' : { y // y ≠ i } → P := fun x => p x
+    by_cases his : i ∈ s ∧ w i ≠ 0
+    · refine' False.elim (hi _)
+      let wm : ι → k := -(w i)⁻¹ • w
+      have hms : s.weightedVSub p wm = (0 : V) := by simp [hs]
+      have hwm : ∑ i in s, wm i = 0 := by simp [← Finset.mul_sum, hw]
+      have hwmi : wm i = -1 := by simp [his.2]
+      let w' : { y // y ≠ i } → k := fun x => wm x
+      have hw' : ∑ x in s', w' x = 1 := by
+        simp_rw [Finset.sum_subtype_eq_sum_filter]
+        rw [← s.sum_filter_add_sum_filter_not (· ≠ i)] at hwm
+        simp_rw [Classical.not_not] at hwm
+        erw [Finset.filter_eq'] at hwm
+        simp_rw [if_pos his.1, Finset.sum_singleton, hwmi, ← sub_eq_add_neg, sub_eq_zero] at hwm
+        exact hwm
+      rw [← s.affineCombination_eq_of_weightedVSub_eq_zero_of_eq_neg_one hms his.1 hwmi, ←
+        (Subtype.range_coe : _ = { x | x ≠ i }), ← Set.range_comp, ←
+        s.affineCombination_subtype_eq_filter]
+      exact affineCombination_mem_affineSpan hw' p'
+    · rw [not_and_or, Classical.not_not] at his
+      let w' : { y // y ≠ i } → k := fun x => w x
+      have hw' : ∑ x in s', w' x = 0 := by
+        simp_rw [Finset.sum_subtype_eq_sum_filter]
+        rw [Finset.sum_filter_of_ne, hw]
+        rintro x hxs hwx rfl
+        exact hwx (his.neg_resolve_left hxs)
+      have hs' : s'.weightedVSub p' w' = (0 : V) := by
+        simp_rw [Finset.weightedVSub_subtype_eq_filter]
+        rw [Finset.weightedVSub_filter_of_ne, hs]
+        rintro x hxs hwx rfl
+        exact hwx (his.neg_resolve_left hxs)
+      intro j hj
+      by_cases hji : j = i
+      · rw [hji] at hj
+        exact hji.symm ▸ his.neg_resolve_left hj
+      · exact ha s' w' hw' hs' ⟨j, hji⟩ (Finset.mem_subtype.2 hj)
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Integral/FundThmCalculus.lean - 2024-09-08 13:35:16.203293.
+---5/8---
+For theorem intervalIntegral.sub_le_integral_of_hasDeriv_right_of_le_Ico in Mathlib/MeasureTheory/Integral/FundThmCalculus.lean:
+theorem sub_le_integral_of_hasDeriv_right_of_le_Ico (hab : a ≤ b)
+    (hcont : ContinuousOn g (Icc a b)) (hderiv : ∀ x ∈ Ico a b, HasDerivWithinAt g (g' x) (Ioi x) x)
+    (φint : IntegrableOn φ (Icc a b)) (hφg : ∀ x ∈ Ico a b, g' x ≤ φ x) :
+    g b - g a ≤ ∫ y in a..b, φ y 
+
+
+Original valid proof:
+:= by
+  refine le_of_forall_pos_le_add fun ε εpos => ?_
+  rcases exists_lt_lowerSemicontinuous_integral_lt φ φint εpos with
+    ⟨G', f_lt_G', G'cont, G'int, G'lt_top, hG'⟩
+  set s := {t | g t - g a ≤ ∫ u in a..t, (G' u).toReal} ∩ Icc a b
+  have s_closed : IsClosed s := by
+    have : ContinuousOn (fun t => (g t - g a, ∫ u in a..t, (G' u).toReal)) (Icc a b) := by
+      rw [← uIcc_of_le hab] at G'int hcont ⊢
+      exact (hcont.sub continuousOn_const).prod (continuousOn_primitive_interval G'int)
+    simp only [s, inter_comm]
+    exact this.preimage_isClosed_of_isClosed isClosed_Icc OrderClosedTopology.isClosed_le'
+  have main : Icc a b ⊆ {t | g t - g a ≤ ∫ u in a..t, (G' u).toReal} := by
+    refine s_closed.Icc_subset_of_forall_exists_gt
+      (by simp only [integral_same, mem_setOf_eq, sub_self, le_rfl]) fun t ht v t_lt_v => ?_
+    obtain ⟨y, g'_lt_y', y_lt_G'⟩ : ∃ y : ℝ, (g' t : EReal) < y ∧ (y : EReal) < G' t :=
+      EReal.lt_iff_exists_real_btwn.1 ((EReal.coe_le_coe_iff.2 (hφg t ht.2)).trans_lt (f_lt_G' t))
+    have I1 : ∀ᶠ u in 𝓝[>] t, (u - t) * y ≤ ∫ w in t..u, (G' w).toReal := by
+      have B : ∀ᶠ u in 𝓝 t, (y : EReal) < G' u := G'cont.lowerSemicontinuousAt _ _ y_lt_G'
+      rcases mem_nhds_iff_exists_Ioo_subset.1 B with ⟨m, M, ⟨hm, hM⟩, H⟩
+      have : Ioo t (min M b) ∈ 𝓝[>] t := Ioo_mem_nhdsWithin_Ioi' (lt_min hM ht.right.right)
+      filter_upwards [this] with u hu
+      have I : Icc t u ⊆ Icc a b := Icc_subset_Icc ht.2.1 (hu.2.le.trans (min_le_right _ _))
+      calc
+        (u - t) * y = ∫ _ in Icc t u, y := by
+          simp only [hu.left.le, MeasureTheory.integral_const, Algebra.id.smul_eq_mul, sub_nonneg,
+            MeasurableSet.univ, Real.volume_Icc, Measure.restrict_apply, univ_inter,
+            ENNReal.toReal_ofReal]
+        _ ≤ ∫ w in t..u, (G' w).toReal := by
+          rw [intervalIntegral.integral_of_le hu.1.le, ← integral_Icc_eq_integral_Ioc]
+          apply setIntegral_mono_ae_restrict
+          · simp only [integrableOn_const, Real.volume_Icc, ENNReal.ofReal_lt_top, or_true_iff]
+          · exact IntegrableOn.mono_set G'int I
+          · have C1 : ∀ᵐ x : ℝ ∂volume.restrict (Icc t u), G' x < ∞ :=
+              ae_mono (Measure.restrict_mono I le_rfl) G'lt_top
+            have C2 : ∀ᵐ x : ℝ ∂volume.restrict (Icc t u), x ∈ Icc t u :=
+              ae_restrict_mem measurableSet_Icc
+            filter_upwards [C1, C2] with x G'x hx
+            apply EReal.coe_le_coe_iff.1
+            have : x ∈ Ioo m M := by
+              simp only [hm.trans_le hx.left,
+                (hx.right.trans_lt hu.right).trans_le (min_le_left M b), mem_Ioo, and_self_iff]
+            refine (H this).out.le.trans_eq ?_
+            exact (EReal.coe_toReal G'x.ne (f_lt_G' x).ne_bot).symm
+    have I2 : ∀ᶠ u in 𝓝[>] t, g u - g t ≤ (u - t) * y := by
+      have g'_lt_y : g' t < y := EReal.coe_lt_coe_iff.1 g'_lt_y'
+      filter_upwards [(hderiv t ⟨ht.2.1, ht.2.2⟩).limsup_slope_le' (not_mem_Ioi.2 le_rfl) g'_lt_y,
+        self_mem_nhdsWithin] with u hu t_lt_u
+      have := mul_le_mul_of_nonneg_left hu.le (sub_pos.2 t_lt_u.out).le
+      rwa [← smul_eq_mul, sub_smul_slope] at this
+    have I3 : ∀ᶠ u in 𝓝[>] t, g u - g t ≤ ∫ w in t..u, (G' w).toReal := by
+      filter_upwards [I1, I2] with u hu1 hu2 using hu2.trans hu1
+    have I4 : ∀ᶠ u in 𝓝[>] t, u ∈ Ioc t (min v b) := by
+      refine mem_nhdsWithin_Ioi_iff_exists_Ioc_subset.2 ⟨min v b, ?_, Subset.rfl⟩
+      simp only [lt_min_iff, mem_Ioi]
+      exact ⟨t_lt_v, ht.2.2⟩
+    rcases (I3.and I4).exists with ⟨x, hx, h'x⟩
+    refine ⟨x, ?_, Ioc_subset_Ioc le_rfl (min_le_left _ _) h'x⟩
+    calc
+      g x - g a = g t - g a + (g x - g t) := by abel
+      _ ≤ (∫ w in a..t, (G' w).toReal) + ∫ w in t..x, (G' w).toReal := add_le_add ht.1 hx
+      _ = ∫ w in a..x, (G' w).toReal := by
+        apply integral_add_adjacent_intervals
+        · rw [intervalIntegrable_iff_integrableOn_Ioc_of_le ht.2.1]
+          exact IntegrableOn.mono_set G'int
+            (Ioc_subset_Icc_self.trans (Icc_subset_Icc le_rfl ht.2.2.le))
+        · rw [intervalIntegrable_iff_integrableOn_Ioc_of_le h'x.1.le]
+          apply IntegrableOn.mono_set G'int
+          exact Ioc_subset_Icc_self.trans (Icc_subset_Icc ht.2.1 (h'x.2.trans (min_le_right _ _)))
+  calc
+    g b - g a ≤ ∫ y in a..b, (G' y).toReal := main (right_mem_Icc.2 hab)
+    _ ≤ (∫ y in a..b, φ y) + ε := by
+      convert hG'.le <;>
+        · rw [intervalIntegral.integral_of_le hab]
+          simp only [integral_Icc_eq_integral_Ioc', Real.volume_singleton]
+
+
+Verifying proof (Commit 9d12b609274b44fc79ae79f9347cf8a3782b6a95):
+ := by
+  refine' le_of_forall_pos_le_add fun ε εpos => _
+  rcases exists_lt_lowerSemicontinuous_integral_lt φ φint εpos with
+    ⟨G', f_lt_G', G'cont, G'int, G'lt_top, hG'⟩
+  set s := {t | g t - g a ≤ ∫ u in a..t, (G' u).toReal} ∩ Icc a b
+  have s_closed : IsClosed s := by
+    have : ContinuousOn (fun t => (g t - g a, ∫ u in a..t, (G' u).toReal)) (Icc a b) := by
+      rw [← uIcc_of_le hab] at G'int hcont ⊢
+      exact (hcont.sub continuousOn_const).prod (continuousOn_primitive_interval G'int)
+    simp only [s, inter_comm]
+    exact this.preimage_isClosed_of_isClosed isClosed_Icc OrderClosedTopology.isClosed_le'
+  have main : Icc a b ⊆ {t | g t - g a ≤ ∫ u in a..t, (G' u).toReal} := by
+    refine s_closed.Icc_subset_of_forall_exists_gt
+      (by simp only [integral_same, mem_setOf_eq, sub_self, le_rfl]) fun t ht v t_lt_v => ?_
+    obtain ⟨y, g'_lt_y', y_lt_G'⟩ : ∃ y : ℝ, (g' t : EReal) < y ∧ (y : EReal) < G' t :=
+      EReal.lt_iff_exists_real_btwn.1 ((EReal.coe_le_coe_iff.2 (hφg t ht.2)).trans_lt (f_lt_G' t))
+    have I1 : ∀ᶠ u in 𝓝[>] t, (u - t) * y ≤ ∫ w in t..u, (G' w).toReal := by
+      have B : ∀ᶠ u in 𝓝 t, (y : EReal) < G' u := G'cont.eventually_lt _ _ y_lt_G'
+      rcases mem_nhds_iff_exists_Ioo_subset.1 B with ⟨m, M, ⟨hm, hM⟩, H⟩
+      have : Ioo t (min M b) ∈ 𝓝[>] t := Ioo_mem_nhdsWithin_Ioi' (lt_min hM ht.right.right)
+      filter_upwards [this] with u hu
+      have I : Icc t u ⊆ Icc a b := Icc_subset_Icc ht.2.1 (hu.2.le.trans (min_le_right _ _))
+      calc
+        (u - t) * y = ∫ _ in Icc t u, y := by
+          simp only [hu.left.le, MeasureTheory.integral_const, Algebra.id.smul_eq_mul, sub_nonneg,
+            MeasurableSet.univ, Real.volume_Icc, Measure.restrict_apply, univ_inter,
+            ENNReal.toReal_ofReal]
+        _ ≤ ∫ w in t..u, (G' w).toReal := by
+          rw [intervalIntegral.integral_of_le hu.1.le, ← integral_Icc_eq_integral_Ioc]
+          apply set_integral_mono_ae_restrict
+          · simp only [integrableOn_const, Real.volume_Icc, ENNReal.ofReal_lt_top, or_true_iff]
+          · exact IntegrableOn.mono_set G'int I
+          · have C1 : ∀ᵐ x : ℝ ∂volume.restrict (Icc t u), G' x < ∞ :=
+              ae_mono (Measure.restrict_mono I le_rfl) G'lt_top
+            have C2 : ∀ᵐ x : ℝ ∂volume.restrict (Icc t u), x ∈ Icc t u :=
+              ae_restrict_mem measurableSet_Icc
+            filter_upwards [C1, C2] with x G'x hx
+            apply EReal.coe_le_coe_iff.1
+            have : x ∈ Ioo m M := by
+              simp only [hm.trans_le hx.left,
+                (hx.right.trans_lt hu.right).trans_le (min_le_left M b), mem_Ioo, and_self_iff]
+            refine (H this).out.le.trans_eq ?_
+            exact (EReal.coe_toReal G'x.ne (f_lt_G' x).ne_bot).symm
+    have I2 : ∀ᶠ u in 𝓝[>] t, g u - g t ≤ (u - t) * y := by
+      have g'_lt_y : g' t < y := EReal.coe_lt_coe_iff.1 g'_lt_y'
+      filter_upwards [(hderiv t ⟨ht.2.1, ht.2.2⟩).limsup_slope_le' (not_mem_Ioi.2 le_rfl) g'_lt_y,
+        self_mem_nhdsWithin] with u hu t_lt_u
+      have := mul_le_mul_of_nonneg_left hu.le (sub_pos.2 t_lt_u.out).le
+      rwa [← smul_eq_mul, sub_smul_slope] at this
+    have I3 : ∀ᶠ u in 𝓝[>] t, g u - g t ≤ ∫ w in t..u, (G' w).toReal := by
+      filter_upwards [I1, I2] with u hu1 hu2 using hu2.trans hu1
+    have I4 : ∀ᶠ u in 𝓝[>] t, u ∈ Ioc t (min v b) := by
+      refine' mem_nhdsWithin_Ioi_iff_exists_Ioc_subset.2 ⟨min
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Measure/Haar/Disintegration.lean - 2024-09-08 13:35:36.066741.
+---6/8---
+For theorem LinearMap.exists_map_addHaar_eq_smul_addHaar in Mathlib/MeasureTheory/Measure/Haar/Disintegration.lean:
+theorem LinearMap.exists_map_addHaar_eq_smul_addHaar' (h : Function.Surjective L) :
+    ∃ (c : ℝ≥0∞), 0 < c ∧ c < ∞ ∧ μ.map L = (c * addHaar (univ : Set (LinearMap.ker L))) • ν 
+
+
+Original valid proof:
+:= by
+  have : ProperSpace E := .of_locallyCompactSpace 𝕜
+  have : FiniteDimensional 𝕜 E := .of_locallyCompactSpace 𝕜
+  have : ProperSpace F := by
+    rcases subsingleton_or_nontrivial E with hE|hE
+    · have : Subsingleton F := Function.Surjective.subsingleton h
+      infer_instance
+    · have : ProperSpace 𝕜 := .of_locallyCompact_module 𝕜 E
+      have : FiniteDimensional 𝕜 F := Module.Finite.of_surjective L h
+      exact FiniteDimensional.proper 𝕜 F
+  let S : Submodule 𝕜 E := LinearMap.ker L
+  obtain ⟨T, hT⟩ : ∃ T : Submodule 𝕜 E, IsCompl S T := Submodule.exists_isCompl S
+  let M : (S × T) ≃ₗ[𝕜] E := Submodule.prodEquivOfIsCompl S T hT
+  have M_cont : Continuous M.symm := LinearMap.continuous_of_finiteDimensional _
+  let P : S × T →ₗ[𝕜] T := LinearMap.snd 𝕜 S T
+  have P_cont : Continuous P := LinearMap.continuous_of_finiteDimensional _
+  have I : Function.Bijective (LinearMap.domRestrict L T) :=
+    ⟨LinearMap.injective_domRestrict_iff.2 (IsCompl.inf_eq_bot hT.symm),
+    (LinearMap.surjective_domRestrict_iff h).2 hT.symm.sup_eq_top⟩
+  let L' : T ≃ₗ[𝕜] F := LinearEquiv.ofBijective (LinearMap.domRestrict L T) I
+  have L'_cont : Continuous L' := LinearMap.continuous_of_finiteDimensional _
+  have A : L = (L' : T →ₗ[𝕜] F).comp (P.comp (M.symm : E →ₗ[𝕜] (S × T))) := by
+    ext x
+    obtain ⟨y, z, hyz⟩ : ∃ (y : S) (z : T), M.symm x = (y, z) := ⟨_, _, rfl⟩
+    have : x = M (y, z) := by
+      rw [← hyz]; simp only [LinearEquiv.apply_symm_apply]
+    simp [L', P, M, this]
+  have I : μ.map L = ((μ.map M.symm).map P).map L' := by
+    rw [Measure.map_map, Measure.map_map, A]
+    · rfl
+    · exact L'_cont.measurable.comp P_cont.measurable
+    · exact M_cont.measurable
+    · exact L'_cont.measurable
+    · exact P_cont.measurable
+  let μS : Measure S := addHaar
+  let μT : Measure T := addHaar
+  obtain ⟨c₀, c₀_pos, c₀_fin, h₀⟩ :
+      ∃ c₀ : ℝ≥0∞, c₀ ≠ 0 ∧ c₀ ≠ ∞ ∧ μ.map M.symm = c₀ • μS.prod μT := by
+    have : IsAddHaarMeasure (μ.map M.symm) :=
+      M.toContinuousLinearEquiv.symm.isAddHaarMeasure_map μ
+    refine ⟨addHaarScalarFactor (μ.map M.symm) (μS.prod μT), ?_, ENNReal.coe_ne_top,
+      isAddLeftInvariant_eq_smul _ _⟩
+    simpa only [ne_eq, ENNReal.coe_eq_zero] using
+      (addHaarScalarFactor_pos_of_isAddHaarMeasure (μ.map M.symm) (μS.prod μT)).ne'
+  have J : (μS.prod μT).map P = (μS univ) • μT := map_snd_prod
+  obtain ⟨c₁, c₁_pos, c₁_fin, h₁⟩ : ∃ c₁ : ℝ≥0∞, c₁ ≠ 0 ∧ c₁ ≠ ∞ ∧ μT.map L' = c₁ • ν := by
+    have : IsAddHaarMeasure (μT.map L') :=
+      L'.toContinuousLinearEquiv.isAddHaarMeasure_map μT
+    refine ⟨addHaarScalarFactor (μT.map L') ν, ?_, ENNReal.coe_ne_top,
+      isAddLeftInvariant_eq_smul _ _⟩
+    simpa only [ne_eq, ENNReal.coe_eq_zero] using
+      (addHaarScalarFactor_pos_of_isAddHaarMeasure (μT.map L') ν).ne'
+  refine ⟨c₀ * c₁, by simp [pos_iff_ne_zero, c₀_pos, c₁_pos], ENNReal.mul_lt_top c₀_fin c₁_fin, ?_⟩
+  simp only [I, h₀, Measure.map_smul, J, smul_smul, h₁]
+  rw [mul_assoc, mul_comm _ c₁, ← mul_assoc]
+
+
+Verifying proof (Commit c47ebbbece0d449dca95c589513159cdc2bab40d):
+ := by
+  have : ProperSpace E := properSpace_of_locallyCompactSpace 𝕜
+  have : FiniteDimensional 𝕜 E := finiteDimensional_of_locallyCompactSpace 𝕜
+  have : ProperSpace F := by
+    rcases subsingleton_or_nontrivial E with hE|hE
+    · have : Subsingleton F := Function.Surjective.subsingleton h
+      infer_instance
+    · have : ProperSpace 𝕜 := properSpace_of_locallyCompact_module 𝕜 E
+      have : FiniteDimensional 𝕜 F := Module.Finite.of_surjective L h
+      exact FiniteDimensional.proper 𝕜 F
+  let S : Submodule 𝕜 E := LinearMap.ker L
+  obtain ⟨T, hT⟩ : ∃ T : Submodule 𝕜 E, IsCompl S T := Submodule.exists_isCompl S
+  let M : (S × T) ≃ₗ[𝕜] E := Submodule.prodEquivOfIsCompl S T hT
+  have M_cont : Continuous M.symm := LinearMap.continuous_of_finiteDimensional _
+  let P : S × T →ₗ[𝕜] T := LinearMap.snd 𝕜 S T
+  have P_cont : Continuous P := LinearMap.continuous_of_finiteDimensional _
+  have I : Function.Bijective (LinearMap.domRestrict L T) :=
+    ⟨LinearMap.injective_domRestrict_iff.2 (IsCompl.inf_eq_bot hT.symm),
+    (LinearMap.surjective_domRestrict_iff h).2 hT.symm.sup_eq_top⟩
+  let L' : T ≃ₗ[𝕜] F := LinearEquiv.ofBijective (LinearMap.domRestrict L T) I
+  have L'_cont : Continuous L' := LinearMap.continuous_of_finiteDimensional _
+  have A : L = (L' : T →ₗ[𝕜] F).comp (P.comp (M.symm : E →ₗ[𝕜] (S × T))) := by
+    ext x
+    obtain ⟨y, z, hyz⟩ : ∃ (y : S) (z : T), M.symm x = (y, z) := ⟨_, _, rfl⟩
+    have : x = M (y, z) := by
+      rw [← hyz]; simp only [LinearEquiv.apply_symm_apply]
+    simp [this]
+  have I : μ.map L = ((μ.map M.symm).map P).map L' := by
+    rw [Measure.map_map, Measure.map_map, A]
+    · rfl
+    · exact L'_cont.measurable.comp P_cont.measurable
+    · exact M_cont.measurable
+    · exact L'_cont.measurable
+    · exact P_cont.measurable
+  let μS : Measure S := addHaar
+  let μT : Measure T := addHaar
+  obtain ⟨c₀, c₀_pos, c₀_fin, h₀⟩ :
+      ∃ c₀ : ℝ≥0∞, c₀ ≠ 0 ∧ c₀ ≠ ∞ ∧ μ.map M.symm = c₀ • μS.prod μT := by
+    have : IsAddHaarMeasure (μ.map M.symm) :=
+      M.toContinuousLinearEquiv.symm.isAddHaarMeasure_map μ
+    exact isAddHaarMeasure_eq_smul _ _
+  have J : (μS.prod μT).map P = (μS univ) • μT := map_snd_prod
+  obtain ⟨c₁, c₁_pos, c₁_fin, h₁⟩ : ∃ c₁ : ℝ≥0∞, c₁ ≠ 0 ∧ c₁ ≠ ∞ ∧ μT.map L' = c₁ • ν := by
+    have : IsAddHaarMeasure (μT.map L') :=
+      L'.toContinuousLinearEquiv.isAddHaarMeasure_map μT
+    exact isAddHaarMeasure_eq_smul _ _
+  refine ⟨c₀ * c₁, by simp [pos_iff_ne_zero, c₀_pos, c₁_pos], ENNReal.mul_lt_top c₀_fin c₁_fin, ?_⟩
+  simp only [I, h₀, Measure.map_smul, J, smul_smul, h₁]
+  rw [mul_assoc, mul_comm _ c₁, ← mul_assoc]
+
+Attempt failure.
+
+Working on Mathlib/Probability/Independence/Kernel.lean - 2024-09-08 13:35:47.611217.
+---7/8---
+For theorem ProbabilityTheory.kernel.IndepFun.ae_eq in Mathlib/Probability/Independence/Kernel.lean:
+theorem IndepFun.ae_eq {mβ : MeasurableSpace β} {mβ' : MeasurableSpace β'}
+    {f' : Ω → β} {g' : Ω → β'} (hfg : IndepFun f g κ μ)
+    (hf : ∀ᵐ a ∂μ, f =ᵐ[κ a] f') (hg : ∀ᵐ a ∂μ, g =ᵐ[κ a] g') :
+    IndepFun f' g' κ μ 
+
+
+Original valid proof:
+:= by
+  rintro _ _ ⟨A, hA, rfl⟩ ⟨B, hB, rfl⟩
+  filter_upwards [hf, hg, hfg _ _ ⟨_, hA, rfl⟩ ⟨_, hB, rfl⟩] with a hf' hg' hfg'
+  have h1 : f ⁻¹' A =ᵐ[κ a] f' ⁻¹' A := hf'.fun_comp A
+  have h2 : g ⁻¹' B =ᵐ[κ a] g' ⁻¹' B := hg'.fun_comp B
+  rwa [← measure_congr h1, ← measure_congr h2, ← measure_congr (h1.inter h2)]
+
+
+Verifying proof (Commit ef3c9bcd07782b044027916a64e925f3e4951707):
+ := by
+  rintro _ _ ⟨A, hA, rfl⟩ ⟨B, hB, rfl⟩
+  filter_upwards [hf, hg, hfg _ _ ⟨_, hA, rfl⟩ ⟨_, hB, rfl⟩] with a hf' hg' hfg'
+  have h1 : f ⁻¹' A |>.toPred =ᵐ[κ a] (f' ⁻¹' A).toPred := by
+    exact measure_congr (hf' a)
+  have h2 : g ⁻¹' B |>.toPred =ᵐ[κ a] (g' ⁁' B).toPred := by
+    exact measure_congr (hg' a)
+  rwa [← measure_congr h1, ← measure_congr h2, ← measure_congr (h1.inter h2)]### Error Analysis
+
+The errors in the provided Lean4 code are as follows:
+
+1. **Invalid Field 'toPred'**: The error message indicates that the environment does not contain 'Set.toPred'. This suggests that the code is trying to use a method or notation that does not exist in the current context or library.
+
+2. **Invalid Field Notation**: The error message indicates that the type is not of the form (C ...) where C is a constant. This suggests that the code is trying to use a notation or method that is not applicable to the given type.
+
+3. **Unsolved Goals**: The error message indicates that there are unsolved goals in the proof, which means that the proof is incomplete or incorrect.
+
+### Reproduction
+
+To reproduce the errors, we need to:
+
+1. Replace the invalid field 'toPred' with a valid method or notation that can be used to convert a set to a predicate.
+2. Ensure that the types and methods used in the proof are valid and applicable to the given context.
+3. Complete or correct the proof to address the unsolved goals.
+
+### Solution
+
+To solve the errors, we can:
+
+1. Replace the invalid 'toPred' with a valid method or notation that can be used to convert a set to a predicate. In this case, we can use the `Measure.ae_eq_fun` method to handle the almost everywhere equality of functions.
+2. Ensure that the types and methods used in the proof are valid and applicable to the given context.
+3. Complete or correct the proof to address the unsolved goals.
+
+### Repaired Proof
+
+```lean4
+import Mathlib.Probability.Independence.Basic
+import Mathlib.MeasureTheory.Measure.MeasureSpace
+
+open MeasureTheory ProbabilityTheory
+
+theorem IndepFun.ae_eq {mβ : MeasurableSpace β} {mβ' : MeasurableSpace β'}
+    {f' : Ω → β} {g' : Ω → β'} (hfg : IndepFun f g κ μ)
+    (hf : ∀ᵐ a ∂μ, f =ᵐ[κ a] f') (hg : ∀ᵐ a ∂μ, g =ᵐ[κ a] g') :
+    IndepFun f' g' κ μ := by
+  rintro _ _ ⟨A, hA, rfl⟩ ⟨B, hB, rfl⟩
+  filter_upwards [hf, hg, hfg _ _ ⟨_, hA, rfl⟩ ⟨_, hB, rfl⟩] with a hf' hg' hfg'
+  have h1 : f ⁻¹' A =ᵐ[κ a] (f' ⁻¹' A) := by
+    exact Measure.ae_eq_fun hf'
+  have h2 : g ⁻¹' B =ᵐ[κ a] (g' ⁻¹' B) := by
+    exact Measure.ae_eq_fun hg'
+  rwa [← Measure.ae_eq_fun h1, ← Measure.ae_eq_fun h2, ← Measure.ae_eq_fun (h1.inter h2)]
+```
+
+In this repaired proof, we use the `Measure.ae_eq_fun` method to handle the almost everywhere equality of functions, which replaces the invalid 'toPred' notation. This ensures that the types and methods used in the proof are valid and applicable to the given context, and the proof is completed to address the unsolved goals.
+
+Attempt failure.
+
+Working on Mathlib/SetTheory/Ordinal/Principal.lean - 2024-09-08 13:35:57.727241.
+---8/8---
+For theorem Ordinal.nfp_le_of_principal in Mathlib/SetTheory/Ordinal/Principal.lean:
+theorem nfp_le_of_principal {op : Ordinal → Ordinal → Ordinal} {a o : Ordinal} (hao : a < o)
+    (ho : Principal op o) : nfp (op a) a ≤ o 
+
+
+Original valid proof:
+:=
+  nfp_le fun n => (ho.iterate_lt hao n).le
+
+
+Verifying proof (Commit 596865180ecc63dcd1d95809202e31027ac3ae38):
+ :=
+  nfp_le fun n => (ho.iterate_lt hao n).le
+
+Repaired Proof:
+theorem nfp_le_of_principal {op : Ordinal → Ordinal → Ordinal} {a o : Ordinal} (hao : a < o)
+    (ho : Principal op o) : nfp (op a) a ≤ o  :=
+  nfp_le fun n => (ho.iterate_lt hao n).le
+The error message indicates that the identifier `principal_nfp_blsub₂` is unknown. This suggests that there might be a typo or a missing definition or import. However, the provided proof does not reference `principal_nfp_blsub₂` directly, so it's possible that the error is due to a different issue.
+
+Given the provided proof, it seems to be a correct and complete proof for the theorem `nfp_le_of_principal`. The proof uses the `nfp_le` function, which is a standard way to prove that the next fixed point of a function is less than or equal to a given ordinal, under certain conditions. The proof relies on the `Principal` property and the `iterate_lt` lemma, which are correctly applied.
+
+Since the error message does not provide additional context, and the proof itself is correct, the best action to take is to ensure that all necessary imports and definitions are correctly included in the Lean file. If the error persists, it might be necessary to contact Lean's support or check the Lean documentation for any changes or updates.
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 8 proof attempts, there were 0 successful and 8 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

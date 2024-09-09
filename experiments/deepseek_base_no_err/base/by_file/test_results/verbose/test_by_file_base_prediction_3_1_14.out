@@ -1,0 +1,242 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:48.569468
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 867581 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Algebra/Polynomial/Degree/TrailingDegree.lean - 2024-09-08 11:51:15.458105.
+---1/1---
+For theorem Polynomial.natTrailingDegree_eq_of_trailingDegree_eq in Mathlib/Algebra/Polynomial/Degree/TrailingDegree.lean:
+theorem natTrailingDegree_eq_of_trailingDegree_eq_some {p : R[X]} {n : ℕ}
+    (h : trailingDegree p = n) : natTrailingDegree p = n 
+
+
+Original valid proof:
+:=
+  have hp0 : p ≠ 0 := fun hp0 => by rw [hp0] at h; exact Option.noConfusion h
+  Option.some_inj.1 <|
+    show (natTrailingDegree p : ℕ∞) = n by rwa [← trailingDegree_eq_natTrailingDegree hp0]
+
+
+Verifying proof (Commit bc769a9f781a01550bc7da7431e6157f3b3d6c81):
+∨ p = 0 := by
+  simp [natTrailingDegree, h]
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (May 01 2020 at 19:00):
+
+I'm not sure what the point of this is.
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

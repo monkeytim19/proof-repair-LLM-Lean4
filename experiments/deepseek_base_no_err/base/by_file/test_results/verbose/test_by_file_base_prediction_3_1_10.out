@@ -1,0 +1,248 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:49.935163
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 1786920 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Data/List/TFAE.lean - 2024-09-08 12:21:17.305175.
+---1/1---
+For theorem List.exists_tfae in Mathlib/Data/List/TFAE.lean:
+theorem exists_tfae {α : Type*} (l : List (α → Prop)) (H : ∀ a : α, (l.map (fun p ↦ p a)).TFAE) :
+    (l.map (fun p ↦ ∃ a, p a)).TFAE 
+
+
+Original valid proof:
+:= by
+  simp only [TFAE, List.forall_mem_map_iff]
+  intros p₁ hp₁ p₂ hp₂
+  exact exists_congr fun a ↦ H a (p₁ a) (mem_map_of_mem (fun p ↦ p a) hp₁)
+    (p₂ a) (mem_map_of_mem (fun p ↦ p a) hp₂)
+
+
+Verifying proof (Commit c932badd26769438b46c1ea96eb6e2d1fd7e0896):
+ := by
+  simp_rw [TFAE, List.forall_mem_map_iff]
+  intros p₁ hp₁ p₂ hp₂
+  exact exists_congr fun a ↦ H a (p₁ a) (mem_map_of_mem (fun p ↦ p a) hp₁)
+    (p₂ a) (mem_map_of_mem (fun p ↦ p a) hp₂)
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 04 2020 at 1
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

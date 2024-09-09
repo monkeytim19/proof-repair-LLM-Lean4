@@ -1,0 +1,228 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:49.926302
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 1799762 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Topology/OmegaCompletePartialOrder.lean - 2024-09-08 12:21:27.839973.
+---1/1---
+For theorem Scott.IsOpen.isUpperSet in Mathlib/Topology/OmegaCompletePartialOrder.lean:
+theorem IsOpen.isUpperSet {s : Set α} (hs : IsOpen α s) : IsUpperSet s 
+
+
+Original valid proof:
+:= hs.fst
+
+
+Verifying proof (Commit 0c1dd9cbd45d804e559a743f61a0763f683221f0):
+ :=
+  IsOpen.monotone hs
+
+####  Mario Carneiro (May 05 2020 at 05:00):
+
+I think the problem is that the theorem is not stated correctly. The theorem should be
+theorem IsOpen.isUpperSet {s : Set α} (hs : IsOpen α s) : IsUpperSet s :=
+  IsOpen.monotone hs
+
+####  Mario Carneiro (May 05 2020 at 05:00):
+
+and the proof is correct
+
+####  Mario Carneiro (May 05 2020 at 05:00):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the original statement
+
+####  Mario Carneiro (May 05 2020 at 05:01):
+
+I'm not sure what the problem is with the
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

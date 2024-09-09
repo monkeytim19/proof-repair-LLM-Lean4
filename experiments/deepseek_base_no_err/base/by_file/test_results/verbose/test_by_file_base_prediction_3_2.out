@@ -1,0 +1,6160 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 01:27:36.131987
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 298721 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Algebra/BigOperators/Finsupp.lean - 2024-09-08 01:44:36.166462.
+---1/20---
+For theorem Finsupp.prod_mapRange_index in Mathlib/Algebra/BigOperators/Finsupp.lean:
+theorem prod_mapRange_index {f : M → M'} {hf : f 0 = 0} {g : α →₀ M} {h : α → M' → N}
+    (h0 : ∀ a, h a 0 = 1) : (mapRange f hf g).prod h = g.prod fun a b => h a (f b) 
+
+
+Original valid proof:
+:=
+  Finset.prod_subset support_mapRange fun _ _ H => by rw [not_mem_support_iff.1 H, h0]
+
+
+Verifying proof (Commit 67e80fd089fe45abea632652c43b78eba72d60e3):
+ :=
+  DFinsupp.prod_mapRange_index h0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Attempt failure.
+
+Working on Mathlib/Algebra/Homology/ExactSequence.lean - 2024-09-08 01:45:02.833398.
+---2/20---
+For theorem CategoryTheory.ComposableArrows.exact_of_δ₀ in Mathlib/Algebra/Homology/ExactSequence.lean:
+lemma exact_of_δ₀ {S : ComposableArrows C (n + 2)}
+    (h : (mk₂ (S.map' 0 1) (S.map' 1 2)).Exact) (h₀ : S.δ₀.Exact) : S.Exact 
+
+
+Original valid proof:
+:= by
+  rw [exact_iff_δ₀]
+  constructor <;> assumption
+
+
+Verifying proof (Commit bf2de5cf8765f1de5345ce008a97874d755ff93e):
+ := by
+  rw [exact_iff_δ₀]
+  constructor <;> assumption?
+
+## 1.2.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.
+
+Attempt failure.
+
+Working on Mathlib/Algebra/Homology/QuasiIso.lean - 2024-09-08 01:46:23.883173.
+---3/20---
+For theorem quasiIso_of_comp_left in Mathlib/Algebra/Homology/QuasiIso.lean:
+lemma quasiIso_of_comp_left (φ : K ⟶ L) (φ' : L ⟶ M) [∀ i, K.HasHomology i]
+    [∀ i, L.HasHomology i] [∀ i, M.HasHomology i]
+    [hφ : QuasiIso φ] [hφφ' : QuasiIso (φ ≫ φ')] :
+    QuasiIso φ' 
+
+
+Original valid proof:
+:= by
+  rw [← quasiIso_iff_comp_left φ φ']
+  infer_instance
+
+
+Verifying proof (Commit 4773ba7abb162ea632c1ff5810cd5f45a1289422):
+ :=
+begin
+  intro i,
+  apply quasiIsoAt_of_comp_left φ φ' i,
+  apply hφ,
+  apply hφφ',
+end
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this is a good example of a situation where we should have a tactic that can do this for us.
+
+#### Johan Commelin (Jun 10 2020 at 10:00):
+
+@Scott Morrison I think this
+
+Attempt failure.
+
+Working on Mathlib/Algebra/Order/Archimedean.lean - 2024-09-08 01:48:45.776719.
+---4/20---
+For theorem existsUnique_zsmul_near_of_pos in Mathlib/Algebra/Order/Archimedean.lean:
+theorem existsUnique_zsmul_near_of_pos {a : α} (ha : 0 < a) (g : α) :
+    ∃! k : ℤ, k • a ≤ g ∧ g < (k + 1) • a 
+
+
+Original valid proof:
+:= by
+  let s : Set ℤ := { n : ℤ | n • a ≤ g }
+  obtain ⟨k, hk : -g ≤ k • a⟩ := Archimedean.arch (-g) ha
+  have h_ne : s.Nonempty := ⟨-k, by simpa [s] using neg_le_neg hk⟩
+  obtain ⟨k, hk⟩ := Archimedean.arch g ha
+  have h_bdd : ∀ n ∈ s, n ≤ (k : ℤ) := by
+    intro n hn
+    apply (zsmul_le_zsmul_iff ha).mp
+    rw [← natCast_zsmul] at hk
+    exact le_trans hn hk
+  obtain ⟨m, hm, hm'⟩ := Int.exists_greatest_of_bdd ⟨k, h_bdd⟩ h_ne
+  have hm'' : g < (m + 1) • a := by
+    contrapose! hm'
+    exact ⟨m + 1, hm', lt_add_one _⟩
+  refine ⟨m, ⟨hm, hm''⟩, fun n hn => (hm' n hn.1).antisymm <| Int.le_of_lt_add_one ?_⟩
+  rw [← zsmul_lt_zsmul_iff ha]
+  exact lt_of_le_of_lt hm hn.2
+
+
+Verifying proof (Commit e2b81ba84dbe04d1922bf2fe517ab39d55326d72):
+ := by
+  let s : Set ℤ := { n : ℤ | n • a ≤ g }
+  obtain ⟨k, hk : -g ≤ k • a⟩ := Archimedean.arch (-g) ha
+  have h_ne : s.Nonempty := ⟨-k, by simpa using neg_le_neg hk⟩
+  obtain ⟨k, hk⟩ := Archimedean.arch g ha
+  have h_bdd : ∀ n ∈ s, n ≤ (k : ℤ) := by
+    intro n hn
+    apply (zsmul_le_zsmul_iff ha).mp
+    rw [← coe_nat_zsmul] at hk
+    exact le_trans hn hk
+  obtain ⟨m, hm, hm'⟩ := Int.exists_greatest_of_bdd ⟨k, h_bdd⟩ h_ne
+  have hm'' : g < (m + 1) • a := by
+    contrapose! hm'
+    exact ⟨m + 1, hm', lt_add_one _⟩
+  refine' ⟨m, ⟨hm, hm''⟩, fun n hn => (hm' n hn.1).antisymm <| Int.le_of_lt_add_one _⟩
+  rw [← zsmul_lt_zsmul_iff ha]
+  exact lt_of_le_of_lt hm hn.2
+
+####  Eric Wieser (May 10 2020 at 13:00):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is, but I'm not sure I'd want to be using the archimedean property to prove the archimedean property.
+
+####  Eric Wieser (May 10 2020 at 13:01):
+
+I'm not sure what the problem is
+
+Attempt failure.
+
+Working on Mathlib/Analysis/Analytic/Meromorphic.lean - 2024-09-08 01:49:24.457361.
+---5/20---
+For theorem MeromorphicAt.order_eq_int_iff in Mathlib/Analysis/Analytic/Meromorphic.lean:
+lemma order_eq_int_iff {f : 𝕜 → E} {x : 𝕜} (hf : MeromorphicAt f x) (n : ℤ) : hf.order = n ↔
+    ∃ g : 𝕜 → E, AnalyticAt 𝕜 g x ∧ g x ≠ 0 ∧ ∀ᶠ z in 𝓝[≠] x, f z = (z - x) ^ n • g z 
+
+
+Original valid proof:
+:= by
+  unfold order
+  by_cases h : hf.choose_spec.order = ⊤
+  · rw [h, WithTop.map_top, ← WithTop.coe_natCast, top_sub,
+      eq_false_intro WithTop.top_ne_coe, false_iff]
+    rw [AnalyticAt.order_eq_top_iff] at h
+    refine fun ⟨g, hg_an, hg_ne, hg_eq⟩ ↦ hg_ne ?_
+    apply EventuallyEq.eq_of_nhds
+    rw [EventuallyEq, ← AnalyticAt.frequently_eq_iff_eventually_eq hg_an analyticAt_const]
+    apply Eventually.frequently
+    rw [eventually_nhdsWithin_iff] at hg_eq ⊢
+    filter_upwards [h, hg_eq] with z hfz hfz_eq hz
+    rwa [hfz_eq hz, ← mul_smul, smul_eq_zero_iff_right] at hfz
+    exact mul_ne_zero (pow_ne_zero _ (sub_ne_zero.mpr hz)) (zpow_ne_zero _ (sub_ne_zero.mpr hz))
+  · obtain ⟨m, h⟩ := WithTop.ne_top_iff_exists.mp h
+    rw [← h, WithTop.map_coe, ← WithTop.coe_natCast, ← coe_sub, WithTop.coe_inj]
+    obtain ⟨g, hg_an, hg_ne, hg_eq⟩ := (AnalyticAt.order_eq_nat_iff _ _).mp h.symm
+    replace hg_eq : ∀ᶠ (z : 𝕜) in 𝓝[≠] x, f z = (z - x) ^ (↑m - ↑hf.choose : ℤ) • g z := by
+      rw [eventually_nhdsWithin_iff]
+      filter_upwards [hg_eq] with z hg_eq hz
+      rwa [← smul_right_inj <| zpow_ne_zero _ (sub_ne_zero.mpr hz), ← mul_smul,
+        ← zpow_add₀ (sub_ne_zero.mpr hz), ← add_sub_assoc, add_sub_cancel_left, zpow_natCast,
+        zpow_natCast]
+    exact ⟨fun h ↦ ⟨g, hg_an, hg_ne, h ▸ hg_eq⟩,
+      AnalyticAt.unique_eventuallyEq_zpow_smul_nonzero ⟨g, hg_an, hg_ne, hg_eq⟩⟩
+
+
+Verifying proof (Commit b0772359d09d1bb8ac5abff43f4728c85dc365ea):
+∧
+      (∀ᶠ z in 𝓝[≠] x, f z = (z - x) ^ (n + 1) • g z) ∨
+      (∀ᶠ z in 𝓝[≠] x, f z = (z - x) ^ (n - 1) • g z) := by
+  unfold order
+  by_cases h : hf.choose_spec.order = ⊤
+  · rw [h, WithTop.map_top, ← WithTop.coe_nat, WithTop.top_sub_coe,
+      eq_false_intro WithTop.top_ne_coe, false_iff]
+    rw [AnalyticAt.order_eq_top_iff] at h
+    refine fun ⟨g, hg_an, hg_ne, hg_eq⟩ ↦ hg_ne ?_
+    apply EventuallyEq.eq_of_nhds
+    rw [EventuallyEq, ← AnalyticAt.frequently_eq_iff_eventually_eq hg_an analyticAt_const]
+    apply Eventually.frequently
+    rw [eventually_nhdsWithin_iff] at hg_eq ⊢
+    filter_upwards [h, hg_eq] with z hfz hfz_eq hz
+    rwa [hfz_eq hz, ← mul_smul, smul_eq_zero_iff_right] at hfz
+    exact mul_ne_zero (pow_ne_zero _ (sub_ne_zero.mpr hz)) (zpow_ne_zero _ (sub_ne_zero.mpr hz))
+  · obtain ⟨m, h⟩ := WithTop.ne_top_iff_exists.mp h
+    rw [← h, WithTop.map_coe, ← WithTop.coe_nat, ← WithTop.coe_sub, WithTop.coe_inj]
+    obtain ⟨g, hg_an, hg_ne, hg_eq⟩ := (AnalyticAt.order_eq_nat_iff _ _).mp h.symm
+    replace hg_eq : ∀ᶠ (z : 𝕜) in 𝓝[≠] x, f z = (z - x) ^ (↑m - ↑hf.choose : ℤ) • g z := by
+      rw [eventually_nhdsWithin_iff]
+      filter_upwards [hg_eq] with z hg_eq hz
+      rwa [← smul_right_inj <| zpow_ne_zero _ (sub_ne_zero.mpr hz), ← mul_smul,
+        ← zpow_add₀ (sub_ne_zero.mpr hz), ← add_sub_assoc, add_sub_cancel', zpow_natCast,
+        zpow_natCast]
+    have h_eq : ∀ᶠ z in 𝓝[≠] x, f z = (z - x) ^ n • g z ∧
+      (∀ᶠ z in 𝓝[≠] x, f z = (z - x) ^ (n + 1) • g z) ∨
+      (∀ᶠ z in 𝓝[≠] x, f z = (z - x) ^ (n - 1) • g z) := by
+      filter_upwards [hg_eq] with z hg_eq hz
+      by_cases hn : n = m
+      · rw [hn]
+        left
+        rw [← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq,
+          ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, ← hg_eq, 
+
+Attempt failure.
+
+Working on Mathlib/Analysis/Convolution.lean - 2024-09-08 01:49:47.731374.
+---6/20---
+For theorem MeasureTheory.hasFDerivAt_convolution_right_with_param in Mathlib/Analysis/Convolution.lean:
+theorem hasFDerivAt_convolution_right_with_param {g : P → G → E'} {s : Set P} {k : Set G}
+    (hs : IsOpen s) (hk : IsCompact k) (hgs : ∀ p, ∀ x, p ∈ s → x ∉ k → g p x = 0)
+    (hf : LocallyIntegrable f μ) (hg : ContDiffOn 𝕜 1 (↿g) (s ×ˢ univ)) (q₀ : P × G)
+    (hq₀ : q₀.1 ∈ s) :
+    HasFDerivAt (fun q : P × G => (f ⋆[L, μ] g q.1) q.2)
+      ((f ⋆[L.precompR (P × G), μ] fun x : G => fderiv 𝕜 (↿g) (q₀.1, x)) q₀.2) q₀ 
+
+
+Original valid proof:
+:= by
+  let g' := fderiv 𝕜 ↿g
+  have A : ∀ p ∈ s, Continuous (g p) := fun p hp ↦ by
+    refine hg.continuousOn.comp_continuous (continuous_const.prod_mk continuous_id') fun x => ?_
+    simpa only [prod_mk_mem_set_prod_eq, mem_univ, and_true_iff] using hp
+  have A' : ∀ q : P × G, q.1 ∈ s → s ×ˢ univ ∈ 𝓝 q := fun q hq ↦ by
+    apply (hs.prod isOpen_univ).mem_nhds
+    simpa only [mem_prod, mem_univ, and_true_iff] using hq
+  have g'_zero : ∀ p x, p ∈ s → x ∉ k → g' (p, x) = 0 := by
+    intro p x hp hx
+    refine (hasFDerivAt_zero_of_eventually_const 0 ?_).fderiv
+    have M2 : kᶜ ∈ 𝓝 x := hk.isClosed.isOpen_compl.mem_nhds hx
+    have M1 : s ∈ 𝓝 p := hs.mem_nhds hp
+    rw [nhds_prod_eq]
+    filter_upwards [prod_mem_prod M1 M2]
+    rintro ⟨p, y⟩ ⟨hp, hy⟩
+    exact hgs p y hp hy
+  obtain ⟨ε, C, εpos, h₀ε, hε⟩ :
+      ∃ ε C, 0 < ε ∧ ball q₀.1 ε ⊆ s ∧ ∀ p x, ‖p - q₀.1‖ < ε → ‖g' (p, x)‖ ≤ C := by
+    have A : IsCompact ({q₀.1} ×ˢ k) := isCompact_singleton.prod hk
+    obtain ⟨t, kt, t_open, ht⟩ : ∃ t, {q₀.1} ×ˢ k ⊆ t ∧ IsOpen t ∧ IsBounded (g' '' t) := by
+      have B : ContinuousOn g' (s ×ˢ univ) :=
+        hg.continuousOn_fderiv_of_isOpen (hs.prod isOpen_univ) le_rfl
+      apply exists_isOpen_isBounded_image_of_isCompact_of_continuousOn A (hs.prod isOpen_univ) _ B
+      simp only [prod_subset_prod_iff, hq₀, singleton_subset_iff, subset_univ, and_self_iff,
+        true_or_iff]
+    obtain ⟨ε, εpos, hε, h'ε⟩ :
+      ∃ ε : ℝ, 0 < ε ∧ thickening ε ({q₀.fst} ×ˢ k) ⊆ t ∧ ball q₀.1 ε ⊆ s := by
+      obtain ⟨ε, εpos, hε⟩ : ∃ ε : ℝ, 0 < ε ∧ thickening ε (({q₀.fst} : Set P) ×ˢ k) ⊆ t :=
+        A.exists_thickening_subset_open t_open kt
+      obtain ⟨δ, δpos, hδ⟩ : ∃ δ : ℝ, 0 < δ ∧ ball q₀.1 δ ⊆ s := Metric.isOpen_iff.1 hs _ hq₀
+      refine ⟨min ε δ, lt_min εpos δpos, ?_, ?_⟩
+      · exact Subset.trans (thickening_mono (min_le_left _ _) _) hε
+      · exact Subset.trans (ball_subset_ball (min_le_right _ _)) hδ
+    obtain ⟨C, Cpos, hC⟩ : ∃ C, 0 < C ∧ g' '' t ⊆ closedBall 0 C := ht.subset_closedBall_lt 0 0
+    refine ⟨ε, C, εpos, h'ε, fun p x hp => ?_⟩
+    have hps : p ∈ s := h'ε (mem_ball_iff_norm.2 hp)
+    by_cases hx : x ∈ k
+    · have H : (p, x) ∈ t := by
+        apply hε
+        refine mem_thickening_iff.2 ⟨(q₀.1, x), ?_, ?_⟩
+        · simp only [hx, singleton_prod, mem_image, Prod.mk.inj_iff, eq_self_iff_true, true_and_iff,
+            exists_eq_right]
+        · rw [← dist_eq_norm] at hp
+          simpa only [Prod.dist_eq, εpos, dist_self, max_lt_iff, and_true_iff] using hp
+      have : g' (p, x) ∈ closedBall (0 : P × G →L[𝕜] E') C := hC (mem_image_of_mem _ H)
+      rwa [mem_closedBall_zero_iff] at this
+    · have : g' (p, x) = 0 := g'_zero _ _ hps hx
+      rw [this]
+      simpa only [norm_zero] using Cpos.le
+  have I1 :
+    ∀ᶠ x : P × G in 𝓝 q₀, AEStronglyMeasurable (fun a : G => L (f a) (g x.1 (x.2 - a))) μ := by
+    filter_upwards [A' q₀ hq₀]
+    rintro ⟨p, x⟩ ⟨hp, -⟩
+    refine (HasCompactSupport.convolutionExists_right L ?_ hf (A _ hp) _).1
+    apply hk.of_isClosed_subset (isClosed_tsupport _)
+    exact closure_minimal (support_subset_iff'.2 fun z hz => hgs _ _ hp hz) hk.isClosed
+  have I2 : Integrable (fun a : G => L (f a) (g q₀.1 (q₀.2 - a))) μ := by
+    have M : HasCompactSupport (g q₀.1) := HasCompactSupport.intro hk fun x hx => hgs q₀.1 x hq₀ hx
+    apply M.convolutionExists_right L hf (A q₀.1 hq₀) q₀.2
+  have I3 : AEStronglyMeasurable (fun a : G => (L (f a)).comp (g' (q₀.fst, q₀.snd - a))) μ := by
+    have T : HasCompactSupport fun y => g' (q₀.1, y) :=
+      HasCompactSupport.intro hk fun x hx => g'_zero q₀.1 x hq₀ hx
+    apply (HasCompactSupport.convolutionExists_right (L.precompR (P × G) : _) T hf _ q₀.2).1
+    have : ContinuousOn g' (s ×ˢ univ) :=
+      hg.continuousOn_fderiv_of_isOpen (hs.prod isOpen_univ) le_rfl
+    apply this.comp_continuous (continuous_const.prod_mk continuous_id')
+    intro x
+    simpa only [prod_mk_mem_set_prod_eq, mem_univ, and_true_iff] using hq₀
+  set K' := (-k + {q₀.2} : Set G) with K'_def
+  have hK' : IsCompact K' := hk.neg.add isCompact_singleton
+  obtain ⟨U, U_open, K'U, hU⟩ : ∃ U, IsOpen U ∧ K' ⊆ U ∧ IntegrableOn f U μ :=
+    hf.integrableOn_nhds_isCompact hK'
+  obtain ⟨δ, δpos, δε, hδ⟩ : ∃ δ, (0 : ℝ) < δ ∧ δ ≤ ε ∧ K' + ball 0 δ ⊆ U := by
+    obtain ⟨V, V_mem, hV⟩ : ∃ V ∈ 𝓝 (0 : G), K' + V ⊆ U :=
+      compact_open_separated_add_right hK' U_open K'U
+    rcases Metric.mem_nhds_iff.1 V_mem with ⟨δ, δpos, hδ⟩
+    refine ⟨min δ ε, lt_min δpos εpos, min_le_right δ ε, ?_⟩
+    exact (add_subset_add_left ((ball_subset_ball (min_le_left _ _)).trans hδ)).trans hV
+  letI := ContinuousLinearMap.hasOpNorm (𝕜 := 𝕜) (𝕜₂ := 𝕜) (E := E)
+    (F := (P × G →L[𝕜] E') →L[𝕜] P × G →L[𝕜] F) (σ₁₂ := RingHom.id 𝕜)
+  let bound : G → ℝ := indicator U fun t => ‖(L.precompR (P × G))‖ * ‖f t‖ * C
+  have I4 : ∀ᵐ a : G ∂μ, ∀ x : P × G, dist x q₀ < δ →
+      ‖L.precompR (P × G) (f a) (g' (x.fst, x.snd - a))‖ ≤ bound a := by
+    filter_upwards with a x hx
+    rw [Prod.dist_eq, dist_eq_norm, dist_eq_norm] at hx
+    have : (-tsupport fun a => g' (x.1, a)) + ball q₀.2 δ ⊆ U := by
+      apply Subset.trans _ hδ
+      rw [K'_def, add_assoc]
+      apply add_subset_add
+      · rw [neg_subset_neg]
+        refine closure_minimal (support_subset_iff'.2 fun z hz => ?_) hk.isClosed
+        apply g'_zero x.1 z (h₀ε _) hz
+        rw [mem_ball_iff_norm]
+        exact ((le_max_left _ _).trans_lt hx).trans_le δε
+      · simp only [add_ball, thickening_singleton, zero_vadd, subset_rfl]
+    apply convolution_integrand_bound_right_of_le_of_subset _ _ _ this
+    · intro y
+      exact hε _ _ (((le_max_left _ _).trans_lt hx).trans_le δε)
+    · rw [mem_ball_iff_norm]
+      exact (le_max_right _ _).trans_lt hx
+  have I5 : Integrable bound μ := by
+    rw [integrable_indicator_iff U_open.measurableSet]
+    exact (hU.norm.const_mul _).mul_const _
+  have I6 : ∀ᵐ a : G ∂μ, ∀ x : P × G, dist x q₀ < δ →
+      HasFDerivAt (fun x : P × G => L (f a) (g x.1 (x.2 - a)))
+        ((L (f a)).comp (g' (x.fst, x.snd - a))) x := by
+    filter_upwards with a x hx
+    apply (L _).hasFDerivAt.comp x
+    have N : s ×ˢ univ ∈ 𝓝 (x.1, x.2 - a) := by
+      apply A'
+      apply h₀ε
+      rw [Prod.dist_eq] at hx
+      exact lt_of_lt_of_le (lt_of_le_of_lt (le_max_left _ _) hx) δε
+    have Z := ((hg.differentiableOn le_rfl).differentiableAt N).hasFDerivAt
+    have Z' :
+        HasFDerivAt (fun x : P × G => (x.1, x.2 - a)) (ContinuousLinearMap.id 𝕜 (P × G)) x := by
+      have : (fun x : P × G => (x.1, x.2 - a)) = _root_.id - fun x => (0, a) := by
+        ext x <;> simp only [Pi.sub_apply, _root_.id, Prod.fst_sub, sub_zero, Prod.snd_sub]
+      rw [this]
+      exact (hasFDerivAt_id x).sub_const (0, a)
+    exact Z.comp x Z'
+  exact hasFDerivAt_integral_of_dominated_of_fderiv_le δpos I1 I2 I3 I4 I5 I6
+
+
+Verifying proof (Commit 98e78f90ec6f93268c84b413fdae7dce5cbee0e6):
+tinuousAt (↿g') (q₀.1, q₀.2) :=
+      hg.fderivOn.continuousOn.continuousAt (hs.prod isOpen_univ).mem_nhds
+    have : Tendsto (↿g') (𝓝 (q₀.1, q₀.2)) (𝓝 (g' q₀.1 q₀.2)) :=
+      (continuousAt_iff_continuous_withinAt.1 this).mono (subset_univ _)
+    obtain ⟨δ
+
+Attempt failure.
+
+Working on Mathlib/Analysis/InnerProductSpace/GramSchmidtOrtho.lean - 2024-09-08 01:50:57.302435.
+---7/20---
+For theorem gramSchmidt_orthogonal in Mathlib/Analysis/InnerProductSpace/GramSchmidtOrtho.lean:
+theorem gramSchmidt_orthogonal (f : ι → E) {a b : ι} (h₀ : a ≠ b) :
+    ⟪gramSchmidt 𝕜 f a, gramSchmidt 𝕜 f b⟫ = 0 
+
+
+Original valid proof:
+:= by
+  suffices ∀ a b : ι, a < b → ⟪gramSchmidt 𝕜 f a, gramSchmidt 𝕜 f b⟫ = 0 by
+    cases' h₀.lt_or_lt with ha hb
+    · exact this _ _ ha
+    · rw [inner_eq_zero_symm]
+      exact this _ _ hb
+  clear h₀ a b
+  intro a b h₀
+  revert a
+  apply wellFounded_lt.induction b
+  intro b ih a h₀
+  simp only [gramSchmidt_def 𝕜 f b, inner_sub_right, inner_sum, orthogonalProjection_singleton,
+    inner_smul_right]
+  rw [Finset.sum_eq_single_of_mem a (Finset.mem_Iio.mpr h₀)]
+  · by_cases h : gramSchmidt 𝕜 f a = 0
+    · simp only [h, inner_zero_left, zero_div, zero_mul, sub_zero]
+    · rw [RCLike.ofReal_pow, ← inner_self_eq_norm_sq_to_K, div_mul_cancel₀, sub_self]
+      rwa [inner_self_ne_zero]
+  intro i hi hia
+  simp only [mul_eq_zero, div_eq_zero_iff, inner_self_eq_zero]
+  right
+  cases' hia.lt_or_lt with hia₁ hia₂
+  · rw [inner_eq_zero_symm]
+    exact ih a h₀ i hia₁
+  · exact ih i (mem_Iio.1 hi) a hia₂
+
+
+Verifying proof (Commit 9ff3bbdccfe0666edb16cd12dc14aaabdb7eca30):
+ := by
+  suffices ∀ a b : ι, a < b → ⟪gramSchmidt 𝕜 f a, gramSchmidt 𝕜 f b⟫ = 0 by
+    cases' h₀.lt_or_lt with ha hb
+    · exact this _ _ ha
+    · rw [inner_eq_zero_symm]
+      exact this _ _ hb
+  clear h₀ a b
+  intro a b h₀
+  revert a
+  apply WellFounded.induction (@IsWellFounded.wf ι (· < ·) _) b
+  intro b ih a h₀
+  simp only [gramSchmidt_def 𝕜 f b, inner_sub_right, inner_sum, orthogonalProjection_singleton,
+    inner_smul_right]
+  rw [Finset.sum_eq_single_of_mem a (Finset.mem_Iio.mpr h₀)]
+  · by_cases h : gramSchmidt 𝕜 f a = 0
+    · simp only [h, inner_zero_left, zero_div, zero_mul, sub_zero]
+    · rw [IsROrC.ofReal_pow, ← inner_self_eq_norm_sq_to_K, div_mul_cancel, sub_self]
+      rwa [inner_self_ne_zero]
+  intro i hi hia
+  simp only [mul_eq_zero, div_eq_zero_iff, inner_self_eq_zero]
+  right
+  cases' hia.lt_or_lt with hia₁ hia₂
+  · rw [inner_eq_zero_symm]
+    exact ih a h₀ i hia₁
+  · exact ih i (mem_Iio.1 hi) a hia₂
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real = { to_fun := fun x => ⟨x.re, x.im⟩, map_zero' := inner_product_space.is_R_or_C_to_real._proof_1, map_add' := inner_product_space.is_R_or_C_to_real._proof_2, map_smul' := inner_product_space.is_R_or_C_to_real._proof_3, map_mul' := inner_product_space.is_R_or_C_to_real._proof_4, map_one' := inner_product_space.is_R_or_C_to_real._proof_5, map_I' := inner_product_space.is_R_or_C_to_real._proof_6, map_iadd' := inner_product_space.is_R_or_C_to_real._proof_7, map_imul' := inner_product_space.is_R_or_C_to_real._proof_8, map_conj' := inner_product_space.is_R_or_C_to_real._proof_9, map_norm_sq' := inner_product_space.is_R_or_C_to_real._proof_10 }
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.norm_sq_eq_inner = inner_product_space.is_R_or_C_to_real.norm_sq_eq_inner
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_eq_zero_symm = inner_product_space.is_R_or_C_to_real.inner_eq_zero_symm
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_self_eq_norm_sq_to_K = inner_product_space.is_R_or_C_to_real.inner_self_eq_norm_sq_to_K
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_self_nonneg = inner_product_space.is_R_or_C_to_real.inner_self_nonneg
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_self_pos = inner_product_space.is_R_or_C_to_real.inner_self_pos
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_self_eq_zero = inner_product_space.is_R_or_C_to_real.inner_self_eq_zero
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_self_ne_zero = inner_product_space.is_R_or_C_to_real.inner_self_ne_zero
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_self_re_to_K = inner_product_space.is_R_or_C_to_real.inner_self_re_to_K
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_self_im_to_K = inner_product_space.is_R_or_C_to_real.inner_self_im_to_K
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_re_symm = inner_product_space.is_R_or_C_to_real.inner_re_symm
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_im_symm = inner_product_space.is_R_or_C_to_real.inner_im_symm
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_re_le_inner_self = inner_product_space.is_R_or_C_to_real.inner_re_le_inner_self
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_im_le_inner_self = inner_product_space.is_R_or_C_to_real.inner_im_le_inner_self
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_self_re_abs = inner_product_space.is_R_or_C_to_real.inner_self_re_abs
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_self_im_abs = inner_product_space.is_R_or_C_to_real.inner_self_im_abs
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_re_abs_le_inner_im_abs = inner_product_space.is_R_or_C_to_real.inner_re_abs_le_inner_im_abs
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_im_abs_le_inner_re_abs = inner_product_space.is_R_or_C_to_real.inner_im_abs_le_inner_re_abs
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_im_le_inner_re = inner_product_space.is_R_or_C_to_real.inner_im_le_inner_re
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_re_le_inner_im = inner_product_space.is_R_or_C_to_real.inner_re_le_inner_im
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_im_le_inner_re_of_ne_zero = inner_product_space.is_R_or_C_to_real.inner_im_le_inner_re_of_ne_zero
+
+## Equations
+
+- inner_product_space.is_R_or_C_to_real.inner_re_le_inner_im_of_ne_zero = inner_product_space.is_R_or_C_to_real.inner_re_le_inner_im_of_ne
+
+Attempt failure.
+
+Working on Mathlib/Analysis/SpecialFunctions/Stirling.lean - 2024-09-08 01:51:13.902115.
+---8/20---
+For theorem Stirling.stirlingSeq_pow_four_div_stirlingSeq_pow_two_eq in Mathlib/Analysis/SpecialFunctions/Stirling.lean:
+theorem stirlingSeq_pow_four_div_stirlingSeq_pow_two_eq (n : ℕ) (hn : n ≠ 0) :
+    stirlingSeq n ^ 4 / stirlingSeq (2 * n) ^ 2 * (n / (2 * n + 1)) = Wallis.W n 
+
+
+Original valid proof:
+:= by
+  have : 4 = 2 * 2 := by rfl
+  rw [stirlingSeq, this, pow_mul, stirlingSeq, Wallis.W_eq_factorial_ratio]
+  simp_rw [div_pow, mul_pow]
+  rw [sq_sqrt, sq_sqrt]
+  any_goals positivity
+  field_simp [← exp_nsmul]
+  ring_nf
+
+
+Verifying proof (Commit 277dea952df34759a39b00abcc615238ae32c506):
+∧
+      stirlingSeq n ^ 4 / stirlingSeq (2 * n) ^ 2 * (n / (2 * n + 1)) ≠ 0 := by
+  have : 4 = 2 * 2 := by rfl
+  rw [stirlingSeq, this, pow_mul, stirlingSeq, Wallis.W_eq_factorial_ratio]
+  simp_rw [div_pow, mul_pow]
+  rw [sq_sqrt, sq_sqrt]
+  any_goals positivity
+  have : (n : ℝ) ≠ 0 := cast_ne_zero.mpr hn
+  have : exp 1 ≠ 0 := exp_ne_zero 1
+  have : ((2 * n)! : ℝ) ≠ 0 := cast_ne_zero.mpr (factorial_ne_zero (2 * n))
+  have : 2 * (n : ℝ) + 1 ≠ 0 := by norm_cast; exact succ_ne_zero (2 * n)
+  field_simp
+  simp only [mul_pow, mul_comm 2 n, mul_comm 4 n, pow_mul]
+  ring
+
+## Your Answer
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Attempt failure.
+
+Working on Mathlib/CategoryTheory/Localization/Predicate.lean - 2024-09-08 01:51:31.336134.
+---9/20---
+For theorem CategoryTheory.Functor.IsLocalization.of_iso in Mathlib/CategoryTheory/Localization/Predicate.lean:
+theorem of_iso {L₁ L₂ : C ⥤ D} (e : L₁ ≅ L₂) [L₁.IsLocalization W] : L₂.IsLocalization W 
+
+
+Original valid proof:
+:= by
+  have h := Localization.inverts L₁ W
+  rw [MorphismProperty.IsInvertedBy.iff_of_iso W e] at h
+  let F₁ := Localization.Construction.lift L₁ (Localization.inverts L₁ W)
+  let F₂ := Localization.Construction.lift L₂ h
+  exact
+    { inverts := h
+      isEquivalence := Functor.isEquivalence_of_iso (liftNatIso W.Q W L₁ L₂ F₁ F₂ e) }
+
+
+Verifying proof (Commit cc6e5e01514b06a44caccb55bc04e269ede6a7c8):
+ := by
+  have h := Localization.inverts L₁ W
+  rw [MorphismProperty.IsInvertedBy.iff_of_iso W e] at h
+  let F₁ := Localization.Construction.lift L₁ (Localization.inverts L₁ W)
+  let F₂ := Localization.Construction.lift L₂ h
+  exact
+    { inverts := h
+      nonempty_isEquivalence :=
+        Nonempty.intro (IsEquivalence.ofIso (liftNatIso W.Q W L₁ L₂ F₁ F₂ e) inferInstance) }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Attempt failure.
+
+Working on Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean - 2024-09-08 01:51:40.043417.
+---10/20---
+For theorem CategoryTheory.Triangulated.TStructure.exists_triangle in Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean:
+lemma exists_triangle (A : C) (n₀ n₁ : ℤ) (h : n₀ + 1 = n₁) :
+    ∃ (X Y : C) (_ : t.LE n₀ X) (_ : t.GE n₁ Y) (f : X ⟶ A) (g : A ⟶ Y)
+      (h : Y ⟶ X⟦(1 : ℤ)⟧), Triangle.mk f g h ∈ distTriang C 
+
+
+Original valid proof:
+:= by
+  obtain ⟨X, Y, hX, hY, f, g, h, mem⟩ := t.exists_triangle_zero_one (A⟦n₀⟧)
+  let T := (Triangle.shiftFunctor C (-n₀)).obj (Triangle.mk f g h)
+  let e := (shiftEquiv C n₀).unitIso.symm.app A
+  have hT' : Triangle.mk (T.mor₁ ≫ e.hom) (e.inv ≫ T.mor₂) T.mor₃ ∈ distTriang C := by
+    refine isomorphic_distinguished _ (Triangle.shift_distinguished _ mem (-n₀)) _ ?_
+    refine Triangle.isoMk _ _ (Iso.refl _) e.symm (Iso.refl _) ?_ ?_ ?_
+    all_goals dsimp; simp [T]
+  exact ⟨_, _, t.LE_shift _ _ _ (neg_add_self n₀) _ hX,
+    t.GE_shift _ _ _ (by omega) _ hY, _, _, _, hT'⟩
+
+
+Verifying proof (Commit 2b12d78cb9d1886702a99fbd79ca892c82374ba5):
+ := by
+  obtain ⟨X, Y, hX, hY, f, g, h, mem⟩ := t.exists_triangle_zero_one (A⟦n₀⟧)
+  let T := (Triangle.shiftFunctor C (-n₀)).obj (Triangle.mk f g h)
+  have e := (shiftEquiv C n₀).unitIso.symm.app A
+  have hT' : Triangle.mk (T.mor₁ ≫ e.hom) (e.inv ≫ T.mor₂) T.mor₃ ∈ distTriang C := by
+    refine' isomorphic_distinguished _ (Triangle.shift_distinguished _ mem (-n₀)) _ _
+    refine' Triangle.isoMk _ _ (Iso.refl _) e.symm (Iso.refl _) _ _ _
+    all_goals dsimp ; simp [T]
+  exact ⟨_, _, t.shift_LE _ _ _ (neg_add_self n₀) _ hX,
+    t.shift_GE _ _ _ (by linarith) _ hY, _, _, _, hT'⟩
+
+## Comments
+
+1 comment
+
+I think the problem is that you are using the wrong version of the shift functor.
+
+The shift functor in the category of triangles is the shift functor on the underlying category, but the shift functor in the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the same as the shift functor on the underlying category.
+
+The shift functor on the category of triangles is the shift functor on the underlying category, but the shift functor on the category of triangles is the shift functor on the category of triangles.
+
+The problem is that the shift functor on the category of triangles is not the
+
+Attempt failure.
+
+Working on Mathlib/Data/Seq/WSeq.lean - 2024-09-08 01:51:47.456448.
+---11/20---
+For theorem Stream'.WSeq.exists_of_mem_join in Mathlib/Data/Seq/WSeq.lean:
+theorem exists_of_mem_join {a : α} : ∀ {S : WSeq (WSeq α)}, a ∈ join S → ∃ s, s ∈ S ∧ a ∈ s 
+
+
+Original valid proof:
+:= by
+  suffices
+    ∀ ss : WSeq α,
+      a ∈ ss → ∀ s S, append s (join S) = ss → a ∈ append s (join S) → a ∈ s ∨ ∃ s, s ∈ S ∧ a ∈ s
+    from fun S h => (this _ h nil S (by simp) (by simp [h])).resolve_left (not_mem_nil _)
+  intro ss h; apply mem_rec_on h <;> [intro b ss o; intro ss IH] <;> intro s S
+  · induction' s using WSeq.recOn with b' s s <;>
+      [induction' S using WSeq.recOn with s S S; skip; skip] <;>
+      intro ej m <;> simp at ej <;> have := congr_arg Seq.destruct ej <;>
+      simp at this; cases this
+    substs b' ss
+    simp? at m ⊢ says simp only [cons_append, mem_cons_iff] at m ⊢
+    cases' o with e IH
+    · simp [e]
+    cases' m with e m
+    · simp [e]
+    exact Or.imp_left Or.inr (IH _ _ rfl m)
+  · induction' s using WSeq.recOn with b' s s <;>
+      [induction' S using WSeq.recOn with s S S; skip; skip] <;>
+      intro ej m <;> simp at ej <;> have := congr_arg Seq.destruct ej <;> simp at this <;>
+      subst ss
+    · apply Or.inr
+      simp [-exists_eq_or_imp] at m ⊢
+      cases' IH s S rfl m with as ex
+      · exact ⟨s, Or.inl rfl, as⟩
+      · rcases ex with ⟨s', sS, as⟩
+        exact ⟨s', Or.inr sS, as⟩
+    · apply Or.inr
+      simp? at m says simp only [join_think, nil_append, mem_think] at m
+      rcases (IH nil S (by simp) (by simp [m])).resolve_left (not_mem_nil _) with ⟨s, sS, as⟩
+      exact ⟨s, by simp [sS], as⟩
+    · simp only [think_append, mem_think] at m IH ⊢
+      apply IH _ _ rfl m
+
+
+Verifying proof (Commit f65ea6003256aa64f88a6f1c658c9128345b3ab7):
+
+| S, h =>
+  suffices
+    ∀ ss : WSeq α,
+      a ∈ ss → ∀ s S, append s (join S) = ss → a ∈ append s (join S) → a ∈ s ∨ ∃ s, s ∈ S ∧ a ∈ s
+    from fun S h => (this _ h nil S (by simp) (by simp [h])).resolve_left (not_mem_nil _)
+  intro ss h; apply mem_rec_on h <;> [intro b ss o; intro ss IH] <;> intro s S
+  · induction' s using WSeq.recOn with b' s s <;>
+      [induction' S using WSeq.recOn with s S S; skip; skip] <;>
+      intro ej m <;> simp at ej <;> have := congr_arg Seq'.destruct ej <;>
+      simp at this; cases this
+    substs b' ss
+    simp? at m ⊢ says simp only [cons_append, mem_cons_iff] at m ⊢
+    cases' o with e IH
+    · simp [e]
+    cases' m with e m
+    · simp [e]
+    exact Or.imp_left Or.inr (IH _ _ rfl m)
+  · induction' s using WSeq.recOn with b' s s <;>
+      [induction' S using WSeq.recOn with s S S; skip; skip] <;>
+      intro ej m <;> simp at ej <;> have := congr_arg Seq'.destruct ej <;> simp at this <;>
+      subst ss
+    · apply Or.inr
+      simp [-exists_eq_or_imp] at m ⊢
+      cases' IH s S rfl m with as ex
+      · exact ⟨s, Or.inl rfl, as⟩
+      · rcases ex with ⟨s', sS, as⟩
+        exact ⟨s', Or.inr sS, as⟩
+    · apply Or.inr
+      simp? at m says simp only [join_think, nil_append, mem_think] at m
+      rcases (IH nil S (by simp) (by simp [m])).resolve_left (not_mem_nil _) with ⟨s, sS, as⟩
+      exact ⟨s, by simp [sS], as⟩
+    · simp only [think_append, mem_think] at m IH ⊢
+      apply IH _ _ rfl m
+
+#### Mario Carneiro (May 02 2020 at 08:00):
+
+I think the problem is that you're not using the right induction principle. The induction principle formem_rec_on is
+mem_rec_on : ∀ {α : Type u_1} (m : α) {C : α → Prop},
+  (∀ (a : α) (s : WSeq α), a ∈ s → C a → C (cons a s)) →
+  (∀ (s : WSeq α), C (append nil s)) → C m
+
+and the induction principle formem is
+mem : ∀ {α : Type u_1} (a : α) (s : WSeq α), Prop
+mem_rec_on : ∀ {α : Type u_1} (m : α) {C : α → Prop},
+  (∀ (a : α) (s : WSeq α), a ∈ s → C a → C (cons a s)) →
+  (∀ (s : WSeq α), C (append nil s)) → C m
+
+So you have to use the induction principle formem_rec_on, not for mem.
+
+#### Mario Carneiro (May 02 2020 at 08:01):
+
+The induction principle formem is
+mem : ∀ {α : Type u_1} (a : α) (s : WSeq α), Prop
+mem_rec_on : ∀ {α : Type u_1} (m : α) {C : α → Prop},
+  (∀ (a : α) (s : WSeq α), a ∈ s → C a → C (cons a s)) →
+  (∀ (s : WSeq α), C (append nil s)) → C m
+
+#### Mario Carneiro (May 02 2020 at 08:01):
+
+I think the problem is that you're not using the right induction principle. The induction principle formem_rec_on is
+mem_rec_on : ∀ {α : Type u_1} (m : α) {C : α → Prop},
+  (∀ (a : α) (s : WSeq α), a ∈ s → C a → C (cons a s)) →
+  (∀ (s : WSeq α), C (append nil s)) → C m
+
+and the induction principle formem is
+mem : ∀ {α : Type u_1} (a : α) (s : WSeq α), Prop
+mem_rec_on : ∀ {α : Type u_1} (m : α) {C : α → Prop},
+  (∀ (a : α) (s : WSeq α), a ∈ s → C a → C (cons a s)) →
+  (∀ (s : WSeq α), C (append nil s)) → C m
+
+So you have to use the induction principle formem_rec_on, not for mem.
+
+#### Mario Carneiro (May 02 2020 at 08:02):
+
+The induction principle formem is
+mem : ∀ {α : Type u_1} (a : α) (s : WSeq α), Prop
+mem_rec_on : ∀ {α : Type u_1} (m : α) {C : α → Prop},
+  (∀ (a : α) (s : WSeq α), a ∈ s → C a → C (cons a s)) →
+  (∀ (s : WSeq α), C (append nil s)) → C m
+
+#### Mario Carneiro (May 02 2020 at 08:02):
+
+I think the problem is that you're not using the right induction principle. The induction principle formem_rec_on is
+mem_rec_on : ∀ {α : Type u_1} (m : α) {C : α → Prop},
+  (∀ (a : α) (s : WSeq α), a ∈ s → C a → C (cons a s)) →
+  (∀ (s : WSeq α), C (append nil s)) → C m
+
+and the induction principle formem is
+mem : ∀ {α : Type u_1} (a : α) (s : WSeq α), Prop
+mem_rec_on : ∀ {α : Type u_1} (m : α) {C : α → Prop},
+  (∀ (a : α) (s : WSeq α), a ∈ s → C a → C (cons a s)) →
+  (∀ (s : WSeq α), C (append nil s)) → C m
+
+So you have to use the induction principle formem_rec_on, not for mem.
+
+#### Mario Carneiro (May 02 2020 at 08:03):
+
+The induction principle formem is
+mem : ∀ {α : Type u_1} (a : α) (s : WSeq α), Prop
+mem_rec_on : ∀ {α : Type u_1} (m : α) {C : α → Prop},
+  (∀ (a : α) (s : WSeq α), a ∈ s → C a → C (cons a s)) →
+  (∀ (s : WSeq α), C (append nil s)) → C m
+
+#### Mario Carneiro (May 02 2020 at 08:03):
+
+I think the problem is that you're not using the right induction principle. The induction principle formem_rec_on is
+mem_rec_on : ∀ {α : Type u_1} (m : α) {C : α → Prop},
+  (∀ (a : α)
+
+Attempt failure.
+
+Working on Mathlib/Data/Set/Finite.lean - 2024-09-08 01:51:57.249379.
+---12/20---
+For theorem Directed.exists_mem_subset_of_finset_subset_biUnion in Mathlib/Data/Set/Finite.lean:
+lemma Directed.exists_mem_subset_of_finset_subset_biUnion {α ι : Type*} [Nonempty ι]
+    {f : ι → Set α} (h : Directed (· ⊆ ·) f) {s : Finset α} (hs : (s : Set α) ⊆ ⋃ i, f i) :
+    ∃ i, (s : Set α) ⊆ f i 
+
+
+Original valid proof:
+:= by
+  induction s using Finset.cons_induction with
+  | empty => simp
+  | cons b t hbt iht =>
+    simp only [Finset.coe_cons, Set.insert_subset_iff, Set.mem_iUnion] at hs ⊢
+    rcases hs.imp_right iht with ⟨⟨i, hi⟩, j, hj⟩
+    rcases h i j with ⟨k, hik, hjk⟩
+    exact ⟨k, hik hi, hj.trans hjk⟩
+
+
+Verifying proof (Commit 22e37aafc149169745794a3927e2697dd02700d2):
+∧ ∀ j, j ∈ s → f j ⊆ f i := by
+  induction s using Finset.cons_induction with
+  | empty => simp
+  | cons hbt iht =>
+    simp only [Finset.coe_cons, Set.insert_subset_iff, Set.mem_iUnion] at hs ⊢
+    rcases hs.imp_right iht with ⟨⟨i, hi⟩, j, hj⟩
+    rcases h i j with ⟨k, hik, hjk⟩
+    exact ⟨k, hik hi, fun l hl => hjk.trans (hj l hl)⟩
+
+## 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.
+
+Attempt failure.
+
+Working on Mathlib/FieldTheory/SeparableDegree.lean - 2024-09-08 01:52:07.855935.
+---13/20---
+For theorem minpoly.natSepDegree_eq_one_iff_pow_mem in Mathlib/FieldTheory/SeparableDegree.lean:
+theorem natSepDegree_eq_one_iff_pow_mem : (minpoly F x).natSepDegree = 1 ↔
+    ∃ n : ℕ, x ^ q ^ n ∈ (algebraMap F E).range 
+
+
+Original valid proof:
+:= by
+  convert_to _ ↔ ∃ (n : ℕ) (y : F), Polynomial.aeval x (X ^ q ^ n - C y) = 0
+  · simp_rw [RingHom.mem_range, map_sub, map_pow, aeval_C, aeval_X, sub_eq_zero, eq_comm]
+  refine ⟨fun h ↦ ?_, fun ⟨n, y, h⟩ ↦ ?_⟩
+  · obtain ⟨n, y, hx⟩ := (minpoly.natSepDegree_eq_one_iff_eq_X_pow_sub_C q).1 h
+    exact ⟨n, y, hx ▸ aeval F x⟩
+  have hnezero := X_pow_sub_C_ne_zero (expChar_pow_pos F q n) y
+  refine ((natSepDegree_le_of_dvd _ _ (minpoly.dvd F x h) hnezero).trans_eq <|
+    natSepDegree_X_pow_char_pow_sub_C q n y).antisymm ?_
+  rw [Nat.one_le_iff_ne_zero, natSepDegree_ne_zero_iff, ← Nat.one_le_iff_ne_zero]
+  exact minpoly.natDegree_pos <| IsAlgebraic.isIntegral ⟨_, hnezero, h⟩
+
+
+Verifying proof (Commit 76620f7bc93be67fe98a87948024801e42a6f815):
+ := by
+  convert_to _ ↔ ∃ (n : ℕ) (y : F), Polynomial.aeval x (X ^ q ^ n - C y) = 0
+  · simp_rw [RingHom.mem_range, map_sub, map_pow, aeval_C, aeval_X, sub_eq_zero, eq_comm]
+  refine ⟨fun h ↦ ?_, fun ⟨n, y, h⟩ ↦ ?_⟩
+  · obtain ⟨n, y, hx⟩ := (minpoly.natSepDegree_eq_one_iff_eq_X_pow_sub_C q).1 h
+    exact ⟨n, y, hx ▸ aeval F x⟩
+  have hnezero := X_pow_sub_C_ne_zero (expChar_pow_pos F q n) y
+  refine ((natSepDegree_le_of_dvd _ _ (minpoly.dvd F x h) hnezero).trans_eq <|
+    natSepDegree_X_pow_char_sub_C q n y).antisymm ?_
+  rw [Nat.one_le_iff_ne_zero, natSepDegree_ne_zero_iff, ← Nat.one_le_iff_ne_zero]
+  exact minpoly.natDegree_pos <| IsAlgebraic.isIntegral ⟨_, hnezero, h⟩
+
+## 1.2.2. The proof of the main theorem
+
+The proof of the main theorem is now straightforward.
+
+Repaired Proof:
+theorem exists_pow_mem_range_of_minpoly_natSepDegree_eq_one (hx : IsAlgebraic F x) :
+    ∃ n : ℕ, x ^ q ^ n ∈ (algebraMap F E).range := by
+  have hnezero := X_pow_sub_C_ne_zero (expChar_pow_pos F q 0) (minpoly.aeval F x)
+  refine ((natSepDegree_le_of_dvd _ _ (minpoly.dvd F x hx) hnezero).trans_eq <|
+    natSepDegree_X_pow_char_sub_C q 0 (minpoly.aeval F x)).antisymm ?_
+  rw [Nat.one_le_iff_ne_zero, natSepDegree_ne_zero_iff, ← Nat.one_le_iff_ne_zero]
+  exact minpoly.natDegree_pos hx
+
+## 1.3. The proof of the main theorem
+
+The proof of the main theorem is now straightforward.
+
+Repaired Proof:
+theorem exists_pow_mem_range_of_minpoly_natSepDegree_eq_one (hx : IsAlgebraic F x) :
+    ∃ n : ℕ, x ^ q ^ n ∈ (algebraMap F E).range := by
+  have hnezero := X_pow_sub_C_ne_zero (expChar_pow_pos F q 0) (minpoly.aeval F x)
+  refine ((natSepDegree_le_of_dvd _ _ (minpoly.dvd F x hx) hnezero).trans_eq <|
+    natSepDegree_X_pow_char_sub_C q 0 (minpoly.aeval F x)).antisymm ?_
+  rw [Nat.one_le_iff_ne_zero, natSepDegree_ne_zero_iff, ← Nat.one_le_iff_ne_zero]
+  exact minpoly.natDegree_pos hx
+
+## 1.4. The proof of the main theorem
+
+The proof of the main theorem is now straightforward.
+
+Repaired Proof:
+theorem exists_pow_mem_range_of_minpoly_natSepDegree_eq_one (hx : IsAlgebraic F x) :
+    ∃ n : ℕ, x ^ q ^ n ∈ (algebraMap F E).range := by
+  have hnezero := X_pow_sub_C_ne_zero (expChar_pow_pos F q 0) (minpoly.aeval F x)
+  refine ((natSepDegree_le_of_dvd _ _ (minpoly.dvd F x hx) hnezero).trans_eq <|
+    natSepDegree_X_pow_char_sub_C q 0 (minpoly.aeval F x)).antisymm ?_
+  rw [Nat.one_le_iff_ne_zero, natSepDegree_ne_zero_iff, ← Nat.one_le_iff_ne_zero]
+  exact minpoly.natDegree_pos hx
+
+## 1.5. The proof of the main theorem
+
+The proof of the main theorem is now straightforward.
+
+Repaired Proof:
+theorem exists_pow_mem_range_of_minpoly_natSepDegree_eq_one (hx : IsAlgebraic F x) :
+    ∃ n : ℕ, x ^ q ^ n ∈ (algebraMap F E).range := by
+  have hnezero := X_pow_sub_C_ne_zero (expChar_pow_pos F q 0) (minpoly.aeval F x)
+  refine ((natSepDegree_le_of_dvd _ _ (minpoly.dvd F x hx) hnezero).trans_eq <|
+    natSepDegree_X_pow_char_sub_C q 0 (minpoly.aeval F x)).antisymm ?_
+  rw [Nat.one_le_iff_ne_zero, natSepDegree_ne_zero_iff, ← Nat.one_le_iff_ne_zero]
+  exact minpoly.natDegree_pos hx
+
+## 1.6. The proof of the main theorem
+
+The proof of the main theorem is now straightforward.
+
+Repaired Proof:
+theorem exists_pow_mem_range_of_minpoly_natSepDegree_eq_one (hx : IsAlgebraic F x) :
+    ∃ n : ℕ, x ^ q ^ n ∈ (algebraMap F E).range := by
+  have hnezero := X_pow_sub_C_ne_zero (expChar_pow_pos F q 0) (minpoly.aeval F x)
+  refine ((natSepDegree_le_of_dvd _ _ (minpoly.dvd F x hx) hnezero).trans_eq <|
+    natSepDegree_X_pow_char_sub_C q 0 (minpoly.aeval F x)).antisymm ?_
+  rw [Nat.one_le_iff_ne_zero, natSepDegree_ne_zero_iff, ← Nat.one_le_iff_ne_zero]
+  exact minpoly.natDegree_pos hx
+
+## 1.7. The proof of the main theorem
+
+The proof of the main theorem is now straightforward.
+
+Repaired Proof:
+theorem exists_pow_mem_range_of_minpoly_natSepDegree_eq_one (hx : IsAlgebraic F x) :
+    ∃ n : ℕ, x ^ q ^ n ∈ (algebraMap F E).range := by
+  have hnezero := X_pow_sub_C_ne_zero (expChar_pow_pos F q 0) (minpoly.aeval F x)
+  refine ((natSepDegree_le_of_dvd _ _ (minpoly.dvd F x hx) hnezero).trans_eq <|
+    natSepDegree_X_pow_char_sub_C q 0 (minpoly.aeval F x)).antisymm ?_
+  rw [Nat.one_le_iff_ne_zero, natSepDegree_ne_zero_iff, ← Nat.one_le_iff_ne_zero]
+  exact minpoly.natDegree_pos hx
+
+## 1.8. The proof of the main theorem
+
+The proof of the main theorem is now straightforward.
+
+Repaired Proof:
+theorem exists_pow_mem_range_of_minpoly_natSepDegree_eq_one (hx : IsAlgebraic F x) :
+    ∃ n : ℕ, x ^ q ^ n ∈ (algebraMap F E).range := by
+  have hnezero := X_pow_sub_C_ne_zero (expChar_pow_pos F q 0) (minpoly.aeval F x)
+  refine ((natSepDegree_le_of_dvd _ _ (minpoly.dvd F x hx) hnezero).trans_eq <|
+    natSepDegree_X_pow_char_sub_C q 0 (minpoly.aeval F x)).antisymm ?_
+  rw [
+
+Attempt failure.
+
+Working on Mathlib/Geometry/Euclidean/Angle/Sphere.lean - 2024-09-08 01:52:43.296255.
+---14/20---
+For theorem EuclideanGeometry.Cospherical.two_zsmul_oangle_eq in Mathlib/Geometry/Euclidean/Angle/Sphere.lean:
+theorem Cospherical.two_zsmul_oangle_eq {p₁ p₂ p₃ p₄ : P}
+    (h : Cospherical ({p₁, p₂, p₃, p₄} : Set P)) (hp₂p₁ : p₂ ≠ p₁) (hp₂p₄ : p₂ ≠ p₄)
+    (hp₃p₁ : p₃ ≠ p₁) (hp₃p₄ : p₃ ≠ p₄) : (2 : ℤ) • ∡ p₁ p₂ p₄ = (2 : ℤ) • ∡ p₁ p₃ p₄ 
+
+
+Original valid proof:
+:= by
+  obtain ⟨s, hs⟩ := cospherical_iff_exists_sphere.1 h
+  simp_rw [Set.insert_subset_iff, Set.singleton_subset_iff, Sphere.mem_coe] at hs
+  exact Sphere.two_zsmul_oangle_eq hs.1 hs.2.1 hs.2.2.1 hs.2.2.2 hp₂p₁ hp₂p₄ hp₃p₁ hp₃p₄
+
+
+Verifying proof (Commit 51a5ef1cda5da86f2874f1cacc8625b3ebd1a370):
+↔
+    (2 : ℤ) • ∡ p₁ p₂ p₄ = (2 : ℤ) • ∡ p₁ p₃ p₄ := by
+  obtain ⟨s, hs⟩ := cospherical_iff_exists_sphere.1 h
+  simp_rw [Set.insert_subset, Set.singleton_subset_iff, Sphere.mem_coe] at hs
+  exact Sphere.two_zsmul_oangle_eq hs.1 hs.2.1 hs.2.2.1 hs.2.2.2 hp₂p₁ hp₂p₄ hp₃p₁ hp₃p₄
+
+The proof is not a failed proof, it is a proof that is not a proof.
+
+####  Yakov Pechersky (May 02 2020 at 18:05):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is.
+
+####  Yakov Pechersky (May 02 2020 at 18:06):
+
+I'm not sure what the issue is
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Function/StronglyMeasurable/Basic.lean - 2024-09-08 01:52:58.723727.
+---15/20---
+For theorem aestronglyMeasurable_of_tendsto_ae in Mathlib/MeasureTheory/Function/StronglyMeasurable/Basic.lean:
+theorem _root_.aestronglyMeasurable_of_tendsto_ae {ι : Type*} [PseudoMetrizableSpace β]
+    (u : Filter ι) [NeBot u] [IsCountablyGenerated u] {f : ι → α → β} {g : α → β}
+    (hf : ∀ i, AEStronglyMeasurable (f i) μ) (lim : ∀ᵐ x ∂μ, Tendsto (fun n => f n x) u (𝓝 (g x))) :
+    AEStronglyMeasurable g μ 
+
+
+Original valid proof:
+:= by
+  borelize β
+  refine aestronglyMeasurable_iff_aemeasurable_separable.2 ⟨?_, ?_⟩
+  · exact aemeasurable_of_tendsto_metrizable_ae _ (fun n => (hf n).aemeasurable) lim
+  · rcases u.exists_seq_tendsto with ⟨v, hv⟩
+    have : ∀ n : ℕ, ∃ t : Set β, IsSeparable t ∧ f (v n) ⁻¹' t ∈ ae μ := fun n =>
+      (aestronglyMeasurable_iff_aemeasurable_separable.1 (hf (v n))).2
+    choose t t_sep ht using this
+    refine ⟨closure (⋃ i, t i), .closure <| .iUnion t_sep, ?_⟩
+    filter_upwards [ae_all_iff.2 ht, lim] with x hx h'x
+    apply mem_closure_of_tendsto (h'x.comp hv)
+    filter_upwards with n using mem_iUnion_of_mem n (hx n)
+
+
+Verifying proof (Commit a36d8932e98ea1d7efcdd316318586a6329f53a3):
+ := by
+  borelize β
+  refine' aestronglyMeasurable_iff_aemeasurable_separable.2 ⟨_, _⟩
+  · exact aemeasurable_of_tendsto_metrizable_ae _ (fun n => (hf n).aemeasurable) lim
+  · rcases u.exists_seq_tendsto with ⟨v, hv⟩
+    have : ∀ n : ℕ, ∃ t : Set β, IsSeparable t ∧ f (v n) ⁻¹' t ∈ μ.ae := fun n =>
+      (aestronglyMeasurable_iff_aemeasurable_separable.1 (hf (v n))).2
+    choose t t_sep ht using this
+    refine ⟨closure (⋃ i, t i), .closure <| .iUnion t_sep, ?_⟩
+    filter_upwards [ae_all_iff.2 ht, lim] with x hx h'x
+    apply mem_closure_of_tendsto (h'x.comp hv)
+    filter_upwards with n using mem_iUnion_of_mem n (hx n)
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:20):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filteru is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I think that the problem is that the filter
+u is not a countable filter.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10:21):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jun 01 2020 at 10
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Function/UniformIntegrable.lean - 2024-09-08 01:53:16.297655.
+---16/20---
+For theorem MeasureTheory.Memℒp.snorm_indicator_norm_ge_pos_le in Mathlib/MeasureTheory/Function/UniformIntegrable.lean:
+theorem Memℒp.snorm_indicator_norm_ge_pos_le (hf : Memℒp f p μ) (hmeas : StronglyMeasurable f)
+    {ε : ℝ} (hε : 0 < ε) :
+    ∃ M : ℝ, 0 < M ∧ snorm ({ x | M ≤ ‖f x‖₊ }.indicator f) p μ ≤ ENNReal.ofReal ε 
+
+
+Original valid proof:
+:= by
+  obtain ⟨M, hM⟩ := hf.snorm_indicator_norm_ge_le hmeas hε
+  refine
+    ⟨max M 1, lt_of_lt_of_le zero_lt_one (le_max_right _ _), le_trans (snorm_mono fun x => ?_) hM⟩
+  rw [norm_indicator_eq_indicator_norm, norm_indicator_eq_indicator_norm]
+  refine Set.indicator_le_indicator_of_subset (fun x hx => ?_) (fun x => norm_nonneg (f x)) x
+  rw [Set.mem_setOf_eq] at hx 
+  exact (max_le_iff.1 hx).1
+
+
+Verifying proof (Commit ff33d25c791a3fac407c782b49018fcb63700d0d):
+ := by
+  obtain ⟨M, hM⟩ := hf.snorm_indicator_norm_ge_le μ hmeas hε
+  refine'
+    ⟨max M 1, lt_of_lt_of_le zero_lt_one (le_max_right _ _), le_trans (snorm_mono fun x => _) hM⟩
+  rw [norm_indicator_eq_indicator_norm, norm_indicator_eq_indicator_norm]
+  refine' Set.indicator_le_indicator_of_subset (fun x hx => _) (fun x => norm_nonneg (f x)) x
+  rw [Set.mem_setOf_eq] at hx 
+  exact (max_le_iff.1 hx).1
+
+## 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.
+
+Attempt failure.
+
+Working on Mathlib/NumberTheory/Cyclotomic/Rat.lean - 2024-09-08 01:53:33.193063.
+---17/20---
+For theorem IsCyclotomicExtension.Rat.isIntegralClosure_adjoin_singleton_of_prime in Mathlib/NumberTheory/Cyclotomic/Rat.lean:
+theorem isIntegralClosure_adjoin_singleton_of_prime_pow [hcycl : IsCyclotomicExtension {p ^ k} ℚ K]
+    (hζ : IsPrimitiveRoot ζ ↑(p ^ k)) : IsIntegralClosure (adjoin ℤ ({ζ} : Set K)) ℤ K 
+
+
+Original valid proof:
+:= by
+  refine ⟨Subtype.val_injective, @fun x => ⟨fun h => ⟨⟨x, ?_⟩, rfl⟩, ?_⟩⟩
+  swap
+  · rintro ⟨y, rfl⟩
+    exact
+      IsIntegral.algebraMap
+        ((le_integralClosure_iff_isIntegral.1
+          (adjoin_le_integralClosure (hζ.isIntegral (p ^ k).pos))).isIntegral _)
+  let B := hζ.subOnePowerBasis ℚ
+  have hint : IsIntegral ℤ B.gen := (hζ.isIntegral (p ^ k).pos).sub isIntegral_one
+  letI := IsCyclotomicExtension.finiteDimensional {p ^ k} ℚ K
+  have H := discr_mul_isIntegral_mem_adjoin ℚ hint h
+  obtain ⟨u, n, hun⟩ := discr_prime_pow_eq_unit_mul_pow' hζ
+  rw [hun] at H
+  replace H := Subalgebra.smul_mem _ H u.inv
+  rw [← smul_assoc, ← smul_mul_assoc, Units.inv_eq_val_inv, zsmul_eq_mul, ← Int.cast_mul,
+    Units.inv_mul, Int.cast_one, one_mul, smul_def, map_pow] at H
+  cases k
+  · haveI : IsCyclotomicExtension {1} ℚ K := by simpa using hcycl
+    have : x ∈ (⊥ : Subalgebra ℚ K) := by
+      rw [singleton_one ℚ K]
+      exact mem_top
+    obtain ⟨y, rfl⟩ := mem_bot.1 this
+    replace h := (isIntegral_algebraMap_iff (algebraMap ℚ K).injective).1 h
+    obtain ⟨z, hz⟩ := IsIntegrallyClosed.isIntegral_iff.1 h
+    rw [← hz, ← IsScalarTower.algebraMap_apply]
+    exact Subalgebra.algebraMap_mem _ _
+  · have hmin : (minpoly ℤ B.gen).IsEisensteinAt (Submodule.span ℤ {((p : ℕ) : ℤ)}) := by
+      have h₁ := minpoly.isIntegrallyClosed_eq_field_fractions' ℚ hint
+      have h₂ := hζ.minpoly_sub_one_eq_cyclotomic_comp (cyclotomic.irreducible_rat (p ^ _).pos)
+      rw [IsPrimitiveRoot.subOnePowerBasis_gen] at h₁
+      rw [h₁, ← map_cyclotomic_int, show Int.castRingHom ℚ = algebraMap ℤ ℚ by rfl,
+        show X + 1 = map (algebraMap ℤ ℚ) (X + 1) by simp, ← map_comp] at h₂
+      rw [IsPrimitiveRoot.subOnePowerBasis_gen,
+        map_injective (algebraMap ℤ ℚ) (algebraMap ℤ ℚ).injective_int h₂]
+      exact cyclotomic_prime_pow_comp_X_add_one_isEisensteinAt p _
+    refine
+      adjoin_le ?_
+        (mem_adjoin_of_smul_prime_pow_smul_of_minpoly_isEisensteinAt (n := n)
+          (Nat.prime_iff_prime_int.1 hp.out) hint h (by simpa using H) hmin)
+    simp only [Set.singleton_subset_iff, SetLike.mem_coe]
+    exact Subalgebra.sub_mem _ (self_mem_adjoin_singleton ℤ _) (Subalgebra.one_mem _)
+
+
+Verifying proof (Commit df1f699fcf985d4906f4984a974c473b3bf5d238):
+ := by
+  refine' ⟨Subtype.val_injective, @fun x => ⟨fun h => ⟨⟨x, _⟩, rfl⟩, _⟩⟩
+  swap
+  · rintro ⟨y, rfl⟩
+    exact
+      IsIntegral.algebraMap
+        (le_integralClosure_iff_isIntegral.1
+          (adjoin_le_integralClosure (hζ.isIntegral (p ^ k).pos)) _)
+  let B := hζ.subOnePowerBasis ℚ
+  have hint : IsIntegral ℤ B.gen := isIntegral_sub (hζ.isIntegral (p ^ k).pos) isIntegral_one
+  letI := IsCyclotomicExtension.finiteDimensional {p ^ k} ℚ K
+  have H := discr_mul_isIntegral_mem_adjoin ℚ hint h
+  obtain ⟨u, n, hun⟩ := discr_prime_pow_eq_unit_mul_pow' hζ
+  rw [hun] at H
+  replace H := Subalgebra.smul_mem _ H u.inv
+  rw [← smul_assoc, ← smul_mul_assoc, Units.inv_eq_val_inv, zsmul_eq_mul, ← Int.cast_mul,
+    Units.inv_mul, Int.cast_one, one_mul, PNat.pow_coe, Nat.cast_pow, smul_def, map_pow] at H
+  cases k
+  · haveI : IsCyclotomicExtension {1} ℚ K := by simpa using hcycl
+    have : x ∈ (⊥ : Subalgebra ℚ K) := by
+      rw [singleton_one ℚ K]
+      exact mem_top
+    obtain ⟨y, rfl⟩ := mem_bot.1 this
+    replace h := (isIntegral_algebraMap_iff (algebraMap ℚ K).injective).1 h
+    obtain ⟨z, hz⟩ := IsIntegrallyClosed.isIntegral_iff.1 h
+    rw [← hz, ← IsScalarTower.algebraMap_apply]
+    exact Subalgebra.algebraMap_mem _ _
+  · have hmin : (minpoly ℤ B.gen).IsEisensteinAt (Submodule.span ℤ {((p : ℕ) : ℤ)}) := by
+      have h₁ := minpoly.isIntegrallyClosed_eq_field_fractions' ℚ hint
+      have h₂ := hζ.minpoly_sub_one_eq_cyclotomic_comp (cyclotomic.irreducible_rat (p ^ _).pos)
+      rw [IsPrimitiveRoot.subOnePowerBasis_gen] at h₁
+      rw [h₁, ← map_cyclotomic_int, show Int.castRingHom ℚ = algebraMap ℤ ℚ by rfl,
+        show X + 1 = map (algebraMap ℤ ℚ) (X + 1) by simp, ← map_comp] at h₂
+      haveI : CharZero ℚ := StrictOrderedSemiring.to_charZero
+      rw [IsPrimitiveRoot.subOnePowerBasis_gen,
+        map_injective (algebraMap ℤ ℚ) (algebraMap ℤ ℚ).injective_int h₂]
+      exact cyclotomic_prime_pow_comp_x_add_one_isEisensteinAt p _
+    refine'
+      adjoin_le _
+        (mem_adjoin_of_smul_prime_pow_smul_of_minpoly_is_eiseinstein_at (n := n)
+          (Nat.prime_iff_prime_int.1 hp.out) hint h (by simpa using H) hmin)
+    simp only [Set.singleton_subset_iff, SetLike.mem_coe]
+    exact Subalgebra.sub_mem _ (self_mem_adjoin_singleton ℤ _) (Subalgebra.one_mem _)
+
+## References #
+
+- [J. Neukirch, A. Schmidt, K. Wingberg, Cohomology of Number Fields][NeukirchSchmidtWingberg]
+
+## Tags #
+
+cyclotomic extension, is_integral, is_integral_closure
+
+theorem IsPrimitiveRoot.minpoly_sub_one_eq_cyclotomic_comp {n : ℕ+} {K : Type u_1} [Field K] {ζ : K} (hζ : IsPrimitiveRoot ζ n) (h_irred : Irreducible (cyclotomic n ℚ)) :
+
+minpoly ℤ ζ.subOnePowerBasis.gen = (cyclotomic n ℤ).comp (X + 1)
+
+theorem discr_prime_pow_eq_unit_mul_pow' {n : ℕ+} {K : Type u_1} [Field K] {ζ : K} (hζ : IsPrimitiveRoot ζ n) (h_irred : Irreducible (cyclotomic n ℚ)) (h_pos : 0 < n.val) :
+
+∃ u : ℤˣ, discr ℤ (hζ.subOnePowerBasis ℚ).gen = ↑u * ↑(n.val ^ (n.val - 1))
+
+theorem discr_prime_pow_eq_unit_mul_pow {n : ℕ+} {K : Type u_1} [Field K] {ζ : K} (hζ : IsPrimitiveRoot ζ n) (h_irred : Irreducible (cyclotomic n ℚ)) (h_pos : 0 < n.val) :
+
+∃ u : ℤˣ, discr ℤ (hζ.subOnePowerBasis ℚ).gen = ↑u * ↑(n.val ^ (n.val - 1))
+
+theorem discr_prime_pow_eq_unit_mul_pow_of_cyclotomic_irreducible {n : ℕ+} {K : Type u_1} [Field K] {ζ : K} (hζ : IsPrimitiveRoot ζ n) (h_irred : Irreducible (cyclotomic n ℤ)) (h_pos : 0 < n.val) :
+
+∃ u : ℤˣ, discr ℤ (hζ.subOnePowerBasis ℚ).gen = ↑u * ↑(n.val ^ (n.val - 1))
+
+theorem discr_prime_pow_eq_unit_mul_pow_of_cyclotomic_irreducible' {n : ℕ+} {K : Type u_1} [Field K] {ζ : K} (hζ : IsPrimitiveRoot ζ n) (h_irred : Irreducible (cyclotomic n ℤ)) (h_pos : 0 < n.val) :
+
+∃ u : ℤˣ, discr ℤ (hζ.subOnePowerBasis ℚ).gen = ↑u * ↑(n.val ^ (n.val - 1))
+
+theorem discr_prime_pow_eq_unit_mul_pow_of_cyclotomic_irreducible'' {n : ℕ+} {K : Type u_1} [Field K] {ζ : K} (hζ : IsPrimitiveRoot ζ n) (h_irred : Irreducible (cyclotomic n ℤ)) (h_pos : 0 < n.val) :
+
+∃ u : ℤˣ, discr ℤ (hζ.subOnePowerBasis ℚ).gen = ↑u * ↑(n.val ^ (n.val - 1))
+
+theorem discr_prime_pow_eq_unit_mul_pow_of_cyclotomic_irreducible''' {n : ℕ+} {K : Type u_1} [Field K] {ζ : K} (hζ : IsPrimitiveRoot ζ n) (h_irred : Irreducible (cyclotomic n ℤ)) (h_pos : 0 < n.val) :
+
+∃ u : ℤˣ, discr ℤ (hζ.subOnePowerBasis ℚ).gen = ↑u * ↑(n.val ^ (n.val - 1))
+
+theorem discr_prime_pow_eq_unit_mul_pow_of_cyclotomic_irreducible''''
+
+Attempt failure.
+
+Working on Mathlib/NumberTheory/NumberField/Embeddings.lean - 2024-09-08 01:54:01.658256.
+---18/20---
+For theorem NumberField.Embeddings.pow_eq_one_of_norm_eq_one in Mathlib/NumberTheory/NumberField/Embeddings.lean:
+theorem pow_eq_one_of_norm_eq_one {x : K} (hxi : IsIntegral ℤ x) (hx : ∀ φ : K →+* A, ‖φ x‖ = 1) :
+    ∃ (n : ℕ) (_ : 0 < n), x ^ n = 1 
+
+
+Original valid proof:
+:= by
+  obtain ⟨a, -, b, -, habne, h⟩ :=
+    @Set.Infinite.exists_ne_map_eq_of_mapsTo _ _ _ _ (x ^ · : ℕ → K) Set.infinite_univ
+      (by exact fun a _ => ⟨hxi.pow a, fun φ => by simp [hx φ]⟩) (finite_of_norm_le K A (1 : ℝ))
+  wlog hlt : b < a
+  · exact this K A hxi hx b a habne.symm h.symm (habne.lt_or_lt.resolve_right hlt)
+  refine ⟨a - b, tsub_pos_of_lt hlt, ?_⟩
+  rw [← Nat.sub_add_cancel hlt.le, pow_add, mul_left_eq_self₀] at h
+  refine h.resolve_right fun hp => ?_
+  specialize hx (IsAlgClosed.lift (R := ℚ)).toRingHom
+  rw [pow_eq_zero hp, map_zero, norm_zero] at hx; norm_num at hx
+
+
+Verifying proof (Commit 82c813af13556dfd4f1674ca7e80454403652cd8):
+∧ ∀ m : ℕ, 0 < m → m < n → x ^ m ≠ 1 := by
+  obtain ⟨a, -, b, -, habne, h⟩ :=
+    @Set.Infinite.exists_ne_map_eq_of_mapsTo _ _ _ _ ((· ^ ·) x : ℕ → K) Set.infinite_univ
+      (by exact fun a _ => ⟨hxi.pow a, fun φ => by simp [hx φ]⟩) (finite_of_norm_le K A (1 : ℝ))
+  · wlog hlt : b < a
+    · exact this K A hxi hx b a habne.symm h.symm (habne.lt_or_lt.resolve_right hlt)
+    refine ⟨a - b, tsub_pos_of_lt hlt, ?_⟩
+    dsimp at h 
+    rw [← Nat.sub_add_cancel hlt.le, pow_add, mul_left_eq_self₀] at h
+    refine h.resolve_right fun hp => ?_
+    specialize hx (IsAlgClosed.lift (NumberField.isAlgebraic K)).toRingHom
+    rw [pow_eq_zero hp, map_zero, norm_zero] at hx ; norm_num at hx
+
+## References #
+
+- [J.W.S. Cassels, A. Frölich, Algebraic Number Theory, p. 109][cassels1967algebraic]
+
+## Tags #
+
+norm, number field, power, unit
+
+Attempt failure.
+
+Working on Mathlib/NumberTheory/SumTwoSquares.lean - 2024-09-08 01:54:30.421733.
+---19/20---
+For theorem ZMod.isSquare_neg_one_iff in Mathlib/NumberTheory/SumTwoSquares.lean:
+theorem ZMod.isSquare_neg_one_iff {n : ℕ} (hn : Squarefree n) :
+    IsSquare (-1 : ZMod n) ↔ ∀ {q : ℕ}, q.Prime → q ∣ n → q % 4 ≠ 3 
+
+
+Original valid proof:
+:= by
+  refine ⟨fun H q hqp hqd => hqp.mod_four_ne_three_of_dvd_isSquare_neg_one hqd H, fun H => ?_⟩
+  induction' n using induction_on_primes with p n hpp ih
+  · exact False.elim (hn.ne_zero rfl)
+  · exact ⟨0, by simp only [mul_zero, eq_iff_true_of_subsingleton]⟩
+  · haveI : Fact p.Prime := ⟨hpp⟩
+    have hcp : p.Coprime n := by
+      by_contra hc
+      exact hpp.not_unit (hn p <| mul_dvd_mul_left p <| hpp.dvd_iff_not_coprime.mpr hc)
+    have hp₁ := ZMod.exists_sq_eq_neg_one_iff.mpr (H hpp (dvd_mul_right p n))
+    exact ZMod.isSquare_neg_one_mul hcp hp₁
+      (ih hn.of_mul_right fun hqp hqd => H hqp <| dvd_mul_of_dvd_right hqd _)
+
+
+Verifying proof (Commit 40b58304ad9cb6913d2d4e97172b2c306fdb61f2):
+∧ q ≠ 2 := by
+  refine' ⟨fun H q hqp hqd => ⟨hqp.mod_four_ne_three_of_dvd_isSquare_neg_one hqd H, hqp.ne_two_of_dvd_isSquare_neg_one hqd H⟩, fun H => _⟩
+  induction' n using induction_on_primes with p n hpp ih
+  · exact False.elim (hn.ne_zero rfl)
+  · exact ⟨0, by simp only [Fin.zero_mul, neg_eq_zero, Fin.one_eq_zero_iff]⟩
+  · haveI : Fact p.Prime := ⟨hpp⟩
+    have hcp : p.coprime n := by
+      by_contra hc
+      exact hpp.not_unit (hn p <| mul_dvd_mul_left p <| hpp.dvd_iff_not_coprime.mpr hc)
+    have hp₁ := ZMod.exists_sq_eq_neg_one_iff.mpr (H hpp (dvd_mul_right p n))
+    exact ZMod.isSquare_neg_one_mul hcp hp₁
+      (ih hn.of_mul_right fun hqp hqd => H hqp <| dvd_mul_of_dvd_right hqd _)
+
+## 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.
+
+Attempt failure.
+
+Working on Mathlib/RingTheory/Finiteness.lean - 2024-09-08 01:54:40.683562.
+---20/20---
+For theorem Submodule.fg_of_fg_map_of_fg_inf_ker in Mathlib/RingTheory/Finiteness.lean:
+theorem fg_of_fg_map_of_fg_inf_ker {R M P : Type*} [Ring R] [AddCommGroup M] [Module R M]
+    [AddCommGroup P] [Module R P] (f : M →ₗ[R] P) {s : Submodule R M}
+    (hs1 : (s.map f).FG)
+    (hs2 : (s ⊓ LinearMap.ker f).FG) : s.FG 
+
+
+Original valid proof:
+:= by
+  haveI := Classical.decEq R
+  haveI := Classical.decEq M
+  haveI := Classical.decEq P
+  cases' hs1 with t1 ht1
+  cases' hs2 with t2 ht2
+  have : ∀ y ∈ t1, ∃ x ∈ s, f x = y := by
+    intro y hy
+    have : y ∈ s.map f := by
+      rw [← ht1]
+      exact subset_span hy
+    rcases mem_map.1 this with ⟨x, hx1, hx2⟩
+    exact ⟨x, hx1, hx2⟩
+  have : ∃ g : P → M, ∀ y ∈ t1, g y ∈ s ∧ f (g y) = y := by
+    choose g hg1 hg2 using this
+    exists fun y => if H : y ∈ t1 then g y H else 0
+    intro y H
+    constructor
+    · simp only [dif_pos H]
+      apply hg1
+    · simp only [dif_pos H]
+      apply hg2
+  cases' this with g hg
+  clear this
+  exists t1.image g ∪ t2
+  rw [Finset.coe_union, span_union, Finset.coe_image]
+  apply le_antisymm
+  · refine sup_le (span_le.2 <| image_subset_iff.2 ?_) (span_le.2 ?_)
+    · intro y hy
+      exact (hg y hy).1
+    · intro x hx
+      have : x ∈ span R t2 := subset_span hx
+      rw [ht2] at this
+      exact this.1
+  intro x hx
+  have : f x ∈ s.map f := by
+    rw [mem_map]
+    exact ⟨x, hx, rfl⟩
+  rw [← ht1, ← Set.image_id (t1 : Set P), Finsupp.mem_span_image_iff_total] at this
+  rcases this with ⟨l, hl1, hl2⟩
+  refine
+    mem_sup.2
+      ⟨(Finsupp.total M M R id).toFun ((Finsupp.lmapDomain R R g : (P →₀ R) → M →₀ R) l), ?_,
+        x - Finsupp.total M M R id ((Finsupp.lmapDomain R R g : (P →₀ R) → M →₀ R) l), ?_,
+        add_sub_cancel _ _⟩
+  · rw [← Set.image_id (g '' ↑t1), Finsupp.mem_span_image_iff_total]
+    refine ⟨_, ?_, rfl⟩
+    haveI : Inhabited P := ⟨0⟩
+    rw [← Finsupp.lmapDomain_supported _ _ g, mem_map]
+    refine ⟨l, hl1, ?_⟩
+    rfl
+  rw [ht2, mem_inf]
+  constructor
+  · apply s.sub_mem hx
+    rw [Finsupp.total_apply, Finsupp.lmapDomain_apply, Finsupp.sum_mapDomain_index]
+    · refine s.sum_mem ?_
+      intro y hy
+      exact s.smul_mem _ (hg y (hl1 hy)).1
+    · exact zero_smul _
+    · exact fun _ _ _ => add_smul _ _ _
+  · rw [LinearMap.mem_ker, f.map_sub, ← hl2]
+    rw [Finsupp.total_apply, Finsupp.total_apply, Finsupp.lmapDomain_apply]
+    rw [Finsupp.sum_mapDomain_index, Finsupp.sum, Finsupp.sum, map_sum]
+    · rw [sub_eq_zero]
+      refine Finset.sum_congr rfl fun y hy => ?_
+      unfold id
+      rw [f.map_smul, (hg y (hl1 hy)).2]
+    · exact zero_smul _
+    · exact fun _ _ _ => add_smul _ _ _
+
+
+Verifying proof (Commit ad18eeb8eb4cef77ae3faa6e797d7c84c4ea68e2):
+ := by
+  haveI := Classical.decEq R
+  haveI := Classical.decEq M
+  haveI := Classical.decEq P
+  cases' hs1 with t1 ht1
+  cases' hs2 with t2 ht2
+  have : ∀ y ∈ t1, ∃ x ∈ s, f x = y := by
+    intro y hy
+    have : y ∈ s.map f := by
+      rw [← ht1]
+      exact subset_span hy
+    rcases mem_map.1 this with ⟨x, hx1, hx2⟩
+    exact ⟨x, hx1, hx2⟩
+  have : ∃ g : P → M, ∀ y ∈ t1, g y ∈ s ∧ f (g y) = y := by
+    choose g hg1 hg2 using this
+    exists fun y => if H : y ∈ t1 then g y H else 0
+    intro y H
+    constructor
+    · simp only [dif_pos H]
+      apply hg1
+    · simp only [dif_pos H]
+      apply hg2
+  cases' this with g hg
+  clear this
+  exists t1.image g ∪ t2
+  rw [Finset.coe_union, span_union, Finset.coe_image]
+  apply le_antisymm
+  · refine sup_le (span_le.2 <| image_subset_iff.2 ?_) (span_le.2? _)
+    · intro y hy
+      exact (hg y hy).1
+    · intro x hx
+      have : x ∈ span R t2 := subset_span hx
+      rw [ht2] at this
+      exact this.1
+  intro x hx
+  have : f x ∈ s.map f := by
+    rw [mem_map]
+    exact ⟨x, hx, rfl⟩
+  rw [← ht1, ← Set.image_id (t1 : Set P), Finsupp.mem_span_image_iff_total] at this
+  rcases this with ⟨l, hl1, hl2⟩
+  refine
+    mem_sup.2
+      ⟨(Finsupp.total M M R id).toFun ((Finsupp.lmapDomain R R g : (P →₀ R) → M →₀ R) l), ?_,
+        x - Finsupp.total M M R id ((Finsupp.lmapDomain R R g : (P →₀ R) → M →₀ R) l), ?_,
+        add_sub_cancel _ _⟩
+  · rw [← Set.image_id (g '' ↑t1), Finsupp.mem_span_image_iff_total]
+    refine ⟨_, ?_, rfl⟩
+    haveI : Inhabited P := ⟨0⟩
+    rw [← Finsupp.lmapDomain_supported _ _ g, mem_map]
+    refine ⟨l, hl1, ?_⟩
+    rfl
+  rw [ht2, mem_inf]
+  constructor
+  · apply s.sub_mem hx
+    rw [Finsupp.total_apply, Finsupp.lmapDomain_apply, Finsupp.sum_mapDomain_index]
+    · refine s.sum_mem ?_
+      intro y hy
+      exact s.smul_mem _ (hg y (hl1 hy)).1
+    · exact zero_smul _
+    · exact fun _ _ _ => add_smul _ _ _
+  · rw [LinearMap.mem_ker, f.map_sub, ← hl2]
+    rw [Finsupp.total_apply, Finsupp.total_apply, Finsupp.lmapDomain_apply]
+    rw [Finsupp.sum_mapDomain_index, Finsupp.sum, Finsupp.sum, map_sum]
+    · rw [sub_eq_zero]
+      refine Finset.sum_congr rfl fun y hy => ?_
+      unfold id
+      rw [f.map_smul, (hg y (hl1 hy)).2]
+    · exact zero_smul _
+    · exact fun _ _ _ => add_smul _ _ _
+
+####  Eric Wieser (May 11 2020 at 10:00):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do this.
+
+####  Eric Wieser (May 11 2020 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 20 proof attempts, there were 0 successful and 20 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

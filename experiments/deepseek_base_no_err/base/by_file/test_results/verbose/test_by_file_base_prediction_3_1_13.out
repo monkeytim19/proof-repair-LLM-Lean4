@@ -1,0 +1,182 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:48.565634
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 862826 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Data/Nat/Log.lean - 2024-09-08 11:51:15.613484.
+---1/1---
+For theorem Nat.pow_le_iff_le_log in Mathlib/Data/Nat/Log.lean:
+theorem pow_le_iff_le_log {b : ℕ} (hb : 1 < b) {x y : ℕ} (hy : y ≠ 0) :
+    b ^ x ≤ y ↔ x ≤ log b y 
+
+
+Original valid proof:
+:= by
+  induction' y using Nat.strong_induction_on with y ih generalizing x
+  cases x with
+  | zero => dsimp; omega
+  | succ x =>
+    rw [log]; split_ifs with h
+    · have b_pos : 0 < b := lt_of_succ_lt hb
+      rw [Nat.add_le_add_iff_right, ← ih (y / b) (div_lt_self
+        (Nat.pos_iff_ne_zero.2 hy) hb) (Nat.div_pos h.1 b_pos).ne', le_div_iff_mul_le b_pos,
+        pow_succ', Nat.mul_comm]
+    · exact iff_of_false (fun hby => h ⟨(le_self_pow x.succ_ne_zero _).trans hby, hb⟩)
+        (not_succ_le_zero _)
+
+
+Verifying proof (Commit 41b955aad45c24b4e2c9b0cae45d9ea397306cf5):
+ := by
+  induction' y using Nat.strong_induction_on with y ih generalizing x
+  cases x with
+  | zero => exact iff_of_true hy.bot_lt (zero_le _)
+  | succ x =>
+    rw [log]; split_ifs with h
+    · have b_pos : 0 < b := zero_le_one.trans_lt hb
+      rw [add_le_add_iff_right, ←
+        ih (y / b) (div_lt_self hy.bot_lt hb) (Nat.div_pos h.1 b_pos).ne', le_div_iff_mul_le b_pos,
+        pow_succ', mul_comm]
+    · exact iff_of_false (fun hby => h ⟨(le_self_pow x.succ_ne_zero _).trans hby, hb⟩)
+        (not_succ_le_zero _)
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+####  Mario Carneiro (Jul 10 2020 at 00:00):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is that the proof of the induction step is not well-formed. The induction hypothesis is not applied to the correct term.
+
+####  Mario Carneiro (Jul 10 2020 at 00:01):
+
+I think the problem is
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

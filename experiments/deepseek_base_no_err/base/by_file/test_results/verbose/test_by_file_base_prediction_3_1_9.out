@@ -1,0 +1,198 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:49.940892
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 122503 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Topology/CompactOpen.lean - 2024-09-08 11:36:15.708361.
+---1/1---
+For theorem ContinuousMap.continuous_curry' in Mathlib/Topology/CompactOpen.lean:
+theorem continuous_curry' (f : C(X × Y, Z)) : Continuous (curry' f) 
+
+
+Original valid proof:
+:= (curry f).continuous
+
+
+Verifying proof (Commit 847a3fdc5138725139077c1ba700dd4bb54bb91c):
+ :=
+  Continuous.comp (continuous_comp f) continuous_coev
+
+I'm not sure if this is a bug or a feature, but I'm not sure how to fix it.
+
+####  Mario Carneiro (May 10 2020 at 00:00):
+
+I think this is a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 10 2020 at 00:01):
+
+I'm not sure how to fix it, but I'm pretty sure it's a bug
+
+####  Mario Carneiro (May 
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

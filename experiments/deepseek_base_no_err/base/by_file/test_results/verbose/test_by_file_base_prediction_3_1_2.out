@@ -1,0 +1,158 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:49.001935
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 2501507 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/SetTheory/Game/PGame.lean - 2024-09-08 12:19:19.266390.
+---1/1---
+For theorem SetTheory.PGame.lf_iff_exists_le in Mathlib/SetTheory/Game/PGame.lean:
+theorem lf_iff_exists_le {x y : PGame} :
+    x ⧏ y ↔ (∃ i, x ≤ y.moveLeft i) ∨ ∃ j, x.moveRight j ≤ y 
+
+
+Original valid proof:
+:= by
+  rw [LF, le_iff_forall_lf, not_and_or]
+  simp
+
+
+Verifying proof (Commit 69b7f4ab1136e43d2da107e18d8154c3019665d2):
+∧ x ⧏ y.moveRight j := by
+  rw [Lf, le_iff_forall_lf, not_and_or]
+  simp
+
+The problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:00):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07:01):
+
+I think the problem is that the first proof is not valid, because the second disjunct of the right-hand side of the iff is not a disjunction, but a conjunction.
+
+####  Mario Carneiro (May 02 2020 at 07
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

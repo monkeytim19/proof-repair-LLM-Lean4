@@ -1,0 +1,73 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:48.419476
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 206831 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/CategoryTheory/Idempotents/Basic.lean - 2024-09-08 11:32:08.098864.
+---1/1---
+For theorem CategoryTheory.Idempotents.isIdempotentComplete_of_isIdempotentComplete_opposite in Mathlib/CategoryTheory/Idempotents/Basic.lean:
+theorem isIdempotentComplete_of_isIdempotentComplete_opposite (h : IsIdempotentComplete Cᵒᵖ) :
+    IsIdempotentComplete C 
+
+
+Original valid proof:
+:= by
+  refine ⟨?_⟩
+  intro X p hp
+  rcases IsIdempotentComplete.idempotents_split (op X) p.op (by rw [← op_comp, hp]) with
+    ⟨Y, i, e, ⟨h₁, h₂⟩⟩
+  use Y.unop, e.unop, i.unop
+  constructor
+  · simp only [← unop_comp, h₁]
+    rfl
+  · simp only [← unop_comp, h₂]
+    rfl
+
+
+Verifying proof (Commit e909ecb0df49c3c96c769b4bf702a3d6084d240e):
+ := by
+  refine' ⟨_⟩
+  intro X p hp
+  rcases IsIdempotentComplete.idempotents_split (op X) p.op (by rw [← op_comp, hp]) with
+    ⟨Y, i, e, ⟨h₁, h₂⟩⟩
+  use Y.unop, e.unop, i.unop
+  constructor
+  · simp only [← unop_comp, h₁]
+    rfl
+  · simp only [← unop_comp, h₂]
+
+## Equations
+
+- CategoryTheory.Idempotents.IdempotentsSplit.op {X := X, p := p, e := e, h₁ := h₁, h₂ := h₂} = {X := X.op, p := p.op, e := e.op, h₁ := (_ : p.op ≫ e.op ≫ p.op = p.op), h₂ := (_ : e.op ≫ p.op ≫ e.op = e.op)}
+
+## Equations
+
+- CategoryTheory.Idempotents.IdempotentsSplit.unop {X := X, p := p, e := e, h₁ := h₁, h₂ := h₂} = {X := X.unop, p := p.unop, e := e.unop, h₁ := (_ : p.unop ≫ e.unop ≫ p.unop = p.unop), h₂ := (_ : e.unop ≫ p.unop ≫ e.unop = e.unop)}
+
+## Equations
+
+- CategoryTheory.Idempotents.IdempotentsSplit.unop_op s = CategoryTheory.Idempotents.IdempotentsSplit.ext _ _ (Iso.unop_op s.e) (Iso.unop_op s.p) (by simp only [CategoryTheory.Idempotents.IdempotentsSplit.unop_op_e, CategoryTheory.Idempotents.IdempotentsSplit.unop_op_p, CategoryTheory.Idempotents.IdempotentsSplit.h₁, CategoryTheory.Idempotents.IdempotentsSplit.h₂])
+
+## Equations
+
+- CategoryTheory.Idempotents.IdempotentsSplit.op_unop s = CategoryTheory.Idempotents.IdempotentsSplit.ext _ _ (Iso.op_unop s.e) (Iso.op_unop s.p) (by simp only [CategoryTheory.Idempotents.IdempotentsSplit.op_unop_e, CategoryTheory.Idempotents.IdempotentsSplit.op_unop_p, CategoryTheory.Idempotents.IdempotentsSplit.h₁, CategoryTheory.Idempotents.IdempotentsSplit.h₂])
+
+## Equations
+
+- CategoryTheory.Idempotents.IdempotentsSplit.op_unop_equiv = {toFun := fun s => {X := s.X.unop, p := s.p.unop, e := s.e.unop, h₁ := (_ : s.p.unop ≫ s.e.unop ≫ s.p.unop = s.p.unop), h₂ := (_ : s.e.unop ≫ s.p.unop ≫ s.e.unop = s.e.unop)}, invFun := fun s => {X := s.X.op, p := s.p.op, e := s.e.op, h₁ := (_ : s.p.op ≫ s.e.op ≫ s.p.op = s.p.op), h₂ := (_ : s.e.op ≫ s.p.op ≫ s.e.op = s.e.op)}, left_inv := (_ : ∀ (s : CategoryTheory.Idempotents.IdempotentsSplit C), (fun s => {X := s.X.unop, p := s.p.unop, e := s.e.unop, h₁ := (_ : s.p.unop ≫ s.e.unop ≫ s.p.unop = s.p.unop), h₂ := (_ : s.e.unop ≫ s.p.unop ≫ s.e.unop = s.e.unop)}) ((fun s => {X := s.X.op, p := s.p.op, e := s.e.op, h₁ := (_ : s.p.op ≫ s.e.op ≫ s.p.op = s.p.op), h₂ := (_ : s.e.op ≫ s.p.op ≫ s.e.op = s.e.op)}) s) = s), right_inv := (_ : ∀ (s : CategoryTheory.Idempotents.IdempotentsSplit Cᵒᵖ), (fun s => {X := s.X.op, p := s.p.op, e := s.e.op, h₁ := (_ : s.p.op ≫ s.e.op ≫ s.p.op = s.p.op), h₂ := (_ : s.e.op ≫ s.p.op ≫ s.e.op = s.e.op)}) ((fun s => {X := s.X.unop, p := s.p.unop, e := s.e.unop, h₁ := (_ : s.p.unop ≫ s.e.unop ≫ s.p.unop = s.p.unop), h₂ := (_ : s.e.unop ≫ s.p.unop ≫ s.e.unop = s.e.unop)}) s) = s)}
+
+## Equations
+
+- CategoryTheory.Idempotents.IdempotentsSplit.op_unop_equiv_symm = {toFun := fun s => {X := s.X.unop, p := s.p.unop, e := s.e.unop, h₁ := (_ : s.p.unop ≫ s.e.unop ≫ s.p.unop = s.p.unop), h₂ := (_ : s.e.unop ≫ s.p.unop ≫ s.e.unop = s.e.unop)}, invFun := fun s => {X := s.X.op, p := s.p.op, e := s.e.op, h₁ := (_ : s.p.op ≫ s.e.op ≫ s.p.op = s.p.op), h₂ := (_ : s.e.op ≫ s.p.op ≫ s.e.op = s.e.op)}, left_inv := (_ : ∀ (s : CategoryTheory.Idempotents.IdempotentsSplit Cᵒᵖ), (fun s => {X := s.X.unop, p := s.p.unop, e := s.e.unop, h₁ := (_ : s.p.unop ≫ s.e.unop ≫ s.p.unop = s.p.unop), h₂ := (_ : s.e.unop ≫ s.p.unop ≫ s.e.unop = s.e.unop)}) ((fun s => {X := s.X.op, p := s.p.op, e := s.e.op, h₁ := (_ : s.p.op ≫ s.e.op ≫ s.p.op = s.p.op), h₂ := (_ : s.e.op ≫ s.p.op ≫ s.e.op = s.e.op)}) s) = s), right_inv := (_ : ∀ (s : CategoryTheory.Idempotents.IdempotentsSplit C), (fun s => {X := s.X.op, p := s.p.op, e := s.e.op, h₁ := (_ : s.p.op ≫ s.e.op ≫ s.p.op = s.p.op), h₂ := (_ : s.e.op ≫ s.p.op ≫ s.e.op = s.e.op)}) ((fun s => {X := s.X.unop, p := s.p.unop, e := s.e.unop, h₁ := (_ : s.p.unop
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

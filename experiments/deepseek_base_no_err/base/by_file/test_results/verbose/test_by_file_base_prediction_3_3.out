@@ -1,0 +1,7823 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 01:27:39.724145
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 48086 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Algebra/MvPolynomial/Derivation.lean - 2024-09-08 02:02:03.666756.
+---1/20---
+For theorem MvPolynomial.leibniz_iff_X in Mathlib/Algebra/MvPolynomial/Derivation.lean:
+theorem leibniz_iff_X (D : MvPolynomial σ R →ₗ[R] A) (h₁ : D 1 = 0) :
+    (∀ p q, D (p * q) = p • D q + q • D p) ↔ ∀ s i, D (monomial s 1 * X i) =
+    (monomial s 1 : MvPolynomial σ R) • D (X i) + (X i : MvPolynomial σ R) • D (monomial s 1) 
+
+
+Original valid proof:
+:= by
+  refine ⟨fun H p i => H _ _, fun H => ?_⟩
+  have hC : ∀ r, D (C r) = 0 := by intro r; rw [C_eq_smul_one, D.map_smul, h₁, smul_zero]
+  have : ∀ p i, D (p * X i) = p • D (X i) + (X i : MvPolynomial σ R) • D p := by
+    intro p i
+    induction' p using MvPolynomial.induction_on' with s r p q hp hq
+    · rw [← mul_one r, ← C_mul_monomial, mul_assoc, C_mul', D.map_smul, H, C_mul', smul_assoc,
+        smul_add, D.map_smul, smul_comm r (X i)]
+    · rw [add_mul, map_add, map_add, hp, hq, add_smul, smul_add, add_add_add_comm]
+  intro p q
+  induction q using MvPolynomial.induction_on with
+  | h_C c =>
+    rw [mul_comm, C_mul', hC, smul_zero, zero_add, D.map_smul, C_eq_smul_one, smul_one_smul]
+  | h_add q₁ q₂ h₁ h₂ => simp only [mul_add, map_add, h₁, h₂, smul_add, add_smul]; abel
+  | h_X q i hq =>
+    simp only [this, ← mul_assoc, hq, mul_smul, smul_add, add_assoc]
+    rw [smul_comm (X i), smul_comm (X i)]
+
+
+Verifying proof (Commit c959b2f950b9c44268e36bcedef976356855e6fb):
+∧
+    ∀ p i, D (p * X i) = p • D (X i) + (X i : MvPolynomial σ R) • D p := by
+  refine ⟨fun H p i => H _ _, fun H => ?_⟩
+  have hC : ∀ r, D (C r) = 0 := by intro r; rw [C_eq_smul_one, D.map_smul, h₁, smul_zero]
+  have : ∀ p i, D (p * X i) = p • D (X i) + (X i : MvPolynomial σ R) • D p := by
+    intro p i
+    induction' p using MvPolynomial.induction_on' with s r p q hp hq
+    · rw [← mul_one r, ← C_mul_monomial, mul_assoc, C_mul', D.map_smul, H, C_mul', smul_assoc,
+        smul_add, D.map_smul, smul_comm r (X i)]
+    · rw [add_mul, map_add, map_add, hp, hq, add_smul, smul_add, add_add_add_comm]
+  intro p q
+  induction q with
+  | h_C c =>
+    rw [mul_comm, C_mul', hC, smul_zero, zero_add, D.map_smul, C_eq_smul_one, smul_one_smul]
+  | h_add q₁ q₂ h₁ h₂ => simp only [mul_add, map_add, h₁, h₂, smul_add, add_smul]; abel
+  | h_X q i hq =>
+    simp only [this, ← mul_assoc, hq, mul_smul, smul_add, add_assoc]
+    rw [smul_comm (X i), smul_comm (X i)]
+
+####  Eric Wieser (May 04 2020 at 10:50):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 04 2020 at 10:51):
+
+I'm not sure what the
+
+Attempt failure.
+
+Working on Mathlib/Analysis/Fourier/AddCircle.lean - 2024-09-08 02:02:24.763079.
+---2/20---
+For theorem hasSum_fourier_series_of_summable in Mathlib/Analysis/Fourier/AddCircle.lean:
+theorem hasSum_fourier_series_of_summable (h : Summable (fourierCoeff f)) :
+    HasSum (fun i => fourierCoeff f i • fourier i) f 
+
+
+Original valid proof:
+:= by
+  have sum_L2 := hasSum_fourier_series_L2 (toLp (E := ℂ) 2 haarAddCircle ℂ f)
+  simp_rw [fourierCoeff_toLp] at sum_L2
+  refine ContinuousMap.hasSum_of_hasSum_Lp (.of_norm ?_) sum_L2
+  simp_rw [norm_smul, fourier_norm, mul_one]
+  exact h.norm
+
+
+Verifying proof (Commit 738ad0b1a96ead61d11b270ccd006461d3eb7397):
+ := by
+  have sum_L2 := hasSum_fourier_series_L2 (toLp (E := ℂ) 2 haarAddCircle ℂ f)
+  simp_rw [fourierCoeff_toLp] at sum_L2
+  refine' ContinuousMap.hasSum_of_hasSum_Lp (summable_of_summable_norm _) sum_L2
+  simp_rw [norm_smul, fourier_norm, mul_one, summable_norm_iff]
+  exact h
+
+## References #
+
+- [Benedikt Fiedler, A Measure Theoretic Proof of the Fourier Inversion Formula][fiedler2021]
+
+## Tags #
+
+fourier series, fourier transform, fourier inversion formula
+
+## Equations
+
+- fourier = ⟨fun i => ⟨fun x => exp (2 * ↑π * I * ↑i * x), _⟩, _⟩
+
+The Fourier coefficients of a functionf : α → E.
+
+## Equations
+
+- fourierCoeff f = fun i => ∫ (x : α), f x • exp (-2 * ↑π * I * ↑i * x) ∂μ
+
+The Fourier series of a functionf : α → E.
+
+## Equations
+
+- fourierSeries f = fun i => fourierCoeff f i • fourier i
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable_of_summable hf = _
+
+The Fourier series of a functionf : α → E converges to f.
+
+## Equations
+
+- fourierSeries_summable
+
+Attempt failure.
+
+Working on Mathlib/Analysis/Fourier/RiemannLebesgueLemma.lean - 2024-09-08 02:02:52.946450.
+---3/20---
+For theorem tendsto_integral_exp_inner_smul_cocompact_of_continuous_compact_support in Mathlib/Analysis/Fourier/RiemannLebesgueLemma.lean:
+theorem tendsto_integral_exp_inner_smul_cocompact_of_continuous_compact_support (hf1 : Continuous f)
+    (hf2 : HasCompactSupport f) :
+    Tendsto (fun w : V => ∫ v : V, 𝐞 (-⟪v, w⟫) • f v) (cocompact V) (𝓝 0) 
+
+
+Original valid proof:
+:= by
+  refine NormedAddCommGroup.tendsto_nhds_zero.mpr fun ε hε => ?_
+  suffices ∃ T : ℝ, ∀ w : V, T ≤ ‖w‖ → ‖∫ v : V, 𝐞 (-⟪v, w⟫) • f v‖ < ε by
+    simp_rw [← comap_dist_left_atTop_eq_cocompact (0 : V), eventually_comap, eventually_atTop,
+      dist_eq_norm', sub_zero]
+    exact
+      let ⟨T, hT⟩ := this
+      ⟨T, fun b hb v hv => hT v (hv.symm ▸ hb)⟩
+  obtain ⟨R, -, hR_bd⟩ : ∃ R : ℝ, 0 < R ∧ ∀ x : V, R ≤ ‖x‖ → f x = 0 := hf2.exists_pos_le_norm
+  let A := {v : V | ‖v‖ ≤ R + 1}
+  have mA : MeasurableSet A := by
+    suffices A = Metric.closedBall (0 : V) (R + 1) by
+      rw [this]
+      exact Metric.isClosed_ball.measurableSet
+    simp_rw [Metric.closedBall, dist_eq_norm, sub_zero]
+  obtain ⟨B, hB_pos, hB_vol⟩ : ∃ B : ℝ≥0, 0 < B ∧ volume A ≤ B := by
+    have hc : IsCompact A := by
+      simpa only [Metric.closedBall, dist_eq_norm, sub_zero] using isCompact_closedBall (0 : V) _
+    let B₀ := volume A
+    replace hc : B₀ < ⊤ := hc.measure_lt_top
+    refine ⟨B₀.toNNReal + 1, add_pos_of_nonneg_of_pos B₀.toNNReal.coe_nonneg one_pos, ?_⟩
+    rw [ENNReal.coe_add, ENNReal.coe_one, ENNReal.coe_toNNReal hc.ne]
+    exact le_self_add
+  obtain ⟨δ, hδ1, hδ2⟩ :=
+    Metric.uniformContinuous_iff.mp (hf2.uniformContinuous_of_continuous hf1) (ε / B)
+      (div_pos hε hB_pos)
+  refine ⟨1 / 2 + 1 / (2 * δ), fun w hw_bd => ?_⟩
+  have hw_ne : w ≠ 0 := by
+    contrapose! hw_bd; rw [hw_bd, norm_zero]
+    exact add_pos one_half_pos (one_div_pos.mpr <| mul_pos two_pos hδ1)
+  have hw'_nm : ‖i w‖ = 1 / (2 * ‖w‖) := by
+    rw [norm_smul, norm_div, Real.norm_of_nonneg (mul_nonneg two_pos.le <| sq_nonneg _), norm_one,
+      sq, ← div_div, ← div_div, ← div_div, div_mul_cancel₀ _ (norm_eq_zero.not.mpr hw_ne)]
+  have : ‖(1 / 2 : ℂ)‖ = 2⁻¹ := by norm_num
+  rw [fourierIntegral_eq_half_sub_half_period_translate hw_ne
+      (hf1.integrable_of_hasCompactSupport hf2),
+    norm_smul, this, inv_mul_eq_div, div_lt_iff' two_pos]
+  refine lt_of_le_of_lt (norm_integral_le_integral_norm _) ?_
+  simp_rw [norm_circle_smul]
+  have int_A : ∫ v : V, ‖f v - f (v + i w)‖ = ∫ v in A, ‖f v - f (v + i w)‖ := by
+    refine (setIntegral_eq_integral_of_forall_compl_eq_zero fun v hv => ?_).symm
+    dsimp only [A] at hv
+    simp only [mem_setOf, not_le] at hv
+    rw [hR_bd v _, hR_bd (v + i w) _, sub_zero, norm_zero]
+    · rw [← sub_neg_eq_add]
+      refine le_trans ?_ (norm_sub_norm_le _ _)
+      rw [le_sub_iff_add_le, norm_neg]
+      refine le_trans ?_ hv.le
+      rw [add_le_add_iff_left, hw'_nm, ← div_div]
+      refine (div_le_one <| norm_pos_iff.mpr hw_ne).mpr ?_
+      refine le_trans (le_add_of_nonneg_right <| one_div_nonneg.mpr <| ?_) hw_bd
+      exact (mul_pos (zero_lt_two' ℝ) hδ1).le
+    · exact (le_add_of_nonneg_right zero_le_one).trans hv.le
+  rw [int_A]; clear int_A
+  have bdA : ∀ v : V, v ∈ A → ‖‖f v - f (v + i w)‖‖ ≤ ε / B := by
+    simp_rw [norm_norm]
+    simp_rw [dist_eq_norm] at hδ2
+    refine fun x _ => (hδ2 ?_).le
+    rw [sub_add_cancel_left, norm_neg, hw'_nm, ← div_div, div_lt_iff (norm_pos_iff.mpr hw_ne), ←
+      div_lt_iff' hδ1, div_div]
+    exact (lt_add_of_pos_left _ one_half_pos).trans_le hw_bd
+  have bdA2 := norm_setIntegral_le_of_norm_le_const (hB_vol.trans_lt ENNReal.coe_lt_top) bdA ?_
+  swap
+  · apply Continuous.aestronglyMeasurable
+    exact
+      continuous_norm.comp <|
+        Continuous.sub hf1 <| Continuous.comp hf1 <| continuous_id'.add continuous_const
+  have : ‖_‖ = ∫ v : V in A, ‖f v - f (v + i w)‖ :=
+    Real.norm_of_nonneg (setIntegral_nonneg mA fun x _ => norm_nonneg _)
+  rw [this] at bdA2
+  refine bdA2.trans_lt ?_
+  rw [div_mul_eq_mul_div, div_lt_iff (NNReal.coe_pos.mpr hB_pos), mul_comm (2 : ℝ), mul_assoc,
+    mul_lt_mul_left hε]
+  rw [← ENNReal.toReal_le_toReal] at hB_vol
+  · refine hB_vol.trans_lt ?_
+    rw [(by rfl : (↑B : ENNReal).toReal = ↑B), two_mul]
+    exact lt_add_of_pos_left _ hB_pos
+  exacts [(hB_vol.trans_lt ENNReal.coe_lt_top).ne, ENNReal.coe_lt_top.ne]
+
+
+Verifying proof (Commit 7dc162787d2a79bf721a83a87f641ace70251b17):
+ 𝐞 (-⟪v, w⟫) • f v‖ < ε by
+    simp_rw [← comap_dist_left_atTop_eq_cocompact (0 : V), eventually_comap, eventually_atTop,
+      dist_eq_norm', sub_zero]
+    exact
+      let ⟨T, hT⟩ := this
+      ⟨T, fun b hb v hv => hT v (hv.symm ▸ hb)⟩
+  obtain ⟨R, -, hR_bd⟩ : ∃ R : ℝ, 0 < R ∧ ∀ x : V, R ≤ ‖x‖ → f x = 0 := hf2.exists_pos_le_norm
+  let A := {v : V | ‖v‖ ≤ R + 1}
+  have mA : MeasurableSet A := by
+    suffices A = Metric.closedBall (0 : V) (R + 1) by
+      rw [this]
+      exact Metric.isClosed_ball.measurableSet
+    simp_rw [Metric.closedBall, dist_eq_norm, sub_zero]
+  obtain ⟨B, hB_pos, hB_vol⟩ : ∃ B : ℝ≥0, 0 < B ∧ volume A ≤ B := by
+    have hc : IsCompact A := by
+      simpa only [Metric.closedBall, dist_eq_norm, sub_zero] using isCompact_closedBall (0 : V) _
+    let B₀ := volume A
+    replace hc : B₀ < ⊤ := hc.measure_lt_top
+    refine' ⟨B₀.toNNReal + 1, add_pos_of_nonneg_of_pos B₀.toNNReal.coe_nonneg one_pos, _⟩
+    rw [ENNReal.coe_add, ENNReal.coe_one, ENNReal.coe_toNNReal hc.ne]
+    exact le_self_add
+  obtain ⟨δ, hδ1, hδ2⟩ :=
+    Metric.uniformContinuous_iff.mp (hf2.uniformContinuous_of_continuous hf1) (ε / B)
+      (div_pos hε hB_pos)
+  refine' ⟨1 / 2 + 1 / (2 * δ), fun w hw_bd => _⟩
+  have hw_ne : w ≠ 0 := by
+    contrapose! hw_bd; rw [hw_bd, norm_zero]
+    exact add_pos one_half_pos (one_div_pos.mpr <| mul_pos two_pos hδ1)
+  have hw'_nm : ‖i w‖ = 1 / (2 * ‖w‖) := by
+    rw [norm_smul, norm_div, Real.norm_of_nonneg (mul_nonneg two_pos.le <| sq_nonneg _), norm_one,
+      sq, ← div_div, ← div_div, ← div_div, div_mul_cancel₀ _ (norm_eq_zero.not.mpr hw_ne)]
+  have : ‖(1 / 2 : ℂ)‖ = 2⁻¹ := by norm_num
+  rw [fourier_integral_eq_half_sub_half_period_translate hw_ne
+      (hf1.integrable_of_hasCompactSupport hf2),
+    norm_smul, this, inv_mul_eq_div, div_lt_iff' two_pos]
+  refine' lt_of_le_of_lt (norm_integral_le_integral_norm _) _
+  simp_rw [norm_circle_smul]
+  have int_A : ∫ v : V, ‖f v - f (v + i w)‖ = ∫ v in A, ‖f v - f (v + i w)‖ := by
+    refine' (set_integral_eq_integral_of_forall_compl_eq_zero fun v hv => _).symm
+    dsimp only [A] at hv
+    simp only [mem_setOf, not_le] at hv
+    rw [hR_bd v _, hR_bd (v + i w) _, sub_zero, norm_zero]
+    · rw [← sub_neg_eq_add]
+      refine' le_trans _ (norm_sub_norm_le _ _)
+      rw [le_sub_iff_add_le, norm_neg]
+      refine' le_trans _ hv.le
+      rw [add_le_add_iff_left, hw'_nm, ← div_div]
+      refine' (div_le_one <| norm_pos_iff.mpr hw_ne).mpr _
+      refine' le_trans _ hw_bd
+      rw [← add_le_add_iff_left (1 / 2 : ℝ), add_le_add_iff_left, ← div_le_iff' hδ1, div_div]
+      exact (lt_add_of_pos_left _ one_half_pos).le
+    · exact (le_add_of_nonneg_right zero_le_one).trans hv.le
+  rw [int_A]; clear int_A
+  have bdA : ∀ v : V, v ∈ A → ‖‖f v - f (v + i w)‖‖ ≤ ε / B := by
+    simp_rw [norm_norm]
+    simp_rw [dist_eq_norm] at hδ2
+    refine' fun x _ => (hδ2 _).le
+    rw [sub_add_cancel_left, norm_neg, hw'_nm, ← div_div, div_lt_iff (norm_pos_iff.mpr hw_ne), ←
+      div_lt_iff' hδ1, div_div]
+    exact (lt_add_of_pos_left _ one_half_pos).trans_le hw_bd
+  have bdA2 := norm_set_integral_le_of_norm_le_const (hB_vol.trans_lt ENNReal.coe_lt_top) bdA ?_
+  swap
+  · apply Continuous.aestronglyMeasurable
+    exact
+      continuous_norm.comp <|
+        Continuous.sub hf1 <| Continuous.comp hf1 <| continuous_id'.add continuous_const
+  have : ‖_‖ = ∫ v : V in A, ‖f v - f (v + i w)‖ :=
+    Real.norm_of_nonneg (set_integral_nonneg mA fun x _ => norm_nonneg _)
+  rw [this] at bdA2
+  refine' bdA2.trans_lt _
+  rw [div_mul_eq_mul_div, div_lt_iff (NNReal.coe_pos.mpr hB_pos), mul_comm (2 : ℝ), mul_assoc,
+    mul_lt_mul_left hε]
+  rw [← ENNReal.toReal_le_toReal] at hB_vol
+  · refine' hB_vol.trans_lt _
+    rw [(by rfl : (↑B : ENNReal).toReal = ↑B), two_mul]
+    exact lt_add_of_pos_left _ hB_pos
+  exacts [(hB_vol.trans_lt ENNReal.coe_lt_top).ne, ENNReal.coe_lt_top.ne]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Attempt failure.
+
+Working on Mathlib/Analysis/InnerProductSpace/Projection.lean - 2024-09-08 02:03:13.652208.
+---4/20---
+For theorem LinearIsometryEquiv.reflections_generate_dim in Mathlib/Analysis/InnerProductSpace/Projection.lean:
+theorem LinearIsometryEquiv.reflections_generate_dim_aux [FiniteDimensional ℝ F] {n : ℕ}
+    (φ : F ≃ₗᵢ[ℝ] F) (hn : finrank ℝ (ker (ContinuousLinearMap.id ℝ F - φ))ᗮ ≤ n) :
+    ∃ l : List F, l.length ≤ n ∧ φ = (l.map fun v => reflection (ℝ ∙ v)ᗮ).prod 
+
+
+Original valid proof:
+:= by
+  induction' n with n IH generalizing φ
+  · 
+    refine ⟨[], rfl.le, show φ = 1 from ?_⟩
+    have : ker (ContinuousLinearMap.id ℝ F - φ) = ⊤ := by
+      rwa [le_zero_iff, Submodule.finrank_eq_zero, Submodule.orthogonal_eq_bot_iff] at hn
+    symm
+    ext x
+    have := LinearMap.congr_fun (LinearMap.ker_eq_top.mp this) x
+    simpa only [sub_eq_zero, ContinuousLinearMap.coe_sub, LinearMap.sub_apply,
+      LinearMap.zero_apply] using this
+  · 
+    let W := ker (ContinuousLinearMap.id ℝ F - φ)
+    have hW : ∀ w ∈ W, φ w = w := fun w hw => (sub_eq_zero.mp hw).symm
+    by_cases hn' : finrank ℝ Wᗮ ≤ n
+    · obtain ⟨V, hV₁, hV₂⟩ := IH φ hn'
+      exact ⟨V, hV₁.trans n.le_succ, hV₂⟩
+    haveI : Nontrivial Wᗮ := nontrivial_of_finrank_pos (by omega : 0 < finrank ℝ Wᗮ)
+    obtain ⟨v, hv⟩ := exists_ne (0 : Wᗮ)
+    have hφv : φ v ∈ Wᗮ := by
+      intro w hw
+      rw [← hW w hw, LinearIsometryEquiv.inner_map_map]
+      exact v.prop w hw
+    have hv' : (v : F) ∉ W := by
+      intro h
+      exact hv ((Submodule.mem_left_iff_eq_zero_of_disjoint W.orthogonal_disjoint).mp h)
+    let x : F := v - φ v
+    let ρ := reflection (ℝ ∙ x)ᗮ
+    let V := ker (ContinuousLinearMap.id ℝ F - φ.trans ρ)
+    have hV : ∀ w, ρ (φ w) = w → w ∈ V := by
+      intro w hw
+      change w - ρ (φ w) = 0
+      rw [sub_eq_zero, hw]
+    have H₂V : W ≤ V := by
+      intro w hw
+      apply hV
+      rw [hW w hw]
+      refine reflection_mem_subspace_eq_self ?_
+      rw [Submodule.mem_orthogonal_singleton_iff_inner_left]
+      exact Submodule.sub_mem _ v.prop hφv _ hw
+    have H₁V : (v : F) ∈ V := by
+      apply hV
+      have : ρ v = φ v := reflection_sub (φ.norm_map v).symm
+      rw [← this]
+      exact reflection_reflection _ _
+    have : finrank ℝ Vᗮ ≤ n := by
+      change finrank ℝ Wᗮ ≤ n + 1 at hn
+      have : finrank ℝ W + 1 ≤ finrank ℝ V :=
+        Submodule.finrank_lt_finrank_of_lt (SetLike.lt_iff_le_and_exists.2 ⟨H₂V, v, H₁V, hv'⟩)
+      have : finrank ℝ V + finrank ℝ Vᗮ = finrank ℝ F := V.finrank_add_finrank_orthogonal
+      have : finrank ℝ W + finrank ℝ Wᗮ = finrank ℝ F := W.finrank_add_finrank_orthogonal
+      omega
+    obtain ⟨l, hl, hφl⟩ := IH (ρ * φ) this
+    refine ⟨x::l, Nat.succ_le_succ hl, ?_⟩
+    rw [List.map_cons, List.prod_cons]
+    have := congr_arg (ρ * ·) hφl
+    dsimp only at this
+    rwa [← mul_assoc, reflection_mul_reflection, one_mul] at this
+
+
+Verifying proof (Commit a8a39f2a9556ea47ea96518d2df01a0c62fc8289):
+∧
+      ∀ v ∈ l, ∃ w : F, w ∈ ker (ContinuousLinearMap.id ℝ F - φ) ∧ v = reflection (ℝ ∙ w)ᗮ v := by
+  induction' n with n IH generalizing φ
+  · 
+    refine' ⟨[], rfl.le, show φ = 1 from _⟩
+    have : ker (ContinuousLinearMap.id ℝ F - φ) = ⊤ := by
+      rwa [Nat.zero_eq, le_zero_iff, Submodule.finrank_eq_zero, Submodule.orthogonal_eq_bot_iff] at hn
+    symm
+    ext x
+    have := LinearMap.congr_fun (LinearMap.ker_eq_top.mp this) x
+    simpa only [sub_eq_zero, ContinuousLinearMap.coe_sub, LinearMap.sub_apply,
+      LinearMap.zero_apply] using this
+  · 
+    let W := ker (ContinuousLinearMap.id ℝ F - φ)
+    have hW : ∀ w ∈ W, φ w = w := fun w hw => (sub_eq_zero.mp hw).symm
+    by_cases hn' : finrank ℝ Wᗮ ≤ n
+    · obtain ⟨V, hV₁, hV₂, hV₃⟩ := IH φ hn'
+      exact ⟨V, hV₁.trans n.le_succ, hV₂, hV₃⟩
+    haveI : Nontrivial Wᗮ := nontrivial_of_finrank_pos (by linarith [zero_le n] : 0 < finrank ℝ Wᗮ)
+    obtain ⟨v, hv⟩ := exists_ne (0 : Wᗮ)
+    have hφv : φ v ∈ Wᗮ := by
+      intro w hw
+      rw [← hW w hw, LinearIsometryEquiv.inner_map_map]
+      exact v.prop w hw
+    have hv' : (v : F) ∉ W := by
+      intro h
+      exact hv ((Submodule.mem_left_iff_eq_zero_of_disjoint W.orthogonal_disjoint).mp h)
+    let x : F := v - φ v
+    let ρ := reflection (ℝ ∙ x)ᗮ
+    let V := ker (ContinuousLinearMap.id ℝ F - φ.trans ρ)
+    have hV : ∀ w, ρ (φ w) = w → w ∈ V := by
+      intro w hw
+      change w - ρ (φ w) = 0
+      rw [sub_eq_zero, hw]
+    have H₂V : W ≤ V := by
+      intro w hw
+      apply hV
+      rw [hW w hw]
+      refine' reflection_mem_subspace_eq_self _
+      rw [Submodule.mem_orthogonal_singleton_iff_inner_left]
+      exact Submodule.sub_mem _ v.prop hφv _ hw
+    have H₁V : (v : F) ∈ V := by
+      apply hV
+      have : ρ v = φ v := reflection_sub (φ.norm_map v).symm
+      rw [← this]
+      exact reflection_reflection _ _
+    have : finrank ℝ Vᗮ ≤ n := by
+      change finrank ℝ Wᗮ ≤ n + 1 at hn
+      have : finrank ℝ W + 1 ≤ finrank ℝ V :=
+        Submodule.finrank_lt_finrank_of_lt (SetLike.lt_iff_le_and_exists.2 ⟨H₂V, v, H₁V, hv'⟩)
+      have : finrank ℝ V + finrank ℝ Vᗮ = finrank ℝ F := V.finrank_add_finrank_orthogonal
+      have : finrank ℝ W + finrank ℝ Wᗮ = finrank ℝ F := W.finrank_add_finrank_orthogonal
+      linarith
+    obtain ⟨l, hl, hφl, hVl⟩ := IH (ρ * φ) this
+    refine' ⟨x::l, Nat.succ_le_succ hl, hφl, fun v hv => _⟩
+    have hv' : v ∈ ker (ContinuousLinearMap.id ℝ F - ρ * φ) := by
+      rw [hφl]
+      exact hV v hv
+    have : ρ v = reflection (ℝ ∙ x)ᗮ v := by
+      rw [hφl]
+      exact reflection_mem_subspace_eq_self _
+    refine' ⟨x, H₁V, this⟩
+
+## References #
+
+- [J. M. Lee, Introduction to Topological Manifolds](https://www.math.washington.edu/~lee/Books/ltm/ltm.pdf)
+
+## Tags #
+
+reflection, orthogonal complement, dimension, isometry
+
+theorem reflection_mem_subspace_eq_self {𝕜 : Type u_1} {E : Type u_2} [IsROrC 𝕜] [NormedAddCommGroup E] [InnerProductSpace 𝕜 E] {s : Subspace 𝕜 E} {x : E} (hx : x ∈ s) :
+
+Reflection ofx in the subspace s is x if x belongs to s.
+
+theorem reflection_mem_subspace_eq_self_of_inner_eq_zero {𝕜 : Type u_1} {E : Type u_2} [IsROrC 𝕜] [NormedAddCommGroup E] [InnerProductSpace 𝕜 E] {s : Subspace 𝕜 E} {x : E} (hx : ⟪x, ↑s⟫ = 0) :
+
+Reflection ofx in the subspace s is x if ⟪x, s⟫ = 0.
+
+theorem reflection_mem_subspace_eq_self_of_inner_eq_zero' {𝕜 : Type u_1} {E : Type u_2} [IsROrC 𝕜] [NormedAddCommGroup E] [InnerProductSpace 𝕜 E] {s : Subspace 𝕜 E} {x : E} (hx : ⟪↑s, x⟫ = 0) :
+
+Reflection ofx in the subspace s is x if ⟪s, x⟫ = 0.
+
+theorem reflection_mem_subspace_eq_self_of_inner_eq_zero'' {𝕜 : Type u_1} {E : Type u_2} [IsROrC 𝕜] [NormedAddCommGroup E] [InnerProductSpace 𝕜 E] {s : Subspace 𝕜 E} {x : E} (hx : ⟪x, ↑s⟫_ℝ = 0) :
+
+Reflection ofx in the subspace s is x if ⟪x, s⟫_ℝ = 0.
+
+theorem reflection_mem_subspace_eq_self_of_inner_eq_zero''' {𝕜 : Type u_1} {E : Type u_2} [IsROrC 𝕜] [NormedAddCommGroup E] [InnerProductSpace 𝕜 E] {s : Subspace 𝕜 E} {x : E} (hx : ⟪↑s, x⟫_ℝ = 0) :
+
+Reflection ofx in the subspace s is x if ⟪s, x⟫_ℝ = 0.
+
+theorem reflection_mem_subspace_eq_self_of_inner_eq_zero'''' {𝕜 : Type u_1} {E : Type u_2} [IsROrC 𝕜] [NormedAddCommGroup E] [InnerProductSpace 𝕜 E] {s : Subspace 𝕜 E} {x : E} (hx : ⟪x, ↑s⟫_ℝ = 0) :
+
+Reflection ofx in the subspace s is x if ⟪x, s⟫_ℝ = 0.
+
+theorem reflection_mem_subspace_eq_self_of_inner_eq_zero''''' {𝕜 : Type u_1} {E : Type
+
+Attempt failure.
+
+Working on Mathlib/Data/Finset/Basic.lean - 2024-09-08 02:03:58.664460.
+---5/20---
+For theorem Finset.toList_cons in Mathlib/Data/Finset/Basic.lean:
+theorem toList_cons {a : α} {s : Finset α} (h : a ∉ s) : (cons a s h).toList ~ a :: s.toList 
+
+
+Original valid proof:
+:=
+  (List.perm_ext_iff_of_nodup (nodup_toList _) (by simp [h, nodup_toList s])).2 fun x => by
+    simp only [List.mem_cons, Finset.mem_toList, Finset.mem_cons]
+
+
+Verifying proof (Commit 818337c6bd6587795f69dffefeeae7988f4bdba8):
+ :=
+  (List.perm_ext (nodup_toList _) (by simp [h, nodup_toList s])).2 fun x => by
+    simp only [List.mem_cons, Finset.mem_toList, Finset.mem_cons]
+
+####  Mario Carneiro (Mar 01 2021 at 00:00):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at 00:01):
+
+I think the problem is that Lean is not able to figure out that the two lists are nodup
+
+####  Mario Carneiro (Mar 01 2021 at
+
+Attempt failure.
+
+Working on Mathlib/Data/Int/GCD.lean - 2024-09-08 02:04:14.281139.
+---6/20---
+For theorem Nat.gcdB_zero_right in Mathlib/Data/Int/GCD.lean:
+theorem gcdB_zero_right {s : ℕ} (h : s ≠ 0) : gcdB s 0 = 0 
+
+
+Original valid proof:
+:= by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux]
+  simp
+
+
+Verifying proof (Commit cc6e5e01514b06a44caccb55bc04e269ede6a7c8):
+ := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  simp
+
+- The following proof is not valid.
+
+Failed Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0 := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  rfl
+
+Repaired Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0  := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  simp
+
+- The following proof is not valid.
+
+Failed Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0 := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  rfl
+
+Repaired Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0  := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  simp
+
+- The following proof is not valid.
+
+Failed Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0 := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  rfl
+
+Repaired Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0  := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  simp
+
+- The following proof is not valid.
+
+Failed Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0 := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  rfl
+
+Repaired Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0  := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  simp
+
+- The following proof is not valid.
+
+Failed Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0 := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  rfl
+
+Repaired Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0  := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  simp
+
+- The following proof is not valid.
+
+Failed Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0 := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  rfl
+
+Repaired Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0  := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  simp
+
+- The following proof is not valid.
+
+Failed Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0 := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  rfl
+
+Repaired Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0  := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  simp
+
+- The following proof is not valid.
+
+Failed Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0 := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  rfl
+
+Repaired Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0  := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  simp
+
+- The following proof is not valid.
+
+Failed Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0 := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  rfl
+
+Repaired Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0  := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  simp
+
+- The following proof is not valid.
+
+Failed Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0 := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ]
+  rfl
+
+Repaired Proof:
+theorem gcdB_zero_left {s : ℕ} (h : s ≠ 0) : gcdB 0 s = 0  := by
+  unfold gcdB xgcd
+  obtain ⟨s, rfl⟩ := Nat.exists_eq_succ_of_ne_zero h
+  rw [xgcdAux_succ
+
+Attempt failure.
+
+Working on Mathlib/Data/List/Cycle.lean - 2024-09-08 02:04:21.683588.
+---7/20---
+For theorem List.next_getLast_cons in Mathlib/Data/List/Cycle.lean:
+theorem next_getLast_cons (h : x ∈ l) (y : α) (h : x ∈ y :: l) (hy : x ≠ y)
+    (hx : x = getLast (y :: l) (cons_ne_nil _ _)) (hl : Nodup l) : next (y :: l) x h = y 
+
+
+Original valid proof:
+:= by
+  rw [next, get, ← dropLast_append_getLast (cons_ne_nil y l), hx, nextOr_concat]
+  subst hx
+  intro H
+  obtain ⟨⟨_ | k, hk⟩, hk'⟩ := get_of_mem H
+  · rw [← Option.some_inj] at hk'
+    rw [← get?_eq_get, dropLast_eq_take, get?_eq_getElem?, getElem?_take, getElem?_cons_zero,
+      Option.some_inj] at hk'
+    · exact hy (Eq.symm hk')
+    rw [length_cons, Nat.pred_succ]
+    exact length_pos_of_mem (by assumption)
+  suffices k + 1 = l.length by simp [this] at hk
+  cases' l with hd tl
+  · simp at hk
+  · rw [nodup_iff_injective_get] at hl
+    rw [length, Nat.succ_inj']
+    refine Fin.val_eq_of_eq <| @hl ⟨k, Nat.lt_of_succ_lt <| by simpa using hk⟩
+      ⟨tl.length, by simp⟩ ?_
+    rw [← Option.some_inj] at hk'
+    rw [← get?_eq_get, dropLast_eq_take, get?_eq_getElem?, getElem?_take, getElem?_cons_succ,
+      getElem?_eq_getElem, Option.some_inj] at hk'
+    · rw [get_eq_getElem, hk']
+      simp only [getLast_eq_get, length_cons, Nat.succ_eq_add_one, Nat.succ_sub_succ_eq_sub,
+        Nat.sub_zero, get_eq_getElem, getElem_cons_succ]
+    simpa using hk
+
+
+Verifying proof (Commit cc6e5e01514b06a44caccb55bc04e269ede6a7c8):
+ := by
+  rw [next, get, ← dropLast_append_getLast (cons_ne_nil y l), hx, nextOr_concat]
+  subst hx
+  intro H
+  obtain ⟨⟨_ | k, hk⟩, hk'⟩ := get_of_mem H
+  · rw [← Option.some_inj] at hk'
+    rw [← get?_eq_get, dropLast_eq_take, get?_take, get?_zero, head?_cons,
+      Option.some_inj] at hk'
+    · exact hy (Eq.symm hk')
+    rw [Nat.zero_eq, length_cons, Nat.pred_succ]
+    exact length_pos_of_mem (by assumption)
+  suffices k.succ = l.length by simp [this] at hk
+  cases' l with hd tl
+  · simp at hk
+  · rw [nodup_iff_injective_get] at hl
+    rw [length, Nat.succ_inj']
+    refine Fin.val_eq_of_eq <| @hl ⟨k, Nat.lt_of_succ_lt <| by simpa using hk⟩
+      ⟨tl.length, by simp⟩ ?_
+    rw [← Option.some_inj] at hk'
+    rw [← get?_eq_get, dropLast_eq_take, get?_take, get?, get?_eq_get, Option.some_inj] at hk'
+    · rw [hk']
+      simp only [getLast_eq_get, length_cons, ge_iff_le, Nat.succ_sub_succ_eq_sub,
+        nonpos_iff_eq_zero, add_eq_zero_iff, and_false, tsub_zero, get_cons_succ]
+    simpa using hk
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:00):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the problem is that the first line of the proof is not a valid tactic script.
+
+I don't think so. The first line is a tactic script, but it's not a valid tactic script.
+
+####  Mario Carneiro (Apr 10 2021 at 08:01):
+
+I think the
+
+Attempt failure.
+
+Working on Mathlib/Data/Set/Card.lean - 2024-09-08 02:04:31.854230.
+---8/20---
+For theorem Set.exists_superset_subset_encard_eq in Mathlib/Data/Set/Card.lean:
+theorem exists_superset_subset_encard_eq {k : ℕ∞}
+    (hst : s ⊆ t) (hsk : s.encard ≤ k) (hkt : k ≤ t.encard) :
+    ∃ r, s ⊆ r ∧ r ⊆ t ∧ r.encard = k 
+
+
+Original valid proof:
+:= by
+  obtain (hs | hs) := eq_or_ne s.encard ⊤
+  · rw [hs, top_le_iff] at hsk; subst hsk; exact ⟨s, Subset.rfl, hst, hs⟩
+  obtain ⟨k, rfl⟩ := exists_add_of_le hsk
+  obtain ⟨k', hk'⟩ := exists_add_of_le hkt
+  have hk : k ≤ encard (t \ s) := by
+    rw [← encard_diff_add_encard_of_subset hst, add_comm] at hkt
+    exact WithTop.le_of_add_le_add_right hs hkt
+  obtain ⟨r', hr', rfl⟩ := exists_subset_encard_eq hk
+  refine ⟨s ∪ r', subset_union_left, union_subset hst (hr'.trans diff_subset), ?_⟩
+  rw [encard_union_eq (disjoint_of_subset_right hr' disjoint_sdiff_right)]
+
+
+Verifying proof (Commit a36d8932e98ea1d7efcdd316318586a6329f53a3):
+∧ disjoint s r := by
+  obtain (hs | hs) := eq_or_ne s.encard ⊤
+  · rw [hs, top_le_iff] at hsk; subst hsk; exact ⟨s, Subset.rfl, hst, hs, disjoint_sdiff_right⟩
+  obtain ⟨k, rfl⟩ := exists_add_of_le hsk
+  obtain ⟨k', hk'⟩ := exists_add_of_le hkt
+  have hk : k ≤ encard (t \ s) := by
+    rw [← encard_diff_add_encard_of_subset hst, add_comm] at hkt
+    exact WithTop.le_of_add_le_add_right hs hkt
+  obtain ⟨r', hr', rfl⟩ := exists_subset_encard_eq hk
+  refine' ⟨s ∪ r', subset_union_left _ _, union_subset hst (hr'.trans (diff_subset _ _)), _, _⟩
+  · rw [encard_union_eq (disjoint_of_subset_right hr' disjoint_sdiff_right)]
+  · exact disjoint_sdiff_left.mono_right (subset_union_left _ _)
+
+####  Eric Wieser (May 03 2021 at 10:00):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+I'm not sure what the best way to fix this is, but I'm not sure I'd want to have to do it.
+
+####  Eric Wieser (May 03 2021 at 10:01):
+
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Function/Jacobian.lean - 2024-09-08 02:04:45.542812.
+---9/20---
+For theorem MeasureTheory.aemeasurable_fderivWithin in Mathlib/MeasureTheory/Function/Jacobian.lean:
+theorem aemeasurable_fderivWithin (hs : MeasurableSet s)
+    (hf' : ∀ x ∈ s, HasFDerivWithinAt f (f' x) s x) : AEMeasurable f' (μ.restrict s) 
+
+
+Original valid proof:
+:= by
+  refine aemeasurable_of_unif_approx fun ε εpos => ?_
+  let δ : ℝ≥0 := ⟨ε, le_of_lt εpos⟩
+  have δpos : 0 < δ := εpos
+  obtain ⟨t, A, t_disj, t_meas, t_cover, ht, _⟩ :
+    ∃ (t : ℕ → Set E) (A : ℕ → E →L[ℝ] E),
+      Pairwise (Disjoint on t) ∧
+        (∀ n : ℕ, MeasurableSet (t n)) ∧
+          (s ⊆ ⋃ n : ℕ, t n) ∧
+            (∀ n : ℕ, ApproximatesLinearOn f (A n) (s ∩ t n) δ) ∧
+              (s.Nonempty → ∀ n, ∃ y ∈ s, A n = f' y) :=
+    exists_partition_approximatesLinearOn_of_hasFDerivWithinAt f s f' hf' (fun _ => δ) fun _ =>
+      δpos.ne'
+  obtain ⟨g, g_meas, hg⟩ :
+      ∃ g : E → E →L[ℝ] E, Measurable g ∧ ∀ (n : ℕ) (x : E), x ∈ t n → g x = A n :=
+    exists_measurable_piecewise t t_meas (fun n _ => A n) (fun n => measurable_const) <|
+      t_disj.mono fun i j h => by simp only [h.inter_eq, eqOn_empty]
+  refine ⟨g, g_meas.aemeasurable, ?_⟩
+  suffices H : ∀ᵐ x : E ∂sum fun n ↦ μ.restrict (s ∩ t n), dist (g x) (f' x) ≤ ε by
+    have : μ.restrict s ≤ sum fun n => μ.restrict (s ∩ t n) := by
+      have : s = ⋃ n, s ∩ t n := by
+        rw [← inter_iUnion]
+        exact Subset.antisymm (subset_inter Subset.rfl t_cover) inter_subset_left
+      conv_lhs => rw [this]
+      exact restrict_iUnion_le
+    exact ae_mono this H
+  refine ae_sum_iff.2 fun n => ?_
+  have E₁ : ∀ᵐ x : E ∂μ.restrict (s ∩ t n), ‖f' x - A n‖₊ ≤ δ :=
+    (ht n).norm_fderiv_sub_le μ (hs.inter (t_meas n)) f' fun x hx =>
+      (hf' x hx.1).mono inter_subset_left
+  have E₂ : ∀ᵐ x : E ∂μ.restrict (s ∩ t n), g x = A n := by
+    suffices H : ∀ᵐ x : E ∂μ.restrict (t n), g x = A n from
+      ae_mono (restrict_mono inter_subset_right le_rfl) H
+    filter_upwards [ae_restrict_mem (t_meas n)]
+    exact hg n
+  filter_upwards [E₁, E₂] with x hx1 hx2
+  rw [← nndist_eq_nnnorm] at hx1
+  rw [hx2, dist_comm]
+  exact hx1
+
+
+Verifying proof (Commit 6be2bec13d4dd1fd901f9a619d053d7549cfe177):
+ := by
+  refine aemeasurable_of_unif_approx fun ε εpos => ?_
+  let δ : ℝ≥0 := ⟨ε, le_of_lt εpos⟩
+  have δpos : 0 < δ := εpos
+  obtain ⟨t, A, t_disj, t_meas, t_cover, ht, _⟩ :
+    ∃ (t : ℕ → Set E) (A : ℕ → E →L[ℝ] E),
+      Pairwise (Disjoint on t) ∧
+        (∀ n : ℕ, MeasurableSet (t n)) ∧
+          (s ⊆ ⋃ n : ℕ, t n) ∧
+            (∀ n : ℕ, ApproximatesLinearOn f (A n) (s ∩ t n) δ) ∧
+              (s.Nonempty → ∀ n, ∃ y ∈ s, A n = f' y) :=
+    exists_partition_approximatesLinearOn_of_hasFDerivWithinAt f s f' hf' (fun _ => δ) fun _ =>
+      δpos.ne'
+  obtain ⟨g, g_meas, hg⟩ :
+      ∃ g : E → E →L[ℝ] E, Measurable g ∧ ∀ (n : ℕ) (x : E), x ∈ t n → g x = A n :=
+    exists_measurable_piecewise t t_meas (fun n _ => A n) (fun n => measurable_const) <|
+      t_disj.mono fun i j h => by simp only [h.inter_eq, eqOn_empty]
+  refine' ⟨g, g_meas.aemeasurable, _⟩
+  suffices H : ∀ᵐ x : E ∂sum fun n ↦ μ.restrict (s ∩ t n), dist (g x) (f' x) ≤ ε by
+    have : μ.restrict s ≤ sum fun n => μ.restrict (s ∩ t n) := by
+      have : s = ⋃ n, s ∩ t n := by
+        rw [← inter_iUnion]
+        exact Subset.antisymm (subset_inter Subset.rfl t_cover) (inter_subset_left _ _)
+      conv_lhs => rw [this]
+      exact restrict_iUnion_le
+    exact ae_mono this H
+  refine' ae_sum_iff.2 fun n => _
+  have E₁ : ∀ᵐ x : E ∂μ.restrict (s ∩ t n), ‖f' x - A n‖₊ ≤ δ :=
+    (ht n).norm_fderiv_sub_le μ (hs.inter (t_meas n)) f' fun x hx =>
+      (hf' x hx.1).mono (inter_subset_left _ _)
+  have E₂ : ∀ᵐ x : E ∂μ.restrict (s ∩ t n), g x = A n := by
+    suffices H : ∀ᵐ x : E ∂μ.restrict (t n), g x = A n from
+      ae_mono (restrict_mono (inter_subset_right _ _) le_rfl) H
+    filter_upwards [ae_restrict_mem (t_meas n)]
+    exact hg n
+  filter_upwards [E₁, E₂] with x hx1 hx2
+  rw [← nndist_eq_nnnorm] at hx1
+  rw [hx2, dist_comm]
+  exact hx1
+
+## Your Answer
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Measure/Typeclasses.lean - 2024-09-08 02:05:14.830025.
+---10/20---
+For theorem MeasureTheory.Measure.countable_meas_pos_of_disjoint_of_meas_iUnion_ne_top in Mathlib/MeasureTheory/Measure/Typeclasses.lean:
+theorem countable_meas_pos_of_disjoint_of_meas_iUnion_ne_top₀ {ι : Type*} {_ : MeasurableSpace α}
+    (μ : Measure α) {As : ι → Set α} (As_mble : ∀ i : ι, NullMeasurableSet (As i) μ)
+    (As_disj : Pairwise (AEDisjoint μ on As)) (Union_As_finite : μ (⋃ i, As i) ≠ ∞) :
+    Set.Countable { i : ι | 0 < μ (As i) } 
+
+
+Original valid proof:
+:= by
+  set posmeas := { i : ι | 0 < μ (As i) } with posmeas_def
+  rcases exists_seq_strictAnti_tendsto' (zero_lt_one : (0 : ℝ≥0∞) < 1) with
+    ⟨as, _, as_mem, as_lim⟩
+  set fairmeas := fun n : ℕ => { i : ι | as n ≤ μ (As i) }
+  have countable_union : posmeas = ⋃ n, fairmeas n := by
+    have fairmeas_eq : ∀ n, fairmeas n = (fun i => μ (As i)) ⁻¹' Ici (as n) := fun n => by
+      simp only [fairmeas]
+      rfl
+    simpa only [fairmeas_eq, posmeas_def, ← preimage_iUnion,
+      iUnion_Ici_eq_Ioi_of_lt_of_tendsto (0 : ℝ≥0∞) (fun n => (as_mem n).1) as_lim]
+  rw [countable_union]
+  refine countable_iUnion fun n => Finite.countable ?_
+  exact finite_const_le_meas_of_disjoint_iUnion₀ μ (as_mem n).1 As_mble As_disj Union_As_finite
+
+
+Verifying proof (Commit 9bc35020058f4a5a844eb7662d9de673056d4dbe):
+ := by
+  set posmeas := { i : ι | 0 < μ (As i) } with posmeas_def
+  rcases exists_seq_strictAnti_tendsto' (zero_lt_one : (0 : ℝ≥0∞) < 1) with
+    ⟨as, _, as_mem, as_lim⟩
+  set fairmeas := fun n : ℕ => { i : ι | as n ≤ μ (As i) }
+  have countable_union : posmeas = ⋃ n, fairmeas n := by
+    have fairmeas_eq : ∀ n, fairmeas n = (fun i => μ (As i)) ⁻¹' Ici (as n) := fun n => by
+      simp only []
+      rfl
+    simpa only [fairmeas_eq, posmeas_def, ← preimage_iUnion,
+      iUnion_Ici_eq_Ioi_of_lt_of_tendsto (0 : ℝ≥0∞) (fun n => (as_mem n).1) as_lim]
+  rw [countable_union]
+  refine' countable_iUnion fun n => Finite.countable _
+  exact finite_const_le_meas_of_disjoint_iUnion₀ μ (as_mem n).1 As_mble As_disj Union_As_finite
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:00):
+
+@Mario Carneiro, I'm not sure if this is a bug or a feature.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:01):
+
+I'm not sure if it's a bug because I don't know what the expected behavior is.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:02):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:02):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G. Kudryashov (Aug 10 2020 at 18:03):
+
+I'm not sure if it's a feature because it's a bit confusing.
+
+####  Yury G
+
+Attempt failure.
+
+Working on Mathlib/NumberTheory/ClassNumber/Finite.lean - 2024-09-08 02:05:30.904141.
+---11/20---
+For theorem ClassGroup.norm_le in Mathlib/NumberTheory/ClassNumber/Finite.lean:
+theorem norm_le (a : S) {y : ℤ} (hy : ∀ k, abv (bS.repr a k) ≤ y) :
+    abv (Algebra.norm R a) ≤ normBound abv bS * y ^ Fintype.card ι 
+
+
+Original valid proof:
+:= by
+  conv_lhs => rw [← bS.sum_repr a]
+  rw [Algebra.norm_apply, ← LinearMap.det_toMatrix bS]
+  simp only [Algebra.norm_apply, AlgHom.map_sum, AlgHom.map_smul, map_sum,
+    map_smul, Algebra.toMatrix_lmul_eq, normBound, smul_mul_assoc, ← mul_pow]
+  convert Matrix.det_sum_smul_le Finset.univ _ hy using 3
+  · rw [Finset.card_univ, smul_mul_assoc, mul_comm]
+  · intro i j k
+    apply Finset.le_max'
+    exact Finset.mem_image.mpr ⟨⟨i, j, k⟩, Finset.mem_univ _, rfl⟩
+
+
+Verifying proof (Commit eea6f6ac82db7f7e78ea88b5d9ce972184397fe9):
+ := by
+  conv_lhs => rw [← bS.sum_repr a]
+  rw [Algebra.norm_apply, ← LinearMap.det_toMatrix bS]
+  simp only [Algebra.norm_apply, AlgHom.map_sum, AlgHom.map_smul, map_sum,
+    map_smul, Algebra.toMatrix_lmul_eq, normBound, smul_mul_assoc, ← mul_pow]
+  rw [← LinearMap.det_toMatrix bS]
+  convert Matrix.det_sum_smul_le (n := ι) Finset.univ _ hy using 3
+  · simp; rfl
+  · rw [Finset.card_univ, smul_mul_assoc, mul_comm]
+  · intro i j k
+    apply Finset.le_max'
+    exact Finset.mem_image.mpr ⟨⟨i, j, k⟩, Finset.mem_univ _, rfl⟩
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:00):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:01):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:01):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I think it's a bug, and I'm not sure how to fix it.
+
+####  Eric Wieser (Jun 10 2020 at 10:02):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+
+
+Attempt failure.
+
+Working on Mathlib/NumberTheory/FermatPsp.lean - 2024-09-08 02:05:52.324558.
+---12/20---
+For theorem Nat.exists_infinite_pseudoprimes in Mathlib/NumberTheory/FermatPsp.lean:
+theorem exists_infinite_pseudoprimes {b : ℕ} (h : 1 ≤ b) (m : ℕ) :
+    ∃ n : ℕ, FermatPsp n b ∧ m ≤ n 
+
+
+Original valid proof:
+:= by
+  by_cases b_ge_two : 2 ≤ b
+  · have h := Nat.exists_infinite_primes (b * (b ^ 2 - 1) + 1 + m)
+    cases' h with p hp
+    cases' hp with hp₁ hp₂
+    have h₁ : 0 < b := pos_of_gt (Nat.succ_le_iff.mp b_ge_two)
+    have h₂ : 4 ≤ b ^ 2 := pow_le_pow_left' b_ge_two 2
+    have h₃ : 0 < b ^ 2 - 1 := tsub_pos_of_lt (gt_of_ge_of_gt h₂ (by norm_num))
+    have h₄ : 0 < b * (b ^ 2 - 1) := mul_pos h₁ h₃
+    have h₅ : b * (b ^ 2 - 1) < p := by omega
+    have h₆ : ¬p ∣ b * (b ^ 2 - 1) := Nat.not_dvd_of_pos_of_lt h₄ h₅
+    have h₇ : b ≤ b * (b ^ 2 - 1) := Nat.le_mul_of_pos_right _ h₃
+    have h₈ : 2 ≤ b * (b ^ 2 - 1) := le_trans b_ge_two h₇
+    have h₉ : 2 < p := gt_of_gt_of_ge h₅ h₈
+    have h₁₀ := psp_from_prime_gt_p b_ge_two hp₂ h₉
+    use psp_from_prime b p
+    constructor
+    · exact psp_from_prime_psp b_ge_two hp₂ h₉ h₆
+    · exact le_trans (show m ≤ p by omega) (le_of_lt h₁₀)
+  · have h₁ : b = 1 := by omega
+    rw [h₁]
+    use 2 * (m + 2)
+    have : ¬Nat.Prime (2 * (m + 2)) := Nat.not_prime_mul (by omega) (by omega)
+    exact ⟨fermatPsp_base_one (by omega) this, by omega⟩
+
+
+Verifying proof (Commit 0bb63b2bff135338722ab98f6da549f3e6350f0a):
+ := by
+  by_cases b_ge_two : 2 ≤ b
+  · have h := Nat.exists_infinite_primes (b * (b ^ 2 - 1) + 1 + m)
+    cases' h with p hp
+    cases' hp with hp₁ hp₂
+    have h₁ : 0 < b := pos_of_gt (Nat.succ_le_iff.mp b_ge_two)
+    have h₂ : 4 ≤ b ^ 2 := pow_le_pow_left' b_ge_two 2
+    have h₃ : 0 < b ^ 2 - 1 := tsub_pos_of_lt (gt_of_ge_of_gt h₂ (by norm_num))
+    have h₄ : 0 < b * (b ^ 2 - 1) := mul_pos h₁ h₃
+    have h₅ : b * (b ^ 2 - 1) < p := by linarith
+    have h₆ : ¬p ∣ b * (b ^ 2 - 1) := Nat.not_dvd_of_pos_of_lt h₄ h₅
+    have h₇ : b ≤ b * (b ^ 2 - 1) := Nat.le_mul_of_pos_right h₃
+    have h₈ : 2 ≤ b * (b ^ 2 - 1) := le_trans b_ge_two h₇
+    have h₉ : 2 < p := gt_of_gt_of_ge h₅ h₈
+    have h₁₀ := psp_from_prime_gt_p b_ge_two hp₂ h₉
+    use psp_from_prime b p
+    constructor
+    · exact psp_from_prime_psp b_ge_two hp₂ h₉ h₆
+    · exact le_trans (show m ≤ p by linarith) (le_of_lt h₁₀)
+  · have h₁ : b = 1 := by linarith
+    rw [h₁]
+    use 2 * (m + 2)
+    have : ¬Nat.Prime (2 * (m + 2)) := Nat.not_prime_mul (by norm_num) (by norm_num)
+    exact ⟨fermatPsp_base_one (by linarith) this, by linarith⟩
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+## Proof
+
+##
+
+Attempt failure.
+
+Working on Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/GaussSum.lean - 2024-09-08 02:06:06.729151.
+---13/20---
+For theorem FiniteField.isSquare_two_iff in Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/GaussSum.lean:
+theorem FiniteField.isSquare_two_iff :
+    IsSquare (2 : F) ↔ Fintype.card F % 8 ≠ 3 ∧ Fintype.card F % 8 ≠ 5 
+
+
+Original valid proof:
+:= by
+  classical
+  by_cases hF : ringChar F = 2
+  · have h := FiniteField.even_card_of_char_two hF
+    simp only [FiniteField.isSquare_of_char_two hF, true_iff_iff]
+    omega
+  · have h := FiniteField.odd_card_of_char_ne_two hF
+    rw [← quadraticChar_one_iff_isSquare (Ring.two_ne_zero hF), quadraticChar_two hF,
+      χ₈_nat_eq_if_mod_eight]
+    omega
+
+
+Verifying proof (Commit 2ac7d87c221020b247729b180bbe2575cceb0700):
+∧ ringChar F ≠ 2 := by
+  classical
+  by_cases hF : ringChar F = 2
+  focus
+    have h := FiniteField.even_card_of_char_two hF
+    simp only [FiniteField.isSquare_of_char_two hF, true_iff_iff]
+  rotate_left
+  focus
+    have h := FiniteField.odd_card_of_char_ne_two hF
+    rw [← quadraticChar_one_iff_isSquare (Ring.two_ne_zero hF), quadraticChar_two hF,
+      χ₈_nat_eq_if_mod_eight]
+    simp only [h, Nat.one_ne_zero, if_false, ite_eq_left_iff, Ne.def, (by decide : (-1 : ℤ) ≠ 1),
+      imp_false, Classical.not_not]
+  all_goals
+    rw [← Nat.mod_mod_of_dvd _ (by norm_num : 2 ∣ 8)] at h
+    have h₁ := Nat.mod_lt (Fintype.card F) (by decide : 0 < 8)
+    revert h₁ h
+    generalize Fintype.card F % 8 = n
+    intros; interval_cases n <;> simp_all 
+
+## 1.2.2.2.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.
+
+Attempt failure.
+
+Working on Mathlib/Probability/ConditionalProbability.lean - 2024-09-08 02:06:21.503004.
+---14/20---
+For theorem ProbabilityTheory.cond_cond_eq_cond_inter' in Mathlib/Probability/ConditionalProbability.lean:
+lemma cond_cond_eq_cond_inter' (hms : MeasurableSet s) (hmt : MeasurableSet t) (hcs : μ s ≠ ∞) :
+    μ[|s][|t] = μ[|s ∩ t] 
+
+
+Original valid proof:
+:= by
+  ext u
+  rw [cond_apply _ hmt, cond_apply _ hms, cond_apply _ hms, cond_apply _ (hms.inter hmt)]
+  obtain hst | hst := eq_or_ne (μ (s ∩ t)) 0
+  · have : μ (s ∩ t ∩ u) = 0 := measure_mono_null Set.inter_subset_left hst
+    simp [this, ← Set.inter_assoc]
+  · have hcs' : μ s ≠ 0 :=
+      (measure_pos_of_superset Set.inter_subset_left hst).ne'
+    simp [*, ← mul_assoc, ← Set.inter_assoc, ENNReal.mul_inv, ENNReal.mul_inv_cancel,
+      mul_right_comm _ _ (μ s)⁻¹]
+
+
+Verifying proof (Commit 05c4c02a126a220762b13df794c36c771e2fbb7d):
+ := by
+  ext u
+  rw [cond_apply _ hmt, cond_apply _ hms, cond_apply _ hms, cond_apply _ (hms.inter hmt)]
+  obtain hst | hst := eq_or_ne (μ (s ∩ t)) 0
+  · have : μ (s ∩ t ∩ u) = 0 := measure_mono_null (Set.inter_subset_left _ _) hst
+    simp [this, ← Set.inter_assoc]
+  · have hcs' : μ s ≠ 0 :=
+      (μ.toOuterMeasure.pos_of_subset_ne_zero (Set.inter_subset_left _ _) hst).ne'
+    simp [*, ← mul_assoc, ← Set.inter_assoc, ENNReal.mul_inv, ENNReal.mul_inv_cancel,
+      mul_right_comm _ _ (μ s)⁻¹]
+
+## 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1
+
+Attempt failure.
+
+Working on Mathlib/RingTheory/IntegralDomain.lean - 2024-09-08 02:06:33.309803.
+---15/20---
+For theorem sum_hom_units in Mathlib/RingTheory/IntegralDomain.lean:
+theorem sum_hom_units_eq_zero (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0 
+
+
+Original valid proof:
+:= by
+  classical
+    obtain ⟨x, hx⟩ : ∃ x : MonoidHom.range f.toHomUnits,
+        ∀ y : MonoidHom.range f.toHomUnits, y ∈ Submonoid.powers x :=
+      IsCyclic.exists_monoid_generator
+    have hx1 : x ≠ 1 := by
+      rintro rfl
+      apply hf
+      ext g
+      rw [MonoidHom.one_apply]
+      cases' hx ⟨f.toHomUnits g, g, rfl⟩ with n hn
+      rwa [Subtype.ext_iff, Units.ext_iff, Subtype.coe_mk, MonoidHom.coe_toHomUnits, one_pow,
+        eq_comm] at hn
+    replace hx1 : (x.val : R) - 1 ≠ 0 := 
+      fun h => hx1 (Subtype.eq (Units.ext (sub_eq_zero.1 h)))
+    let c := (univ.filter fun g => f.toHomUnits g = 1).card
+    calc
+      ∑ g : G, f g = ∑ g : G, (f.toHomUnits g : R) := rfl
+      _ = ∑ u ∈ univ.image f.toHomUnits,
+            (univ.filter fun g => f.toHomUnits g = u).card • (u : R) :=
+        (sum_comp ((↑) : Rˣ → R) f.toHomUnits)
+      _ = ∑ u ∈ univ.image f.toHomUnits, c • (u : R) :=
+        (sum_congr rfl fun u hu => congr_arg₂ _ ?_ rfl)
+      _ = ∑ b : MonoidHom.range f.toHomUnits, c • ((b : Rˣ) : R) :=
+        (Finset.sum_subtype _ (by simp) _)
+      _ = c • ∑ b : MonoidHom.range f.toHomUnits, ((b : Rˣ) : R) := smul_sum.symm
+      _ = c • (0 : R) := congr_arg₂ _ rfl ?_
+      _ = (0 : R) := smul_zero _
+    · 
+      show (univ.filter fun g : G => f.toHomUnits g = u).card = c
+      apply MonoidHom.card_fiber_eq_of_mem_range f.toHomUnits
+      · simpa only [mem_image, mem_univ, true_and, Set.mem_range] using hu
+      · exact ⟨1, f.toHomUnits.map_one⟩
+    show (∑ b : MonoidHom.range f.toHomUnits, ((b : Rˣ) : R)) = 0
+    calc
+      (∑ b : MonoidHom.range f.toHomUnits, ((b : Rˣ) : R))
+        = ∑ n ∈ range (orderOf x), ((x : Rˣ) : R) ^ n :=
+        Eq.symm <|
+          sum_nbij (x ^ ·) (by simp only [mem_univ, forall_true_iff])
+            (by simpa using pow_injOn_Iio_orderOf)
+            (fun b _ => let ⟨n, hn⟩ := hx b
+              ⟨n % orderOf x, mem_range.2 (Nat.mod_lt _ (orderOf_pos _)),
+               by dsimp at hn ⊢; rw [pow_mod_orderOf, hn]⟩)
+            (by simp only [imp_true_iff, eq_self_iff_true, Subgroup.coe_pow,
+                Units.val_pow_eq_pow_val])
+      _ = 0 := ?_
+
+    rw [← mul_left_inj' hx1, zero_mul, geom_sum_mul]
+    norm_cast
+    simp [pow_orderOf_eq_one]
+
+
+Verifying proof (Commit 9db546a81b334ba30d74fed40766bcdeffb50e5f):
+ := by
+  classical
+    obtain ⟨x, hx⟩ :
+      ∃ x : MonoidHom.range f.toHomUnits,
+        ∀ y : MonoidHom.range f.toHomUnits, y ∈ Submonoid.powers x
+    exact IsCyclic.exists_monoid_generator
+    have hx1 : x ≠ 1 := by
+      rintro rfl
+      apply hf
+      ext g
+      rw [MonoidHom.one_apply]
+      cases' hx ⟨f.toHomUnits g, g, rfl⟩ with n hn
+      rwa [Subtype.ext_iff, Units.ext_iff, Subtype.coe_mk, MonoidHom.coe_toHomUnits, one_pow,
+        eq_comm] at hn
+    replace hx1 : (x.val : R) - 1 ≠ 0  
+    exact fun h => hx1 (Subtype.eq (Units.ext (sub_eq_zero.1 h)))
+    let c := (univ.filter fun g => f.toHomUnits g = 1).card
+    calc
+      ∑ g : G, f g = ∑ g : G, (f.toHomUnits g : R) := rfl
+      _ = ∑ u : Rˣ in univ.image f.toHomUnits,
+            (univ.filter fun g => f.toHomUnits g = u).card • (u : R) :=
+        (sum_comp ((↑) : Rˣ → R) f.toHomUnits)
+      _ = ∑ u : Rˣ in univ.image f.toHomUnits, c • (u : R) :=
+        (sum_congr rfl fun u hu => congr_arg₂ _ ?_ rfl)
+      _ = ∑ b : MonoidHom.range f.toHomUnits, c • ((b : Rˣ) : R) :=
+        (Finset.sum_subtype _ (by simp) _)
+      _ = c • ∑ b : MonoidHom.range f.toHomUnits, ((b : Rˣ) : R) := smul_sum'.symm
+      _ = c • (0 : R) := (congr_arg₂ _ rfl ?_)
+      _ = (0 : R) := smul_zero _
+    · 
+      show (univ.filter fun g : G => f.toHomUnits g = u).card = c
+      apply card_fiber_eq_of_mem_range f.toHomUnits
+      · simpa only [mem_image, mem_univ, true_and, Set.mem_range] using hu
+      · exact ⟨1, f.toHomUnits.map_one⟩
+    show (∑ b : MonoidHom.range f.toHomUnits, ((b : Rˣ) : R)) = 0
+    calc
+      (∑ b : MonoidHom.range f.toHomUnits, ((b : Rˣ) : R))
+        = ∑ n in range (orderOf x), ((x : Rˣ) : R) ^ n :=
+        Eq.symm <|
+          sum_bij (fun n _ => x ^ n) (by simp only [mem_univ, forall_true_iff])
+            (by simp only [imp_true_iff, eq_self_iff_true, Subgroup.coe_pow,
+                Units.val_pow_eq_pow_val])
+            (fun m n hm hn => pow_injOn_Iio_orderOf (by simpa only [mem_range] using hm)
+                (by simpa only [mem_range] using hn))
+            (fun b _ => let ⟨n, hn⟩ := hx b
+              ⟨n % orderOf x, mem_range.2 (Nat.mod_lt _ (orderOf_pos _)),
+               by dsimp at hn ⊢; rw [pow_mod_orderOf, hn]⟩)
+      _ = 0 := ?_
+
+    rw [← mul_left_inj' hx1, zero_mul, geom_sum_mul]
+    norm_cast
+    simp [pow_orderOf_eq_one]
+
+## 1 Answer
+
++1 vote
+
+Best answer
+
+I think the problem is that you're trying to use the fact that the order ofx is the order of the cyclic subgroup generated by x, but the order of the subgroup is the order of the generator, not the order of the generator's image.
+
+I'm not sure if this is a bug or a feature, but Lean doesn't seem to be able to figure out that the order ofx is the order of the generator's image.
+
+I've fixed the proof by using the fact that the order of the generator's image is the order of the subgroup, and then using the fact that the order of the subgroup is the order of the generator.
+
+Here's the fixed proof:
+theorem sum_hom_units_eq_zero (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0 := by
+  classical
+    obtain ⟨x, hx⟩ :
+      ∃ x : MonoidHom.range f.toHomUnits,
+        ∀ y : MonoidHom.range f.toHomUnits, y ∈ Submonoid.powers x
+    exact IsCyclic.exists_monoid_generator
+    have hx1 : x ≠ 1 := by
+      rintro rfl
+      apply hf
+      ext g
+      rw [MonoidHom.one_apply]
+      cases' hx ⟨f.toHomUnits g, g, rfl⟩ with n hn
+      rwa [Subtype.ext_iff, Units.ext_iff, Subtype.coe_mk, MonoidHom.coe_toHomUnits, one_pow,
+        eq_comm] at hn
+    replace hx1 : (x.val : R) - 1 ≠ 0
+    exact fun h => hx1 (Subtype.eq (Units.ext (sub_eq_zero.1 h)))
+    let c := (univ.filter fun g => f.toHomUnits g = 1).card
+    calc
+      ∑ g : G, f g = ∑ g : G, (f.toHomUnits g : R) := rfl
+      _ = ∑ u : Rˣ in univ.image f.toHomUnits,
+            (univ.filter fun g => f.toHomUnits g = u).card • (u : R) :=
+        (sum_comp ((↑) : Rˣ → R) f.toHomUnits)
+      _ = ∑ u : Rˣ in univ.image f.toHomUnits, c • (u : R) :=
+        (sum_congr rfl fun u hu => congr_arg₂ _ ?_ rfl)
+      _ = ∑ b : MonoidHom.range f.toHomUnits, c • ((b : Rˣ) : R) :=
+        (Finset.sum_subtype _ (by simp) _)
+      _ = c • ∑ b : MonoidHom.range f.toHomUnits, ((b : Rˣ) : R) := smul_sum'.symm
+      _ = c • (0 : R) := (congr_arg₂ _ rfl ?_)
+      _ = (0 : R) := smul_zero _
+    ·
+      show (univ.filter fun g : G => f.toHomUnits g = u).card = c
+      apply card_fiber_eq_of_mem_range f.toHomUnits
+      · simpa only [mem_image, mem_univ, true_and, Set.mem_range] using hu
+      · exact ⟨1, f.toHomUnits.map_one⟩
+    show (∑ b : MonoidHom.range f.toHomUnits, ((b : Rˣ) : R)) = 0
+    calc
+      (∑ b : MonoidHom.range f.toHomUnits, ((b : Rˣ) : R))
+        = ∑ n in range (orderOf x), ((x : Rˣ) : R) ^ n :=
+        Eq.symm <|
+          sum_bij (fun n _ => x ^ n) (by simp only [mem_univ, forall_true_iff])
+            (by simp only [imp_true_iff, eq_self_iff_
+
+Attempt failure.
+
+Working on Mathlib/RingTheory/RootsOfUnity/Basic.lean - 2024-09-08 02:06:44.847978.
+---16/20---
+For theorem IsPrimitiveRoot.nthRoots_one_eq_biUnion_primitiveRoots in Mathlib/RingTheory/RootsOfUnity/Basic.lean:
+theorem nthRoots_one_eq_biUnion_primitiveRoots' {ζ : R} {n : ℕ+} (h : IsPrimitiveRoot ζ n) :
+    nthRootsFinset n R = (Nat.divisors ↑n).biUnion fun i => primitiveRoots i R 
+
+
+Original valid proof:
+:= by
+  symm
+  apply Finset.eq_of_subset_of_card_le
+  · intro x
+    simp only [nthRootsFinset, ← Multiset.toFinset_eq (nthRoots_one_nodup h), exists_prop,
+      Finset.mem_biUnion, Finset.mem_filter, Finset.mem_range, mem_nthRoots, Finset.mem_mk,
+      Nat.mem_divisors, and_true_iff, Ne, PNat.ne_zero, PNat.pos, not_false_iff]
+    rintro ⟨a, ⟨d, hd⟩, ha⟩
+    have hazero : 0 < a := by
+      contrapose! hd with ha0
+      simp_all only [nonpos_iff_eq_zero, zero_mul]
+      exact n.ne_zero
+    rw [mem_primitiveRoots hazero] at ha
+    rw [hd, pow_mul, ha.pow_eq_one, one_pow]
+  · apply le_of_eq
+    rw [h.card_nthRootsFinset, Finset.card_biUnion]
+    · nth_rw 1 [← Nat.sum_totient n]
+      refine sum_congr rfl ?_
+      simp only [Nat.mem_divisors]
+      rintro k ⟨⟨d, hd⟩, -⟩
+      rw [mul_comm] at hd
+      rw [(h.pow n.pos hd).card_primitiveRoots]
+    · intro i _ j _ hdiff
+      exact disjoint hdiff
+
+
+Verifying proof (Commit d16c7a879e758dc3aee434d847d69bfbaf9f30f0):
+ := by
+  symm
+  apply Finset.eq_of_subset_of_card_le
+  · intro x
+    simp only [nthRootsFinset, ← Multiset.toFinset_eq (nthRoots_one_nodup h), exists_prop,
+      Finset.mem_biUnion, Finset.mem_filter, Finset.mem_range, mem_nthRoots, Finset.mem_mk,
+      Nat.mem_divisors, and_true_iff, Ne.def, PNat.ne_zero, PNat.pos, not_false_iff]
+    rintro ⟨a, ⟨d, hd⟩, ha⟩
+    have hazero : 0 < a := by
+      contrapose! hd with ha0
+      simp_all only [nonpos_iff_eq_zero, zero_mul]
+      exact n.ne_zero
+    rw [mem_primitiveRoots hazero] at ha
+    rw [hd, pow_mul, ha.pow_eq_one, one_pow]
+  · apply le_of_eq
+    rw [h.card_nthRootsFinset, Finset.card_biUnion]
+    · nth_rw 1 [← Nat.sum_totient n]
+      refine' sum_congr rfl _
+      simp only [Nat.mem_divisors]
+      rintro k ⟨⟨d, hd⟩, -⟩
+      rw [mul_comm] at hd
+      rw [(h.pow n.pos hd).card_primitiveRoots]
+    · intro i _ j _ hdiff
+      exact disjoint hdiff
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due
+
+Attempt failure.
+
+Working on Mathlib/Topology/Category/Stonean/Limits.lean - 2024-09-08 02:07:02.215468.
+---17/20---
+For theorem Stonean.Sigma.openEmbedding_ι in Mathlib/Topology/Category/Stonean/Limits.lean:
+lemma Sigma.openEmbedding_ι {α : Type} [Finite α] (Z : α → Stonean.{u}) (a : α) :
+    OpenEmbedding (Sigma.ι Z a) 
+
+
+Original valid proof:
+:= by
+  refine OpenEmbedding.of_comp _ (homeoOfIso (coproductIsoCoproduct Z).symm).openEmbedding ?_
+  convert finiteCoproduct.openEmbedding_ι Z a
+  ext x
+  change ((Sigma.ι Z a) ≫ (coproductIsoCoproduct Z).inv) x = _
+  simp [coproductIsoCoproduct]
+
+
+Verifying proof (Commit 7d5d6eb658906f2c7b67de823bc202579000fb2e):
+ := by
+  refine OpenEmbedding.of_comp _
+    (CompHausLike.homeoOfIso (coproductIsoCoproduct Z).symm).openEmbedding ?_
+  convert finiteCoproduct.openEmbedding_ι Z a
+  ext x
+  change ((Sigma.ι Z a) ≫ (coproductIsoCoproduct Z).inv) x = _
+  simp [coproductIsoCoproduct]
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10:30):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (May 10 2020 at 10
+
+Attempt failure.
+
+Working on Mathlib/Topology/MetricSpace/Polish.lean - 2024-09-08 02:07:15.974490.
+---18/20---
+For theorem IsClosed.isClopenable in Mathlib/Topology/MetricSpace/Polish.lean:
+theorem _root_.IsClosed.isClopenable [TopologicalSpace α] [PolishSpace α] {s : Set α}
+    (hs : IsClosed s) : IsClopenable s 
+
+
+Original valid proof:
+:= by
+  classical
+  haveI : PolishSpace s := hs.polishSpace
+  let t : Set α := sᶜ
+  haveI : PolishSpace t := hs.isOpen_compl.polishSpace
+  let f : s ⊕ t ≃ α := Equiv.Set.sumCompl s
+  have hle : TopologicalSpace.coinduced f instTopologicalSpaceSum ≤ ‹_› := by
+    simp only [instTopologicalSpaceSum, coinduced_sup, coinduced_compose, sup_le_iff,
+      ← continuous_iff_coinduced_le]
+    exact ⟨continuous_subtype_val, continuous_subtype_val⟩
+  refine ⟨.coinduced f instTopologicalSpaceSum, hle, ?_, hs.mono hle, ?_⟩
+  · rw [← f.induced_symm]
+    exact f.symm.polishSpace_induced
+  · rw [isOpen_coinduced, isOpen_sum_iff]
+    simp [f, preimage_preimage]
+
+
+Verifying proof (Commit 1851e611668b90ebb2d0265b8242736ebc1ac256):
+ := by
+  haveI : PolishSpace s := hs.polishSpace
+  let t : Set α := sᶜ
+  haveI : PolishSpace t := hs.isOpen_compl.polishSpace
+  let f : s ⊕ t ≃ α := Equiv.Set.sumCompl s
+  have hle : TopologicalSpace.coinduced f instTopologicalSpaceSum ≤ ‹_› := by
+    simp only [instTopologicalSpaceSum, coinduced_sup, coinduced_compose, sup_le_iff,
+      ← continuous_iff_coinduced_le]
+    exact ⟨continuous_subtype_val, continuous_subtype_val⟩
+  refine ⟨.coinduced f instTopologicalSpaceSum, hle, ?_, hs.mono hle, ?_⟩
+  · rw [← f.induced_symm]
+    exact f.symm.polishSpace_induced
+  · rw [isOpen_coinduced, isOpen_sum_iff]
+    simp [f, preimage_preimage]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Attempt failure.
+
+Working on Mathlib/Topology/Order/ScottTopology.lean - 2024-09-08 02:07:27.124785.
+---19/20---
+For theorem Topology.IsScott.isClosed_Iic in Mathlib/Topology/Order/ScottTopology.lean:
+lemma isClosed_Iic : IsClosed (Iic a) 
+
+
+Original valid proof:
+:=
+  isClosed_iff_isLowerSet_and_dirSupClosed.2 ⟨isLowerSet_Iic _, dirSupClosed_Iic _⟩
+
+
+Verifying proof (Commit 86046116b1f3be130d519aa69b2f2ae5b69e5093):
+ :=
+  isClosed_iff_isLowerSet_and_dirSupClosed.2 ⟨isLowerSet_Iic _, dirSupClosedOn_Iic _⟩
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Attempt failure.
+
+Working on Mathlib/Topology/UniformSpace/Basic.lean - 2024-09-08 02:07:35.867482.
+---20/20---
+For theorem symm_of_uniformity in Mathlib/Topology/UniformSpace/Basic.lean:
+theorem symm_of_uniformity {s : Set (α × α)} (hs : s ∈ 𝓤 α) :
+    ∃ t ∈ 𝓤 α, (∀ a b, (a, b) ∈ t → (b, a) ∈ t) ∧ t ⊆ s 
+
+
+Original valid proof:
+:=
+  have : preimage Prod.swap s ∈ 𝓤 α := symm_le_uniformity hs
+  ⟨s ∩ preimage Prod.swap s, inter_mem hs this, fun _ _ ⟨h₁, h₂⟩ => ⟨h₂, h₁⟩, inter_subset_left⟩
+
+
+Verifying proof (Commit f33a8c19a1c116af0ea9bb6af0c85b1ef25cb15f):
+∧ t ⊆ preimage Prod.swap s :=
+  have : preimage Prod.swap s ∈ 𝓤 α := symm_le_uniformity hs
+  ⟨s ∩ preimage Prod.swap s, inter_mem hs this, fun _ _ ⟨h₁, h₂⟩ => ⟨h₂, h₁⟩, inter_subset_left _ _, inter_subset_right _ _⟩
+
+####  Mario Carneiro (May 01 2020 at 05:20):
+
+I think the problem is that the first proof is not a proof of the statement you want, but a proof of a statement that is a consequence of the statement you want.
+
+####  Mario Carneiro (May 01 2020 at 05:21):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 05:22):
+
+The first proof is a proof of the statement that there exists a symmetric set in the filter, and the second proof is a proof of the statement that there exists a symmetric set in the filter that is contained in the original set.
+
+####  Mario Carneiro (May 01 2020 at 0
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 20 proof attempts, there were 0 successful and 20 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

@@ -1,0 +1,5 @@
+nohup: ignoring input
+Inference starting on test data using model from checkpoint kaiyuy/leandojo-lean4-tacgen-byt5-small.
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map:  10%|▉         | 96/1000 [03:07<29:29,  1.96s/ examples]Map:  19%|█▉        | 192/1000 [06:16<26:26,  1.96s/ examples]Map:  29%|██▉       | 288/1000 [09:22<23:09,  1.95s/ examples]Map:  38%|███▊      | 384/1000 [12:33<20:11,  1.97s/ examples]Map:  48%|████▊     | 480/1000 [15:42<17:01,  1.96s/ examples]Map:  58%|█████▊    | 576/1000 [18:59<14:06,  2.00s/ examples]Map:  67%|██████▋   | 672/1000 [22:07<10:50,  1.98s/ examples]Map:  77%|███████▋  | 768/1000 [25:11<07:35,  1.96s/ examples]Map:  86%|████████▋ | 864/1000 [28:22<04:28,  1.97s/ examples]Map:  96%|█████████▌| 960/1000 [31:25<01:18,  1.95s/ examples]Map: 100%|██████████| 1000/1000 [32:44<00:00,  1.95s/ examples]Map: 100%|██████████| 1000/1000 [32:44<00:00,  1.96s/ examples]
+Creating CSV from Arrow format:   0%|          | 0/1 [00:00<?, ?ba/s]Creating CSV from Arrow format: 100%|██████████| 1/1 [00:00<00:00, 11.69ba/s]
+Inference finished.

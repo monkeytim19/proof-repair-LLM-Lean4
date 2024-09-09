@@ -1,0 +1,3578 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 01:27:37.244795
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 336040 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Algebra/GroupWithZero/Units/Basic.lean - 2024-09-08 01:50:17.929981.
+---1/20---
+For theorem div_eq_div_iff_div_eq_div' in Mathlib/Algebra/GroupWithZero/Units/Basic.lean:
+lemma div_eq_div_iff_div_eq_div' (hb : b ≠ 0) (hc : c ≠ 0) : a / b = c / d ↔ a / c = b / d 
+
+
+Original valid proof:
+:= by
+  conv_lhs => rw [← mul_left_inj' hb, div_mul_cancel₀ _ hb]
+  conv_rhs => rw [← mul_left_inj' hc, div_mul_cancel₀ _ hc]
+  rw [mul_comm _ c, div_mul_eq_mul_div, mul_div_assoc]
+
+
+Verifying proof (Commit 031f5489446cf55630d0efe44cc757d7a8aa007a):
+ := by
+  conv_lhs => rw [← mul_left_inj' hb, div_mul_cancel _ hb]
+  conv_rhs => rw [← mul_left_inj' hc, div_mul_cancel _ hc]
+  rw [mul_comm _ c, div_mul_eq_mul_div, mul_div_assoc, mul_comm _ b, mul_div_assoc]
+
+I'm not sure if this is a bug or if I'm doing something wrong.
+
+####  Eric Wieser (Jun 01 2020 at 10:00):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see themul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:00):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2020 at 10:01):
+
+I think the problem is that the first two lines of the proof are not in the scope of the third line, so it doesn't see the
+mul_comm _ c.
+
+####  Eric Wieser (Jun 01 2
+
+Attempt failure.
+
+Working on Mathlib/Algebra/Polynomial/Roots.lean - 2024-09-08 01:50:28.115736.
+---2/20---
+For theorem Polynomial.Monic.irreducible_iff_degree_lt in Mathlib/Algebra/Polynomial/Roots.lean:
+theorem Monic.irreducible_iff_degree_lt {p : R[X]} (p_monic : Monic p) (p_1 : p ≠ 1) :
+    Irreducible p ↔ ∀ q, degree q ≤ ↑(p.natDegree / 2) → q ∣ p → IsUnit q 
+
+
+Original valid proof:
+:= by
+  simp only [p_monic.irreducible_iff_lt_natDegree_lt p_1, Finset.mem_Ioc, and_imp,
+    natDegree_pos_iff_degree_pos, natDegree_le_iff_degree_le]
+  constructor
+  · rintro h q deg_le dvd
+    by_contra q_unit
+    have := degree_pos_of_not_isUnit_of_dvd_monic p_monic q_unit dvd
+    have hu := p_monic.isUnit_leadingCoeff_of_dvd dvd
+    refine (h _ (monic_of_isUnit_leadingCoeff_inv_smul hu) ?_ ?_ (dvd_trans ?_ dvd)).elim
+    · rwa [degree_smul_of_smul_regular _ (isSMulRegular_of_group _)]
+    · rwa [degree_smul_of_smul_regular _ (isSMulRegular_of_group _)]
+    · rw [Units.smul_def, Polynomial.smul_eq_C_mul, (isUnit_C.mpr (Units.isUnit _)).mul_left_dvd]
+  · rintro h q _ deg_pos deg_le dvd
+    exact deg_pos.ne' <| degree_eq_zero_of_isUnit (h q deg_le dvd)
+
+
+Verifying proof (Commit ede0480e17a20274bfc92c1bb86c545f2389270c):
+∨ q = p := by
+  simp only [p_monic.irreducible_iff_lt_natDegree_lt p_1, Finset.mem_Ioc, and_imp,
+    natDegree_pos_iff_degree_pos, natDegree_le_iff_degree_le]
+  constructor
+  · rintro h q deg_le dvd
+    by_contra q_unit
+    have := degree_pos_of_not_isUnit_of_dvd_monic q_unit dvd p_monic
+    have hu := p_monic.isUnit_leadingCoeff_of_dvd dvd
+    refine (h _ (monic_of_isUnit_leadingCoeff_inv_smul hu) ?_ ?_ (dvd_trans ?_ dvd)).elim
+    · rwa [degree_smul_of_smul_regular _ (isSMulRegular_of_group _)]
+    · rwa [degree_smul_of_smul_regular _ (isSMulRegular_of_group _)]
+    · rw [Units.smul_def, Polynomial.smul_eq_C_mul, (isUnit_C.mpr (Units.isUnit _)).mul_left_dvd]
+  · rintro h q _ deg_pos deg_le dvd
+    exact deg_pos.ne' <| degree_eq_zero_of_isUnit (h q deg_le dvd).resolve_right (Ne.symm p_1)
+
+## Equations
+
+- Polynomial.IsDomain = { add := AddWithOne.add (AddCommGroupWithOne.toAddWithOne (Polynomial R)), add_assoc := (_ : ∀ (a b c : R[X]), a + b + c = a + (b + c)), zero := 0, zero_add := (_ : ∀ (a : R[X]), 0 + a = a), add_zero := (_ : ∀ (a : R[X]), a + 0 = a), nsmul := AddMonoid.nsmul (AddCommGroupWithOne.toAddMonoid (Polynomial R)), nsmul_zero' := (_ : ∀ (x : R[X]), AddMonoid.nsmul 0 x = 0), nsmul_succ' := (_ : ∀ (n : ℕ) (x : R[X]), AddMonoid.nsmul n.succ x = x + AddMonoid.nsmul n x), neg := Neg.neg (SubNegMonoid.toNeg (SubNegZeroMonoid.toSubNegMonoid (SubNegMonoid.toSubNegZeroMonoid (AddGroupWithOne.toSubNegMonoid (AddCommGroupWithOne.toAddGroupWithOne (Polynomial R)))))), sub := Sub.sub (AddGroup.toSub (AddCommGroup.toAddGroup (Polynomial R))), sub_eq_add_neg := (_ : ∀ (x y : R[X]), x - y = x + -y), zsmul := SubNegMonoid.zsmul (SubNegZeroMonoid.toSubNegMonoid (SubNegMonoid.toSubNegZeroMonoid (AddGroupWithOne.toSubNegMonoid (AddCommGroupWithOne.toAddGroupWithOne (Polynomial R))))), zsmul_zero' := (_ : ∀ (a : R[X]), SubNegMonoid.zsmul 0 a = 0), zsmul_succ' := (_ : ∀ (n : ℤ) (x : R[X]), SubNegMonoid.zsmul (Int.succ n) x = x + SubNegMonoid.zsmul n x), zsmul_neg' := (_ : ∀ (n : ℤ) (x : R[X]), SubNegMonoid.zsmul (-n) x = -SubNegMonoid.zsmul n x), add_left_neg := (_ : ∀ (a : R[X]), -a + a = 0), add_comm := (_ : ∀ (a b : R[X]), a + b = b + a), mul := Mul.mul (NonUnitalNonAssocSemiring.toMul (NonUnitalNonAssocRing.toNonUnitalNonAssocSemiring (NonAssocRing.toNonUnitalNonAssocRing (Ring.toNonAssocRing (Polynomial R))))), left_distrib := (_ : ∀ (a b c : R[X]), a * (b + c) = a * b + a * c), right_distrib := (_ : ∀ (a b c : R[X]), (a + b) * c = a * c + b * c), zero_mul := (_ : ∀ (a : R[X]), 0 * a = 0), mul_zero := (_ : ∀ (a : R[X]), a * 0 = 0), mul_assoc := (_ : ∀ (a b c : R[X]), a * b * c = a * (b * c)), one := 1, one_mul := (_ : ∀ (a : R[X]), 1 * a = a), mul_one := (_ : ∀ (a : R[X]), a * 1 = a), npow := Monoid.npow (MonoidWithZero.toMonoid (Semiring.toMonoidWithZero (Ring.toSemiring (Polynomial R)))), npow_zero' := (_ : ∀ (x : R[X]), Monoid.npow 0 x = 1), npow_succ' := (_ : ∀ (n : ℕ) (x : R[X]), Monoid.npow n.succ x = x * Monoid.npow n x), natCast := Nat.castCoe, natCast_zero := (_ : ↑0 = Nat.cast 0), natCast_succ := (_ : ∀ (n : ℕ), Nat.cast n.succ = Nat.cast n + 1), intCast := Int.castCoe, intCast_ofNat := (_ : ∀ (n : ℕ), Int.cast ↑n = ↑n), intCast_negSucc := (_ : ∀ (n : ℕ), Int.cast ↑(-[1 + n]) = -↑(n + 1)), inv := DivInvMonoid.inv (GroupWithZero.toDivInvMonoid (GroupWithZero.toDivisionMonoid (GroupWithZero.toGroupWithZero (CommGroupWithZero.toGroupWithZero (Field.toCommGroupWithZero (Polynomial.instFieldPolynomialR)))))), div := DivInvMonoid.div (GroupWithZero.toDivInvMonoid (GroupWithZero.toDivisionMonoid (GroupWithZero.toGroupWithZero (CommGroupWithZero.toGroupWithZero (Field.toCommGroupWithZero (Polynomial.instFieldPolynomialR)))))), div_eq_mul_inv := (_ : ∀ (a b : R[X]), a / b = a * b⁻¹), zpow := DivInvMonoid.zpow (GroupWithZero.toDivInvMonoid (GroupWithZero.toDivisionMonoid (GroupWithZero.toGroupWithZero (CommGroupWithZero.toGroupWithZero (Field.toCommGroupWithZero (Polynomial.instFieldPolynomialR)))))), zpow_zero' := (_ : ∀ (a : R[X]), DivInvMonoid.zpow 0 a = 1), zpow_succ' := (_ : ∀ (z : ℤ) (a : R[X]), DivInvMonoid.zpow (Int.succ z) a = a * DivInvMonoid.zpow z a), zpow_neg' := (_ : ∀ (z : ℤ) (a : R[X]), DivInvMonoid.zpow (-z) a = DivInvMonoid.zpow z a⁻¹), exists_pair_ne := (_ : ∃ (x y : R[X]), x ≠ y), mul_inv_cancel := (_ : ∀ {a : R[X]}, a ≠ 0 → a * a⁻¹ = 1), inv_zero := (_ : 0⁻¹ = 0), gsmul := SubNegMonoid.gsmul (SubNegMonoid.toSubNegZeroMonoid (SubNegZeroMonoid.toSubNegMonoid (AddGroupWithOne.toSubNegMonoid (AddCommGroupWithOne.toAddGroupWithOne (Polynomial R))))), gsmul_zero' := (_ : ∀ (a : R[X]), SubNegMonoid.gsmul 0 a = 0), gsmul_succ' := (_ : ∀ (n : ℕ) (x : R[X]), SubNegMonoid.gsmul (Int.succ n) x = x + SubNegMonoid.gsmul n x),
+
+Attempt failure.
+
+Working on Mathlib/Analysis/Convolution.lean - 2024-09-08 01:50:46.176160.
+---3/20---
+For theorem MeasureTheory.hasFDerivAt_convolution_right_with_param in Mathlib/Analysis/Convolution.lean:
+theorem hasFDerivAt_convolution_right_with_param {g : P → G → E'} {s : Set P} {k : Set G}
+    (hs : IsOpen s) (hk : IsCompact k) (hgs : ∀ p, ∀ x, p ∈ s → x ∉ k → g p x = 0)
+    (hf : LocallyIntegrable f μ) (hg : ContDiffOn 𝕜 1 (↿g) (s ×ˢ univ)) (q₀ : P × G)
+    (hq₀ : q₀.1 ∈ s) :
+    HasFDerivAt (fun q : P × G => (f ⋆[L, μ] g q.1) q.2)
+      ((f ⋆[L.precompR (P × G), μ] fun x : G => fderiv 𝕜 (↿g) (q₀.1, x)) q₀.2) q₀ 
+
+
+Original valid proof:
+:= by
+  let g' := fderiv 𝕜 ↿g
+  have A : ∀ p ∈ s, Continuous (g p) := fun p hp ↦ by
+    refine hg.continuousOn.comp_continuous (continuous_const.prod_mk continuous_id') fun x => ?_
+    simpa only [prod_mk_mem_set_prod_eq, mem_univ, and_true_iff] using hp
+  have A' : ∀ q : P × G, q.1 ∈ s → s ×ˢ univ ∈ 𝓝 q := fun q hq ↦ by
+    apply (hs.prod isOpen_univ).mem_nhds
+    simpa only [mem_prod, mem_univ, and_true_iff] using hq
+  have g'_zero : ∀ p x, p ∈ s → x ∉ k → g' (p, x) = 0 := by
+    intro p x hp hx
+    refine (hasFDerivAt_zero_of_eventually_const 0 ?_).fderiv
+    have M2 : kᶜ ∈ 𝓝 x := hk.isClosed.isOpen_compl.mem_nhds hx
+    have M1 : s ∈ 𝓝 p := hs.mem_nhds hp
+    rw [nhds_prod_eq]
+    filter_upwards [prod_mem_prod M1 M2]
+    rintro ⟨p, y⟩ ⟨hp, hy⟩
+    exact hgs p y hp hy
+  obtain ⟨ε, C, εpos, h₀ε, hε⟩ :
+      ∃ ε C, 0 < ε ∧ ball q₀.1 ε ⊆ s ∧ ∀ p x, ‖p - q₀.1‖ < ε → ‖g' (p, x)‖ ≤ C := by
+    have A : IsCompact ({q₀.1} ×ˢ k) := isCompact_singleton.prod hk
+    obtain ⟨t, kt, t_open, ht⟩ : ∃ t, {q₀.1} ×ˢ k ⊆ t ∧ IsOpen t ∧ IsBounded (g' '' t) := by
+      have B : ContinuousOn g' (s ×ˢ univ) :=
+        hg.continuousOn_fderiv_of_isOpen (hs.prod isOpen_univ) le_rfl
+      apply exists_isOpen_isBounded_image_of_isCompact_of_continuousOn A (hs.prod isOpen_univ) _ B
+      simp only [prod_subset_prod_iff, hq₀, singleton_subset_iff, subset_univ, and_self_iff,
+        true_or_iff]
+    obtain ⟨ε, εpos, hε, h'ε⟩ :
+      ∃ ε : ℝ, 0 < ε ∧ thickening ε ({q₀.fst} ×ˢ k) ⊆ t ∧ ball q₀.1 ε ⊆ s := by
+      obtain ⟨ε, εpos, hε⟩ : ∃ ε : ℝ, 0 < ε ∧ thickening ε (({q₀.fst} : Set P) ×ˢ k) ⊆ t :=
+        A.exists_thickening_subset_open t_open kt
+      obtain ⟨δ, δpos, hδ⟩ : ∃ δ : ℝ, 0 < δ ∧ ball q₀.1 δ ⊆ s := Metric.isOpen_iff.1 hs _ hq₀
+      refine ⟨min ε δ, lt_min εpos δpos, ?_, ?_⟩
+      · exact Subset.trans (thickening_mono (min_le_left _ _) _) hε
+      · exact Subset.trans (ball_subset_ball (min_le_right _ _)) hδ
+    obtain ⟨C, Cpos, hC⟩ : ∃ C, 0 < C ∧ g' '' t ⊆ closedBall 0 C := ht.subset_closedBall_lt 0 0
+    refine ⟨ε, C, εpos, h'ε, fun p x hp => ?_⟩
+    have hps : p ∈ s := h'ε (mem_ball_iff_norm.2 hp)
+    by_cases hx : x ∈ k
+    · have H : (p, x) ∈ t := by
+        apply hε
+        refine mem_thickening_iff.2 ⟨(q₀.1, x), ?_, ?_⟩
+        · simp only [hx, singleton_prod, mem_image, Prod.mk.inj_iff, eq_self_iff_true, true_and_iff,
+            exists_eq_right]
+        · rw [← dist_eq_norm] at hp
+          simpa only [Prod.dist_eq, εpos, dist_self, max_lt_iff, and_true_iff] using hp
+      have : g' (p, x) ∈ closedBall (0 : P × G →L[𝕜] E') C := hC (mem_image_of_mem _ H)
+      rwa [mem_closedBall_zero_iff] at this
+    · have : g' (p, x) = 0 := g'_zero _ _ hps hx
+      rw [this]
+      simpa only [norm_zero] using Cpos.le
+  have I1 :
+    ∀ᶠ x : P × G in 𝓝 q₀, AEStronglyMeasurable (fun a : G => L (f a) (g x.1 (x.2 - a))) μ := by
+    filter_upwards [A' q₀ hq₀]
+    rintro ⟨p, x⟩ ⟨hp, -⟩
+    refine (HasCompactSupport.convolutionExists_right L ?_ hf (A _ hp) _).1
+    apply hk.of_isClosed_subset (isClosed_tsupport _)
+    exact closure_minimal (support_subset_iff'.2 fun z hz => hgs _ _ hp hz) hk.isClosed
+  have I2 : Integrable (fun a : G => L (f a) (g q₀.1 (q₀.2 - a))) μ := by
+    have M : HasCompactSupport (g q₀.1) := HasCompactSupport.intro hk fun x hx => hgs q₀.1 x hq₀ hx
+    apply M.convolutionExists_right L hf (A q₀.1 hq₀) q₀.2
+  have I3 : AEStronglyMeasurable (fun a : G => (L (f a)).comp (g' (q₀.fst, q₀.snd - a))) μ := by
+    have T : HasCompactSupport fun y => g' (q₀.1, y) :=
+      HasCompactSupport.intro hk fun x hx => g'_zero q₀.1 x hq₀ hx
+    apply (HasCompactSupport.convolutionExists_right (L.precompR (P × G) : _) T hf _ q₀.2).1
+    have : ContinuousOn g' (s ×ˢ univ) :=
+      hg.continuousOn_fderiv_of_isOpen (hs.prod isOpen_univ) le_rfl
+    apply this.comp_continuous (continuous_const.prod_mk continuous_id')
+    intro x
+    simpa only [prod_mk_mem_set_prod_eq, mem_univ, and_true_iff] using hq₀
+  set K' := (-k + {q₀.2} : Set G) with K'_def
+  have hK' : IsCompact K' := hk.neg.add isCompact_singleton
+  obtain ⟨U, U_open, K'U, hU⟩ : ∃ U, IsOpen U ∧ K' ⊆ U ∧ IntegrableOn f U μ :=
+    hf.integrableOn_nhds_isCompact hK'
+  obtain ⟨δ, δpos, δε, hδ⟩ : ∃ δ, (0 : ℝ) < δ ∧ δ ≤ ε ∧ K' + ball 0 δ ⊆ U := by
+    obtain ⟨V, V_mem, hV⟩ : ∃ V ∈ 𝓝 (0 : G), K' + V ⊆ U :=
+      compact_open_separated_add_right hK' U_open K'U
+    rcases Metric.mem_nhds_iff.1 V_mem with ⟨δ, δpos, hδ⟩
+    refine ⟨min δ ε, lt_min δpos εpos, min_le_right δ ε, ?_⟩
+    exact (add_subset_add_left ((ball_subset_ball (min_le_left _ _)).trans hδ)).trans hV
+  letI := ContinuousLinearMap.hasOpNorm (𝕜 := 𝕜) (𝕜₂ := 𝕜) (E := E)
+    (F := (P × G →L[𝕜] E') →L[𝕜] P × G →L[𝕜] F) (σ₁₂ := RingHom.id 𝕜)
+  let bound : G → ℝ := indicator U fun t => ‖(L.precompR (P × G))‖ * ‖f t‖ * C
+  have I4 : ∀ᵐ a : G ∂μ, ∀ x : P × G, dist x q₀ < δ →
+      ‖L.precompR (P × G) (f a) (g' (x.fst, x.snd - a))‖ ≤ bound a := by
+    filter_upwards with a x hx
+    rw [Prod.dist_eq, dist_eq_norm, dist_eq_norm] at hx
+    have : (-tsupport fun a => g' (x.1, a)) + ball q₀.2 δ ⊆ U := by
+      apply Subset.trans _ hδ
+      rw [K'_def, add_assoc]
+      apply add_subset_add
+      · rw [neg_subset_neg]
+        refine closure_minimal (support_subset_iff'.2 fun z hz => ?_) hk.isClosed
+        apply g'_zero x.1 z (h₀ε _) hz
+        rw [mem_ball_iff_norm]
+        exact ((le_max_left _ _).trans_lt hx).trans_le δε
+      · simp only [add_ball, thickening_singleton, zero_vadd, subset_rfl]
+    apply convolution_integrand_bound_right_of_le_of_subset _ _ _ this
+    · intro y
+      exact hε _ _ (((le_max_left _ _).trans_lt hx).trans_le δε)
+    · rw [mem_ball_iff_norm]
+      exact (le_max_right _ _).trans_lt hx
+  have I5 : Integrable bound μ := by
+    rw [integrable_indicator_iff U_open.measurableSet]
+    exact (hU.norm.const_mul _).mul_const _
+  have I6 : ∀ᵐ a : G ∂μ, ∀ x : P × G, dist x q₀ < δ →
+      HasFDerivAt (fun x : P × G => L (f a) (g x.1 (x.2 - a)))
+        ((L (f a)).comp (g' (x.fst, x.snd - a))) x := by
+    filter_upwards with a x hx
+    apply (L _).hasFDerivAt.comp x
+    have N : s ×ˢ univ ∈ 𝓝 (x.1, x.2 - a) := by
+      apply A'
+      apply h₀ε
+      rw [Prod.dist_eq] at hx
+      exact lt_of_lt_of_le (lt_of_le_of_lt (le_max_left _ _) hx) δε
+    have Z := ((hg.differentiableOn le_rfl).differentiableAt N).hasFDerivAt
+    have Z' :
+        HasFDerivAt (fun x : P × G => (x.1, x.2 - a)) (ContinuousLinearMap.id 𝕜 (P × G)) x := by
+      have : (fun x : P × G => (x.1, x.2 - a)) = _root_.id - fun x => (0, a) := by
+        ext x <;> simp only [Pi.sub_apply, _root_.id, Prod.fst_sub, sub_zero, Prod.snd_sub]
+      rw [this]
+      exact (hasFDerivAt_id x).sub_const (0, a)
+    exact Z.comp x Z'
+  exact hasFDerivAt_integral_of_dominated_of_fderiv_le δpos I1 I2 I3 I4 I5 I6
+
+
+Verifying proof (Commit 40b64f797572a7615ba4553a28d3d6ee5049aa3b):
+ := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add isCompact_singleton
+  have hk' : IsCompact (k + {q₀.2}) := hk.add is
+
+Attempt failure.
+
+Working on Mathlib/CategoryTheory/Sites/Sheafification.lean - 2024-09-08 01:51:38.581305.
+---4/20---
+For theorem CategoryTheory.isIso_toSheafify in Mathlib/CategoryTheory/Sites/Sheafification.lean:
+theorem isIso_toSheafify {P : Cᵒᵖ ⥤ D} (hP : Presheaf.IsSheaf J P) : IsIso (toSheafify J P) 
+
+
+Original valid proof:
+:= by
+  refine ⟨(sheafificationAdjunction J D |>.counit.app ⟨P, hP⟩).val, ?_, ?_⟩
+  · change _ = (𝟙 (sheafToPresheaf J D ⋙ 𝟭 (Cᵒᵖ ⥤ D)) : _).app ⟨P, hP⟩
+    rw [← sheafificationAdjunction J D |>.right_triangle]
+    rfl
+  · change (sheafToPresheaf _ _).map _ ≫ _ = _
+    change _ ≫ (sheafificationAdjunction J D).unit.app ((sheafToPresheaf J D).obj ⟨P, hP⟩) = _
+    erw [← (sheafificationAdjunction J D).inv_counit_map  (X := ⟨P, hP⟩), comp_inv_eq_id]
+
+
+Verifying proof (Commit cc6e5e01514b06a44caccb55bc04e269ede6a7c8):
+ := by
+  refine ⟨(sheafificationAdjunction J D |>.counit.app ⟨P, hP⟩).val, ?_, ?_⟩
+  · change _ = (𝟙 (sheafToPresheaf J D ⋙ 𝟭 (Cᵒᵖ ⥤ D)) : _).app ⟨P, hP⟩
+    rw [← sheafificationAdjunction J D |>.right_triangle]
+    rfl
+  · change (sheafToPresheaf _ _).map _ ≫ _ = _
+    change _ ≫ (sheafificationAdjunction J D).unit.app ((sheafToPresheaf J D).obj ⟨P, hP⟩) = _
+    erw [← inv_counit_map (sheafificationAdjunction J D) (X := ⟨P, hP⟩), comp_inv_eq_id]
+
+####  Adam Topaz (Mar 12 2021 at 15:00):
+
+@Mario Carneiro I'm not sure if this is a bug or not, but I'm getting the following error when trying to prove the following:
+theorem isIso_toSheafify {P : Cᵒᵖ ⥤ D} (hP : Presheaf.IsSheaf J P) : IsIso (toSheafify J P) := by
+  refine ⟨(sheafificationAdjunction J D |>.counit.app ⟨P, hP⟩).val, ?_, ?_⟩
+  · change _ = (𝟙 (sheafToPresheaf J D ⋙ 𝟭 (Cᵒᵖ ⥤ D)) : _).app ⟨P, hP⟩
+    rw [← sheafificationAdjunction J D |>.right_triangle]
+    rfl
+  · change (sheafToPresheaf _ _).map _ ≫ _ = _
+    change _ ≫ (sheafificationAdjunction J D).unit.app ((sheafToPresheaf J D).obj ⟨P, hP⟩) = _
+    erw [← inv_counit_map (sheafificationAdjunction J D) (X := ⟨P, hP⟩), comp_inv_eq_id]
+
+failed to prove Lean.Meta.Simp.DischargeWrapper.discharge
+state:
+J : GrothendieckTopology C
+D : Type u₂
+inst✝¹ : Category.{v₂, u₂} D
+inst✝ : ConcreteCategory D
+P : Cᵒᵖ ⥤ D
+hP : Presheaf.IsSheaf J P
+⊢ ∀ (a : (sheafificationAdjunction J D).counit.app ⟨P, hP⟩),
+    a ∈
+        (fun x =>
+            (fun x =>
+                  (fun x =>
+                        (fun x =>
+                              (fun x =>
+                                    (fun x =>
+                                          (fun x =>
+                                                (fun x =>
+                                                      (fun x =>
+                                                            (fun x =>
+                                                                  (fun x =>
+                                                                      (fun x =>
+                                                                          (fun x =>
+                                                                              (fun x =>
+                                                                                  (fun x =>
+                                                                                      (fun x =>
+                                                                                          (fun x =>
+                                                                                              (fun x =>
+                                                                                                  (fun x =>
+                                                                                                      (fun x =>
+                                                                                                          (fun x =>
+                                                                                                              (fun x =>
+                                                                                                                  (fun x =>
+                                                                                                                      (fun x =>
+                                                                                                                          (fun x =>
+                                                                                                                              (fun x =>
+                                                                                                                                  (fun x =>
+                                                                                                                                      (fun x =>
+                                                                                                                                          (fun x =>
+                                                                                                                                              (fun x =>
+                                                                                                                                                  (fun x =>
+                                                                                                                                                      (fun x =>
+                                                                                                                                                          (fun x =>
+                                                                                                                                                              (fun x =>
+                                                                                                                                                                  (fun x =>
+                                                                                                                                                                      (fun x =>
+                                                                                                                                                                          (fun x =>
+                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (fun x =>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (fun x =>
+                                                                
+
+Attempt failure.
+
+Working on Mathlib/Combinatorics/SetFamily/Compression/UV.lean - 2024-09-08 01:51:49.905835.
+---5/20---
+For theorem UV.shadow_compression_subset_compression_shadow in Mathlib/Combinatorics/SetFamily/Compression/UV.lean:
+theorem shadow_compression_subset_compression_shadow (u v : Finset α)
+    (huv : ∀ x ∈ u, ∃ y ∈ v, IsCompressed (u.erase x) (v.erase y) 𝒜) :
+    ∂ (𝓒 u v 𝒜) ⊆ 𝓒 u v (∂ 𝒜) 
+
+
+Original valid proof:
+:= by
+  set 𝒜' := 𝓒 u v 𝒜
+  suffices H : ∀ s ∈ ∂ 𝒜',
+      s ∉ ∂ 𝒜 → u ⊆ s ∧ Disjoint v s ∧ (s ∪ v) \ u ∈ ∂ 𝒜 ∧ (s ∪ v) \ u ∉ ∂ 𝒜' by
+    rintro s hs'
+    rw [mem_compression]
+    by_cases hs : s ∈ 𝒜.shadow
+    swap
+    · obtain ⟨hus, hvs, h, _⟩ := H _ hs' hs
+      exact Or.inr ⟨hs, _, h, compress_of_disjoint_of_le' hvs hus⟩
+    refine Or.inl ⟨hs, ?_⟩
+    rw [compress]
+    split_ifs with huvs
+    swap
+    · exact hs
+    rw [mem_shadow_iff] at hs'
+    obtain ⟨t, Ht, a, hat, rfl⟩ := hs'
+    have hav : a ∉ v := not_mem_mono huvs.2 (not_mem_erase a t)
+    have hvt : v ≤ t := huvs.2.trans (erase_subset _ t)
+    have ht : t ∈ 𝒜 := mem_of_mem_compression Ht hvt (aux huv)
+    by_cases hau : a ∈ u
+    · obtain ⟨b, hbv, Hcomp⟩ := huv a hau
+      refine mem_shadow_iff_insert_mem.2 ⟨b, not_mem_sdiff_of_mem_right hbv, ?_⟩
+      rw [← Hcomp.eq] at ht
+      have hsb :=
+        sup_sdiff_mem_of_mem_compression ht ((erase_subset _ _).trans hvt)
+          (disjoint_erase_comm.2 huvs.1)
+      rwa [sup_eq_union, sdiff_erase (mem_union_left _ <| hvt hbv), union_erase_of_mem hat, ←
+        erase_union_of_mem hau] at hsb
+    · refine mem_shadow_iff.2
+        ⟨(t ⊔ u) \ v,
+          sup_sdiff_mem_of_mem_compression Ht hvt <| disjoint_of_erase_right hau huvs.1, a, ?_, ?_⟩
+      · rw [sup_eq_union, mem_sdiff, mem_union]
+        exact ⟨Or.inl hat, hav⟩
+      · rw [← erase_sdiff_comm, sup_eq_union, erase_union_distrib, erase_eq_of_not_mem hau]
+  intro s hs𝒜' hs𝒜
+  have m : ∀ y, y ∉ s → insert y s ∉ 𝒜 := fun y h a => hs𝒜 (mem_shadow_iff_insert_mem.2 ⟨y, h, a⟩)
+  obtain ⟨x, _, _⟩ := mem_shadow_iff_insert_mem.1 hs𝒜'
+  have hus : u ⊆ insert x s := le_of_mem_compression_of_not_mem ‹_ ∈ 𝒜'› (m _ ‹x ∉ s›)
+  have hvs : Disjoint v (insert x s) := disjoint_of_mem_compression_of_not_mem ‹_› (m _ ‹x ∉ s›)
+  have : (insert x s ∪ v) \ u ∈ 𝒜 := sup_sdiff_mem_of_mem_compression_of_not_mem ‹_› (m _ ‹x ∉ s›)
+  have hsv : Disjoint s v := hvs.symm.mono_left (subset_insert _ _)
+  have hvu : Disjoint v u := disjoint_of_subset_right hus hvs
+  have hxv : x ∉ v := disjoint_right.1 hvs (mem_insert_self _ _)
+  have : v \ u = v := ‹Disjoint v u›.sdiff_eq_left
+  have : x ∉ u := by
+    intro hxu
+    obtain ⟨y, hyv, hxy⟩ := huv x hxu
+    apply m y (disjoint_right.1 hsv hyv)
+    have : ((insert x s ∪ v) \ u ∪ erase u x) \ erase v y ∈ 𝒜 := by
+      refine
+        sup_sdiff_mem_of_mem_compression (by rwa [hxy.eq]) ?_
+          (disjoint_of_subset_left (erase_subset _ _) disjoint_sdiff)
+      rw [union_sdiff_distrib, ‹v \ u = v›]
+      exact (erase_subset _ _).trans subset_union_right
+    convert this using 1
+    rw [sdiff_union_erase_cancel (hus.trans subset_union_left) ‹x ∈ u›, erase_union_distrib,
+      erase_insert ‹x ∉ s›, erase_eq_of_not_mem ‹x ∉ v›, sdiff_erase (mem_union_right _ hyv),
+      union_sdiff_cancel_right hsv]
+  have hus : u ⊆ s := by rwa [← erase_eq_of_not_mem ‹x ∉ u›, ← subset_insert_iff]
+  simp_rw [mem_shadow_iff_insert_mem]
+  refine ⟨hus, hsv.symm, ⟨x, ?_, ?_⟩, ?_⟩
+  · exact not_mem_sdiff_of_not_mem_left (not_mem_union.2 ⟨‹x ∉ s›, ‹x ∉ v›⟩)
+  · rwa [← insert_sdiff_of_not_mem _ ‹x ∉ u›, ← insert_union]
+  rintro ⟨w, hwB, hw𝒜'⟩
+  have : v ⊆ insert w ((s ∪ v) \ u) :=
+    (subset_sdiff.2 ⟨subset_union_right, hvu⟩).trans (subset_insert _ _)
+  by_cases hwu : w ∈ u
+  · obtain ⟨z, hz, hxy⟩ := huv w hwu
+    apply m z (disjoint_right.1 hsv hz)
+    have : insert w ((s ∪ v) \ u) ∈ 𝒜 := mem_of_mem_compression hw𝒜' ‹_› (aux huv)
+    have : (insert w ((s ∪ v) \ u) ∪ erase u w) \ erase v z ∈ 𝒜 := by
+      refine sup_sdiff_mem_of_mem_compression (by rwa [hxy.eq]) ((erase_subset _ _).trans ‹_›) ?_
+      rw [← sdiff_erase (mem_union_left _ <| hus hwu)]
+      exact disjoint_sdiff
+    convert this using 1
+    rw [insert_union_comm, insert_erase ‹w ∈ u›,
+      sdiff_union_of_subset (hus.trans subset_union_left),
+      sdiff_erase (mem_union_right _ ‹z ∈ v›), union_sdiff_cancel_right hsv]
+  rw [mem_sdiff, ← Classical.not_imp, Classical.not_not] at hwB
+  apply m w (hwu ∘ hwB ∘ mem_union_left _)
+  have : (insert w ((s ∪ v) \ u) ∪ u) \ v ∈ 𝒜 :=
+    sup_sdiff_mem_of_mem_compression ‹insert w ((s ∪ v) \ u) ∈ 𝒜'› ‹_›
+      (disjoint_insert_right.2 ⟨‹_›, disjoint_sdiff⟩)
+  convert this using 1
+  rw [insert_union, sdiff_union_of_subset (hus.trans subset_union_left),
+    insert_sdiff_of_not_mem _ (hwu ∘ hwB ∘ mem_union_right _), union_sdiff_cancel_right hsv]
+
+
+Verifying proof (Commit 596865180ecc63dcd1d95809202e31027ac3ae38):
+huvs.2 (not_mem_erase a t)
+      have hvt : v ≤ t := huvs.2.trans (erase_subset _ t)
+      have ht : t ∈ 𝒜 := mem_of_mem_compression Ht hvt (aux huv)
+      by_cases hau : a ∈ u
+      · obtain ⟨b, hbv, Hcomp⟩ := huv a hau
+        refine mem_shadow_iff_insert_mem.2 ⟨b, not_mem_sdiff_of_mem_right hbv, ?_⟩
+        rw [← Hcomp.eq] at ht
+        have hsb :=
+          sup_sdiff_mem_of_mem_compression ht ((erase_subset _ _).trans hvt)
+            (disjoint_erase_comm.2 huvs.1)
+        rwa [sup_eq_union, sdiff_erase (mem_union_left _ <| hvt hbv), union_erase_of_mem hat, ←
+          erase_union_of_mem hau] at hsb
+      · refine mem_shadow_iff.2
+          ⟨(t ⊔ u) \ v,
+            sup_sdiff_mem_of_mem_compression Ht hvt <| disjoint_of_erase_right hau huvs.1, a, ?_, ?_⟩
+        · rw [sup_eq_union, mem_sdiff, mem_union]
+          exact ⟨Or.inl hat, hav⟩
+        · rw [← erase_sdiff_comm, sup_eq_union, erase_union_distrib, erase_eq_of_not_mem hau]
+  · intro s hs𝒜' hs𝒜
+    have m : ∀ y, y ∉ s → insert y s ∉ 𝒜 := fun y h a => hs𝒜 (mem_shadow_iff_insert_mem.2 ⟨y, h, a⟩)
+    obtain ⟨x, _, _⟩ := mem_shadow_iff_insert_mem.1 hs𝒜'
+    have hus : u ⊆ insert x s := le_of_mem_compression_of_not_mem ‹_ ∈ 𝒜'› (m _ ‹x ∉ s›)
+    have hvs : Disjoint v (insert x s) := disjoint_of_mem_compression_of_not_mem ‹_› (m _ ‹x ∉ s›)
+    have : (insert x s ∪ v) \ u ∈ 𝒜 := sup_sdiff_mem_of_mem_compression_of_not_mem ‹_› (m _ ‹x ∉ s›)
+    have hsv : Disjoint s v := hvs.symm.mono_left (subset_insert _ _)
+    have hvu : Disjoint v u := disjoint_of_subset_right hus hvs
+    have hxv : x ∉ v := disjoint_right.1 hvs (mem_insert_self _ _)
+    have : v \ u = v := ‹Disjoint v u›.sdiff_eq_left
+    have : x ∉ u := by
+      intro hxu
+      obtain ⟨y, hyv, hxy⟩ := huv x hxu
+      apply m y (disjoint_right.1 hsv hyv)
+      have : ((insert x s ∪ v) \ u ∪ erase u x) \ erase v y ∈ 𝒜 := by
+        refine
+          sup_sdiff_mem_of_mem_compression (by rwa [hxy.eq]) ?_
+            (disjoint_of_subset_left (erase_subset _ _) disjoint_sdiff)
+        rw [union_sdiff_distrib, ‹v \ u = v›]
+        exact (erase_subset _ _).trans (subset_union_right _ _)
+      convert this using 1
+      rw [sdiff_union_erase_cancel (hus.trans <| subset_union_left _ _) ‹x ∈ u›, erase_union_distrib,
+        erase_insert ‹x ∉ s›, erase_eq_of_not_mem ‹x ∉ v›, sdiff_erase (mem_union_right _ hyv),
+        union_sdiff_cancel_right hsv]
+    have hus : u ⊆ s := by rwa [← erase_eq_of_not_mem ‹x ∉ u›, ← subset_insert_iff]
+    simp_rw [mem_shadow_iff_insert_mem]
+    refine ⟨hus, hsv.symm, ⟨x, ?_, ?_⟩, ?_⟩
+    · exact not_mem_sdiff_of_not_mem_left (not_mem_union.2 ⟨‹x ∉ s›, ‹x ∉ v›⟩)
+    · rwa [← insert_sdiff_of_not_mem _ ‹x ∉ u›, ← insert_union]
+    rintro ⟨w, hwB, hw𝒜'⟩
+    have : v ⊆ insert w ((s ∪ v) \ u) :=
+      (subset_sdiff.2 ⟨subset_union_right _ _, hvu⟩).trans (subset_insert _ _)
+    by_cases hwu : w ∈ u
+    · obtain ⟨z, hz, hxy⟩ := huv w hwu
+      apply m z (disjoint_right.1 hsv hz)
+      have : insert w ((s ∪ v) \ u) ∈ 𝒜 := mem_of_mem_compression hw𝒜' ‹_› (aux huv)
+      have : (insert w ((s ∪ v) \ u) ∪ erase u w) \ erase v z ∈ 𝒜 := by
+        refine sup_sdiff_mem_of_mem_compression (by rwa [hxy.eq]) ((erase_subset _ _).trans ‹_›) ?_
+        rw [← sdiff_erase (mem_union_left _ <| hus hwu)]
+        exact disjoint_sdiff
+      convert this using 1
+      rw [insert_union_comm, insert_erase ‹w ∈ u›,
+        sdiff_union_of_subset (hus.trans <| subset_union_left _ _),
+        sdiff_erase (mem_union_right _ ‹z ∈ v›), union_sdiff_cancel_right hsv]
+    · rw [mem_sdiff, ← Classical.not_imp, Classical.not_not] at hwB
+      apply m w (hwu ∘ hwB ∘ mem_union_left _)
+      have : (insert w ((s ∪ v) \ u) ∪ u) \ v ∈ 𝒜 :=
+        sup_sdiff_mem_of_mem_compression ‹insert w ((s ∪ v) \ u) ∈ 𝒜'› ‹_›
+          (disjoint_insert_right.2 ⟨‹_›, disjoint
+
+Attempt failure.
+
+---6/20---
+For theorem UV.shadow_compression_subset_compression_shadow in Mathlib/Combinatorics/SetFamily/Compression/UV.lean:
+theorem shadow_compression_subset_compression_shadow (u v : Finset α)
+    (huv : ∀ x ∈ u, ∃ y ∈ v, IsCompressed (u.erase x) (v.erase y) 𝒜) :
+    ∂ (𝓒 u v 𝒜) ⊆ 𝓒 u v (∂ 𝒜) 
+
+
+Original valid proof:
+:= by
+  set 𝒜' := 𝓒 u v 𝒜
+  suffices H : ∀ s ∈ ∂ 𝒜',
+      s ∉ ∂ 𝒜 → u ⊆ s ∧ Disjoint v s ∧ (s ∪ v) \ u ∈ ∂ 𝒜 ∧ (s ∪ v) \ u ∉ ∂ 𝒜' by
+    rintro s hs'
+    rw [mem_compression]
+    by_cases hs : s ∈ 𝒜.shadow
+    swap
+    · obtain ⟨hus, hvs, h, _⟩ := H _ hs' hs
+      exact Or.inr ⟨hs, _, h, compress_of_disjoint_of_le' hvs hus⟩
+    refine Or.inl ⟨hs, ?_⟩
+    rw [compress]
+    split_ifs with huvs
+    swap
+    · exact hs
+    rw [mem_shadow_iff] at hs'
+    obtain ⟨t, Ht, a, hat, rfl⟩ := hs'
+    have hav : a ∉ v := not_mem_mono huvs.2 (not_mem_erase a t)
+    have hvt : v ≤ t := huvs.2.trans (erase_subset _ t)
+    have ht : t ∈ 𝒜 := mem_of_mem_compression Ht hvt (aux huv)
+    by_cases hau : a ∈ u
+    · obtain ⟨b, hbv, Hcomp⟩ := huv a hau
+      refine mem_shadow_iff_insert_mem.2 ⟨b, not_mem_sdiff_of_mem_right hbv, ?_⟩
+      rw [← Hcomp.eq] at ht
+      have hsb :=
+        sup_sdiff_mem_of_mem_compression ht ((erase_subset _ _).trans hvt)
+          (disjoint_erase_comm.2 huvs.1)
+      rwa [sup_eq_union, sdiff_erase (mem_union_left _ <| hvt hbv), union_erase_of_mem hat, ←
+        erase_union_of_mem hau] at hsb
+    · refine mem_shadow_iff.2
+        ⟨(t ⊔ u) \ v,
+          sup_sdiff_mem_of_mem_compression Ht hvt <| disjoint_of_erase_right hau huvs.1, a, ?_, ?_⟩
+      · rw [sup_eq_union, mem_sdiff, mem_union]
+        exact ⟨Or.inl hat, hav⟩
+      · rw [← erase_sdiff_comm, sup_eq_union, erase_union_distrib, erase_eq_of_not_mem hau]
+  intro s hs𝒜' hs𝒜
+  have m : ∀ y, y ∉ s → insert y s ∉ 𝒜 := fun y h a => hs𝒜 (mem_shadow_iff_insert_mem.2 ⟨y, h, a⟩)
+  obtain ⟨x, _, _⟩ := mem_shadow_iff_insert_mem.1 hs𝒜'
+  have hus : u ⊆ insert x s := le_of_mem_compression_of_not_mem ‹_ ∈ 𝒜'› (m _ ‹x ∉ s›)
+  have hvs : Disjoint v (insert x s) := disjoint_of_mem_compression_of_not_mem ‹_› (m _ ‹x ∉ s›)
+  have : (insert x s ∪ v) \ u ∈ 𝒜 := sup_sdiff_mem_of_mem_compression_of_not_mem ‹_› (m _ ‹x ∉ s›)
+  have hsv : Disjoint s v := hvs.symm.mono_left (subset_insert _ _)
+  have hvu : Disjoint v u := disjoint_of_subset_right hus hvs
+  have hxv : x ∉ v := disjoint_right.1 hvs (mem_insert_self _ _)
+  have : v \ u = v := ‹Disjoint v u›.sdiff_eq_left
+  have : x ∉ u := by
+    intro hxu
+    obtain ⟨y, hyv, hxy⟩ := huv x hxu
+    apply m y (disjoint_right.1 hsv hyv)
+    have : ((insert x s ∪ v) \ u ∪ erase u x) \ erase v y ∈ 𝒜 := by
+      refine
+        sup_sdiff_mem_of_mem_compression (by rwa [hxy.eq]) ?_
+          (disjoint_of_subset_left (erase_subset _ _) disjoint_sdiff)
+      rw [union_sdiff_distrib, ‹v \ u = v›]
+      exact (erase_subset _ _).trans subset_union_right
+    convert this using 1
+    rw [sdiff_union_erase_cancel (hus.trans subset_union_left) ‹x ∈ u›, erase_union_distrib,
+      erase_insert ‹x ∉ s›, erase_eq_of_not_mem ‹x ∉ v›, sdiff_erase (mem_union_right _ hyv),
+      union_sdiff_cancel_right hsv]
+  have hus : u ⊆ s := by rwa [← erase_eq_of_not_mem ‹x ∉ u›, ← subset_insert_iff]
+  simp_rw [mem_shadow_iff_insert_mem]
+  refine ⟨hus, hsv.symm, ⟨x, ?_, ?_⟩, ?_⟩
+  · exact not_mem_sdiff_of_not_mem_left (not_mem_union.2 ⟨‹x ∉ s›, ‹x ∉ v›⟩)
+  · rwa [← insert_sdiff_of_not_mem _ ‹x ∉ u›, ← insert_union]
+  rintro ⟨w, hwB, hw𝒜'⟩
+  have : v ⊆ insert w ((s ∪ v) \ u) :=
+    (subset_sdiff.2 ⟨subset_union_right, hvu⟩).trans (subset_insert _ _)
+  by_cases hwu : w ∈ u
+  · obtain ⟨z, hz, hxy⟩ := huv w hwu
+    apply m z (disjoint_right.1 hsv hz)
+    have : insert w ((s ∪ v) \ u) ∈ 𝒜 := mem_of_mem_compression hw𝒜' ‹_› (aux huv)
+    have : (insert w ((s ∪ v) \ u) ∪ erase u w) \ erase v z ∈ 𝒜 := by
+      refine sup_sdiff_mem_of_mem_compression (by rwa [hxy.eq]) ((erase_subset _ _).trans ‹_›) ?_
+      rw [← sdiff_erase (mem_union_left _ <| hus hwu)]
+      exact disjoint_sdiff
+    convert this using 1
+    rw [insert_union_comm, insert_erase ‹w ∈ u›,
+      sdiff_union_of_subset (hus.trans subset_union_left),
+      sdiff_erase (mem_union_right _ ‹z ∈ v›), union_sdiff_cancel_right hsv]
+  rw [mem_sdiff, ← Classical.not_imp, Classical.not_not] at hwB
+  apply m w (hwu ∘ hwB ∘ mem_union_left _)
+  have : (insert w ((s ∪ v) \ u) ∪ u) \ v ∈ 𝒜 :=
+    sup_sdiff_mem_of_mem_compression ‹insert w ((s ∪ v) \ u) ∈ 𝒜'› ‹_›
+      (disjoint_insert_right.2 ⟨‹_›, disjoint_sdiff⟩)
+  convert this using 1
+  rw [insert_union, sdiff_union_of_subset (hus.trans subset_union_left),
+    insert_sdiff_of_not_mem _ (hwu ∘ hwB ∘ mem_union_right _), union_sdiff_cancel_right hsv]
+
+
+Verifying proof (Commit 6be2bec13d4dd1fd901f9a619d053d7549cfe177):
+:= disjoint_of_subset_right hus hvs
+  have hxv : x ∉ v := disjoint_right.1 hvs (mem_insert_self _ _)
+  have : v \ u = v := ‹Disjoint v u›.sdiff_eq_left
+  have : x ∉ u := by
+    intro hxu
+    obtain ⟨y, hyv, hxy⟩ := huv x hxu
+    apply m y (disjoint_right.1 hvs hyv)
+    have : ((insert x s ∪ v) \ u ∪ erase u x) \ erase v y ∈ 𝒜 := by
+      refine'
+        sup_sdiff_mem_of_mem_compression (by rwa [hxy.eq]) _
+          (disjoint_of_subset_left (erase_subset _ _) disjoint_sdiff)
+      rw [union_sdiff_distrib, ‹v \ u = v›]
+      exact (erase_subset _ _).trans (subset_union_right _ _)
+    convert this using 1
+    rw [sdiff_union_erase_cancel (hus.trans <| subset_union_left _ _) ‹x ∈ u›, erase_union_distrib,
+      erase_insert ‹x ∉ s›, erase_eq_of_not_mem ‹x ∉ v›, sdiff_erase (mem_union_right _ hyv),
+      union_sdiff_cancel_right hsv]
+  have hus : u ⊆ s := by rwa [← erase_eq_of_not_mem ‹x ∉ u›, ← subset_insert_iff]
+  simp_rw [mem_shadow_iff_insert_mem]
+  refine ⟨hus, hvs.symm, ⟨x, ?_, ?_⟩, ?_ ⟩
+  · exact not_mem_sdiff_of_not_mem_left (not_mem_union.2 ⟨‹x ∉ s›, ‹x ∉ v›⟩)
+  · rwa [← insert_sdiff_of_not_mem _ ‹x ∉ u›, ← insert_union]
+  rintro ⟨w, hwB, hw𝒜'⟩
+  have : v ⊆ insert w ((s ∪ v) \ u) :=
+    (subset_sdiff.2 ⟨subset_union_right _ _, hvu⟩).trans (subset_insert _ _)
+  by_cases hwu : w ∈ u
+  · obtain ⟨z, hz, hxy⟩ := huv w hwu
+    apply m z (disjoint_right.1 hvs hz)
+    have : insert w ((s ∪ v) \ u) ∈ 𝒜 := mem_of_mem_compression hw𝒜' ‹_› (aux huv)
+    have : (insert w ((s ∪ v) \ u) ∪ erase u w) \ erase v z ∈ 𝒜 := by
+      refine' sup_sdiff_mem_of_mem_compression (by rwa [hxy.eq]) ((erase_subset _ _).trans ‹_›) _
+      rw [← sdiff_erase (mem_union_left _ <| hus hwu)]
+      exact disjoint_sdiff
+    convert this using 1
+    rw [insert_union_comm, insert_erase ‹w ∈ u›,
+      sdiff_union_of_subset (hus.trans <| subset_union_left _ _),
+      sdiff_erase (mem_union_right _ ‹z ∈ v›), union_sdiff_cancel_right hvs]
+  rw [mem_sdiff, ← not_imp, Classical.not_not] at hwB
+  apply m w (hwu ∘ hwB ∘ mem_union_left _)
+  have : (insert w ((s ∪ v) \ u) ∪ u) \ v ∈ 𝒜 :=
+    sup_sdiff_mem_of_mem_compression ‹insert w ((s ∪ v) \ u) ∈ 𝒜'› ‹_›
+      (disjoint_insert_right.2 ⟨‹_›, disjoint_sdiff⟩)
+  convert this using 1
+  rw [insert_union, sdiff_union_of_subset (hus.trans <| subset_union_left _ _),
+    insert_sdiff_of_not_mem _ (hwu ∘ hwB ∘ mem_union_right _), union_sdiff_cancel_right hvs]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Attempt failure.
+
+Working on Mathlib/Combinatorics/SetFamily/Shadow.lean - 2024-09-08 01:52:06.524145.
+---7/20---
+For theorem Finset.mem_upShadow_iff_exists_sdiff in Mathlib/Combinatorics/SetFamily/Shadow.lean:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 
+
+
+Original valid proof:
+:= by
+  simp_rw [mem_upShadow_iff, ← covBy_iff_card_sdiff_eq_one, covBy_iff_exists_insert]
+
+
+Verifying proof (Commit 9f6d33884de569540c527b667d1573e1b97e1347):
+∧ ∀ s' ∈ 𝒜, s' ⊆ t → s' = s ∨ s' = t := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+## 2.
+
+## 2.
+mem_upShadow_iff_exists_sdiff
+
+Failed Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+Repaired Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 ∧ ∀ s' ∈ 𝒜, s' ⊆ t → s' = s ∨ s' = t := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+## 3.
+
+## 3.
+mem_upShadow_iff_exists_sdiff
+
+Failed Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+Repaired Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 ∧ ∀ s' ∈ 𝒜, s' ⊆ t → s' = s ∨ s' = t := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+## 4.
+
+## 4.
+mem_upShadow_iff_exists_sdiff
+
+Failed Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+Repaired Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 ∧ ∀ s' ∈ 𝒜, s' ⊆ t → s' = s ∨ s' = t := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+## 5.
+
+## 5.
+mem_upShadow_iff_exists_sdiff
+
+Failed Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+Repaired Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 ∧ ∀ s' ∈ 𝒜, s' ⊆ t → s' = s ∨ s' = t := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+## 6.
+
+## 6.
+mem_upShadow_iff_exists_sdiff
+
+Failed Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+Repaired Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 ∧ ∀ s' ∈ 𝒜, s' ⊆ t → s' = s ∨ s' = t := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+## 7.
+
+## 7.
+mem_upShadow_iff_exists_sdiff
+
+Failed Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+Repaired Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 ∧ ∀ s' ∈ 𝒜, s' ⊆ t → s' = s ∨ s' = t := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+## 8.
+
+## 8.
+mem_upShadow_iff_exists_sdiff
+
+Failed Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+Repaired Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ ∃ s ∈ 𝒜, s ⊆ t ∧ (t \ s).card = 1 ∧ ∀ s' ∈ 𝒜, s' ⊆ t → s' = s ∨ s' = t := by
+  simp_rw [mem_upShadow_iff, ← covby_iff_card_sdiff_eq_one, covby_iff_exists_insert]
+
+## 9.
+
+## 9.
+mem_upShadow_iff_exists_sdiff
+
+Failed Proof:
+lemma mem_upShadow_iff_exists_sdiff : t ∈ ∂⁺ 𝒜 ↔ �
+
+Attempt failure.
+
+Working on Mathlib/Data/List/Indexes.lean - 2024-09-08 01:52:16.457386.
+---8/20---
+For theorem List.map_enumFrom_eq_zipWith in Mathlib/Data/List/Indexes.lean:
+theorem map_enumFrom_eq_zipWith : ∀ (l : List α) (n : ℕ) (f : ℕ → α → β),
+    map (uncurry f) (enumFrom n l) = zipWith (fun i ↦ f (i + n)) (range (length l)) l 
+
+
+Original valid proof:
+:= by
+  intro l
+  generalize e : l.length = len
+  revert l
+  induction' len with len ih <;> intros l e n f
+  · have : l = [] := by
+      cases l
+      · rfl
+      · contradiction
+    rw [this]; rfl
+  · cases' l with head tail
+    · contradiction
+    · simp only [map, uncurry_apply_pair, range_succ_eq_map, zipWith, Nat.zero_add,
+        zipWith_map_left]
+      rw [ih]
+      · suffices (fun i ↦ f (i + (n + 1))) = ((fun i ↦ f (i + n)) ∘ Nat.succ) by
+          rw [this]
+          rfl
+        funext n' a
+        simp only [comp, Nat.add_assoc, Nat.add_comm, Nat.add_succ]
+      simp only [length_cons, Nat.succ.injEq] at e; exact e
+
+
+Verifying proof (Commit dc0b2fb410ce57ee8ea5b9ce5b357ce030465e7a):
+ := by
+  intro l
+  generalize e : l.length = len
+  revert l
+  induction' len with len ih <;> intros l e n f
+  · have : l = [] := by
+      cases l
+      · rfl
+      · contradiction
+    rw [this]; rfl
+  · cases' l with head tail
+    · contradiction
+    · simp only [map, uncurry_apply_pair, range_succ_eq_map, zipWith, Nat.zero_add,
+        zipWith_map_left]
+      rw [ih]
+      · suffices (fun i ↦ f (i + (n + 1))) = ((fun i ↦ f (i + n)) ∘ Nat.succ) by
+          rw [this]
+          rfl
+        funext n' a
+        simp only [comp, ← Nat.add_assoc', Nat.add_comm, Nat.add_succ]
+      simp only [length_cons, Nat.succ.injEq] at e; exact e
+
+## 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1
+
+Attempt failure.
+
+Working on Mathlib/Data/Matrix/Basis.lean - 2024-09-08 01:52:23.040492.
+---9/20---
+For theorem Matrix.mem_range_scalar_of_commute_stdBasisMatrix in Mathlib/Data/Matrix/Basis.lean:
+theorem mem_range_scalar_of_commute_stdBasisMatrix {M : Matrix n n α}
+    (hM : Pairwise fun i j => Commute (stdBasisMatrix i j 1) M) :
+    M ∈ Set.range (Matrix.scalar n) 
+
+
+Original valid proof:
+:= by
+  cases isEmpty_or_nonempty n
+  · exact ⟨0, Subsingleton.elim _ _⟩
+  obtain ⟨i⟩ := ‹Nonempty n›
+  refine ⟨M i i, Matrix.ext fun j k => ?_⟩
+  simp only [scalar_apply]
+  obtain rfl | hkl := Decidable.eq_or_ne j k
+  · rw [diagonal_apply_eq]
+    obtain rfl | hij := Decidable.eq_or_ne i j
+    · rfl
+    · exact diag_eq_of_commute_stdBasisMatrix (hM hij)
+  · rw [diagonal_apply_ne _ hkl]
+    obtain rfl | hij := Decidable.eq_or_ne i j
+    · rw [col_eq_zero_of_commute_stdBasisMatrix (hM hkl.symm) hkl]
+    · rw [row_eq_zero_of_commute_stdBasisMatrix (hM hij) hkl.symm]
+
+
+Verifying proof (Commit 8514323f4f60b0f0325e64c814dbd4505fa999f3):
+ := by
+  cases isEmpty_or_nonempty n
+  · exact ⟨0, Subsingleton.elim _ _⟩
+  obtain ⟨i⟩ := ‹Nonempty n›
+  refine ⟨M i i, Matrix.ext fun j k => ?_⟩
+  simp only [scalar_apply]
+  obtain rfl | hkl := Decidable.eq_or_ne j k
+  · rw [diagonal_apply_eq]
+    obtain rfl | hij := Decidable.eq_or_ne i j
+    · rfl
+    · exact diag_eq_of_commute_stdBasisMatrix (hM hij)
+  · push_neg at hkl
+    rw [diagonal_apply_ne _ hkl]
+    obtain rfl | hij := Decidable.eq_or_ne i j
+    · rw [col_eq_zero_of_commute_stdBasisMatrix (hM hkl.symm) hkl]
+    · rw [row_eq_zero_of_commute_stdBasisMatrix (hM hij) hkl.symm]
+
+####  Eric Wieser (May 02 2020 at 13:23):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at 13:24):
+
+I'm not sure what the issue is, but I'm not seeing any errors in the proof.
+
+####  Eric Wieser (May 02 2020 at
+
+Attempt failure.
+
+Working on Mathlib/Data/Nat/Factorial/Cast.lean - 2024-09-08 01:52:31.980706.
+---10/20---
+For theorem Nat.cast_descFactorial_two in Mathlib/Data/Nat/Factorial/Cast.lean:
+theorem cast_descFactorial_two : (a.descFactorial 2 : S) = a * (a - 1) 
+
+
+Original valid proof:
+:= by
+  rw [cast_descFactorial]
+  cases a
+  · simp
+  · rw [succ_sub_succ, tsub_zero, cast_succ, add_sub_cancel_right, ascPochhammer_succ_right,
+      ascPochhammer_one, Polynomial.X_mul, Polynomial.eval_mul_X, Polynomial.eval_add,
+      Polynomial.eval_X, cast_one, Polynomial.eval_one]
+
+
+Verifying proof (Commit 0c15e4238484dc82267246469e9c01f5f42f2ccb):
+ := by
+  rw [cast_descFactorial]
+  cases a
+  · simp
+  · rw [succ_sub_succ, tsub_zero, cast_succ, add_sub_cancel, ascPochhammer_succ_right,
+      ascPochhammer_one, Polynomial.X_mul, Polynomial.eval_mul_X, Polynomial.eval_add,
+      Polynomial.eval_X, cast_one, Polynomial.eval_one, mul_one]
+
+## Equations
+
+- Polynomial.descFactorial = Nat.descFactorial
+
+## Equations
+
+- Polynomial.descFactorial_zero = Nat.descFactorial_zero
+
+## Equations
+
+- Polynomial.descFactorial_succ = Nat.descFactorial_succ
+
+## Equations
+
+- Polynomial.descFactorial_one = Nat.descFactorial_one
+
+## Equations
+
+- Polynomial.descFactorial_two = Nat.descFactorial_two
+
+## Equations
+
+- Polynomial.descFactorial_add_one = Nat.descFactorial_add_one
+
+## Equations
+
+- Polynomial.descFactorial_sub_one = Nat.descFactorial_sub_one
+
+## Equations
+
+- Polynomial.descFactorial_add = Nat.descFactorial_add
+
+## Equations
+
+- Polynomial.descFactorial_sub = Nat.descFactorial_sub
+
+## Equations
+
+- Polynomial.descFactorial_mul_nat_cast = Nat.descFactorial_mul_nat_cast
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast = Nat.descFactorial_nat_cast
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_ofNat = Nat.descFactorial_nat_cast_ofNat
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_succ = Nat.descFactorial_nat_cast_succ
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_zero = Nat.descFactorial_nat_cast_zero
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_one = Nat.descFactorial_nat_cast_one
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_two = Nat.descFactorial_nat_cast_two
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_add = Nat.descFactorial_nat_cast_add
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_sub = Nat.descFactorial_nat_cast_sub
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_sub_one = Nat.descFactorial_nat_cast_sub_one
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_sub_two = Nat.descFactorial_nat_cast_sub_two
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul = Nat.descFactorial_nat_cast_mul
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_two = Nat.descFactorial_nat_cast_mul_two
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_three = Nat.descFactorial_nat_cast_mul_three
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_four = Nat.descFactorial_nat_cast_mul_four
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_five = Nat.descFactorial_nat_cast_mul_five
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_six = Nat.descFactorial_nat_cast_mul_six
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_seven = Nat.descFactorial_nat_cast_mul_seven
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_eight = Nat.descFactorial_nat_cast_mul_eight
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_nine = Nat.descFactorial_nat_cast_mul_nine
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_ten = Nat.descFactorial_nat_cast_mul_ten
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_eleven = Nat.descFactorial_nat_cast_mul_eleven
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twelve = Nat.descFactorial_nat_cast_mul_twelve
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_thirteen = Nat.descFactorial_nat_cast_mul_thirteen
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_fourteen = Nat.descFactorial_nat_cast_mul_fourteen
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_fifteen = Nat.descFactorial_nat_cast_mul_fifteen
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_sixteen = Nat.descFactorial_nat_cast_mul_sixteen
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_seventeen = Nat.descFactorial_nat_cast_mul_seventeen
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_eighteen = Nat.descFactorial_nat_cast_mul_eighteen
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_nineteen = Nat.descFactorial_nat_cast_mul_nineteen
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twenty = Nat.descFactorial_nat_cast_mul_twenty
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twenty_one = Nat.descFactorial_nat_cast_mul_twenty_one
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twenty_two = Nat.descFactorial_nat_cast_mul_twenty_two
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twenty_three = Nat.descFactorial_nat_cast_mul_twenty_three
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twenty_four = Nat.descFactorial_nat_cast_mul_twenty_four
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twenty_five = Nat.descFactorial_nat_cast_mul_twenty_five
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twenty_six = Nat.descFactorial_nat_cast_mul_twenty_six
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twenty_seven = Nat.descFactorial_nat_cast_mul_twenty_seven
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twenty_eight = Nat.descFactorial_nat_cast_mul_twenty_eight
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_twenty_nine = Nat.descFactorial_nat_cast_mul_twenty_nine
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_thirty = Nat.descFactorial_nat_cast_mul_thirty
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_thirty_one = Nat.descFactorial_nat_cast_mul_thirty_one
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_thirty_two = Nat.descFactorial_nat_cast_mul_thirty_two
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_thirty_three = Nat.descFactorial_nat_cast_mul_thirty_three
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_thirty_four = Nat.descFactorial_nat_cast_mul_thirty_four
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_thirty_five = Nat.descFactorial_nat_cast_mul_thirty_five
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_thirty_six = Nat.descFactorial_nat_cast_mul_thirty_six
+
+## Equations
+
+- Polynomial.descFactorial_nat_cast_mul_thirty_seven = Nat.descFactorial_nat_cast_mul_thirty_seven
+
+## Equations
+
+
+Attempt failure.
+
+Working on Mathlib/Data/Nat/Factorization/Root.lean - 2024-09-08 01:52:41.589185.
+---11/20---
+For theorem Nat.ceilRoot_ne_zero in Mathlib/Data/Nat/Factorization/Root.lean:
+lemma ceilRoot_ne_zero : ceilRoot n a ≠ 0 ↔ n ≠ 0 ∧ a ≠ 0 
+
+
+Original valid proof:
+:= by
+  simp (config := { contextual := true }) [ceilRoot_def, not_imp_not, not_or]
+
+
+Verifying proof (Commit c380edce4efb3cf743c9ca0d4c4a149715da1978):
+∧ a ≠ 1 := by
+  simp (config := { contextual := true }) [ceilRoot, not_imp_not, not_or]
+
+## 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.
+
+Attempt failure.
+
+Working on Mathlib/Geometry/Euclidean/Inversion/Calculus.lean - 2024-09-08 01:52:51.178435.
+---12/20---
+For theorem EuclideanGeometry.hasFDerivAt_inversion in Mathlib/Geometry/Euclidean/Inversion/Calculus.lean:
+theorem hasFDerivAt_inversion (hx : x ≠ c) :
+    HasFDerivAt (inversion c R)
+      ((R / dist x c) ^ 2 • (reflection (ℝ ∙ (x - c))ᗮ : F →L[ℝ] F)) x 
+
+
+Original valid proof:
+:= by
+  rcases add_left_surjective c x with ⟨x, rfl⟩
+  have : HasFDerivAt (inversion c R) (?_ : F →L[ℝ] F) (c + x) := by
+    simp only [inversion_def]
+    simp_rw [dist_eq_norm, div_pow, div_eq_mul_inv]
+    have A := (hasFDerivAt_id (𝕜 := ℝ) (c + x)).sub_const c
+    have B := ((hasDerivAt_inv <| by simpa using hx).comp_hasFDerivAt _ A.norm_sq).const_mul
+      (R ^ 2)
+    exact (B.smul A).add_const c
+  refine this.congr_fderiv (LinearMap.ext_on_codisjoint
+    (Submodule.isCompl_orthogonal_of_completeSpace (K := ℝ ∙ x)).codisjoint
+    (LinearMap.eqOn_span' ?_) fun y hy ↦ ?_)
+  · have : ((‖x‖ ^ 2) ^ 2)⁻¹ * (‖x‖ ^ 2) = (‖x‖ ^ 2)⁻¹ := by
+      rw [← div_eq_inv_mul, sq (‖x‖ ^ 2), div_self_mul_self']
+    simp [reflection_orthogonalComplement_singleton_eq_neg, real_inner_self_eq_norm_sq,
+      two_mul, this, div_eq_mul_inv, mul_add, add_smul, mul_pow]
+  · simp [Submodule.mem_orthogonal_singleton_iff_inner_right.1 hy,
+      reflection_mem_subspace_eq_self hy, div_eq_mul_inv, mul_pow]
+
+
+Verifying proof (Commit 1aadd4f4012334f6f1cd811e685b9c75a27ee9ed):
+ := by
+  rcases add_left_surjective c x with ⟨x, rfl⟩
+  have : HasFDerivAt (inversion c R) (_ : F →L[ℝ] F) (c + x)
+  · simp_rw [inversion, dist_eq_norm, div_pow, div_eq_mul_inv]
+    have A := (hasFDerivAt_id (𝕜 := ℝ) (c + x)).sub_const c
+    have B := ((hasDerivAt_inv <| by simpa using hx).comp_hasFDerivAt _ A.norm_sq).const_mul
+      (R ^ 2)
+    exact (B.smul A).add_const c
+  refine this.congr_fderiv (LinearMap.ext_on_codisjoint
+    (Submodule.isCompl_orthogonal_of_completeSpace (K := ℝ ∙ x)).codisjoint
+    (LinearMap.eqOn_span' ?_) fun y hy ↦ ?_)
+  · have : ((‖x‖ ^ 2) ^ 2)⁻¹ * (‖x‖ ^ 2) = (‖x‖ ^ 2)⁻¹
+    · rw [← div_eq_inv_mul, sq (‖x‖ ^ 2), div_self_mul_self']
+    simp [reflection_orthogonalComplement_singleton_eq_neg, real_inner_self_eq_norm_sq,
+      two_mul, this, div_eq_mul_inv, mul_add, add_smul, mul_pow]
+  · simp [Submodule.mem_orthogonal_singleton_iff_inner_right.1 hy,
+      reflection_mem_subspace_eq_self hy, div_eq_mul_inv, mul_pow]
+
+## 1.1.2.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.
+
+Attempt failure.
+
+Working on Mathlib/GroupTheory/Exponent.lean - 2024-09-08 01:53:04.247141.
+---13/20---
+For theorem Monoid.exponent_prod in Mathlib/GroupTheory/Exponent.lean:
+theorem Monoid.exponent_prod {M₁ M₂ : Type*} [Monoid M₁] [Monoid M₂] :
+    exponent (M₁ × M₂) = lcm (exponent M₁) (exponent M₂) 
+
+
+Original valid proof:
+:= by
+  refine dvd_antisymm ?_ (lcm_dvd ?_ ?_)
+  · refine exponent_dvd_of_forall_pow_eq_one fun g ↦ ?_
+    ext1
+    · rw [Prod.pow_fst, Prod.fst_one, ← orderOf_dvd_iff_pow_eq_one]
+      exact dvd_trans (Monoid.order_dvd_exponent (g.1)) <| dvd_lcm_left _ _
+    · rw [Prod.pow_snd, Prod.snd_one, ← orderOf_dvd_iff_pow_eq_one]
+      exact dvd_trans (Monoid.order_dvd_exponent (g.2)) <| dvd_lcm_right _ _
+  · exact MonoidHom.exponent_dvd (f := MonoidHom.fst M₁ M₂) Prod.fst_surjective
+  · exact MonoidHom.exponent_dvd (f := MonoidHom.snd M₁ M₂) Prod.snd_surjective
+
+
+Verifying proof (Commit 554c20d1eb6d2f1f6a5b53ccd3a727a93147a4de):
+ := by
+  refine dvd_antisymm ?_ (lcm_dvd ?_ ?_)
+  · refine exponent_dvd_of_forall_pow_eq_one _ _ fun g ↦ ?_
+    ext1
+    · rw [Prod.pow_fst, Prod.fst_one, ← orderOf_dvd_iff_pow_eq_one]
+      exact dvd_trans (Monoid.order_dvd_exponent (g.1)) <| dvd_lcm_left _ _
+    · rw [Prod.pow_snd, Prod.snd_one, ← orderOf_dvd_iff_pow_eq_one]
+      exact dvd_trans (Monoid.order_dvd_exponent (g.2)) <| dvd_lcm_right _ _
+  · exact MonoidHom.exponent_dvd (f := MonoidHom.fst M₁ M₂) Prod.fst_surjective
+  · exact MonoidHom.exponent_dvd (f := MonoidHom.snd M₁ M₂) Prod.snd_surjective
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+####  Eric Wieser (May 03 2020 at 10:00):
+
+I think it's a bug, because the proof works if you replace thelcm with a max.
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it, but I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10:01):
+
+I'm not sure how to fix it
+
+####  Eric Wieser (May 03 2020 at 10
+
+Attempt failure.
+
+Working on Mathlib/LinearAlgebra/BilinearForm/Properties.lean - 2024-09-08 01:53:15.443994.
+---14/20---
+For theorem LinearMap.BilinForm.apply_dualBasis_right in Mathlib/LinearAlgebra/BilinearForm/Properties.lean:
+theorem apply_dualBasis_right (B : BilinForm K V) (hB : B.Nondegenerate) (sym : B.IsSymm)
+    (b : Basis ι K V) (i j) : B (b i) (B.dualBasis hB b j) = if i = j then 1 else 0 
+
+
+Original valid proof:
+:= by
+  rw [sym.eq, apply_dualBasis_left]
+
+
+Verifying proof (Commit 596865180ecc63dcd1d95809202e31027ac3ae38):
+ := by
+  rw [sym, apply_dualBasis_left]
+
+I think the problem is that the `sym` hypothesis is not being used.
+
+####  Eric Wieser (May 04 2020 at 10:00):
+
+I think the problem is that thesym hypothesis is not being used.
+
+I'm not sure what you mean by that.
+
+####  Eric Wieser (May 04 2020 at 10:00):
+
+I'm not sure what you mean by that.
+
+I mean that the proof is not using the fact thatB is symmetric.
+
+####  Eric Wieser (May 04 2020 at 10:01):
+
+I mean that the proof is not using the fact that
+B is symmetric.
+I see, thanks.
+
+####  Eric Wieser (May 04 2020 at 10:01):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I'm not sure what you mean by that.
+
+I mean that the proof is not using the fact thatB is symmetric.
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I mean that the proof is not using the fact that
+B is symmetric.
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+No problem!
+
+####  Eric Wieser (May 04 2020 at 10:02):
+
+I see, thanks.
+
+
+Attempt failure.
+
+Working on Mathlib/Logic/Function/Basic.lean - 2024-09-08 01:53:32.913028.
+---15/20---
+For theorem Function.cantor_injective in Mathlib/Logic/Function/Basic.lean:
+theorem cantor_injective {α : Type*} (f : Set α → α) : ¬Injective f
+
+
+
+Original valid proof:
+  | i => cantor_surjective (fun a ↦ {b | ∀ U, a = f U → U b}) <|
+         RightInverse.surjective (fun U ↦ Set.ext fun _ ↦ ⟨fun h ↦ h U rfl, fun h _ e ↦ i e ▸ h⟩)
+
+
+Verifying proof (Commit ef3c9bcd07782b044027916a64e925f3e4951707):
+  | i => cantor_surjective (fun a ↦ {b | ∀ U, a = f U → U.toPred b}) <|
+         RightInverse.surjective (fun U ↦ Set.ext fun _ ↦ ⟨fun h ↦ h U rfl, fun h _ e ↦ i e ▸ h⟩)
+
+####  Mario Carneiro (May 01 2020 at 06:50):
+
+I think the problem is that you're trying to use the fact thatU.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:50):
+
+You can't use the fact thatU.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set, you have to use the fact that it is a predicate
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+I think the problem is that you're trying to use the fact that
+U.toPred b is a set, but it's not.
+
+####  Mario Carneiro (May 01 2020 at 06:51):
+
+You can't use the fact that
+U.toPred b is a set,
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Function/ConvergenceInMeasure.lean - 2024-09-08 01:53:38.339339.
+---16/20---
+For theorem MeasureTheory.TendstoInMeasure.exists_seq_tendsto_ae in Mathlib/MeasureTheory/Function/ConvergenceInMeasure.lean:
+theorem TendstoInMeasure.exists_seq_tendsto_ae (hfg : TendstoInMeasure μ f atTop g) :
+    ∃ ns : ℕ → ℕ, StrictMono ns ∧ ∀ᵐ x ∂μ, Tendsto (fun i => f (ns i) x) atTop (𝓝 (g x)) 
+
+
+Original valid proof:
+:= by
+  have h_lt_ε_real : ∀ (ε : ℝ) (_ : 0 < ε), ∃ k : ℕ, 2 * (2 : ℝ)⁻¹ ^ k < ε := by
+    intro ε hε
+    obtain ⟨k, h_k⟩ : ∃ k : ℕ, (2 : ℝ)⁻¹ ^ k < ε := exists_pow_lt_of_lt_one hε (by norm_num)
+    refine ⟨k + 1, (le_of_eq ?_).trans_lt h_k⟩
+    rw [pow_add]; ring
+  set ns := ExistsSeqTendstoAe.seqTendstoAeSeq hfg
+  use ns
+  let S := fun k => { x | (2 : ℝ)⁻¹ ^ k ≤ dist (f (ns k) x) (g x) }
+  have hμS_le : ∀ k, μ (S k) ≤ (2 : ℝ≥0∞)⁻¹ ^ k :=
+    fun k => ExistsSeqTendstoAe.seqTendstoAeSeq_spec hfg k (ns k) le_rfl
+  set s := Filter.atTop.limsup S with hs
+  have hμs : μ s = 0 := by
+    refine measure_limsup_eq_zero (ne_of_lt <| lt_of_le_of_lt (ENNReal.tsum_le_tsum hμS_le) ?_)
+    simp only [ENNReal.tsum_geometric, ENNReal.one_sub_inv_two, ENNReal.two_lt_top, inv_inv]
+  have h_tendsto : ∀ x ∈ sᶜ, Tendsto (fun i => f (ns i) x) atTop (𝓝 (g x)) := by
+    refine fun x hx => Metric.tendsto_atTop.mpr fun ε hε => ?_
+    rw [hs, limsup_eq_iInf_iSup_of_nat] at hx
+    simp only [S, Set.iSup_eq_iUnion, Set.iInf_eq_iInter, Set.compl_iInter, Set.compl_iUnion,
+      Set.mem_iUnion, Set.mem_iInter, Set.mem_compl_iff, Set.mem_setOf_eq, not_le] at hx
+    obtain ⟨N, hNx⟩ := hx
+    obtain ⟨k, hk_lt_ε⟩ := h_lt_ε_real ε hε
+    refine ⟨max N (k - 1), fun n hn_ge => lt_of_le_of_lt ?_ hk_lt_ε⟩
+    specialize hNx n ((le_max_left _ _).trans hn_ge)
+    have h_inv_n_le_k : (2 : ℝ)⁻¹ ^ n ≤ 2 * (2 : ℝ)⁻¹ ^ k := by
+      rw [mul_comm, ← inv_mul_le_iff' (zero_lt_two' ℝ)]
+      conv_lhs =>
+        congr
+        rw [← pow_one (2 : ℝ)⁻¹]
+      rw [← pow_add, add_comm]
+      exact pow_le_pow_of_le_one (one_div (2 : ℝ) ▸ one_half_pos.le) (inv_le_one one_le_two)
+        ((le_tsub_add.trans (add_le_add_right (le_max_right _ _) 1)).trans
+          (add_le_add_right hn_ge 1))
+    exact le_trans hNx.le h_inv_n_le_k
+  rw [ae_iff]
+  refine ⟨ExistsSeqTendstoAe.seqTendstoAeSeq_strictMono hfg, measure_mono_null (fun x => ?_) hμs⟩
+  rw [Set.mem_setOf_eq, ← @Classical.not_not (x ∈ s), not_imp_not]
+  exact h_tendsto x
+
+
+Verifying proof (Commit 2ac7d87c221020b247729b180bbe2575cceb0700):
+ := by
+  have h_lt_ε_real : ∀ (ε : ℝ) (_ : 0 < ε), ∃ k : ℕ, 2 * (2 : ℝ)⁻¹ ^ k < ε := by
+    intro ε hε
+    obtain ⟨k, h_k⟩ : ∃ k : ℕ, (2 : ℝ)⁻¹ ^ k < ε := exists_pow_lt_of_lt_one hε (by norm_num)
+    refine' ⟨k + 1, (le_of_eq _).trans_lt h_k⟩
+    rw [pow_add]; ring
+  set ns := ExistsSeqTendstoAe.seqTendstoAeSeq hfg
+  use ns
+  let S := fun k => { x | (2 : ℝ)⁻¹ ^ k ≤ dist (f (ns k) x) (g x) }
+  have hμS_le : ∀ k, μ (S k) ≤ (2 : ℝ≥0∞)⁻¹ ^ k :=
+    fun k => ExistsSeqTendstoAe.seqTendstoAeSeq_spec hfg k (ns k) le_rfl
+  set s := Filter.atTop.limsup S with hs
+  have hμs : μ s = 0 := by
+    refine' measure_limsup_eq_zero (ne_of_lt <| lt_of_le_of_lt (ENNReal.tsum_le_tsum hμS_le) _)
+    simp only [ENNReal.tsum_geometric, ENNReal.one_sub_inv_two, inv_inv]
+  have h_tendsto : ∀ x ∈ sᶜ, Tendsto (fun i => f (ns i) x) atTop (𝓝 (g x)) := by
+    refine' fun x hx => Metric.tendsto_atTop.mpr fun ε hε => _
+    rw [hs, limsup_eq_iInf_iSup_of_nat] at hx
+    simp only [Set.iSup_eq_iUnion, Set.iInf_eq_iInter, Set.compl_iInter, Set.compl_iUnion,
+      Set.mem_iUnion, Set.mem_iInter, Set.mem_compl_iff, Set.mem_setOf_eq, not_le] at hx
+    obtain ⟨N, hNx⟩ := hx
+    obtain ⟨k, hk_lt_ε⟩ := h_lt_ε_real ε hε
+    refine' ⟨max N (k - 1), fun n hn_ge => lt_of_le_of_lt _ hk_lt_ε⟩
+    specialize hNx n ((le_max_left _ _).trans hn_ge)
+    have h_inv_n_le_k : (2 : ℝ)⁻¹ ^ n ≤ 2 * (2 : ℝ)⁻¹ ^ k := by
+      rw [mul_comm, ← inv_mul_le_iff' (zero_lt_two' ℝ)]
+      conv_lhs =>
+        congr
+        rw [← pow_one (2 : ℝ)⁻¹]
+      rw [← pow_add, add_comm]
+      exact pow_le_pow_of_le_one (one_div (2 : ℝ) ▸ one_half_pos.le) (inv_le_one one_le_two)
+        ((le_tsub_add.trans (add_le_add_right (le_max_right _ _) 1)).trans
+          (add_le_add_right hn_ge 1))
+    exact le_trans hNx.le h_inv_n_le_k
+  rw [ae_iff]
+  refine' ⟨ExistsSeqTendstoAe.seqTendstoAeSeq_strictMono hfg, measure_mono_null (fun x => _) hμs⟩
+  rw [Set.mem_setOf_eq, ← @Classical.not_not (x ∈ s), not_imp_not]
+  exact h_tendsto x
+
+## References #
+
+- [B. S. Thomson, J. B. Bruckner, and R. D. Driver, "Real Analysis", Second Edition (2001)](https://www.amazon.com/Real-Analysis-Second-Edition-Bruckner/dp/0471321486)
+
+## Tags #
+
+convergence in measure, almost everywhere, almost everywhere convergence, a.e. convergence, a.e.c., tendsto in measure, tendsto in measure ae, tendsto ae, tendsto ae at top, tendsto at top, tendsto at top ae, tendsto_in_measure, tendsto_in_measure_ae, tendsto_ae, tendsto_ae_at_top, tendsto_at_top_ae, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_top, tendsto_ae_at_
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Integral/CircleIntegral.lean - 2024-09-08 01:53:50.824382.
+---17/20---
+For theorem circleIntegral.norm_integral_lt_of_norm_le_const_of_lt in Mathlib/MeasureTheory/Integral/CircleIntegral.lean:
+theorem norm_integral_lt_of_norm_le_const_of_lt {f : ℂ → E} {c : ℂ} {R C : ℝ} (hR : 0 < R)
+    (hc : ContinuousOn f (sphere c R)) (hf : ∀ z ∈ sphere c R, ‖f z‖ ≤ C)
+    (hlt : ∃ z ∈ sphere c R, ‖f z‖ < C) : ‖∮ z in C(c, R), f z‖ < 2 * π * R * C 
+
+
+Original valid proof:
+:= by
+  rw [← _root_.abs_of_pos hR, ← image_circleMap_Ioc] at hlt
+  rcases hlt with ⟨_, ⟨θ₀, hmem, rfl⟩, hlt⟩
+  calc
+    ‖∮ z in C(c, R), f z‖ ≤ ∫ θ in (0)..2 * π, ‖deriv (circleMap c R) θ • f (circleMap c R θ)‖ :=
+      intervalIntegral.norm_integral_le_integral_norm Real.two_pi_pos.le
+    _ < ∫ _ in (0)..2 * π, R * C := by
+      simp only [norm_smul, deriv_circleMap, norm_eq_abs, map_mul, abs_I, mul_one,
+        abs_circleMap_zero, abs_of_pos hR]
+      refine intervalIntegral.integral_lt_integral_of_continuousOn_of_le_of_exists_lt
+          Real.two_pi_pos ?_ continuousOn_const (fun θ _ => ?_) ⟨θ₀, Ioc_subset_Icc_self hmem, ?_⟩
+      · exact continuousOn_const.mul (hc.comp (continuous_circleMap _ _).continuousOn fun θ _ =>
+          circleMap_mem_sphere _ hR.le _).norm
+      · exact mul_le_mul_of_nonneg_left (hf _ <| circleMap_mem_sphere _ hR.le _) hR.le
+      · exact (mul_lt_mul_left hR).2 hlt
+    _ = 2 * π * R * C := by simp [mul_assoc]; ring
+
+
+Verifying proof (Commit e92ad7acc4d771729f70601a74a3c091f330e507):
+ := by
+  rw [← _root_.abs_of_pos hR, ← image_circleMap_Ioc] at hlt
+  rcases hlt with ⟨_, ⟨θ₀, hmem, rfl⟩, hlt⟩
+  calc
+    ‖∮ z in C(c, R), f z‖ ≤ ∫ θ in [0:2 * π], ‖deriv (circleMap c R) θ • f (circleMap c R θ)‖ :=
+      intervalIntegral.norm_integral_le_integral_norm Real.two_pi_pos.le
+    _ < ∫ _ in [0:2 * π], R * C := by
+      simp only [norm_smul, deriv_circleMap, norm_eq_abs, map_mul, abs_I, mul_one,
+        abs_circleMap_zero, abs_of_pos hR]
+      refine' intervalIntegral.integral_lt_integral_of_continuousOn_of_le_of_exists_lt
+          Real.two_pi_pos _ continuousOn_const (fun θ _ => _) ⟨θ₀, Ioc_subset_Icc_self hmem, _⟩
+      · exact continuousOn_const.mul (hc.comp (continuous_circleMap _ _).continuousOn fun θ _ =>
+          circleMap_mem_sphere _ hR.le _).norm
+      · exact mul_le_mul_of_nonneg_left (hf _ <| circleMap_mem_sphere _ hR.le _) hR.le
+      · exact (mul_lt_mul_left hR).2 hlt
+    _ = 2 * π * R * C := by simp [mul_assoc]; ring
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:50):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G. Kudryashov (Jun 02 2020 at 14:51):
+
+I'm not sure that this is a good idea.
+
+####  Yury G.
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Measure/Typeclasses.lean - 2024-09-08 01:54:10.632919.
+---18/20---
+For theorem IsCompact.exists_open_superset_measure_lt_top in Mathlib/MeasureTheory/Measure/Typeclasses.lean:
+theorem exists_open_superset_measure_lt_top' (h : IsCompact s)
+    (hμ : ∀ x ∈ s, μ.FiniteAtFilter (𝓝 x)) : ∃ U ⊇ s, IsOpen U ∧ μ U < ∞ 
+
+
+Original valid proof:
+:= by
+  refine IsCompact.induction_on h ?_ ?_ ?_ ?_
+  · use ∅
+    simp [Superset]
+  · rintro s t hst ⟨U, htU, hUo, hU⟩
+    exact ⟨U, hst.trans htU, hUo, hU⟩
+  · rintro s t ⟨U, hsU, hUo, hU⟩ ⟨V, htV, hVo, hV⟩
+    refine
+      ⟨U ∪ V, union_subset_union hsU htV, hUo.union hVo,
+        (measure_union_le _ _).trans_lt <| ENNReal.add_lt_top.2 ⟨hU, hV⟩⟩
+  · intro x hx
+    rcases (hμ x hx).exists_mem_basis (nhds_basis_opens _) with ⟨U, ⟨hx, hUo⟩, hU⟩
+    exact ⟨U, nhdsWithin_le_nhds (hUo.mem_nhds hx), U, Subset.rfl, hUo, hU⟩
+
+
+Verifying proof (Commit fd3379ddac23e991aaf3056785fd48b9fc8dbdb6):
+ := by
+  refine IsCompact.induction_on h ?_ ?_? _? _
+  · use ∅
+    simp [Superset]
+  · rintro s t hst ⟨U, htU, hUo, hU⟩
+    exact ⟨U, hst.trans htU, hUo, hU⟩
+  · rintro s t ⟨U, hsU, hUo, hU⟩ ⟨V, htV, hVo, hV⟩
+    refine'
+      ⟨U ∪ V, union_subset_union hsU htV, hUo.union hVo,
+        (measure_union_le _ _).trans_lt <| ENNReal.add_lt_top.2 ⟨hU, hV⟩⟩
+  · intro x hx
+    rcases (hμ x hx).exists_mem_basis (nhds_basis_opens _) with ⟨U, ⟨hx, hUo⟩, hU⟩
+    exact ⟨U, nhdsWithin_le_nhds (hUo.mem_nhds hx), U, Subset.rfl, hUo, hU⟩
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+####  Eric Wieser (May 01 2020 at 13:00):
+
+I'm not sure if this is a bug or not, but I'm not sure how to fix it.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:01):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+####  Eric Wieser (May 01 2020 at 13:02):
+
+I'm not sure how to fix it either, but I'm pretty sure it's a bug.
+
+I'm not sure how to fix it either,
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Measure/WithDensity.lean - 2024-09-08 01:54:24.673534.
+---19/20---
+For theorem MeasureTheory.ae_withDensity_iff_ae_restrict in Mathlib/MeasureTheory/Measure/WithDensity.lean:
+theorem ae_withDensity_iff_ae_restrict' {p : α → Prop} {f : α → ℝ≥0∞}
+    (hf : AEMeasurable f μ) :
+    (∀ᵐ x ∂μ.withDensity f, p x) ↔ ∀ᵐ x ∂μ.restrict { x | f x ≠ 0 }, p x 
+
+
+Original valid proof:
+:= by
+  rw [ae_withDensity_iff' hf, ae_restrict_iff'₀]
+  · simp only [mem_setOf]
+  · rcases hf with ⟨g, hg, hfg⟩
+    have nonneg_eq_ae : {x | g x ≠ 0} =ᵐ[μ] {x | f x ≠ 0} := by
+      filter_upwards [hfg] with a ha
+      simp only [eq_iff_iff]
+      exact ⟨fun (h : g a ≠ 0) ↦ by rwa [← ha] at h,
+             fun (h : f a ≠ 0) ↦ by rwa [ha] at h⟩
+    exact NullMeasurableSet.congr
+      (MeasurableSet.nullMeasurableSet
+        <| hg (measurableSet_singleton _)).compl
+      nonneg_eq_ae
+
+
+Verifying proof (Commit ef3c9bcd07782b044027916a64e925f3e4951707):
+ := by
+  rw [ae_withDensity_iff' hf, ae_restrict_iff'₀]
+  · simp only [mem_setOf]
+  · rcases hf with ⟨g, hg, hfg⟩
+    have nonneg_eq_ae : {x | g x ≠ 0}.toPred =ᵐ[μ] {x | f x ≠ 0}.toPred := by
+      filter_upwards [hfg] with a ha
+      simp only [eq_iff_iff]
+      exact ⟨fun (h : g a ≠ 0) ↦ by rwa [← ha] at h,
+             fun (h : f a ≠ 0) ↦ by rwa [ha] at h⟩
+    exact NullMeasurableSet.congr
+      (MeasurableSet.nullMeasurableSet
+        <| hg (measurableSet_singleton _)).compl
+      nonneg_eq_ae
+
+## 1.2.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1
+
+Attempt failure.
+
+Working on Mathlib/NumberTheory/FLT/Basic.lean - 2024-09-08 01:54:36.352449.
+---20/20---
+For theorem FermatLastTheoremFor.mono in Mathlib/NumberTheory/FLT/Basic.lean:
+lemma FermatLastTheoremFor.mono (hmn : m ∣ n) (hm : FermatLastTheoremFor m) :
+    FermatLastTheoremFor n 
+
+
+Original valid proof:
+:= by
+  exact FermatLastTheoremWith.mono hmn hm
+
+
+Verifying proof (Commit e6ad86eaadea16fd24ab57fad33a02288669fb7b):
+ := by
+  exact FermatLastTheoremWithSolutionZero.mono hmn hm
+
+I'm not sure if this is a bug or a feature, but I'm not sure how to fix it.
+
+####  Mario Carneiro (Apr 15 2021 at 00:50):
+
+I think it's a bug, but it's not a big deal.
+
+####  Mario Carneiro (Apr 15 2021 at 00:50):
+
+The problem is that the type ofhm is FermatLastTheoremFor m, which is not the same as FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:51):
+
+The type ofhm should be FermatLastTheoremFor m, and the type of hm.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:51):
+
+The type ofhm.mono hmn is FermatLastTheoremFor m, so it's not a valid proof of FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:52):
+
+The type ofhm.mono hmn should be FermatLastTheoremFor m, and the type of hm.mono hmn.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:52):
+
+and so on
+
+####  Mario Carneiro (Apr 15 2021 at 00:52):
+
+The type ofhm.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor m, and the type of hm.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+and so on
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+The type ofhm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor m, and the type of hm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+and so on
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+The type ofhm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor m, and the type of hm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+and so on
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+The type ofhm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor m, and the type of hm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+and so on
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+The type ofhm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor m, and the type of hm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+and so on
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+The type ofhm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor m, and the type of hm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+and so on
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+The type ofhm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor m, and the type of hm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+and so on
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+The type ofhm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor m, and the type of hm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+and so on
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+The type ofhm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor m, and the type of hm.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn.mono hmn should be FermatLastTheoremFor n
+
+####  Mario Carneiro (Apr 15 2021 at 00:53):
+
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 20 proof attempts, there were 0 successful and 20 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

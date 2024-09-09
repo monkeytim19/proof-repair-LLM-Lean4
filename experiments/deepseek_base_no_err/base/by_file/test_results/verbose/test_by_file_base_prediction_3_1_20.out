@@ -1,0 +1,362 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 11:01:50.078236
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 1788603 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean - 2024-09-08 12:21:00.981585.
+---1/1---
+For theorem norm_jacobiTheta₂_term_fderiv_le in Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean:
+lemma norm_jacobiTheta₂_term_fderiv_le (n : ℤ) (z τ : ℂ) :
+    ‖jacobiTheta₂_term_fderiv n z τ‖ ≤ 3 * π * |n| ^ 2 * ‖jacobiTheta₂_term n z τ‖ 
+
+
+Original valid proof:
+:= by
+  have hns (a : ℂ) (f : (ℂ × ℂ) →L[ℂ] ℂ) : ‖a • f‖ = ‖a‖ * ‖f‖ := norm_smul a f
+  rw [jacobiTheta₂_term_fderiv, jacobiTheta₂_term, hns,
+    mul_comm _ ‖cexp _‖, (by norm_num : (3 : ℝ) = 2 + 1), add_mul, add_mul]
+  refine mul_le_mul_of_nonneg_left ((norm_add_le _ _).trans (add_le_add ?_ ?_)) (norm_nonneg _)
+  · simp_rw [hns, norm_mul, ← ofReal_ofNat, ← ofReal_intCast,
+      norm_real, norm_of_nonneg zero_le_two, Real.norm_of_nonneg pi_pos.le, norm_I, mul_one,
+      Real.norm_eq_abs, Int.cast_abs, mul_assoc]
+    refine mul_le_mul_of_nonneg_left (mul_le_mul_of_nonneg_left ?_ pi_pos.le) two_pos.le
+    refine le_trans ?_ (?_ : |(n : ℝ)| ≤ |(n : ℝ)| ^ 2)
+    · exact mul_le_of_le_one_right (abs_nonneg _) (ContinuousLinearMap.norm_fst_le ..)
+    · exact_mod_cast Int.le_self_sq |n|
+  · simp_rw [hns, norm_mul, one_mul, norm_I, mul_one,
+      norm_real, norm_of_nonneg pi_pos.le, ← ofReal_intCast, ← ofReal_pow, norm_real,
+      Real.norm_eq_abs, Int.cast_abs, _root_.abs_pow]
+    apply mul_le_of_le_one_right (mul_nonneg pi_pos.le (pow_nonneg (abs_nonneg _) _))
+    exact ContinuousLinearMap.norm_snd_le ..
+
+
+Verifying proof (Commit cf5995283f32dd2e0ccb43bc9901c4e7ba9fed97):
+ := by
+  have hns (a : ℂ) (f : (ℂ × ℂ) →L[ℂ] ℂ) : ‖a • f‖ = ‖a‖ * ‖f‖ := norm_smul a f
+  rw [jacobiTheta₂_term_fderiv, jacobiTheta₂_term, hns,
+    mul_comm _ ‖cexp _‖, (by norm_num : (3 : ℝ) = 2 + 1), add_mul, add_mul]
+  refine mul_le_mul_of_nonneg_left ((norm_add_le _ _).trans (add_le_add ?_ ?_)) (norm_nonneg _)
+  · simp_rw [hns, norm_mul, ← ofReal_ofNat, ← ofReal_int_cast,
+      norm_real, norm_of_nonneg zero_le_two, Real.norm_of_nonneg pi_pos.le, norm_I, mul_one,
+      Real.norm_eq_abs, Int.cast_abs, mul_assoc]
+    refine mul_le_mul_of_nonneg_left (mul_le_mul_of_nonneg_left ?_ pi_pos.le) two_pos.le
+    refine le_trans ?_ (?_ : |(n : ℝ)| ≤ |(n : ℝ)| ^ 2)
+    · exact mul_le_of_le_one_right (abs_nonneg _) (ContinuousLinearMap.norm_fst_le ..)
+    · exact_mod_cast Int.le_self_sq |n|
+  · simp_rw [hns, norm_mul, one_mul, norm_I, mul_one,
+      norm_real, norm_of_nonneg pi_pos.le, ← ofReal_int_cast, ← ofReal_pow, norm_real,
+      Real.norm_eq_abs, Int.cast_abs, _root_.abs_pow]
+    apply mul_le_of_le_one_right (mul_nonneg pi_pos.le (pow_nonneg (abs_nonneg _) _))
+    exact ContinuousLinearMap.norm_snd_le ..
+
+## References #
+
+- [Bump, Automorphic Forms and Representations, Chapter 1, Section 1.1]
+
+## Tags #
+
+Jacobi theta function, theta function, theta series, theta series, theta transformation formula
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+## Equations
+
+- One or more equations did not get rendered due to their size.
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 1 proof attempts, there were 0 successful and 1 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.

@@ -1,0 +1,7302 @@
+STARTING: verification of proofs from predicted_proof column in dataset from models/deepseek_base_no_err/base/by_file/test_by_file_base_prediction.csv - 2024-09-08 01:27:36.088120
+STARTING: Lean repo copy creation
+DONE: Lean repo copy creation
+STARTING: retrieve cache
+installing leantar 0.1.13
+Attempting to download 4738 file(s)
+Decompressing 4738 file(s)
+Unpacked in 255678 ms
+Completed successfully!
+DONE: retrieved cache
+Working on Mathlib/Algebra/BigOperators/Finprod.lean - 2024-09-08 01:43:55.781417.
+---1/20---
+For theorem finprod_mul_distrib in Mathlib/Algebra/BigOperators/Finprod.lean:
+theorem finprod_mul_distrib (hf : (mulSupport f).Finite) (hg : (mulSupport g).Finite) :
+    ∏ᶠ i, f i * g i = (∏ᶠ i, f i) * ∏ᶠ i, g i 
+
+
+Original valid proof:
+:= by
+  classical
+    rw [finprod_eq_prod_of_mulSupport_toFinset_subset f hf Finset.subset_union_left,
+      finprod_eq_prod_of_mulSupport_toFinset_subset g hg Finset.subset_union_right, ←
+      Finset.prod_mul_distrib]
+    refine finprod_eq_prod_of_mulSupport_subset _ ?_
+    simp only [Finset.coe_union, Finite.coe_toFinset, mulSupport_subset_iff,
+      mem_union, mem_mulSupport]
+    intro x
+    contrapose!
+    rintro ⟨hf, hg⟩
+    simp [hf, hg]
+
+
+Verifying proof (Commit f909ab9f9febceb93de8511363cdcc9b1a0d7525):
+ := by
+  classical
+    rw [finprod_eq_prod_of_mulSupport_toFinset_subset _ hf (Finset.subset_union_left _ _),
+      finprod_eq_prod_of_mulSupport_toFinset_subset _ hg (Finset.subset_union_right _ _), ←
+      Finset.prod_mul_distrib]
+    refine finprod_eq_prod_of_mulSupport_subset _ ?_
+    simp only [Finset.coe_union, Finite.coe_toFinset, mulSupport_subset_iff,
+      mem_union, mem_mulSupport]
+    intro x
+    contrapose!
+    rintro ⟨hf, hg⟩
+    simp [hf, hg]
+
+####  Eric Wieser (May 10 2020 at 10:00):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 10 2020 at 10:01):
+
+I'm not sure what the issue is, but I'm not sure I'd want to use the contrapose! tactic in this case.
+
+####  Eric Wieser (May 
+
+Attempt failure.
+
+Working on Mathlib/Algebra/DirectSum/Module.lean - 2024-09-08 01:44:17.185154.
+---2/20---
+For theorem DirectSum.linearMap_ext in Mathlib/Algebra/DirectSum/Module.lean:
+theorem linearMap_ext ⦃ψ ψ' : (⨁ i, M i) →ₗ[R] N⦄
+    (H : ∀ i, ψ.comp (lof R ι M i) = ψ'.comp (lof R ι M i)) : ψ = ψ' 
+
+
+Original valid proof:
+:=
+  DFinsupp.lhom_ext' H
+
+
+Verifying proof (Commit 5068808d2b4c25cf905cf7fee10ded8e447c2346):
+ :=
+  Dfinsupp.lhom_ext' fun i => by
+    simp only [LinearMap.comp_apply, Dfinsupp.lof_apply, LinearMap.coe_comp]
+    exact H i
+
+####  Eric Wieser (May 01 2020 at 10:00):
+
+I'm not sure what the best way to fix this is, but I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:00):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 2020 at 10:01):
+
+I'm not sure that the current state of affairs is ideal.
+
+####  Eric Wieser (May 01 20
+
+Attempt failure.
+
+Working on Mathlib/Algebra/Polynomial/Eval.lean - 2024-09-08 01:44:36.699558.
+---3/20---
+For theorem Polynomial.eval₂_eq_eval_map in Mathlib/Algebra/Polynomial/Eval.lean:
+theorem eval₂_eq_eval_map {x : S} : p.eval₂ f x = (p.map f).eval x 
+
+
+Original valid proof:
+:= by
+  induction p using Polynomial.induction_on' with
+  | h_add p q hp hq =>
+    simp [hp, hq]
+  | h_monomial n r =>
+    simp
+
+
+Verifying proof (Commit c342c339a777827331257acd880fea6d441a6aa6):
+ := by
+  induction p with
+  | h_add p q hp hq =>
+    simp [hp, hq]
+  | h_monomial n r =>
+    simp [eval_monomial, map_monomial]
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Jun 13 2020 at 10:40):
+
+I'm not sure what the point of this is.
+
+####  Kevin
+
+Attempt failure.
+
+Working on Mathlib/Analysis/InnerProductSpace/Projection.lean - 2024-09-08 01:44:51.027505.
+---4/20---
+For theorem norm_eq_iInf_iff_real_inner_le_zero in Mathlib/Analysis/InnerProductSpace/Projection.lean:
+theorem norm_eq_iInf_iff_real_inner_le_zero {K : Set F} (h : Convex ℝ K) {u : F} {v : F}
+    (hv : v ∈ K) : (‖u - v‖ = ⨅ w : K, ‖u - w‖) ↔ ∀ w ∈ K, ⟪u - v, w - v⟫_ℝ ≤ 0 
+
+
+Original valid proof:
+:= by
+  letI : Nonempty K := ⟨⟨v, hv⟩⟩
+  constructor
+  · intro eq w hw
+    let δ := ⨅ w : K, ‖u - w‖
+    let p := ⟪u - v, w - v⟫_ℝ
+    let q := ‖w - v‖ ^ 2
+    have δ_le (w : K) : δ ≤ ‖u - w‖ := ciInf_le ⟨0, fun _ ⟨_, h⟩ => h ▸ norm_nonneg _⟩ _
+    have δ_le' (w) (hw : w ∈ K) : δ ≤ ‖u - w‖ := δ_le ⟨w, hw⟩
+    have (θ : ℝ) (hθ₁ : 0 < θ) (hθ₂ : θ ≤ 1) : 2 * p ≤ θ * q := by
+      have : ‖u - v‖ ^ 2 ≤ ‖u - v‖ ^ 2 - 2 * θ * ⟪u - v, w - v⟫_ℝ + θ * θ * ‖w - v‖ ^ 2 :=
+        calc ‖u - v‖ ^ 2
+          _ ≤ ‖u - (θ • w + (1 - θ) • v)‖ ^ 2 := by
+            simp only [sq]; apply mul_self_le_mul_self (norm_nonneg _)
+            rw [eq]; apply δ_le'
+            apply h hw hv
+            exacts [le_of_lt hθ₁, sub_nonneg.2 hθ₂, add_sub_cancel _ _]
+          _ = ‖u - v - θ • (w - v)‖ ^ 2 := by
+            have : u - (θ • w + (1 - θ) • v) = u - v - θ • (w - v) := by
+              rw [smul_sub, sub_smul, one_smul]
+              simp only [sub_eq_add_neg, add_comm, add_left_comm, add_assoc, neg_add_rev]
+            rw [this]
+          _ = ‖u - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) + θ * θ * ‖w - v‖ ^ 2 := by
+            rw [@norm_sub_sq ℝ, inner_smul_right, norm_smul]
+            simp only [sq]
+            show
+              ‖u - v‖ * ‖u - v‖ - 2 * (θ * inner (u - v) (w - v)) +
+                absR θ * ‖w - v‖ * (absR θ * ‖w - v‖) =
+              ‖u - v‖ * ‖u - v‖ - 2 * θ * inner (u - v) (w - v) + θ * θ * (‖w - v‖ * ‖w - v‖)
+            rw [abs_of_pos hθ₁]; ring
+      have eq₁ :
+        ‖u - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) + θ * θ * ‖w - v‖ ^ 2 =
+          ‖u - v‖ ^ 2 + (θ * θ * ‖w - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v)) := by
+        abel
+      rw [eq₁, le_add_iff_nonneg_right] at this
+      have eq₂ :
+        θ * θ * ‖w - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) =
+          θ * (θ * ‖w - v‖ ^ 2 - 2 * inner (u - v) (w - v)) := by ring
+      rw [eq₂] at this
+      have := le_of_sub_nonneg (nonneg_of_mul_nonneg_right this hθ₁)
+      exact this
+    by_cases hq : q = 0
+    · rw [hq] at this
+      have : p ≤ 0 := by
+        have := this (1 : ℝ) (by norm_num) (by norm_num)
+        linarith
+      exact this
+    · have q_pos : 0 < q := lt_of_le_of_ne (sq_nonneg _) fun h ↦ hq h.symm
+      by_contra hp
+      rw [not_le] at hp
+      let θ := min (1 : ℝ) (p / q)
+      have eq₁ : θ * q ≤ p :=
+        calc
+          θ * q ≤ p / q * q := mul_le_mul_of_nonneg_right (min_le_right _ _) (sq_nonneg _)
+          _ = p := div_mul_cancel₀ _ hq
+      have : 2 * p ≤ p :=
+        calc
+          2 * p ≤ θ * q := by
+            exact this θ (lt_min (by norm_num) (div_pos hp q_pos)) (by norm_num [θ])
+          _ ≤ p := eq₁
+      linarith
+  · intro h
+    apply le_antisymm
+    · apply le_ciInf
+      intro w
+      apply nonneg_le_nonneg_of_sq_le_sq (norm_nonneg _)
+      have := h w w.2
+      calc
+        ‖u - v‖ * ‖u - v‖ ≤ ‖u - v‖ * ‖u - v‖ - 2 * inner (u - v) ((w : F) - v) := by linarith
+        _ ≤ ‖u - v‖ ^ 2 - 2 * inner (u - v) ((w : F) - v) + ‖(w : F) - v‖ ^ 2 := by
+          rw [sq]
+          refine le_add_of_nonneg_right ?_
+          exact sq_nonneg _
+        _ = ‖u - v - (w - v)‖ ^ 2 := (@norm_sub_sq ℝ _ _ _ _ _ _).symm
+        _ = ‖u - w‖ * ‖u - w‖ := by
+          have : u - v - (w - v) = u - w := by abel
+          rw [this, sq]
+    · show ⨅ w : K, ‖u - w‖ ≤ (fun w : K => ‖u - w‖) ⟨v, hv⟩
+      apply ciInf_le
+      use 0
+      rintro y ⟨z, rfl⟩
+      exact norm_nonneg _
+
+
+Verifying proof (Commit 1507c181c67dcc2ca8a6c4b34934872edf50bf0f):
+ro
+    (by
+      intro eq w hw
+      let δ := ⨅ w : K, ‖u - w‖
+      let p := ⟪u - v, w - v⟫_ℝ
+      let q := ‖w - v‖ ^ 2
+      letI : Nonempty K := ⟨⟨v, hv⟩⟩
+      have : 0 ≤ δ
+      apply le_ciInf
+      intro
+      exact norm_nonneg _
+      have δ_le : ∀ w : K, δ ≤ ‖u - w‖
+      intro w
+      apply ciInf_le
+      use (0 : ℝ)
+      rintro _ ⟨_, rfl⟩
+      exact norm_nonneg _
+      have δ_le' : ∀ w ∈ K, δ ≤ ‖u - w‖ := fun w hw => δ_le ⟨w, hw⟩
+      have : ∀ θ : ℝ, 0 < θ → θ ≤ 1 → 2 * p ≤ θ * q
+      intro θ hθ₁ hθ₂
+      have : ‖u - v‖ ^ 2 ≤ ‖u - v‖ ^ 2 - 2 * θ * ⟪u - v, w - v⟫_ℝ + θ * θ * ‖w - v‖ ^ 2 :=
+        calc
+          ‖u - v‖ ^ 2 ≤ ‖u - (θ • w + (1 - θ) • v)‖ ^ 2 := by
+            simp only [sq]; apply mul_self_le_mul_self (norm_nonneg _)
+            rw [eq]; apply δ_le'
+            apply h hw hv
+            exacts[le_of_lt hθ₁, sub_nonneg.2 hθ₂, add_sub_cancel'_right _ _]
+          _ = ‖u - v - θ • (w - v)‖ ^ 2 := by
+            have : u - (θ • w + (1 - θ) • v) = u - v - θ • (w - v) := by
+              rw [smul_sub, sub_smul, one_smul]
+              simp only [sub_eq_add_neg, add_comm, add_left_comm, add_assoc, neg_add_rev]
+            rw [this]
+          _ = ‖u - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) + θ * θ * ‖w - v‖ ^ 2 := by
+            rw [@norm_sub_sq ℝ, inner_smul_right, norm_smul]
+            simp only [sq]
+            show
+              ‖u - v‖ * ‖u - v‖ - 2 * (θ * inner (u - v) (w - v)) +
+                  absR θ * ‖w - v‖ * (absR θ * ‖w - v‖) =
+                ‖u - v‖ * ‖u - v‖ - 2 * θ * inner (u - v) (w - v) + θ * θ * (‖w - v‖ * ‖w - v‖)
+            rw [abs_of_pos hθ₁]; ring
+      have eq₁ :
+        ‖u - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) + θ * θ * ‖w - v‖ ^ 2 =
+          ‖u - v‖ ^ 2 + (θ * θ * ‖w - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v)) :=
+        by abel
+      rw [eq₁, le_add_iff_nonneg_right] at this
+      have eq₂ :
+        θ * θ * ‖w - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) =
+          θ * (θ * ‖w - v‖ ^ 2 - 2 * inner (u - v) (w - v))
+      ring
+      rw [eq₂] at this
+      have := le_of_sub_nonneg (nonneg_of_mul_nonneg_right this hθ₁)
+      exact this
+      by_cases hq : q = 0
+      · rw [hq] at this
+        have : p ≤ 0
+        have := this (1 : ℝ) (by norm_num) (by norm_num)
+        linarith
+        exact this
+      · have q_pos : 0 < q
+        apply lt_of_le_of_ne
+        exact sq_nonneg _
+        intro h
+        exact hq h.symm
+        by_contra hp
+        rw [not_le] at hp
+        let θ := min (1 : ℝ) (p / q)
+        have eq₁ : θ * q ≤ p :=
+          calc
+            θ * q ≤ p / q * q := mul_le_mul_of_nonneg_right (min_le_right _ _) (sq_nonneg _)
+            _ = p := div_mul_cancel _ hq
+
+        have : 2 * p ≤ p :=
+          calc
+            2 * p ≤ θ * q := by
+              refine' this θ (lt_min (by norm_num) (div_pos hp q_pos)) (by norm_num)
+            _ ≤ p := eq₁
+
+        linarith)
+    (by
+      intro h
+      letI : Nonempty K := ⟨⟨v, hv⟩⟩
+      apply le_antisymm
+      · apply le_ciInf
+        intro w
+        apply nonneg_le_nonneg_of_sq_le_sq (norm_nonneg _)
+        have := h w w.2
+        calc
+          ‖u - v‖ * ‖u - v‖ ≤ ‖u - v‖ * ‖u - v‖ - 2 * inner (u - v) ((w : F) - v) := by linarith
+          _ ≤ ‖u - v‖ ^ 2 - 2 * inner (u - v) ((w : F) - v) + ‖(w : F) - v‖ ^ 2 := by
+            rw [sq]
+            refine' le_add_of_nonneg_right _
+            exact sq_nonneg _
+          _ = ‖u - v - (w - v)‖ ^ 2 := (@norm_sub_sq ℝ _ _ _ _ _ _).symm
+          _ = ‖u - w‖ * ‖u - w‖ := by
+            have : u - v - (w - v) = u - w
+            abel
+            rw [this, sq]
+
+      · show (⨅ w : K, ‖u - w‖) ≤ (fun w : K => ‖u - w‖) ⟨v, hv⟩
+        apply ciInf_le
+        use 0
+        rintro y ⟨z, rfl⟩
+        exact norm_nonneg _)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Attempt failure.
+
+---5/20---
+For theorem norm_eq_iInf_iff_real_inner_le_zero in Mathlib/Analysis/InnerProductSpace/Projection.lean:
+theorem norm_eq_iInf_iff_real_inner_le_zero {K : Set F} (h : Convex ℝ K) {u : F} {v : F}
+    (hv : v ∈ K) : (‖u - v‖ = ⨅ w : K, ‖u - w‖) ↔ ∀ w ∈ K, ⟪u - v, w - v⟫_ℝ ≤ 0 
+
+
+Original valid proof:
+:= by
+  letI : Nonempty K := ⟨⟨v, hv⟩⟩
+  constructor
+  · intro eq w hw
+    let δ := ⨅ w : K, ‖u - w‖
+    let p := ⟪u - v, w - v⟫_ℝ
+    let q := ‖w - v‖ ^ 2
+    have δ_le (w : K) : δ ≤ ‖u - w‖ := ciInf_le ⟨0, fun _ ⟨_, h⟩ => h ▸ norm_nonneg _⟩ _
+    have δ_le' (w) (hw : w ∈ K) : δ ≤ ‖u - w‖ := δ_le ⟨w, hw⟩
+    have (θ : ℝ) (hθ₁ : 0 < θ) (hθ₂ : θ ≤ 1) : 2 * p ≤ θ * q := by
+      have : ‖u - v‖ ^ 2 ≤ ‖u - v‖ ^ 2 - 2 * θ * ⟪u - v, w - v⟫_ℝ + θ * θ * ‖w - v‖ ^ 2 :=
+        calc ‖u - v‖ ^ 2
+          _ ≤ ‖u - (θ • w + (1 - θ) • v)‖ ^ 2 := by
+            simp only [sq]; apply mul_self_le_mul_self (norm_nonneg _)
+            rw [eq]; apply δ_le'
+            apply h hw hv
+            exacts [le_of_lt hθ₁, sub_nonneg.2 hθ₂, add_sub_cancel _ _]
+          _ = ‖u - v - θ • (w - v)‖ ^ 2 := by
+            have : u - (θ • w + (1 - θ) • v) = u - v - θ • (w - v) := by
+              rw [smul_sub, sub_smul, one_smul]
+              simp only [sub_eq_add_neg, add_comm, add_left_comm, add_assoc, neg_add_rev]
+            rw [this]
+          _ = ‖u - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) + θ * θ * ‖w - v‖ ^ 2 := by
+            rw [@norm_sub_sq ℝ, inner_smul_right, norm_smul]
+            simp only [sq]
+            show
+              ‖u - v‖ * ‖u - v‖ - 2 * (θ * inner (u - v) (w - v)) +
+                absR θ * ‖w - v‖ * (absR θ * ‖w - v‖) =
+              ‖u - v‖ * ‖u - v‖ - 2 * θ * inner (u - v) (w - v) + θ * θ * (‖w - v‖ * ‖w - v‖)
+            rw [abs_of_pos hθ₁]; ring
+      have eq₁ :
+        ‖u - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) + θ * θ * ‖w - v‖ ^ 2 =
+          ‖u - v‖ ^ 2 + (θ * θ * ‖w - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v)) := by
+        abel
+      rw [eq₁, le_add_iff_nonneg_right] at this
+      have eq₂ :
+        θ * θ * ‖w - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) =
+          θ * (θ * ‖w - v‖ ^ 2 - 2 * inner (u - v) (w - v)) := by ring
+      rw [eq₂] at this
+      have := le_of_sub_nonneg (nonneg_of_mul_nonneg_right this hθ₁)
+      exact this
+    by_cases hq : q = 0
+    · rw [hq] at this
+      have : p ≤ 0 := by
+        have := this (1 : ℝ) (by norm_num) (by norm_num)
+        linarith
+      exact this
+    · have q_pos : 0 < q := lt_of_le_of_ne (sq_nonneg _) fun h ↦ hq h.symm
+      by_contra hp
+      rw [not_le] at hp
+      let θ := min (1 : ℝ) (p / q)
+      have eq₁ : θ * q ≤ p :=
+        calc
+          θ * q ≤ p / q * q := mul_le_mul_of_nonneg_right (min_le_right _ _) (sq_nonneg _)
+          _ = p := div_mul_cancel₀ _ hq
+      have : 2 * p ≤ p :=
+        calc
+          2 * p ≤ θ * q := by
+            exact this θ (lt_min (by norm_num) (div_pos hp q_pos)) (by norm_num [θ])
+          _ ≤ p := eq₁
+      linarith
+  · intro h
+    apply le_antisymm
+    · apply le_ciInf
+      intro w
+      apply nonneg_le_nonneg_of_sq_le_sq (norm_nonneg _)
+      have := h w w.2
+      calc
+        ‖u - v‖ * ‖u - v‖ ≤ ‖u - v‖ * ‖u - v‖ - 2 * inner (u - v) ((w : F) - v) := by linarith
+        _ ≤ ‖u - v‖ ^ 2 - 2 * inner (u - v) ((w : F) - v) + ‖(w : F) - v‖ ^ 2 := by
+          rw [sq]
+          refine le_add_of_nonneg_right ?_
+          exact sq_nonneg _
+        _ = ‖u - v - (w - v)‖ ^ 2 := (@norm_sub_sq ℝ _ _ _ _ _ _).symm
+        _ = ‖u - w‖ * ‖u - w‖ := by
+          have : u - v - (w - v) = u - w := by abel
+          rw [this, sq]
+    · show ⨅ w : K, ‖u - w‖ ≤ (fun w : K => ‖u - w‖) ⟨v, hv⟩
+      apply ciInf_le
+      use 0
+      rintro y ⟨z, rfl⟩
+      exact norm_nonneg _
+
+
+Verifying proof (Commit bc76db74ce5ed54a72d80fca488c6549cfb0a8ab):
+ := by
+  letI : Nonempty K := ⟨⟨v, hv⟩⟩
+  constructor
+  · intro eq w hw
+    let δ := ⨅ w : K, ‖u - w‖
+    let p := ⟪u - v, w - v⟫_ℝ
+    let q := ‖w - v‖ ^ 2
+    have δ_le (w : K) : δ ≤ ‖u - w‖ := ciInf_le ⟨0, fun _ ⟨_, h⟩ => h ▸ norm_nonneg _⟩ _
+    have δ_le' (w) (hw : w ∈ K) : δ ≤ ‖u - w‖ := δ_le ⟨w, hw⟩
+    have (θ : ℝ) (hθ₁ : 0 < θ) (hθ₂ : θ ≤ 1) : 2 * p ≤ θ * q := by
+      have : ‖u - v‖ ^ 2 ≤ ‖u - v‖ ^ 2 - 2 * θ * ⟪u - v, w - v⟫_ℝ + θ * θ * ‖w - v‖ ^ 2 :=
+        calc ‖u - v‖ ^ 2
+          _ ≤ ‖u - (θ • w + (1 - θ) • v)‖ ^ 2 := by
+            simp only [sq]; apply mul_self_le_mul_self (norm_nonneg _)
+            rw [eq]; apply δ_le'
+            apply h hw hv
+            exacts [le_of_lt hθ₁, sub_nonneg.2 hθ₂, add_sub_cancel'_right _ _]
+          _ = ‖u - v - θ • (w - v)‖ ^ 2 := by
+            have : u - (θ • w + (1 - θ) • v) = u - v - θ • (w - v) := by
+              rw [smul_sub, sub_smul, one_smul]
+              simp only [sub_eq_add_neg, add_comm, add_left_comm, add_assoc, neg_add_rev]
+            rw [this]
+          _ = ‖u - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) + θ * θ * ‖w - v‖ ^ 2 := by
+            rw [@norm_sub_sq ℝ, inner_smul_right, norm_smul]
+            simp only [sq]
+            show
+              ‖u - v‖ * ‖u - v‖ - 2 * (θ * inner (u - v) (w - v)) +
+                absR θ * ‖w - v‖ * (absR θ * ‖w - v‖) =
+              ‖u - v‖ * ‖u - v‖ - 2 * θ * inner (u - v) (w - v) + θ * θ * (‖w - v‖ * ‖w - v‖)
+            rw [abs_of_pos hθ₁]; ring
+      have eq₁ :
+        ‖u - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) + θ * θ * ‖w - v‖ ^ 2 =
+          ‖u - v‖ ^ 2 + (θ * θ * ‖w - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v)) := by
+        abel
+      rw [eq₁, le_add_iff_nonneg_right] at this
+      have eq₂ :
+        θ * θ * ‖w - v‖ ^ 2 - 2 * θ * inner (u - v) (w - v) =
+          θ * (θ * ‖w - v‖ ^ 2 - 2 * inner (u - v) (w - v)) := by ring
+      rw [eq₂] at this
+      have := le_of_sub_nonneg (nonneg_of_mul_nonneg_right this hθ₁)
+      exact this
+    by_cases hq : q = 0
+    · rw [hq] at this
+      have : p ≤ 0 := by
+        have := this (1 : ℝ) (by norm_num) (by norm_num)
+        linarith
+      exact this
+    · have q_pos : 0 < q := lt_of_le_of_ne (sq_nonneg _) fun h ↦ hq h.symm
+      by_contra hp
+      rw [not_le] at hp
+      let θ := min (1 : ℝ) (p / q)
+      have eq₁ : θ * q ≤ p :=
+        calc
+          θ * q ≤ p / q * q := mul_le_mul_of_nonneg_right (min_le_right _ _) (sq_nonneg _)
+          _ = p := div_mul_cancel _ hq
+      have : 2 * p ≤ p :=
+        calc
+          2 * p ≤ θ * q := by
+            refine' this θ (lt_min (by norm_num) (div_pos hp q_pos)) (by norm_num)
+          _ ≤ p := eq₁
+      linarith
+  · intro h
+    apply le_antisymm
+    · apply le_ciInf
+      intro w
+      apply nonneg_le_nonneg_of_sq_le_sq (norm_nonneg _)
+      have := h w w.2
+      calc
+        ‖u - v‖ * ‖u - v‖ ≤ ‖u - v‖ * ‖u - v‖ - 2 * inner (u - v) ((w : F) - v) := by linarith
+        _ ≤ ‖u - v‖ ^ 2 - 2 * inner (u - v) ((w : F) - v) + ‖(w : F) - v‖ ^ 2 := by
+          rw [sq]
+          refine' le_add_of_nonneg_right _
+          exact sq_nonneg _
+        _ = ‖u - v - (w - v)‖ ^ 2 := (@norm_sub_sq ℝ _ _ _ _ _ _).symm
+        _ = ‖u - w‖ * ‖u - w‖ := by
+          have : u - v - (w - v) = u - w := by abel
+          rw [this, sq]
+    · show ⨅ w : K, ‖u - w‖ ≤ (fun w : K => ‖u - w‖) ⟨v, hv⟩
+      apply ciInf_le
+      use 0
+      rintro y ⟨z, rfl⟩
+      exact norm_nonneg _
+
+## 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1
+
+Attempt failure.
+
+Working on Mathlib/Analysis/SpecialFunctions/Integrals.lean - 2024-09-08 01:48:14.141287.
+---6/20---
+For theorem intervalIntegral.intervalIntegrable_rpow' in Mathlib/Analysis/SpecialFunctions/Integrals.lean:
+theorem intervalIntegrable_rpow' {r : ℝ} (h : -1 < r) :
+    IntervalIntegrable (fun x => x ^ r) volume a b 
+
+
+Original valid proof:
+:= by
+  suffices ∀ c : ℝ, IntervalIntegrable (fun x => x ^ r) volume 0 c by
+    exact IntervalIntegrable.trans (this a).symm (this b)
+  have : ∀ c : ℝ, 0 ≤ c → IntervalIntegrable (fun x => x ^ r) volume 0 c := by
+    intro c hc
+    rw [intervalIntegrable_iff, uIoc_of_le hc]
+    have hderiv : ∀ x ∈ Ioo 0 c, HasDerivAt (fun x : ℝ => x ^ (r + 1) / (r + 1)) (x ^ r) x := by
+      intro x hx
+      convert (Real.hasDerivAt_rpow_const (p := r + 1) (Or.inl hx.1.ne')).div_const (r + 1) using 1
+      field_simp [(by linarith : r + 1 ≠ 0)]
+    apply integrableOn_deriv_of_nonneg _ hderiv
+    · intro x hx; apply rpow_nonneg hx.1.le
+    · refine (continuousOn_id.rpow_const ?_).div_const _; intro x _; right; linarith
+  intro c; rcases le_total 0 c with (hc | hc)
+  · exact this c hc
+  · rw [IntervalIntegrable.iff_comp_neg, neg_zero]
+    have m := (this (-c) (by linarith)).smul (cos (r * π))
+    rw [intervalIntegrable_iff] at m ⊢
+    refine m.congr_fun ?_ measurableSet_Ioc; intro x hx
+    rw [uIoc_of_le (by linarith : 0 ≤ -c)] at hx
+    simp only [Pi.smul_apply, Algebra.id.smul_eq_mul, log_neg_eq_log, mul_comm,
+      rpow_def_of_pos hx.1, rpow_def_of_neg (by linarith [hx.1] : -x < 0)]
+
+
+Verifying proof (Commit c480a87bf98e8eb1bd5a2eec1b3b1369bfff595d):
+ := by
+  suffices ∀ c : ℝ, IntervalIntegrable (fun x => x ^ r) volume 0 c by
+    exact IntervalIntegrable.trans (this a).symm (this b)
+  have : ∀ c : ℝ, 0 ≤ c → IntervalIntegrable (fun x => x ^ r) volume 0 c := by
+    intro c hc
+    rw [intervalIntegrable_iff, uIoc_of_le hc]
+    have hderiv : ∀ x ∈ Ioo 0 c, HasDerivAt (fun x : ℝ => x ^ (r + 1) / (r + 1)) (x ^ r) x := by
+      intro x hx
+      convert (Real.hasDerivAt_rpow_const (p := r + 1) (Or.inl hx.1.ne')).div_const (r + 1) using 1
+      field_simp [(by linarith : r + 1 ≠ 0)]; ring
+    apply integrableOn_deriv_of_nonneg _ hderiv
+    · intro x hx; apply rpow_nonneg_of_nonneg hx.1.le
+    · refine' (continuousOn_id.rpow_const _).div_const _; intro x _; right; linarith
+  intro c; rcases le_total 0 c with (hc | hc)
+  · exact this c hc
+  · rw [IntervalIntegrable.iff_comp_neg, neg_zero]
+    have m := (this (-c) (by linarith)).smul (cos (r * π))
+    rw [intervalIntegrable_iff] at m ⊢
+    refine' m.congr_fun _ measurableSet_Ioc; intro x hx
+    rw [uIoc_of_le (by linarith : 0 ≤ -c)] at hx
+    simp only [Pi.smul_apply, Algebra.id.smul_eq_mul, log_neg_eq_log, mul_comm,
+      rpow_def_of_pos hx.1, rpow_def_of_neg (by linarith [hx.1] : -x < 0)]
+    rw [Pi.smul_apply]
+    simp [rpow_def_of_pos hx.1]
+    apply Or.inl
+    ac_rfl
+
+## 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.
+
+Attempt failure.
+
+Working on Mathlib/CategoryTheory/Localization/Triangulated.lean - 2024-09-08 01:49:41.753925.
+---7/20---
+For theorem CategoryTheory.Functor.contractible_mem_essImageDistTriang in Mathlib/CategoryTheory/Localization/Triangulated.lean:
+lemma contractible_mem_essImageDistTriang [EssSurj L] [HasZeroObject D]
+    [HasZeroMorphisms D] [L.PreservesZeroMorphisms] (X : D) :
+    contractibleTriangle X ∈ L.essImageDistTriang 
+
+
+Original valid proof:
+:= by
+  refine ⟨contractibleTriangle (L.objPreimage X), ?_, contractible_distinguished _⟩
+  exact ((contractibleTriangleFunctor D).mapIso (L.objObjPreimageIso X)).symm ≪≫
+    Triangle.isoMk _ _ (Iso.refl _) (Iso.refl _) L.mapZeroObject.symm (by simp) (by simp) (by simp)
+
+
+Verifying proof (Commit 660d4d5e85504851f32fdcb363260a8048d0609c):
+ := by
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Attempt failure.
+
+Working on Mathlib/Combinatorics/Enumerative/Catalan.lean - 2024-09-08 01:49:55.091639.
+---8/20---
+For theorem Tree.mem_treesOfNumNodesEq in Mathlib/Combinatorics/Enumerative/Catalan.lean:
+theorem mem_treesOfNumNodesEq {x : Tree Unit} {n : ℕ} :
+    x ∈ treesOfNumNodesEq n ↔ x.numNodes = n 
+
+
+Original valid proof:
+:= by
+  induction x using Tree.unitRecOn generalizing n <;> cases n <;>
+    simp [treesOfNumNodesEq_succ, *]
+
+
+Verifying proof (Commit cc6e5e01514b06a44caccb55bc04e269ede6a7c8):
+∧ x.isUnit := by
+  induction x using Tree.unitRecOn generalizing n <;> cases n <;>
+    simp [treesOfNumNodesEq_succ, Nat.succ_eq_add_one, *]
+  exact (Nat.succ_ne_zero _).symm
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 10 2020 at 05:10):
+
+I think the problem is that the induction hypothesis is not being applied
+
+####  Mario Carneiro (May 
+
+Attempt failure.
+
+Working on Mathlib/Data/Finset/Basic.lean - 2024-09-08 01:50:05.059046.
+---9/20---
+For theorem Finset.union_subset_left in Mathlib/Data/Finset/Basic.lean:
+theorem union_subset_left (h : s ∪ t ⊆ u) : s ⊆ u 
+
+
+Original valid proof:
+:=
+  subset_union_left.trans h
+
+
+Verifying proof (Commit 48bda060b08a3013f32897b125fe26068de43109):
+∧ t ⊆ u :=
+  (subset_union_left _ _).trans h
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this is.
+
+####  Kevin Buzzard (Mar 01 2021 at 10:30):
+
+I'm not sure what the point of this
+
+Attempt failure.
+
+Working on Mathlib/Data/Matroid/IndepAxioms.lean - 2024-09-08 01:50:18.736087.
+---10/20---
+For theorem Matroid.existsMaximalSubsetProperty_of_bdd in Mathlib/Data/Matroid/IndepAxioms.lean:
+theorem _root_.Matroid.existsMaximalSubsetProperty_of_bdd {P : Set α → Prop}
+    (hP : ∃ (n : ℕ), ∀ Y, P Y → Y.encard ≤ n) (X : Set α) : ExistsMaximalSubsetProperty P X 
+
+
+Original valid proof:
+:= by
+  obtain ⟨n, hP⟩ := hP
+  rintro I hI hIX
+  have hfin : Set.Finite (ncard '' {Y | P Y ∧ I ⊆ Y ∧ Y ⊆ X}) := by
+    rw [finite_iff_bddAbove, bddAbove_def]
+    simp_rw [ENat.le_coe_iff] at hP
+    use n
+    rintro x ⟨Y, ⟨hY,-,-⟩, rfl⟩
+    obtain ⟨n₀, heq, hle⟩ := hP Y hY
+    rwa [ncard_def, heq, ENat.toNat_coe]
+  obtain ⟨Y, hY, hY'⟩ := Finite.exists_maximal_wrt' ncard _ hfin ⟨I, hI, rfl.subset, hIX⟩
+  refine ⟨Y, hY, fun J ⟨hJ, hIJ, hJX⟩ (hYJ : Y ⊆ J) ↦ (?_ : J ⊆ Y)⟩
+  have hJfin := finite_of_encard_le_coe (hP J hJ)
+  refine (eq_of_subset_of_ncard_le hYJ ?_ hJfin).symm.subset
+  rw [hY' J ⟨hJ, hIJ, hJX⟩ (ncard_le_ncard hYJ hJfin)]
+
+
+Verifying proof (Commit aede33055710fe967fd079409ce85a4f992ec863):
+ := by
+  obtain ⟨n, hP⟩ := hP
+  rintro I hI hIX
+  have hfin : Set.Finite (ncard '' {Y | P Y ∧ I ⊆ Y ∧ Y ⊆ X})
+  · rw [finite_iff_bddAbove, bddAbove_def]
+    simp_rw [ENat.le_coe_iff] at hP
+    use n
+    rintro x ⟨Y, ⟨hY,-,-⟩, rfl⟩
+    obtain ⟨n₀, heq, hle⟩ := hP Y hY
+    rwa [ncard_def, heq, ENat.toNat_coe]
+  obtain ⟨Y, hY, hY'⟩ := Finite.exists_maximal_wrt' ncard _ hfin ⟨I, hI, rfl.subset, hIX⟩
+  refine' ⟨Y, hY, fun J ⟨hJ, hIJ, hJX⟩ (hYJ : Y ⊆ J) ↦ (_ : J ⊆ Y)⟩
+  have hJfin := finite_of_encard_le_coe (hP J hJ)
+  refine' (eq_of_subset_of_ncard_le hYJ _ hJfin).symm.subset
+  rw [hY' J ⟨hJ, hIJ, hJX⟩ (ncard_le_of_subset hYJ hJfin)]
+
+## 2023-01-10
+
+### #100
+
+## #100
+[100%]
+
+####  Mario Carneiro (Jan 10 2023 at 17:00):
+
+I'm not sure if this is a bug or not, but I'm getting a weird error when I try to use the newsimp_rw tactic.
+
+####  Mario Carneiro (Jan 10 2023 at 17:00):
+
+I'm trying to prove this:
+theorem _root_.Matroid.existsMaximalSubsetProperty_of_bdd {P : Set α → Prop}
+    (hP : ∃ (n : ℕ), ∀ Y, P Y → Y.encard ≤ n) (X : Set α) : ExistsMaximalSubsetProperty P X := by
+  obtain ⟨n, hP⟩ := hP
+  rintro I hI hIX
+  have hfin : Set.Finite (ncard '' {Y | P Y ∧ I ⊆ Y ∧ Y ⊆ X})
+  · rw [finite_iff_bddAbove, bddAbove_def]
+    simp_rw [ENat.le_coe_iff] at hP
+    use n
+    rintro x ⟨Y, ⟨hY,-,-⟩, rfl⟩
+    obtain ⟨n₀, heq, hle⟩ := hP Y hY
+    rwa [ncard_def, heq, ENat.toNat_coe]
+  obtain ⟨Y, hY, hY'⟩ := Finite.exists_maximal_wrt' ncard _ hfin ⟨I, hI, rfl.subset, hIX⟩
+  refine' ⟨Y, hY, fun J ⟨hJ, hIJ, hJX⟩ (hYJ : Y ⊆ J) ↦ (_ : J ⊆ Y)⟩
+  have hJfin := finite_of_encard_le_coe (hP J hJ)
+  refine' (eq_of_subset_of_ncard_le hYJ _ hJfin).symm.subset
+  rw [hY' J ⟨hJ, hIJ, hJX⟩ (ncard_le_of_subset hYJ hJfin)]
+
+####  Mario Carneiro (Jan 10 2023 at 17:00):
+
+I'm getting this error:
+simp_rw [ENat.le_coe_iff] at hP
+^
+invalid simp_rw tactic, failed to synthesize instance
+  HasMem (ENat × ℕ) (ENat × ℕ)
+
+####  Mario Carneiro (Jan 10 2023 at 17:00):
+
+I'm not sure what's going on here
+
+####  Mario Carneiro (Jan 10 2023 at 17:00):
+
+I'm not sure if this is a bug or not, but I'm getting a weird error when I try to use the newsimp_rw tactic.
+
+####  Mario Carneiro (Jan 10 2023 at 17:00):
+
+I'm trying to prove this:
+theorem _root_.Matroid.existsMaximalSubsetProperty_of_bdd {P : Set α → Prop}
+    (hP : ∃ (n : ℕ), ∀ Y, P Y → Y.encard ≤ n) (X : Set α) : ExistsMaximalSubsetProperty P X := by
+  obtain ⟨n, hP⟩ := hP
+  rintro I hI hIX
+  have hfin : Set.Finite (ncard '' {Y | P Y ∧ I ⊆ Y ∧ Y ⊆ X})
+  · rw [finite_iff_bddAbove, bddAbove_def]
+    simp_rw [ENat.le_coe_iff] at hP
+    use n
+    rintro x ⟨Y, ⟨hY,-,-⟩, rfl⟩
+    obtain ⟨n₀, heq, hle⟩ := hP Y hY
+    rwa [ncard_def, heq, ENat.toNat_coe]
+  obtain ⟨Y, hY, hY'⟩ := Finite.exists_maximal_wrt' ncard _ hfin ⟨I, hI, rfl.subset, hIX⟩
+  refine' ⟨Y, hY, fun J ⟨hJ, hIJ, hJX⟩ (hYJ : Y ⊆ J) ↦ (_ : J ⊆ Y)⟩
+  have hJfin := finite_of_encard_le_coe (hP J hJ)
+  refine' (eq_of_subset_of_ncard_le hYJ _ hJfin).symm.subset
+  rw [hY' J ⟨hJ, hIJ, hJX⟩ (ncard_le_of_subset hYJ hJfin)]
+
+####  Mario Carneiro (Jan 10 2023 at 17:00):
+
+I'm getting this error:
+simp_rw [ENat.le_coe_iff] at hP
+^
+invalid simp_rw tactic, failed to synthesize instance
+  HasMem (ENat × ℕ) (ENat × ℕ)
+
+####  Mario Carneiro (Jan 10 2023 at 17:00):
+
+I'm not sure what's going on here
+
+####  Mario Carneiro (Jan 10 2023 at 17:00):
+
+I'm not sure if this is a bug or not, but I'm getting a weird error when I try to use the newsimp_rw tactic.
+
+####  Mario Carneiro (Jan 10 2023 at 17:00):
+
+I'm trying to prove this:
+theorem _root_.Matroid.existsMaximalSubsetProperty_of_bdd {P : Set α → Prop}
+    (hP : ∃ (n : ℕ), ∀ Y, P Y → Y.encard ≤ n) (X : Set α) : ExistsMaximalSubsetProperty P X := by
+  obtain ⟨n, hP⟩ := hP
+  rintro I hI hIX
+  have hfin : Set.Finite (ncard '' {Y | P Y ∧ I ⊆ Y ∧ Y ⊆ X})
+  · rw [finite_iff_bddAbove, bddAbove_def]
+    sim
+
+Attempt failure.
+
+Working on Mathlib/Data/Multiset/Antidiagonal.lean - 2024-09-08 01:50:34.075782.
+---11/20---
+For theorem Multiset.antidiagonal_eq_map_powerset in Mathlib/Data/Multiset/Antidiagonal.lean:
+theorem antidiagonal_eq_map_powerset [DecidableEq α] (s : Multiset α) :
+    s.antidiagonal = s.powerset.map fun t ↦ (s - t, t) 
+
+
+Original valid proof:
+:= by
+  induction' s using Multiset.induction_on with a s hs
+  · simp only [antidiagonal_zero, powerset_zero, zero_tsub, map_singleton]
+  · simp_rw [antidiagonal_cons, powerset_cons, map_add, hs, map_map, Function.comp, Prod.map_mk,
+      id, sub_cons, erase_cons_head]
+    rw [add_comm]
+    congr 1
+    refine Multiset.map_congr rfl fun x hx ↦ ?_
+    rw [cons_sub_of_le _ (mem_powerset.mp hx)]
+
+
+Verifying proof (Commit ddffab96a653674eaf6ec54e6415f6fa7c2a49f7):
+ := by
+  induction' s with a s hs
+  · simp only [antidiagonal_zero, powerset_zero, zero_tsub, map_singleton]
+  · simp_rw [antidiagonal_cons, powerset_cons, map_add, hs, map_map, Function.comp, Prod.map_mk,
+      id, sub_cons, erase_cons_head]
+    rw [add_comm]
+    congr 1
+    refine' Multiset.map_congr rfl fun x hx ↦ _
+    rw [cons_sub_of_le _ (mem_powerset.mp hx)]
+
+## 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1
+
+Attempt failure.
+
+Working on Mathlib/Data/Real/Cardinality.lean - 2024-09-08 01:50:39.253634.
+---12/20---
+For theorem Cardinal.mk_Iio_real in Mathlib/Data/Real/Cardinality.lean:
+theorem mk_Iio_real (a : ℝ) : #(Iio a) = 𝔠 
+
+
+Original valid proof:
+:= by
+  refine le_antisymm (mk_real ▸ mk_set_le _) ?_
+  have h2 : (fun x => a + a - x) '' Iio a = Ioi a := by
+    simp only [image_const_sub_Iio, add_sub_cancel_right]
+  exact mk_Ioi_real a ▸ h2 ▸ mk_image_le
+
+
+Verifying proof (Commit e24d0042f0fd176848590f8a296e5c675237f634):
+ := by
+  refine' le_antisymm (mk_real ▸ mk_set_le _) _
+  have h2 : (fun x => a + a - x) '' Iio a = Ioi a := by
+    simp only [image_const_sub_Iio, add_sub_cancel]
+  exact mk_Ioi_real a ▸ h2 ▸ mk_image_le
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I'm not sure that this is a bug.
+
+####  Yury G. Kudryashov (Jul 10 2020 at 17:00):
+
+I thinkmk_image_le is not a theorem, but a lemma
+
+Attempt failure.
+
+Working on Mathlib/LinearAlgebra/Semisimple.lean - 2024-09-08 01:50:48.033919.
+---13/20---
+For theorem Module.End.IsSemisimple.of_mem_adjoin_pair in Mathlib/LinearAlgebra/Semisimple.lean:
+theorem IsSemisimple.of_mem_adjoin_pair {a : End K M} (ha : a ∈ Algebra.adjoin K {f, g}) :
+    a.IsSemisimple 
+
+
+Original valid proof:
+:= by
+  let R := K[X] ⧸ Ideal.span {minpoly K f}
+  let S := AdjoinRoot ((minpoly K g).map <| algebraMap K R)
+  have : Finite K R :=
+    (AdjoinRoot.powerBasis' <| minpoly.monic <| Algebra.IsIntegral.isIntegral f).finite
+  have : Finite R S :=
+    (AdjoinRoot.powerBasis' <| (minpoly.monic <| Algebra.IsIntegral.isIntegral g).map _).finite
+  set_option maxSynthPendingDepth 2 in
+  have : IsScalarTower K R S := .of_algebraMap_eq fun _ ↦ rfl
+  have : Finite K S := .trans R S
+  have : IsArtinianRing R := .of_finite K R
+  have : IsReduced R := (Ideal.isRadical_iff_quotient_reduced _).mp <|
+    span_minpoly_eq_annihilator K f ▸ hf.annihilator_isRadical
+  have : IsReduced S := by
+    simp_rw [S, AdjoinRoot, ← Ideal.isRadical_iff_quotient_reduced, ← isRadical_iff_span_singleton]
+    exact (PerfectField.separable_iff_squarefree.mpr hg.minpoly_squarefree).map.squarefree.isRadical
+  let φ : S →ₐ[K] End K M := Ideal.Quotient.liftₐ _ (eval₂AlgHom' (Ideal.Quotient.liftₐ _ (aeval f)
+    fun a ↦ ?_) g ?_) ((Ideal.span_singleton_le_iff_mem _).mpr ?_ : _ ≤ RingHom.ker _)
+  rotate_left 1
+  · rw [Ideal.span, ← minpoly.ker_aeval_eq_span_minpoly]; exact id
+  · rintro ⟨p⟩; exact p.induction_on (fun k ↦ by simp [R, Algebra.commute_algebraMap_left])
+      (fun p q hp hq ↦ by simpa using hp.add_left hq)
+      fun n k ↦ by simpa [R, pow_succ, ← mul_assoc _ _ X] using (·.mul_left comm)
+  · simpa only [RingHom.mem_ker, eval₂AlgHom'_apply, eval₂_map, AlgHom.comp_algebraMap_of_tower]
+      using minpoly.aeval K g
+  have : Algebra.adjoin K {f, g} ≤ φ.range := Algebra.adjoin_le fun x ↦ by
+    rintro (hx | hx) <;> rw [hx]
+    · exact ⟨AdjoinRoot.of _ (AdjoinRoot.root _), (eval₂_C _ _).trans (aeval_X f)⟩
+    · exact ⟨AdjoinRoot.root _, eval₂_X _ _⟩
+  obtain ⟨p, rfl⟩ := (AlgHom.mem_range _).mp (this ha)
+  refine isSemisimple_of_squarefree_aeval_eq_zero
+    ((minpoly.isRadical K p).squarefree <| minpoly.ne_zero <| .of_finite K p) ?_
+  rw [aeval_algHom, φ.comp_apply, minpoly.aeval, φ.map_zero]
+
+
+Verifying proof (Commit 5d0763f72671b8fa3427057def8acaeba830c1a9):
+ := by
+  let R := K[X] ⧸ Ideal.span {minpoly K f}
+  let S := AdjoinRoot ((minpoly K g).map <| algebraMap K R)
+  have : Finite K R := (AdjoinRoot.powerBasis' <| minpoly.monic <| isIntegral f).finite
+  have : Finite R S := (AdjoinRoot.powerBasis' <| (minpoly.monic <| isIntegral g).map _).finite
+  have : IsScalarTower K R S := .of_algebraMap_eq (S := R) fun _ ↦ rfl
+  have : Finite K S := .trans R S
+  have : IsArtinianRing R := .of_finite K R
+  have : IsReduced R := (Ideal.isRadical_iff_quotient_reduced _).mp <|
+    span_minpoly_eq_annihilator K f ▸ hf.annihilator_isRadical
+  have : IsReduced S := by
+    simp_rw [S, AdjoinRoot, ← Ideal.isRadical_iff_quotient_reduced, ← isRadical_iff_span_singleton]
+    exact (PerfectField.separable_iff_squarefree.mpr hg.minpoly_squarefree).map.squarefree.isRadical
+  let φ : S →ₐ[K] End K M := Ideal.Quotient.liftₐ _ (eval₂AlgHom' (Ideal.Quotient.liftₐ _ (aeval f)
+    fun a ↦ ?_) g ?_) ((Ideal.span_singleton_le_iff_mem _).mpr ?_ : _ ≤ RingHom.ker _)
+  rotate_left 1
+  · rw [Ideal.span, ← minpoly.ker_aeval_eq_span_minpoly]; exact id
+  · rintro ⟨p⟩; exact p.induction_on (fun k ↦ by simp [R, Algebra.commute_algebraMap_left])
+      (fun p q hp hq ↦ by simpa using hp.add_left hq)
+      fun n k ↦ by simpa [R, pow_succ, ← mul_assoc _ _ X] using (·.mul_left comm)
+  · simpa only [RingHom.mem_ker, eval₂AlgHom'_apply, eval₂_map, AlgHom.comp_algebraMap_of_tower]
+      using minpoly.aeval K g
+  have : Algebra.adjoin K {f, g} ≤ φ.range := Algebra.adjoin_le fun x ↦ by
+    rintro (hx | hx) <;> rw [hx]
+    · exact ⟨AdjoinRoot.of _ (AdjoinRoot.root _), (eval₂_C _ _).trans (aeval_X f)⟩
+    · exact ⟨AdjoinRoot.root _, eval₂_X _ _⟩
+  obtain ⟨p, rfl⟩ := (AlgHom.mem_range _).mp (this ha)
+  refine isSemisimple_of_squarefree_aeval_eq_zero
+    ((minpoly.isRadical K p).squarefree <| minpoly.ne_zero <| .of_finite K p) ?_
+  rw [aeval_algHom, φ.comp_apply, minpoly.aeval, φ.map_zero]
+
+## References #
+
+- [M. F. Atiyah and I. G. Macdonald, *Introduction to commutative algebra*][Atiyah1969]
+
+## Tags #
+
+semisimple, diagonalizable, diagonalization, Jordan normal form, Jordan canonical form
+
+theorem IsSemisimple.of_mem_adjoin_pair {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair'' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair''' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair'''' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair''''' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair''''' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair''''' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair''''' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair''''' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair''''' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M] {f g : End K M} (hf : f.IsSemisimple) (hg : g.IsSemisimple) (ha : a ∈ Algebra.adjoin K {f, g}) :
+
+a.IsSemisimple
+
+theorem IsSemisimple.of_mem_adjoin_pair''''' {K : Type u_1} {M : Type u_2} [Field K] [AddCommGroup M] [Module K M]
+
+Attempt failure.
+
+Working on Mathlib/LinearAlgebra/Span.lean - 2024-09-08 01:51:09.656289.
+---14/20---
+For theorem Submodule.finset_span_isCompactElement in Mathlib/LinearAlgebra/Span.lean:
+theorem finset_span_isCompactElement (S : Finset M) :
+    CompleteLattice.IsCompactElement (span R S : Submodule R M) 
+
+
+Original valid proof:
+:= by
+  rw [span_eq_iSup_of_singleton_spans]
+  simp only [Finset.mem_coe]
+  rw [← Finset.sup_eq_iSup]
+  exact
+    CompleteLattice.isCompactElement_finsetSup S fun x _ => singleton_span_isCompactElement x
+
+
+Verifying proof (Commit ffc60767f0046e59bbedcfc87ae91dab4309f9e1):
+ := by
+  rw [span_eq_iSup_of_singleton_spans]
+  simp only [Finset.mem_coe]
+  rw [← Finset.sup_eq_iSup]
+  exact
+    CompleteLattice.finset_sup_compact_of_compact S fun x _ => singleton_span_isCompactElement x
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/Function/Jacobian.lean - 2024-09-08 01:51:26.738378.
+---15/20---
+For theorem MeasureTheory.mul_le_addHaar_image_of_lt_det in Mathlib/MeasureTheory/Function/Jacobian.lean:
+theorem mul_le_addHaar_image_of_lt_det (A : E →L[ℝ] E) {m : ℝ≥0}
+    (hm : (m : ℝ≥0∞) < ENNReal.ofReal |A.det|) :
+    ∀ᶠ δ in 𝓝[>] (0 : ℝ≥0),
+      ∀ (s : Set E) (f : E → E), ApproximatesLinearOn f A s δ → (m : ℝ≥0∞) * μ s ≤ μ (f '' s) 
+
+
+Original valid proof:
+:= by
+  apply nhdsWithin_le_nhds
+  rcases eq_or_lt_of_le (zero_le m) with (rfl | mpos)
+  · filter_upwards
+    simp only [forall_const, zero_mul, imp_true_iff, zero_le, ENNReal.coe_zero]
+  have hA : A.det ≠ 0 := by
+    intro h; simp only [h, ENNReal.not_lt_zero, ENNReal.ofReal_zero, abs_zero] at hm
+  let B := A.toContinuousLinearEquivOfDetNeZero hA
+  have I : ENNReal.ofReal |(B.symm : E →L[ℝ] E).det| < (m⁻¹ : ℝ≥0) := by
+    simp only [ENNReal.ofReal, abs_inv, Real.toNNReal_inv, ContinuousLinearEquiv.det_coe_symm,
+      ContinuousLinearMap.coe_toContinuousLinearEquivOfDetNeZero, ENNReal.coe_lt_coe] at hm ⊢
+    exact NNReal.inv_lt_inv mpos.ne' hm
+  obtain ⟨δ₀, δ₀pos, hδ₀⟩ :
+    ∃ δ : ℝ≥0,
+      0 < δ ∧
+        ∀ (t : Set E) (g : E → E),
+          ApproximatesLinearOn g (B.symm : E →L[ℝ] E) t δ → μ (g '' t) ≤ ↑m⁻¹ * μ t := by
+    have :
+      ∀ᶠ δ : ℝ≥0 in 𝓝[>] 0,
+        ∀ (t : Set E) (g : E → E),
+          ApproximatesLinearOn g (B.symm : E →L[ℝ] E) t δ → μ (g '' t) ≤ ↑m⁻¹ * μ t :=
+      addHaar_image_le_mul_of_det_lt μ B.symm I
+    rcases (this.and self_mem_nhdsWithin).exists with ⟨δ₀, h, h'⟩
+    exact ⟨δ₀, h', h⟩
+  have L1 : ∀ᶠ δ in 𝓝 (0 : ℝ≥0), Subsingleton E ∨ δ < ‖(B.symm : E →L[ℝ] E)‖₊⁻¹ := by
+    by_cases h : Subsingleton E
+    · simp only [h, true_or_iff, eventually_const]
+    simp only [h, false_or_iff]
+    apply Iio_mem_nhds
+    simpa only [h, false_or_iff, inv_pos] using B.subsingleton_or_nnnorm_symm_pos
+  have L2 :
+    ∀ᶠ δ in 𝓝 (0 : ℝ≥0), ‖(B.symm : E →L[ℝ] E)‖₊ * (‖(B.symm : E →L[ℝ] E)‖₊⁻¹ - δ)⁻¹ * δ < δ₀ := by
+    have :
+      Tendsto (fun δ => ‖(B.symm : E →L[ℝ] E)‖₊ * (‖(B.symm : E →L[ℝ] E)‖₊⁻¹ - δ)⁻¹ * δ) (𝓝 0)
+        (𝓝 (‖(B.symm : E →L[ℝ] E)‖₊ * (‖(B.symm : E →L[ℝ] E)‖₊⁻¹ - 0)⁻¹ * 0)) := by
+      rcases eq_or_ne ‖(B.symm : E →L[ℝ] E)‖₊ 0 with (H | H)
+      · simpa only [H, zero_mul] using tendsto_const_nhds
+      refine Tendsto.mul (tendsto_const_nhds.mul ?_) tendsto_id
+      refine (Tendsto.sub tendsto_const_nhds tendsto_id).inv₀ ?_
+      simpa only [tsub_zero, inv_eq_zero, Ne] using H
+    simp only [mul_zero] at this
+    exact (tendsto_order.1 this).2 δ₀ δ₀pos
+  filter_upwards [L1, L2]
+  intro δ h1δ h2δ s f hf
+  have hf' : ApproximatesLinearOn f (B : E →L[ℝ] E) s δ := by convert hf
+  let F := hf'.toPartialEquiv h1δ
+  suffices H : μ (F.symm '' F.target) ≤ (m⁻¹ : ℝ≥0) * μ F.target by
+    change (m : ℝ≥0∞) * μ F.source ≤ μ F.target
+    rwa [← F.symm_image_target_eq_source, mul_comm, ← ENNReal.le_div_iff_mul_le, div_eq_mul_inv,
+      mul_comm, ← ENNReal.coe_inv mpos.ne']
+    · apply Or.inl
+      simpa only [ENNReal.coe_eq_zero, Ne] using mpos.ne'
+    · simp only [ENNReal.coe_ne_top, true_or_iff, Ne, not_false_iff]
+  exact hδ₀ _ _ ((hf'.to_inv h1δ).mono_num h2δ.le)
+
+
+Verifying proof (Commit 9e34a191034458a56331f976ff7400a26407c888):
+ := by
+  apply nhdsWithin_le_nhds
+  rcases eq_or_lt_of_le (zero_le m) with (rfl | mpos)
+  · apply eventually_of_forall
+    simp only [forall_const, MulZeroClass.zero_mul, imp_true_iff, zero_le, ENNReal.coe_zero]
+  have hA : A.det ≠ 0 := by
+    intro h; simp only [h, ENNReal.not_lt_zero, ENNReal.ofReal_zero, abs_zero] at hm
+  let B := A.toContinuousLinearEquivOfDetNeZero hA
+  have I : ENNReal.ofReal |(B.symm : E →L[ℝ] E).det| < (m⁻¹ : ℝ≥0) := by
+    simp only [ENNReal.ofReal, abs_inv, Real.toNNReal_inv, ContinuousLinearEquiv.det_coe_symm,
+      ContinuousLinearMap.coe_toContinuousLinearEquivOfDetNeZero, ENNReal.coe_lt_coe] at hm ⊢
+    exact NNReal.inv_lt_inv mpos.ne' hm
+  obtain ⟨δ₀, δ₀pos, hδ₀⟩ :
+    ∃ δ : ℝ≥0,
+      0 < δ ∧
+        ∀ (t : Set E) (g : E → E),
+          ApproximatesLinearOn g (B.symm : E →L[ℝ] E) t δ → μ (g '' t) ≤ ↑m⁻¹ * μ t := by
+    have :
+      ∀ᶠ δ : ℝ≥0 in 𝓝[>] 0,
+        ∀ (t : Set E) (g : E → E),
+          ApproximatesLinearOn g (B.symm : E →L[ℝ] E) t δ → μ (g '' t) ≤ ↑m⁻¹ * μ t :=
+      addHaar_image_le_mul_of_det_lt μ B.symm I
+    rcases(this.and self_mem_nhdsWithin).exists with ⟨δ₀, h, h'⟩
+    exact ⟨δ₀, h', h⟩
+  have L1 : ∀ᶠ δ in 𝓝 (0 : ℝ≥0), Subsingleton E ∨ δ < ‖(B.symm : E →L[ℝ] E)‖₊⁻¹ := by
+    by_cases Subsingleton E
+    · simp only [h, true_or_iff, eventually_const]
+    simp only [h, false_or_iff]
+    apply Iio_mem_nhds
+    simpa only [h, false_or_iff, inv_pos] using B.subsingleton_or_nnnorm_symm_pos
+  have L2 :
+    ∀ᶠ δ in 𝓝 (0 : ℝ≥0), ‖(B.symm : E →L[ℝ] E)‖₊ * (‖(B.symm : E →L[ℝ] E)‖₊⁻¹ - δ)⁻¹ * δ < δ₀ := by
+    have :
+      Tendsto (fun δ => ‖(B.symm : E →L[ℝ] E)‖₊ * (‖(B.symm : E →L[ℝ] E)‖₊⁻¹ - δ)⁻¹ * δ) (𝓝 0)
+        (𝓝 (‖(B.symm : E →L[ℝ] E)‖₊ * (‖(B.symm : E →L[ℝ] E)‖₊⁻¹ - 0)⁻¹ * 0)) := by
+      rcases eq_or_ne ‖(B.symm : E →L[ℝ] E)‖₊ 0 with (H | H)
+      · simpa only [H, MulZeroClass.zero_mul] using tendsto_const_nhds
+      refine' Tendsto.mul (tendsto_const_nhds.mul _) tendsto_id
+      refine' (Tendsto.sub tendsto_const_nhds tendsto_id).inv₀ _
+      simpa only [tsub_zero, inv_eq_zero, Ne.def] using H
+    simp only [MulZeroClass.mul_zero] at this
+    exact (tendsto_order.1 this).2 δ₀ δ₀pos
+  filter_upwards [L1, L2]
+  intro δ h1δ h2δ s f hf
+  have hf' : ApproximatesLinearOn f (B : E →L[ℝ] E) s δ := by convert hf
+  let F := hf'.toLocalEquiv h1δ
+  suffices H : μ (F.symm '' F.target) ≤ (m⁻¹ : ℝ≥0) * μ F.target
+  · change (m : ℝ≥0∞) * μ F.source ≤ μ F.target
+    rwa [← F.symm_image_target_eq_source, mul_comm, ← ENNReal.le_div_iff_mul_le, div_eq_mul_inv,
+      mul_comm, ← ENNReal.coe_inv mpos.ne']
+    · apply Or.inl
+      simpa only [ENNReal.coe_eq_zero, Ne.def] using mpos.ne'
+    · simp only [ENNReal.coe_ne_top, true_or_iff, Ne.def, not_false_iff]
+  exact hδ₀ _ _ ((hf'.to_inv h1δ).mono_num h2δ.le)
+
+## References #
+
+- [Halmos, Measure Theory][halmos1950]
+- [Bogachev, Measure Theory][bogachev2007]
+
+## Tags #
+
+additive, measure, Haar measure, group, topological group, locally compact group, linear, volume, measure theory
+
+## Equations
+
+- MeasureTheory.Measure.addHaar_volume = MeasureTheory.Measure.addHaar MeasureTheory.Measure.addHaar_volume._proof_1
+
+The volume of the unit interval is its length.
+
+The volume of the unit cube is its volume.
+
+The volume of a box is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+The volume of a parallelepiped is its volume.
+
+Attempt failure.
+
+Working on Mathlib/MeasureTheory/OuterMeasure/Basic.lean - 2024-09-08 01:51:53.556876.
+---16/20---
+For theorem MeasureTheory.measure_diff_null in Mathlib/MeasureTheory/OuterMeasure/Basic.lean:
+theorem measure_diff_null (ht : μ t = 0) : μ (s \ t) = μ s 
+
+
+Original valid proof:
+:=
+  (measure_mono diff_subset).antisymm <| calc
+    μ s ≤ μ (s ∩ t) + μ (s \ t) := measure_le_inter_add_diff _ _ _
+    _ ≤ μ t + μ (s \ t) := by gcongr; apply inter_subset_right
+    _ = μ (s \ t) := by simp [ht]
+
+
+Verifying proof (Commit 596865180ecc63dcd1d95809202e31027ac3ae38):
+ :=
+  (measure_mono <| diff_subset _ _).antisymm <| calc
+    μ s ≤ μ (s ∩ t) + μ (s \ t) := measure_le_inter_add_diff _ _ _
+    _ ≤ μ t + μ (s \ t) := by gcongr; apply inter_subset_right
+    _ = μ (s \ t) := by simp [ht]
+
+####  Kevin Buzzard (Mar 10 2021 at 10:00):
+
+I think the problem is that you're trying to prove a false statement.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:00):
+
+The proof is correct, but the statement is false.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:00):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 10:01):
+
+I'm not sure what the problem is.
+
+####  Kevin Buzzard (Mar 10 2021 at 
+
+Attempt failure.
+
+Working on Mathlib/RingTheory/AdicCompletion/Functoriality.lean - 2024-09-08 01:52:03.427691.
+---17/20---
+For theorem AdicCompletion.sumInv_comp_sum in Mathlib/RingTheory/AdicCompletion/Functoriality.lean:
+theorem sumInv_comp_sum : sumInv I M ∘ₗ sum I M = LinearMap.id 
+
+
+Original valid proof:
+:= by
+  ext j x
+  apply DirectSum.ext (AdicCompletion I R) (fun i ↦ ?_)
+  ext n
+  simp only [LinearMap.coe_comp, Function.comp_apply, sum_lof, map_mk, component_sumInv,
+    mk_apply_coe, AdicCauchySequence.map_apply_coe, Submodule.mkQ_apply, LinearMap.id_comp]
+  rw [DirectSum.component.of, DirectSum.component.of]
+  split
+  · next h => subst h; simp
+  · simp
+
+
+Verifying proof (Commit 7781a9ef072274dd65ef707f9c2c26fa2420df42):
+ := by
+  ext j x
+  apply DirectSum.ext R (fun i ↦ ?_)
+  ext n
+  simp
+  rw [DirectSum.component.of, DirectSum.component.of]
+  split
+  · next h => subst h; simp
+  · simp [DirectSum.component.of]
+
+## 2.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family of vector spaces is a vector space.
+
+I have a proof that the direct sum of a family
+
+Attempt failure.
+
+Working on Mathlib/RingTheory/ChainOfDivisors.lean - 2024-09-08 01:52:37.647705.
+---18/20---
+For theorem DivisorChain.element_of_chain_eq_pow_second_of_chain in Mathlib/RingTheory/ChainOfDivisors.lean:
+theorem element_of_chain_eq_pow_second_of_chain {q r : Associates M} {n : ℕ} (hn : n ≠ 0)
+    {c : Fin (n + 1) → Associates M} (h₁ : StrictMono c) (h₂ : ∀ {r}, r ≤ q ↔ ∃ i, r = c i)
+    (hr : r ∣ q) (hq : q ≠ 0) : ∃ i : Fin (n + 1), r = c 1 ^ (i : ℕ) 
+
+
+Original valid proof:
+:= by
+  classical
+    let i := Multiset.card (normalizedFactors r)
+    have hi : normalizedFactors r = Multiset.replicate i (c 1) := by
+      apply Multiset.eq_replicate_of_mem
+      intro b hb
+      refine
+        eq_second_of_chain_of_prime_dvd hn h₁ (@fun r' => h₂) (prime_of_normalized_factor b hb) hr
+          (dvd_of_mem_normalizedFactors hb)
+    have H : r = c 1 ^ i := by
+      have := UniqueFactorizationMonoid.normalizedFactors_prod (ne_zero_of_dvd_ne_zero hq hr)
+      rw [associated_iff_eq, hi, Multiset.prod_replicate] at this
+      rw [this]
+    refine ⟨⟨i, ?_⟩, H⟩
+    have : (Finset.univ.image fun m : Fin (i + 1) => c 1 ^ (m : ℕ)).card = i + 1 := by
+      conv_rhs => rw [← Finset.card_fin (i + 1)]
+      cases n
+      · contradiction
+      rw [Finset.card_image_iff]
+      refine Set.injOn_of_injective (fun m m' h => Fin.ext ?_)
+      refine
+        pow_injective_of_not_unit (element_of_chain_not_isUnit_of_index_ne_zero (by simp) h₁) ?_ h
+      exact Irreducible.ne_zero (second_of_chain_is_irreducible hn h₁ (@h₂) hq)
+    suffices H' : ∀ r ∈ Finset.univ.image fun m : Fin (i + 1) => c 1 ^ (m : ℕ), r ≤ q by
+      simp only [← Nat.succ_le_iff, Nat.succ_eq_add_one, ← this]
+      apply card_subset_divisors_le_length_of_chain (@h₂) H'
+    simp only [Finset.mem_image]
+    rintro r ⟨a, _, rfl⟩
+    refine dvd_trans ?_ hr
+    use c 1 ^ (i - (a : ℕ))
+    rw [pow_mul_pow_sub (c 1)]
+    · exact H
+    · exact Nat.succ_le_succ_iff.mp a.2
+
+
+Verifying proof (Commit ec25cca0630aff3805accd410e27691c8e6c4315):
+∧ c 1 ∣ r := by
+  classical
+    let i := Multiset.card (normalizedFactors r)
+    have hi : normalizedFactors r = Multiset.replicate i (c 1) := by
+      apply Multiset.eq_replicate_of_mem
+      intro b hb
+      refine'
+        eq_second_of_chain_of_prime_dvd hn h₁ (@fun r' => h₂) (prime_of_normalized_factor b hb) hr
+          (dvd_of_mem_normalizedFactors hb)
+    have H : r = c 1 ^ i := by
+      have := UniqueFactorizationMonoid.normalizedFactors_prod (ne_zero_of_dvd_ne_zero hq hr)
+      rw [associated_iff_eq, hi, Multiset.prod_replicate] at this
+      rw [this]
+    refine' ⟨⟨i, _⟩, H, _⟩
+    · have : (Finset.univ.image fun m : Fin (i + 1) => c 1 ^ (m : ℕ)).card = i + 1 := by
+        conv_rhs => rw [← Finset.card_fin (i + 1)]
+        cases n
+        · contradiction
+        rw [Finset.card_image_iff]
+        refine' Set.injOn_of_injective (fun m m' h => Fin.ext _) _
+        refine'
+          pow_injective_of_not_unit (element_of_chain_not_isUnit_of_index_ne_zero (by simp) h₁) _ h
+        exact Irreducible.ne_zero (second_of_chain_is_irreducible hn h₁ (@h₂) hq)
+      simp only [← Nat.succ_le_iff, Nat.succ_eq_add_one, ← this]
+      apply card_subset_divisors_le_length_of_chain (@h₂) _
+      simp only [Finset.mem_image]
+      rintro r ⟨a, _, rfl⟩
+      refine' dvd_trans _ hr
+      use c 1 ^ (i - (a : ℕ))
+      rw [pow_mul_pow_sub (c 1)]
+      · exact H
+      · exact Nat.succ_le_succ_iff.mp a.2
+    · use 1
+      simp only [Fin.val_one, pow_one]
+      exact H.symm ▸ hr
+
+## Your Answer
+
+By clicking “Post Your Answer”, you agree to our terms of service, privacy policy and cookie policy
+
+Attempt failure.
+
+Working on Mathlib/Topology/Bases.lean - 2024-09-08 01:52:48.969652.
+---19/20---
+For theorem TopologicalSpace.IsTopologicalBasis.diff_empty in Mathlib/Topology/Bases.lean:
+theorem IsTopologicalBasis.diff_empty {s : Set (Set α)} (h : IsTopologicalBasis s) :
+    IsTopologicalBasis (s \ {∅}) 
+
+
+Original valid proof:
+:= by
+  refine ⟨?_, by rw [sUnion_diff_singleton_empty, h.sUnion_eq], ?_⟩
+  · rintro t₁ ⟨h₁, -⟩ t₂ ⟨h₂, -⟩ x hx
+    obtain ⟨t₃, h₃, hs⟩ := h.exists_subset_inter _ h₁ _ h₂ x hx
+    exact ⟨t₃, ⟨h₃, Nonempty.ne_empty ⟨x, hs.1⟩⟩, hs⟩
+  · rw [h.eq_generateFrom]
+    refine le_antisymm (generateFrom_anti diff_subset) (le_generateFrom fun t ht => ?_)
+    obtain rfl | he := eq_or_ne t ∅
+    · exact @isOpen_empty _ (generateFrom _)
+    · exact .basic t ⟨ht, he⟩
+
+
+Verifying proof (Commit fd3379ddac23e991aaf3056785fd48b9fc8dbdb6):
+ := by
+  refine ⟨?_, by rw [sUnion_diff_singleton_empty, h.sUnion_eq],? _⟩
+  · rintro t₁ ⟨h₁, -⟩ t₂ ⟨h₂, -⟩ x hx
+    obtain ⟨t₃, h₃, hs⟩ := h.exists_subset_inter _ h₁ _ h₂ x hx
+    exact ⟨t₃, ⟨h₃, Nonempty.ne_empty ⟨x, hs.1⟩⟩, hs⟩
+  · rw [h.eq_generateFrom]
+    refine le_antisymm (generateFrom_anti <| diff_subset s _) (le_generateFrom fun t ht => ?_)
+    obtain rfl | he := eq_or_ne t ∅
+    · exact @isOpen_empty _ (generateFrom _)
+    · exact .basic t ⟨ht, he⟩
+
+## 1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.
+
+Attempt failure.
+
+Working on Mathlib/Topology/TietzeExtension.lean - 2024-09-08 01:52:59.257641.
+---20/20---
+For theorem BoundedContinuousFunction.exists_extension_norm_eq_of_closedEmbedding' in Mathlib/Topology/TietzeExtension.lean:
+theorem exists_extension_norm_eq_of_closedEmbedding' (f : X →ᵇ ℝ) (e : C(X, Y))
+    (he : ClosedEmbedding e) : ∃ g : Y →ᵇ ℝ, ‖g‖ = ‖f‖ ∧ g.compContinuous e = f 
+
+
+Original valid proof:
+:= by
+  choose F hF_norm hF_dist using fun f : X →ᵇ ℝ => tietze_extension_step f e he
+  set g : ℕ → Y →ᵇ ℝ := fun n => (fun g => g + F (f - g.compContinuous e))^[n] 0
+  have g0 : g 0 = 0 := rfl
+  have g_succ : ∀ n, g (n + 1) = g n + F (f - (g n).compContinuous e) := fun n =>
+    Function.iterate_succ_apply' _ _ _
+  have hgf : ∀ n, dist ((g n).compContinuous e) f ≤ (2 / 3) ^ n * ‖f‖ := by
+    intro n
+    induction' n with n ihn
+    · simp [g0]
+    · rw [g_succ n, add_compContinuous, ← dist_sub_right, add_sub_cancel_left, pow_succ', mul_assoc]
+      refine (hF_dist _).trans (mul_le_mul_of_nonneg_left ?_ (by norm_num1))
+      rwa [← dist_eq_norm']
+  have hg_dist : ∀ n, dist (g n) (g (n + 1)) ≤ 1 / 3 * ‖f‖ * (2 / 3) ^ n := by
+    intro n
+    calc
+      dist (g n) (g (n + 1)) = ‖F (f - (g n).compContinuous e)‖ := by
+        rw [g_succ, dist_eq_norm', add_sub_cancel_left]
+      _ ≤ ‖f - (g n).compContinuous e‖ / 3 := hF_norm _
+      _ = 1 / 3 * dist ((g n).compContinuous e) f := by rw [dist_eq_norm', one_div, div_eq_inv_mul]
+      _ ≤ 1 / 3 * ((2 / 3) ^ n * ‖f‖) := mul_le_mul_of_nonneg_left (hgf n) (by norm_num1)
+      _ = 1 / 3 * ‖f‖ * (2 / 3) ^ n := by ac_rfl
+  have hg_cau : CauchySeq g := cauchySeq_of_le_geometric _ _ (by norm_num1) hg_dist
+  have :
+    Tendsto (fun n => (g n).compContinuous e) atTop
+      (𝓝 <| (limUnder atTop g).compContinuous e) :=
+    ((continuous_compContinuous e).tendsto _).comp hg_cau.tendsto_limUnder
+  have hge : (limUnder atTop g).compContinuous e = f := by
+    refine tendsto_nhds_unique this (tendsto_iff_dist_tendsto_zero.2 ?_)
+    refine squeeze_zero (fun _ => dist_nonneg) hgf ?_
+    rw [← zero_mul ‖f‖]
+    refine (tendsto_pow_atTop_nhds_zero_of_lt_one ?_ ?_).mul tendsto_const_nhds <;> norm_num1
+  refine ⟨limUnder atTop g, le_antisymm ?_ ?_, hge⟩
+  · rw [← dist_zero_left, ← g0]
+    refine
+      (dist_le_of_le_geometric_of_tendsto₀ _ _ (by norm_num1)
+        hg_dist hg_cau.tendsto_limUnder).trans_eq ?_
+    field_simp [show (3 - 2 : ℝ) = 1 by norm_num1]
+  · rw [← hge]
+    exact norm_compContinuous_le _ _
+
+
+Verifying proof (Commit 161c69c1dbf66cf3c7ec4f648a61551d044a43e4):
+∧ ∀ y, ‖g y‖ ≤ ‖f‖ := by
+  choose F hF_norm hF_dist using fun f : X →ᵇ ℝ => tietze_extension_step f e he
+  set g : ℕ → Y →ᵇ ℝ := fun n => (fun g => g + F (f - g.compContinuous e))^[n] 0
+  have g0 : g 0 = 0 := rfl
+  have g_succ : ∀ n, g (n + 1) = g n + F (f - (g n).compContinuous e) := fun n =>
+    Function.iterate_succ_apply' _ _ _
+  have hgf : ∀ n, dist ((g n).compContinuous e) f ≤ (2 / 3) ^ n * ‖f‖ := by
+    intro n
+    induction' n with n ihn
+    · simp [g0]
+    · rw [g_succ n, add_compContinuous, ← dist_sub_right, add_sub_cancel', pow_succ, mul_assoc]
+      refine' (hF_dist _).trans (mul_le_mul_of_nonneg_left _ (by norm_num1))
+      rwa [← dist_eq_norm']
+  have hg_dist : ∀ n, dist (g n) (g (n + 1)) ≤ 1 / 3 * ‖f‖ * (2 / 3) ^ n := by
+    intro n
+    calc
+      dist (g n) (g (n + 1)) = ‖F (f - (g n).compContinuous e)‖ := by
+        rw [g_succ, dist_eq_norm', add_sub_cancel']
+      _ ≤ ‖f - (g n).compContinuous e‖ / 3 := (hF_norm _)
+      _ = 1 / 3 * dist ((g n).compContinuous e) f := by rw [dist_eq_norm', one_div, div_eq_inv_mul]
+      _ ≤ 1 / 3 * ((2 / 3) ^ n * ‖f‖) := (mul_le_mul_of_nonneg_left (hgf n) (by norm_num1))
+      _ = 1 / 3 * ‖f‖ * (2 / 3) ^ n := by ac_rfl
+  have hg_cau : CauchySeq g := cauchySeq_of_le_geometric _ _ (by norm_num1) hg_dist
+  have :
+    Tendsto (fun n => (g n).compContinuous e) atTop
+      (𝓝 <| (limUnder atTop g).compContinuous e) :=
+    ((continuous_compContinuous e).tendsto _).comp hg_cau.tendsto_limUnder
+  have hge : (limUnder atTop g).compContinuous e = f := by
+    refine' tendsto_nhds_unique this (tendsto_iff_dist_tendsto_zero.2 _)
+    refine' squeeze_zero (fun _ => dist_nonneg) hgf _
+    rw [← zero_mul ‖f‖]
+    refine' (tendsto_pow_atTop_nhds_0_of_lt_1 _ _).mul tendsto_const_nhds <;> norm_num1
+  refine' ⟨limUnder atTop g, le_antisymm _ _, hge⟩
+  · rw [← dist_zero_left, ← g0]
+    refine'
+      (dist_le_of_le_geometric_of_tendsto₀ _ _ (by norm_num1)
+        hg_dist hg_cau.tendsto_limUnder).trans_eq _
+    field_simp [show (3 - 2 : ℝ) = 1 by norm_num1]
+  · rw [← hge]
+    exact norm_compContinuous_le _ _
+
+## 2022-09-05
+
+### New file math/analysis/normed_space/basic.lean
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+This is a first attempt to formalize the basics of normed spaces.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I'm not sure how to deal with the fact that the normed space structure is not unique.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+But I'm not sure how to do that.
+
+#### Johan Commelin (Sep 05 2022 at 15:00):
+
+I guess we can just pick one.
+
+#### Johan Commelin (Sep 05 2022 at 1
+
+Attempt failure.
+
+STARTING: Lean repo copy removal
+DONE: Lean repo copy removal
+Among 20 proof attempts, there were 0 successful and 20 failed attempts at proving their respect theorems.
+The rate of successful proof = 0.0.
