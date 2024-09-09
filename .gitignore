@@ -165,7 +165,6 @@ pipeline/utils/condor/logging/
 pipeline/utils/condor/verifier/data_indices
 pipeline/verifier/failure
 pipeline/verifier/success
-*.csv
 *.DS_Store
 
 pipeline/scraper/raw_data
