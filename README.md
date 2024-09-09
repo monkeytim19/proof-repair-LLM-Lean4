@@ -126,3 +126,5 @@ model_training/inference.sh -m reprover -i test -d by_file -c kaiyuy/leandojo-le
 ## Experiment Results
 
 All experiment results are within the directory ```./experiments```, can each subdirectory contains the test predictions from inference and also the indices of the datapoints in mathlib4-repair that either were successfully or unsucessfully repaired by the model. 
+
+Checkpoints to LLMs that have already been fine-tuned are saved as a collection on HuggingFace and can be accessed via: https://huggingface.co/collections/tcwong/proof-repair-llm-lean4-66de36a17a044c1fbdeaf8de
