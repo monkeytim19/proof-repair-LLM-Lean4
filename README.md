@@ -17,7 +17,7 @@ To access and run any scripts provided in this repository, please follow the fol
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/username/repository-name.git
+    git clone https://github.com/monkeytim19/proof-repair-LLM-Lean4.git
     ```
 
 2. Navigate into the project directory:
@@ -32,7 +32,7 @@ To access and run any scripts provided in this repository, please follow the fol
 
 4. If running experiments with LLMs and models, install dependencies:
     ```bash
-    pip install -r model_requirements.txt
+    pip install -r finetune_inference_requirements.txt
     ```
 
 
