@@ -1,12 +1,9 @@
 from datasets import load_dataset
-from transformers import AutoTokenizer, AutoModelForCausalLM, Trainer, TrainingArguments, DataCollatorForSeq2Seq, BitsAndBytesConfig
-from peft import PeftConfig, get_peft_model, LoraConfig, prepare_model_for_kbit_training, AutoPeftModelForCausalLM
-from datetime import datetime
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from peft import AutoPeftModelForCausalLM
 import json
-import numpy as np
 import torch
 import os
-import sys
 import argparse
 
 MODEL_NAME = "deepseek_prover_sft_proving"
