@@ -2,11 +2,11 @@ from git import Repo
 import os
 
 # set the root path of the working directory
-ROOT_DIR = "/Users/timmonkey/Desktop/Imperial/Summer Term/Individual Project/Repos/proof-repair-LLM-Lean4"
+ROOT_DIR = os.getcwd() # TO SET
 
 # set path to reference repository and directory to keep copies of them
-REPO_PATH = "/Users/timmonkey/Desktop/Imperial/Summer Term/Individual Project/Repos/mathlib4"
-REPO_COPY_DIR = "/Users/timmonkey/Desktop/Imperial/Summer Term/Individual Project/Repos/temp"
+REPO_PATH = "temp" # TO SET
+REPO_COPY_DIR = os.path.join(ROOT_DIR, "pipeline/repo_copies") # TO SET
 
 # set paths relevant to repository tracing
 THEOREM_EXTRACTOR_DIR = os.path.join(ROOT_DIR, "pipeline/tracer/TheoremExtractor")
