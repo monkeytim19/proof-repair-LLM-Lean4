@@ -41,7 +41,6 @@ def scrape_file_history(dataset, filepath, all_thm_info, repo_copy_path):
                         )
     except subprocess.CalledProcessError as e:
         print(f"COMMENT REMOVAL PROBLEM: {filepath}", flush=True)
-        print(f"Error: {e.stdout}", flush=True)
         # restore file to existing condition
         write_file(full_file_path, original_file_str)
         return dataset
