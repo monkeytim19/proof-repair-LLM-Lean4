@@ -1,9 +1,9 @@
 import subprocess
 import os
-from pipeline.config import REPO_PATH, THEOREM_EXTRACTOR_DIR
+from pipeline.config import REPO_PATH, THEOREM_EXTRACTOR_DIR, RETRIEVE_CACHE
 
 
-def create_repository_copy(repo_copy_path, retrieve_cache=True):
+def create_repository_copy(repo_copy_path):
     """Creates a copy of the reference repository and retrieves its cache for faster Lean 4 compilation."""
     print("STARTING: Lean repo copy creation", flush=True)
     try:
@@ -13,7 +13,7 @@ def create_repository_copy(repo_copy_path, retrieve_cache=True):
         print("Failed to create Lean repo copy", flush=True)
 
     # retrieve cache that will be used for building lean later
-    if retrieve_cache:
+    if RETRIEVE_CACHE:
         print("STARTING: retrieve cache", flush=True)
         subprocess.run(
             args=["lake", "exe", "cache", "get!"], 

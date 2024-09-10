@@ -8,6 +8,9 @@ ROOT_DIR = os.getcwd() # TO SET
 REPO_PATH = "temp" # TO SET
 REPO_COPY_DIR = os.path.join(ROOT_DIR, "pipeline/repo_copies") # TO SET
 
+# set if it is possible to retrieve cache for Lean git repository or not 
+RETRIEVE_CACHE = True
+
 # set paths relevant to repository tracing
 THEOREM_EXTRACTOR_DIR = os.path.join(ROOT_DIR, "pipeline/tracer/TheoremExtractor")
 TRACED_INFO_DIR = os.path.join(ROOT_DIR, "pipeline/tracer/traced_info")
