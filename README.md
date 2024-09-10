@@ -62,22 +62,22 @@ To use scrape data with it, take the following steps:
 
 2.  Run 
 ```bash
-python -m pipeline.data_collection.collect -f FOO
+python -m pipeline.scraper.collect -f FOO
 ```
 
 After scraping the raw data, it is possible to aggregate and preprocess it via:
 ```bash
-python -m pipeline.data_collection.preprocess -d BAR.csv
+python -m pipeline.scraper.preprocess -d BAR.csv
 ```
 The preprocessed data will then be saved as ```BAR.csv``` within the ```DATA_DIR``` directory from ```pipeline.config.py```. To ensure the soundness of the dataset, it is strongly recommended to use the ```verifier``` to ensure that all extracted reference/ground-truth proofs are indeed valid relative to its theorem statement
 
 Finally, it is also possible to perform data-spliting with the module using a fully randomised split by:
 ```bash
-python -m pipeline.data_collection.split -d BAR.csv -v NUM_VALIDATION -t NUM_TEST -r
+python -m pipeline.scraper.split -d BAR.csv -v NUM_VALIDATION -t NUM_TEST -r
 ```
 Alternatively, spliting the data based on grouping the datapoints by their source ```.lean``` file can be done by:
 ```bash
-python -m pipeline.data_collection.split -d BAR.csv -v NUM_VALIDATION -t NUM_TEST
+python -m pipeline.scraper.split -d BAR.csv -v NUM_VALIDATION -t NUM_TEST
 ```
 
 ### Verifier
